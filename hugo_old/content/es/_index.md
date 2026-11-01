@@ -1,0 +1,19 @@
+---
+title: "Manteniments Lizana"
+description: "Profesionales de mantenimiento y reparaciones en Girona, La Selva y segundas residencias"
+---
+
+<section id="inicio" style="background: url('/images/jesse-gardner-OwWbUOIbhDY-unsplash.webp') center/cover no-repeat; text-align:center; color:white; padding:120px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <h1 style="margin-bottom: 1.5rem; text-transform: uppercase; font-weight: bold; font-size: clamp(1.5rem, 7vw, 4rem); text-align: center; padding: 0 10px; word-break: break-word;">Manteniments Lizana</h1>
+    <p style="margin-bottom: 2.5rem; text-align:center; text-transform:uppercase; font-weight: 300; font-size: clamp(1rem, 3vw, 1.8rem);">Mantenemos la calidad, cuidamos tu espacio</p>
+    <a href="#contacto" class="btn" style="font-size: 1.2rem; padding: 16px 40px; background: white; color: #00326B; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">Solicita presupuesto</a>
+</section>
+
+{{ partial "serveis-destacats.html" . }}
+{{ partial "servicios.html" . }}
+{{ partial "piscinas.html" . }}
+{{ partial "jardineria.html" . }}
+{{ partial "inmobiliarias.html" . }}
+{{ partial "testimonios.html" . }}
+{{ partial "social-banner.html" . }}
+{{ partial "contacto-form.html" . }}

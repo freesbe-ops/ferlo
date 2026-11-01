@@ -1,0 +1,37 @@
+<header style="position: fixed; top: 40px; left: 0; width: 100%; z-index: 1000; background-color: transparent; padding: 0.8rem 1.5rem; box-sizing: border-box;">
+    <div style="display: flex; align-items: center; gap: 2rem; max-width: 1200px; margin: 0 auto; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; white-space: nowrap; -webkit-overflow-scrolling: touch; padding: 0 0 0.5rem 0;">
+        <!-- LOGO -->
+        <a href="/" style="flex-shrink: 0; display: flex; align-items: center; text-decoration: none;">
+            <img src="/images/logo-lizana.png" alt="Manteniments Lizana" style="height: 40px; width: auto;">
+        </a>
+
+        <!-- MENÚ HORITZONTAL (MAJÚSCULES I NEGRETA) -->
+        <nav style="display: flex; gap: 1.5rem; align-items: center; flex-shrink: 0;">
+            <a href="#inici" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Inicio{{ else }}Inici{{ end }}</a>
+            <a href="#serveis" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Servicios{{ else }}Serveis{{ end }}</a>
+            <a href="#piscines" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Piscinas{{ else }}Piscines{{ end }}</a>
+            <a href="#jardineria" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Jardinería{{ else }}Jardineria{{ end }}</a>
+            <a href="#immobiliaries" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Inmobiliarias{{ else }}Immobiliàries{{ end }}</a>
+            <a href="#testimonis" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Testimonios{{ else }}Testimonis{{ end }}</a>
+            <a href="#contacte" style="color: white; text-decoration: none; font-weight: bold; font-size: 1rem; text-transform: uppercase; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Contacto{{ else }}Contacte{{ end }}</a>
+        </nav>
+
+        <!-- SELECTOR D'IDIOMA -->
+        <div style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.9rem; flex-shrink: 0; margin-left: auto;">
+            {{ if eq .Site.Language.Lang "ca" }}
+                <span style="color: white; font-weight: 700; text-decoration: underline; text-underline-offset: 4px;">CAT</span>
+                <a href="/es/" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;">ES</a>
+            {{ else }}
+                <a href="/" style="color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s;">CAT</a>
+                <span style="color: white; font-weight: 700; text-decoration: underline; text-underline-offset: 4px;">ES</span>
+            {{ end }}
+        </div>
+    </div>
+</header>
+
+<!-- Estil per ocultar la barra de scroll en navegadors WebKit (Chrome, Safari) -->
+<style>
+    header div::-webkit-scrollbar {
+        display: none;
+    }
+</style>

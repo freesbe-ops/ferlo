@@ -1,0 +1,239 @@
+[menu_inici]
+other = "Inicio"
+
+[menu_serveis]
+other = "Servicios"
+
+[menu_piscines]
+other = "Piscinas"
+
+[menu_jardineria]
+other = "Jardinería"
+
+[menu_immobiliaries]
+other = "Inmobiliarias"
+
+[menu_testimonis]
+other = "Testimonios"
+
+[menu_contacte]
+other = "Contacto"
+
+[serveis_title]
+other = "Nuestros servicios"
+
+[serveis_air]
+other = "Aire acondicionado"
+
+[serveis_air_desc]
+other = "Instalación, mantenimiento y reparación de sistemas de climatización. Garantizamos el confort en tu hogar o negocio durante todo el año."
+
+[serveis_reparacions]
+other = "Reparaciones en el hogar"
+
+[serveis_reparacions_desc]
+other = "Lámparas, enchufes, interruptores, ventiladores, grifos, cisternas, colgar cuadros, estanterías, carpintería, pintura, montaje de muebles y mucho más."
+
+[serveis_general]
+other = "Mantenimiento general del hogar"
+
+[serveis_general_desc]
+other = "Fontanería, electricidad básica, pintura, pequeñas reformas, carpintería. Tu hogar en buenas manos."
+
+[piscines_title]
+other = "Mantenimiento y limpieza de piscinas"
+
+[piscines_subtitle]
+other = "Agua limpia, tranquilidad asegurada"
+
+[piscines_servei1]
+other = "Limpieza del vaso y del filtro"
+
+[piscines_servei2]
+other = "Control y ajuste de productos químicos"
+
+[piscines_servei3]
+other = "Revisión de equipos y sistema de depuración"
+
+[piscines_servei4]
+other = "Tratamientos preventivos y antialgas"
+
+[piscines_final]
+other = "Servicio puntual o periódico adaptado a ti: piscinas privadas, comunidades de vecinos, alquiler vacacional y casas rurales."
+
+[jardineria_title]
+other = "Jardinería integral"
+
+[jardineria_subtitle]
+other = "Tu espacio verde, en buenas manos"
+
+[jardineria_servei1]
+other = "Corte de césped"
+
+[jardineria_servei2]
+other = "Poda de arbustos y árboles"
+
+[jardineria_servei3]
+other = "Desbroce de parcelas"
+
+[jardineria_servei4]
+other = "Limpieza de jardines"
+
+[jardineria_servei5]
+other = "Plantación y mantenimiento"
+
+[jardineria_servei6]
+other = "Puesta a punto para el verano"
+
+[immobiliaries_title]
+other = "Servicios para inmobiliarias y alojamientos turísticos"
+
+[immobiliaries_servei1]
+other = "Puesta a punto de viviendas"
+
+[immobiliaries_servei1_desc]
+other = "Revisión integral, limpieza y reparaciones leves para dejar la vivienda en condiciones óptimas para la entrada de nuevos inquilinos o propietarios."
+
+[immobiliaries_servei2]
+other = "Reparaciones urgentes"
+
+[immobiliaries_servei2_desc]
+other = "Servicio rápido para averías de fontanería, electricidad, cerramientos y otras incidencias que requieren una solución inmediata."
+
+[immobiliaries_servei3]
+other = "Mantenimiento periódico"
+
+[immobiliaries_servei3_desc]
+other = "Inspecciones y tareas de mantenimiento programadas para prevenir averías y alargar la vida útil de las instalaciones."
+
+[immobiliaries_servei4]
+other = "Preparación de inmuebles para venta o alquiler"
+
+[immobiliaries_servei4_desc]
+other = "Acondicionamiento estético y funcional del inmueble para maximizar su valor en el mercado: pintura, pequeñas reformas, limpieza profesional y más."
+
+[immobiliaries_servei5]
+other = "Supervisión de segundas residencias"
+
+[immobiliaries_servei5_desc]
+other = "Revisiones periódicas del estado de la vivienda, control de posibles fugas, humedades y mantenimiento general para evitar sorpresas."
+
+[immobiliaries_servei6]
+other = "Gestión integral de mantenimiento"
+
+[immobiliaries_servei6_desc]
+other = "Coordinación de todas las tareas de mantenimiento, reparaciones y servicios asociados para comunidades, propietarios y gestores inmobiliarios."
+
+[testimonis_title]
+other = "Testimonios"
+
+[testimonis_subtitle]
+other = "Opinión de personas que han confiado en nosotros"
+
+[testimonis_anna]
+other = "\"Me instalaron una mosquitera en menos de una hora. Fueron puntuales, limpios y el resultado es perfecto. Se lo recomiendo a todo el mundo.\""
+
+[testimonis_anna_nom]
+other = "Anna M."
+
+[testimonis_anna_ciutat]
+other = "Girona"
+
+[testimonis_carles]
+other = "\"Llevaba meses con la piscina verde y no sabía qué hacer. Diagnosticaron el problema, me cambiaron la bomba y me dejaron la piscina perfecta. Muy profesionales.\""
+
+[testimonis_carles_nom]
+other = "Carles R."
+
+[testimonis_carles_ciutat]
+other = "Cassà de la Selva"
+
+[testimonis_marta]
+other = "\"Me instalaron varios enchufes nuevos en casa y lo dejaron todo impecable. Además, me asesoraron sobre la mejor ubicación. Muy recomendables.\""
+
+[testimonis_marta_nom]
+other = "Marta L."
+
+[testimonis_marta_ciutat]
+other = "Lloret de Mar"
+
+[testimonis_jordi]
+other = "\"Hicieron el mantenimiento de la piscina de mi casa de veraneo. Fueron muy flexibles con el horario y me dejaron unas instrucciones claras para el día a día. ¡De 10!\""
+
+[testimonis_jordi_nom]
+other = "Jordi F."
+
+[testimonis_jordi_ciutat]
+other = "Hostalric"
+
+[testimonis_laura]
+other = "\"Me diagnosticaron y repararon una avería en la bomba de la piscina en un solo día. Fueron rápidos, eficientes y me explicaron qué había pasado. Confianza total.\""
+
+[testimonis_laura_nom]
+other = "Laura S."
+
+[testimonis_laura_ciutat]
+other = "Vidreres"
+
+[testimonis_pere]
+other = "\"Necesitaba arreglar unos enchufes en casa y también me hicieron una revisión de la instalación eléctrica. Dejaron todo limpio, seguro y con un precio más que razonable. Excelentes.\""
+
+[testimonis_pere_nom]
+other = "Pere G."
+
+[testimonis_pere_ciutat]
+other = "Sant Feliu de Guíxols"
+
+[social_title]
+other = "Síguenos en redes sociales"
+
+[social_desc]
+other = "Conecta con nosotros para estar al día de nuestras novedades."
+
+[contacte_title]
+other = "Contáctanos"
+
+[contacte_phone]
+other = "677 218 303"
+
+[contacte_email]
+other = "mantenimentlizana@gmail.com"
+
+[contacte_nom]
+other = "Nombre y apellidos *"
+
+[contacte_poble]
+other = "Pueblo / Localidad"
+
+[contacte_telefon]
+other = "Teléfono *"
+
+[contacte_email_label]
+other = "Email *"
+
+[contacte_servei]
+other = "Tipo de servicio"
+
+[contacte_select]
+other = "Selecciona..."
+
+[contacte_comentaris]
+other = "Comentarios / Descripción"
+
+[contacte_boto]
+other = "Enviar solicitud"
+
+[contacte_enviant]
+other = "Enviando..."
+
+[contacte_exit]
+other = "¡Solicitud enviada con éxito! Nos pondremos en contacto contigo pronto."
+
+[contacte_error]
+other = "Error al enviar. Inténtalo de nuevo."
+
+[footer_text]
+other = "Mantenemos la calidad, cuidamos tu espacio"
+
+[footer_location]
+other = "Girona | La Selva | Segundas residencias"

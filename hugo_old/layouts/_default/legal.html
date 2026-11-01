@@ -1,0 +1,114 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html, body {
+            scroll-snap-type: none !important;
+            overflow-y: auto !important;
+            height: auto !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #1E2A3A;
+            background: white;
+        }
+
+        main {
+            padding-top: 0 !important;
+        }
+
+        .legal-page {
+            padding-top: 140px;
+            padding-bottom: 60px;
+            background: white;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .legal-page .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .legal-page h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: #00326B;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: 3px solid #00326B;
+            padding-bottom: 15px;
+        }
+
+        .legal-page h2 {
+            font-size: 1.6rem;
+            color: #00326B;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        .legal-page h3 {
+            font-size: 1.3rem;
+            color: #00326B;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .legal-page p {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .legal-page ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .legal-page ul li {
+            margin-bottom: 8px;
+        }
+
+        .legal-page .last-update {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            font-style: italic;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .legal-page {
+                padding-top: 120px;
+                padding-bottom: 40px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .legal-page h1 {
+                font-size: 1.8rem;
+            }
+
+            .legal-page h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article class="legal-page">
+            <div class="container">
+                {{ .Content }}
+            </div>
+        </article>
+    </main>
+</body>
+</html>
+{{ end }}

@@ -1,0 +1,345 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html, body {
+            scroll-snap-type: none !important;
+            overflow-y: auto !important;
+            height: auto !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1E2A3A;
+            background: white;
+        }
+
+        main {
+            padding-top: 0 !important;
+        }
+
+        .contacte-page {
+            padding-top: 140px;
+            padding-bottom: 60px;
+            background: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .contacte-page .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .contacte-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contacte-header h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: #00326B;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .contacte-header p {
+            font-size: 1.2rem;
+            color: #1E2A3A;
+            font-weight: 300;
+        }
+
+        .contacte-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contacte-info a {
+            color: #00326B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .contacte-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contacte-info .separador {
+            color: #00326B;
+            opacity: 0.5;
+        }
+
+        .contacte-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .contacte-form .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contacte-form .form-group {
+            flex: 1 1 45%;
+        }
+
+        .contacte-form label {
+            font-weight: 600;
+            color: #00326B;
+        }
+
+        .contacte-form input,
+        .contacte-form select,
+        .contacte-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #00326B;
+            border-radius: 0;
+            background: #f9f9f9;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .contacte-form textarea {
+            resize: vertical;
+        }
+
+        .contacte-form .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin: 0.5rem 0;
+        }
+
+        .contacte-form .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            accent-color: #00326B;
+            cursor: pointer;
+        }
+
+        .contacte-form .checkbox-group label {
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #1E2A3A;
+            cursor: pointer;
+        }
+
+        .contacte-form .checkbox-group label a {
+            color: #00326B;
+            text-decoration: underline;
+        }
+
+        .contacte-form .checkbox-group label a:hover {
+            text-decoration: none;
+        }
+
+        .btn-submit {
+            background: #00326B;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .btn-submit:hover {
+            background: #002050;
+            transform: scale(1.02);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        #form-message {
+            display: none;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #28a745;
+            text-align: center;
+        }
+
+        #form-message.error {
+            color: #dc3545;
+        }
+
+        @media (max-width: 768px) {
+            .contacte-page {
+                padding-top: 120px;
+                padding-bottom: 40px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .contacte-page .container {
+                padding: 0;
+            }
+
+            .contacte-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .contacte-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .contacte-info .separador {
+                display: none;
+            }
+
+            .contacte-form .form-group {
+                flex: 1 1 100%;
+            }
+
+            .btn-submit {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article class="contacte-page">
+            <div class="container">
+                <div class="contacte-header">
+                    <h1>{{ .Title }}</h1>
+                    {{ with .Params.description }}
+                    <p>{{ . }}</p>
+                    {{ end }}
+                </div>
+
+                <div class="contacte-info">
+                    <a href="tel:+34677218303"><i class="fas fa-phone"></i> 677 218 303</a>
+                    <span class="separador">|</span>
+                    <a href="mailto:mantenimentlizana@gmail.com"><i class="fas fa-envelope"></i> mantenimentlizana@gmail.com</a>
+                </div>
+
+                <form id="contact-form" class="contacte-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">{{ if eq .Site.Language.Lang "es" }}Nombre y apellidos *{{ else }}Nom i cognoms *{{ end }}</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pueblo">{{ if eq .Site.Language.Lang "es" }}Pueblo / Localidad{{ else }}Poble / Localitat{{ end }}</label>
+                            <input type="text" id="pueblo" name="pueblo">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">{{ if eq .Site.Language.Lang "es" }}Teléfono *{{ else }}Telèfon *{{ end }}</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servicio">{{ if eq .Site.Language.Lang "es" }}Tipo de servicio{{ else }}Tipus de servei{{ end }}</label>
+                        <select id="servicio" name="servicio">
+                            <option value="">{{ if eq .Site.Language.Lang "es" }}Selecciona...{{ else }}Selecciona...{{ end }}</option>
+                            <option value="Aire acondicionado">{{ if eq .Site.Language.Lang "es" }}Aire acondicionado{{ else }}Aire condicionat{{ end }}</option>
+                            <option value="Reparaciones en casa">{{ if eq .Site.Language.Lang "es" }}Reparaciones en casa{{ else }}Reparacions a casa{{ end }}</option>
+                            <option value="Mantenimiento general">{{ if eq .Site.Language.Lang "es" }}Mantenimiento general{{ else }}Manteniment general{{ end }}</option>
+                            <option value="Piscinas">{{ if eq .Site.Language.Lang "es" }}Piscinas{{ else }}Piscines{{ end }}</option>
+                            <option value="Jardinería">{{ if eq .Site.Language.Lang "es" }}Jardinería{{ else }}Jardineria{{ end }}</option>
+                            <option value="Inmobiliarias">{{ if eq .Site.Language.Lang "es" }}Inmobiliarias{{ else }}Immobiliàries{{ end }}</option>
+                            <option value="Segundas residencias">{{ if eq .Site.Language.Lang "es" }}Segundas residencias{{ else }}Segones residències{{ end }}</option>
+                            <option value="Otros">{{ if eq .Site.Language.Lang "es" }}Otros{{ else }}Altres{{ end }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentarios">{{ if eq .Site.Language.Lang "es" }}Comentarios / Descripción{{ else }}Comentaris / Descripció{{ end }}</label>
+                        <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacitat" name="privacitat" required>
+                        <label for="privacitat">
+                            {{ if eq .Site.Language.Lang "es" }}
+                            Consiento que Manteniments Lizana almacene y facilite la información que envío a terceros para poder responder a mi petición. 
+                            <a href="/es/politica-privacidad/">Acepto la política de privacidad</a> *
+                            {{ else }}
+                            Consento que Manteniments Lizana desi i faciliti la informació que envio a tercers per poder respondre a la meva petició. 
+                            <a href="/ca/politica-privacitat/">Accepto la política de privacitat</a> *
+                            {{ end }}
+                        </label>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn-submit">
+                        {{ if eq .Site.Language.Lang "es" }}Enviar solicitud{{ else }}Enviar sol·licitud{{ end }}
+                    </button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('form-message');
+            
+            btn.textContent = '{{ if eq .Site.Language.Lang "es" }}Enviando...{{ else }}Enviant...{{ end }}';
+            btn.disabled = true;
+            msg.style.display = 'none';
+            
+            const data = new FormData(this);
+            fetch('https://script.google.com/macros/s/AKfycbxjpQK5l5n1pD6fLxXmJfX3vP5cVqyNwYzH7dQ/exec', {
+                method: 'POST',
+                body: data
+            })
+            .then(response => response.text())
+            .then(result => {
+                msg.style.display = 'block';
+                msg.textContent = '{{ if eq .Site.Language.Lang "es" }}¡Solicitud enviada con éxito! Nos pondremos en contacto contigo pronto.{{ else }}Sol·licitud enviada amb èxit! Ens posarem en contacte amb tu aviat.{{ end }}';
+                msg.className = '';
+                this.reset();
+                btn.textContent = '{{ if eq .Site.Language.Lang "es" }}Enviar solicitud{{ else }}Enviar sol·licitud{{ end }}';
+                btn.disabled = false;
+                // Event de conversió Google Ads
+                gtag('event', 'conversion', {'send_to': 'AW-18273495657/JRRlCLet-eMcEOnUvYlE'});
+            })
+            .catch(error => {
+                msg.style.display = 'block';
+                msg.textContent = '{{ if eq .Site.Language.Lang "es" }}Error al enviar. Inténtalo de nuevo.{{ else }}Error en enviar. Torna-ho a provar.{{ end }}';
+                msg.className = 'error';
+                btn.textContent = '{{ if eq .Site.Language.Lang "es" }}Enviar solicitud{{ else }}Enviar sol·licitud{{ end }}';
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
+{{ end }}

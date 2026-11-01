@@ -1,0 +1,112 @@
+<section id="piscines" style="padding:4rem 0; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ "images/steffi-Cj0tPzC5Uic-unsplash.webp" | relURL }}') center/cover no-repeat; color:white; min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
+    <div style="max-width: 100%; padding: 0 20px; margin: 0 auto; text-align:center;">
+        <h2 style="color:white; font-size:2.5rem; margin-bottom:0.5rem;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento y limpieza de piscinas{{ else }}Manteniment i neteja de piscines{{ end }}</h2>
+        <p style="font-size:1.5rem; margin-bottom:2rem; font-style:italic;">{{ if eq .Site.Language.Lang "es" }}Agua limpia, tranquilidad asegurada{{ else }}Aigua neta, tranquil·litat assegurada{{ end }}</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 800px; margin: 0 auto;">
+            <button class="btn-servei" data-modal="modal1" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1.1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Limpieza del vaso y del filtro{{ else }}Neteja del vas i del filtre{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modal2" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1.1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Control y ajuste de productos químicos{{ else }}Control i ajust de productes químics{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modal3" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1.1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Revisión de equipos y sistema de depuración{{ else }}Revisió d'equips i sistema de depuració{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modal4" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1.1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Tratamientos preventivos y antialgas{{ else }}Tractaments preventius i antialgues{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+        </div>
+        <p style="font-size: 1.2rem; margin-top: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">{{ if eq .Site.Language.Lang "es" }}Servicio puntual o periódico adaptado a ti: piscinas privadas, comunidades de vecinos, alquiler vacacional y casas rurales.{{ else }}Servei puntual o periòdic adaptat a tu: piscines privades, comunitats de veïns, lloguer vacacional i cases rurals.{{ end }}</p>
+    </div>
+</section>
+<!-- MODALS -->
+<div id="modal1" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Limpieza del vaso y del filtro{{ else }}Neteja del vas i del filtre{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Realizamos una limpieza profunda del vaso de la piscina, eliminando suciedad, algas y residuos acumulados. También limpiamos y revisamos el sistema de filtración para garantizar que el agua circule correctamente y se mantenga cristalina. Además, revisamos el estado de las tuberías y conexiones para prevenir posibles fugas o averías. El resultado es una piscina impecable, lista para el baño, con un funcionamiento óptimo de todo el sistema.{{ else }}Realitzem una neteja profunda del vas de la piscina, eliminant brutícia, algues i residus acumulats. També netegem i revisem el sistema de filtració per garantir que l'aigua circuli correctament i es mantingui cristal·lina. A més, revisem l'estat de les canonades i connexions per prevenir possibles fuites o avaries. El resultat és una piscina impecable, preparada per al bany, amb un funcionament òptim de tot el sistema.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Mejora la calidad del agua, alarga la vida útil de los equipos y reduce el consumo de productos químicos.{{ else }}Millora la qualitat de l'aigua, allarga la vida útil dels equips i redueix el consum de productes químics.{{ end }}</p>
+    </div>
+</div>
+<div id="modal2" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Control y ajuste de productos químicos{{ else }}Control i ajust de productes químics{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Analizamos el agua de la piscina para determinar el nivel de pH, cloro, alcalinidad y otros parámetros esenciales. Ajustamos las dosis de productos químicos de manera precisa para mantener el agua en equilibrio, evitando irritaciones en la piel y ojos, y garantizando una desinfección eficaz. También recomendamos el calendario de tratamientos para cada temporada, adaptándonos a las condiciones climáticas y el uso de la piscina.{{ else }}Analitzem l'aigua de la piscina per determinar el nivell de pH, clor, alcalinitat i altres paràmetres essencials. Ajustem les dosis de productes químics de manera precisa per mantenir l'aigua en equilibri, evitant irritacions a la pell i ulls, i garantint una desinfecció eficaç. També recomanem el calendari de tractaments per a cada temporada, adaptant-nos a les condicions climàtiques i l'ús de la piscina.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Agua segura y saludable, protección de los equipos de depuración y ahorro en productos químicos a largo plazo.{{ else }}Aigua segura i saludable, protecció dels equips de depuració i estalvi en productes químics a llarg termini.{{ end }}</p>
+    </div>
+</div>
+<div id="modal3" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Revisión de equipos y sistema de depuración{{ else }}Revisió d'equips i sistema de depuració{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Inspeccionamos la bomba, el filtro, los skimmers, las tuberías y el resto de componentes del sistema de depuración. Detectamos posibles obstrucciones, desgaste o mal funcionamiento, y realizamos las reparaciones o sustituciones necesarias. Aseguramos que el sistema trabaje con la máxima eficiencia, reduciendo el consumo eléctrico y alargando la vida útil de los equipos.{{ else }}Inspeccionem la bomba, el filtre, els skimmers, les canonades i la resta de components del sistema de depuració. Detectem possibles obstruccions, desgast o mal funcionament, i realitzem les reparacions o substitucions necessàries. Assegurem que el sistema treballi amb la màxima eficiència, reduint el consum elèctric i allargant la vida útil dels equips.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Ahorro energético, menor riesgo de averías y mantenimiento más económico.{{ else }}Estalvi energètic, menor risc d'avaries i manteniment més econòmic.{{ end }}</p>
+    </div>
+</div>
+<div id="modal4" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Tratamientos preventivos y antialgas{{ else }}Tractaments preventius i antialgues{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Aplicamos tratamientos específicos para prevenir la aparición de algas, bacterias y hongos antes de que se conviertan en un problema. Utilizamos productos de calidad que no dañan el agua ni las superficies, y que garantizan una protección duradera. El tratamiento se personaliza según el tipo de piscina, la ubicación y la frecuencia de uso, asegurando que el agua se mantenga limpia y transparente durante todo el año.{{ else }}Apliquem tractaments específics per prevenir l'aparició d'algues, bacteris i fongs abans que es converteixin en un problema. Utilitzem productes de qualitat que no danyen l'aigua ni les superfícies, i que garanteixen una protecció duradora. El tractament es personalitza segons el tipus de piscina, la ubicació i la freqüència d'ús, assegurant que l'aigua es mantingui neta i transparent durant tot l'any.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Menos trabajo de mantenimiento, ahorro en productos correctores y una piscina siempre lista para disfrutar.{{ else }}Menys feina de manteniment, estalvi en productes correctors i una piscina sempre a punt per gaudir.{{ end }}</p>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.btn-servei').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modalId = this.dataset.modal;
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    document.querySelectorAll('.modal-tancar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+    document.querySelectorAll('.btn-servei').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.background = 'transparent';
+            this.style.color = 'white';
+            this.style.borderColor = 'white';
+            this.querySelector('.btn-plus').style.color = 'white';
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.style.background = 'white';
+            this.style.color = '#00326B';
+            this.style.borderColor = 'transparent';
+            this.querySelector('.btn-plus').style.color = '#00326B';
+        });
+    });
+    // Tancar amb ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(function(modal) {
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+    });
+</script>

@@ -1,0 +1,128 @@
+<section id="productes" style="padding:4rem 0; background: white; color: #00326B;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <h2 style="font-size:2.5rem; text-align:center; text-transform:uppercase; margin-bottom:1rem; color:#00326B;">
+            {{ if eq .Site.Language.Lang "es" }}Nuestros servicios{{ else }}Els nostres serveis{{ end }}
+        </h2>
+        <p style="text-align:center; font-size:1.2rem; margin-bottom:3rem; font-weight:300; color:#1E2A3A;">
+            {{ if eq .Site.Language.Lang "es" }}Elige el plan que mejor se adapte a tus necesidades o solicita un presupuesto personalizado.{{ else }}Tria el pla que millor s'adapti a les teves necessitats o demana un pressupost personalitzat.{{ end }}
+        </p>
+
+        <div class="grid-productes" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            
+            <!-- Producte 1 -->
+            <div style="background: transparent; padding: 2rem; text-align:center; border: 2px solid #00326B; display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <h3 style="font-size:1.5rem; text-transform:uppercase; color:#00326B; font-weight:700;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento 360{{ else }}Manteniment 360{{ end }}</h3>
+                    <p style="font-size:1.5rem; font-weight:300; margin:1rem 0; color:#00326B;">150€/{{ if eq .Site.Language.Lang "es" }}mes{{ else }}mes{{ end }}</p>
+                    <ul style="list-style:none; padding:0; text-align:left; color:#1E2A3A;">
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Visita{{ else }}Visita{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}mensual o quincenal{{ else }}mensual o quinzenal{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Revisión{{ else }}Revisió{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de piscina, jardín, instalaciones{{ else }}de piscina, jardí, instal·lacions{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Informe{{ else }}Informe{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}fotográfico{{ else }}fotogràfic{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Llamada{{ else }}Trucada{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}preferente{{ else }}preferent{{ end }}</li>
+                    </ul>
+                </div>
+                <a href="{{ if eq .Site.Language.Lang "es" }}#contacto{{ else }}#contacte{{ end }}" class="btn-contractar" style="margin-top:1rem; display:inline-block; padding:10px 25px; border:2px solid #00326B; color:#00326B; text-decoration:none; font-weight:600; transition:all 0.3s; background:transparent; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; width:100%; text-align:center; box-sizing:border-box;">{{ if eq .Site.Language.Lang "es" }}Contratar{{ else }}Contractar{{ end }}</a>
+            </div>
+
+            <!-- Producte 2 -->
+            <div style="background: transparent; padding: 2rem; text-align:center; border: 2px solid #00326B; display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <h3 style="font-size:1.5rem; text-transform:uppercase; color:#00326B; font-weight:700;">{{ if eq .Site.Language.Lang "es" }}Piscina a Punto{{ else }}Piscina a Punt{{ end }}</h3>
+                    <p style="font-size:1.5rem; font-weight:300; margin:1rem 0; color:#00326B;">180-250€</p>
+                    <ul style="list-style:none; padding:0; text-align:left; color:#1E2A3A;">
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Apertura{{ else }}Obertura{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de temporada{{ else }}de temporada{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Cierre{{ else }}Tancament{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de invierno{{ else }}d'hivern{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Tratamiento{{ else }}Tractament{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de agua{{ else }}d'aigua{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Revisión{{ else }}Revisió{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de depuradora{{ else }}de depuradora{{ end }}</li>
+                    </ul>
+                </div>
+                <a href="{{ if eq .Site.Language.Lang "es" }}#contacto{{ else }}#contacte{{ end }}" class="btn-contractar" style="margin-top:1rem; display:inline-block; padding:10px 25px; border:2px solid #00326B; color:#00326B; text-decoration:none; font-weight:600; transition:all 0.3s; background:transparent; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; width:100%; text-align:center; box-sizing:border-box;">{{ if eq .Site.Language.Lang "es" }}Contratar{{ else }}Contractar{{ end }}</a>
+            </div>
+
+            <!-- Producte 3 -->
+            <div style="background: transparent; padding: 2rem; text-align:center; border: 2px solid #00326B; display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <h3 style="font-size:1.5rem; text-transform:uppercase; color:#00326B; font-weight:700;">{{ if eq .Site.Language.Lang "es" }}Manitas a Domicilio{{ else }}Manetes a Domicili{{ end }}</h3>
+                    <p style="font-size:1.5rem; font-weight:300; margin:1rem 0; color:#00326B;">40-50€/h</p>
+                    <ul style="list-style:none; padding:0; text-align:left; color:#1E2A3A;">
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Reparaciones{{ else }}Reparacions{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}eléctricas{{ else }}elèctriques{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Reparaciones{{ else }}Reparacions{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de fontanería{{ else }}de fontaneria{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Montaje{{ else }}Muntatge{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de muebles{{ else }}de mobles{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Reparación{{ else }}Reparació{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de puertas y persianas{{ else }}de portes i persianes{{ end }}</li>
+                    </ul>
+                </div>
+                <a href="{{ if eq .Site.Language.Lang "es" }}#contacto{{ else }}#contacte{{ end }}" class="btn-contractar" style="margin-top:1rem; display:inline-block; padding:10px 25px; border:2px solid #00326B; color:#00326B; text-decoration:none; font-weight:600; transition:all 0.3s; background:transparent; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; width:100%; text-align:center; box-sizing:border-box;">{{ if eq .Site.Language.Lang "es" }}Contratar{{ else }}Contractar{{ end }}</a>
+            </div>
+
+            <!-- Producte 4 -->
+            <div style="background: transparent; padding: 2rem; text-align:center; border: 2px solid #00326B; display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <h3 style="font-size:1.5rem; text-transform:uppercase; color:#00326B; font-weight:700;">{{ if eq .Site.Language.Lang "es" }}Reformas Rápidas{{ else }}Reformes Ràpides{{ end }}</h3>
+                    <p style="font-size:1.2rem; font-weight:300; margin:1rem 0; color:#00326B;">{{ if eq .Site.Language.Lang "es" }}A presupuesto{{ else }}A pressupost{{ end }}</p>
+                    <ul style="list-style:none; padding:0; text-align:left; color:#1E2A3A;">
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Reforma{{ else }}Reforma{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de baños{{ else }}de banys{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Reforma{{ else }}Reforma{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de cocinas{{ else }}de cuines{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Cambio{{ else }}Canvi{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de bañera por ducha{{ else }}de banyera per dutxa{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Renovación{{ else }}Renovació{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de pavimentos{{ else }}de paviments{{ end }}</li>
+                    </ul>
+                </div>
+                <a href="{{ if eq .Site.Language.Lang "es" }}#contacto{{ else }}#contacte{{ end }}" class="btn-contractar" style="margin-top:1rem; display:inline-block; padding:10px 25px; border:2px solid #00326B; color:#00326B; text-decoration:none; font-weight:600; transition:all 0.3s; background:transparent; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; width:100%; text-align:center; box-sizing:border-box;">{{ if eq .Site.Language.Lang "es" }}Contratar{{ else }}Contractar{{ end }}</a>
+            </div>
+
+            <!-- Producte 5 -->
+            <div style="background: transparent; padding: 2rem; text-align:center; border: 2px solid #00326B; display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <h3 style="font-size:1.5rem; text-transform:uppercase; color:#00326B; font-weight:700;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento Comunidades{{ else }}Manteniment Comunitats{{ end }}</h3>
+                    <p style="font-size:1.2rem; font-weight:300; margin:1rem 0; color:#00326B;">{{ if eq .Site.Language.Lang "es" }}A presupuesto{{ else }}A pressupost{{ end }}</p>
+                    <ul style="list-style:none; padding:0; text-align:left; color:#1E2A3A;">
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento{{ else }}Manteniment{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de jardines comunitarios{{ else }}de jardins comunitaris{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento{{ else }}Manteniment{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de piscinas comunitarias{{ else }}de piscines comunitàries{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Reparaciones{{ else }}Reparacions{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}comunes{{ else }}comunes{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Pintura{{ else }}Pintura{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de zonas comunes{{ else }}de zones comunes{{ end }}</li>
+                    </ul>
+                </div>
+                <a href="{{ if eq .Site.Language.Lang "es" }}#contacto{{ else }}#contacte{{ end }}" class="btn-contractar" style="margin-top:1rem; display:inline-block; padding:10px 25px; border:2px solid #00326B; color:#00326B; text-decoration:none; font-weight:600; transition:all 0.3s; background:transparent; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; width:100%; text-align:center; box-sizing:border-box;">{{ if eq .Site.Language.Lang "es" }}Contratar{{ else }}Contractar{{ end }}</a>
+            </div>
+
+            <!-- Producte 6 -->
+            <div style="background: transparent; padding: 2rem; text-align:center; border: 2px solid #00326B; display:flex; flex-direction:column; justify-content:space-between;">
+                <div>
+                    <h3 style="font-size:1.5rem; text-transform:uppercase; color:#00326B; font-weight:700;">{{ if eq .Site.Language.Lang "es" }}Alojamientos Turísticos{{ else }}Allotjaments Turístics{{ end }}</h3>
+                    <p style="font-size:1.2rem; font-weight:300; margin:1rem 0; color:#00326B;">{{ if eq .Site.Language.Lang "es" }}A presupuesto{{ else }}A pressupost{{ end }}</p>
+                    <ul style="list-style:none; padding:0; text-align:left; color:#1E2A3A;">
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento{{ else }}Manteniment{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de viviendas turísticas{{ else }}d'habitatges turístics{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Supervisión{{ else }}Supervisió{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de propiedades{{ else }}de propietats{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Resolución{{ else }}Resolució{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}de incidencias{{ else }}d'incidències{{ end }}</li>
+                        <li style="padding:0.3rem 0; font-weight:300;">✓ <span style="font-weight:600;">{{ if eq .Site.Language.Lang "es" }}Puesta a punto{{ else }}Posada a punt{{ end }}</span> {{ if eq .Site.Language.Lang "es" }}antes de la llegada{{ else }}abans de l'arribada{{ end }}</li>
+                    </ul>
+                </div>
+                <a href="{{ if eq .Site.Language.Lang "es" }}#contacto{{ else }}#contacte{{ end }}" class="btn-contractar" style="margin-top:1rem; display:inline-block; padding:10px 25px; border:2px solid #00326B; color:#00326B; text-decoration:none; font-weight:600; transition:all 0.3s; background:transparent; text-transform:uppercase; font-size:0.9rem; letter-spacing:1px; width:100%; text-align:center; box-sizing:border-box;">{{ if eq .Site.Language.Lang "es" }}Contratar{{ else }}Contractar{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .btn-contractar:hover {
+        background: #00326B !important;
+        color: white !important;
+        border-color: #00326B !important;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+        .grid-productes {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1.5rem !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .grid-productes {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
+        }
+    }
+</style>

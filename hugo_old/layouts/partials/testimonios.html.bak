@@ -1,0 +1,228 @@
+<section id="testimonis" style="padding:4rem 0; background: white; color: #00326B;">
+    <div style="max-width: 100%; padding: 0 20px; margin: 0 auto; text-align:center;">
+        <h2 style="color:#00326B; font-size:2.5rem; font-weight:700; margin-bottom:0.5rem;">Què diuen els nostres clients?</h2>
+        <p style="font-size:1.2rem; font-weight:300; margin-bottom:2rem; color:#00326B;">Opinió de persones que han confiat en nosaltres</p>
+
+        <div class="carousel-testimonis" style="position:relative; width:100%; overflow:hidden; cursor:grab; margin:0; padding:0 0 2rem 0;">
+            <div class="slides-testimonis" style="display:flex; transition: transform 0.6s ease-in-out; width:100%;">
+
+                <!-- TARGETA 1 -->
+                <div class="targeta-testimoni" style="min-width:100%; padding:0.5rem; box-sizing:border-box; display:flex; justify-content:center; align-items:center;">
+                    <div style="background: white; border: 2px solid #00326B; border-radius: 0; padding: 2rem; max-width: 550px; width:100%;">
+                        <div style="display:flex; justify-content:center; gap:0.3rem; margin-bottom:1rem;">
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                        </div>
+                        <p style="font-size:1.1rem; font-weight:300; line-height:1.6; color:#00326B; margin-bottom:1rem; font-style:italic; text-align:center;">"Em van instal·lar una mosquitera en menys d'una hora. Van ser puntuals, nets i el resultat és perfecte. S'ho recomano a tothom."</p>
+                        <p style="font-size:1rem; font-weight:700; text-align:center; margin-bottom:0.2rem;">Anna M.</p>
+                        <p style="font-size:0.9rem; font-weight:300; text-align:center; color:#00326B;">Girona</p>
+                    </div>
+                </div>
+
+                <!-- TARGETA 2 -->
+                <div class="targeta-testimoni" style="min-width:100%; padding:0.5rem; box-sizing:border-box; display:flex; justify-content:center; align-items:center;">
+                    <div style="background: white; border: 2px solid #00326B; border-radius: 0; padding: 2rem; max-width: 550px; width:100%;">
+                        <div style="display:flex; justify-content:center; gap:0.3rem; margin-bottom:1rem;">
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                        </div>
+                        <p style="font-size:1.1rem; font-weight:300; line-height:1.6; color:#00326B; margin-bottom:1rem; font-style:italic; text-align:center;">"Feia mesos que tenia la piscina verda i no sabia què fer. Van diagnosticar el problema, em van canviar la bomba i em van deixar la piscina perfecta. Molt professionals."</p>
+                        <p style="font-size:1rem; font-weight:700; text-align:center; margin-bottom:0.2rem;">Carles R.</p>
+                        <p style="font-size:0.9rem; font-weight:300; text-align:center; color:#00326B;">Cassà de la Selva</p>
+                    </div>
+                </div>
+
+                <!-- TARGETA 3 -->
+                <div class="targeta-testimoni" style="min-width:100%; padding:0.5rem; box-sizing:border-box; display:flex; justify-content:center; align-items:center;">
+                    <div style="background: white; border: 2px solid #00326B; border-radius: 0; padding: 2rem; max-width: 550px; width:100%;">
+                        <div style="display:flex; justify-content:center; gap:0.3rem; margin-bottom:1rem;">
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                        </div>
+                        <p style="font-size:1.1rem; font-weight:300; line-height:1.6; color:#00326B; margin-bottom:1rem; font-style:italic; text-align:center;">"Em van instal·lar diversos endolls nous a casa i van deixar-ho tot impecable. A més, em van assessorar sobre la millor ubicació. Molt recomanables."</p>
+                        <p style="font-size:1rem; font-weight:700; text-align:center; margin-bottom:0.2rem;">Marta L.</p>
+                        <p style="font-size:0.9rem; font-weight:300; text-align:center; color:#00326B;">Lloret de Mar</p>
+                    </div>
+                </div>
+
+                <!-- TARGETA 4 -->
+                <div class="targeta-testimoni" style="min-width:100%; padding:0.5rem; box-sizing:border-box; display:flex; justify-content:center; align-items:center;">
+                    <div style="background: white; border: 2px solid #00326B; border-radius: 0; padding: 2rem; max-width: 550px; width:100%;">
+                        <div style="display:flex; justify-content:center; gap:0.3rem; margin-bottom:1rem;">
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                        </div>
+                        <p style="font-size:1.1rem; font-weight:300; line-height:1.6; color:#00326B; margin-bottom:1rem; font-style:italic; text-align:center;">"Van fer el manteniment de la piscina de la meva casa d'estiueig. Van ser molt flexibles amb l'horari i em van deixar unes instruccions clares per al dia a dia. Deu!"</p>
+                        <p style="font-size:1rem; font-weight:700; text-align:center; margin-bottom:0.2rem;">Jordi F.</p>
+                        <p style="font-size:0.9rem; font-weight:300; text-align:center; color:#00326B;">Hostalric</p>
+                    </div>
+                </div>
+
+                <!-- TARGETA 5 -->
+                <div class="targeta-testimoni" style="min-width:100%; padding:0.5rem; box-sizing:border-box; display:flex; justify-content:center; align-items:center;">
+                    <div style="background: white; border: 2px solid #00326B; border-radius: 0; padding: 2rem; max-width: 550px; width:100%;">
+                        <div style="display:flex; justify-content:center; gap:0.3rem; margin-bottom:1rem;">
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                        </div>
+                        <p style="font-size:1.1rem; font-weight:300; line-height:1.6; color:#00326B; margin-bottom:1rem; font-style:italic; text-align:center;">"Em van diagnosticar i reparar una avaria a la bomba de la piscina en un sol dia. Van ser ràpids, eficients i em van explicar què havia passat. Confiança total."</p>
+                        <p style="font-size:1rem; font-weight:700; text-align:center; margin-bottom:0.2rem;">Laura S.</p>
+                        <p style="font-size:0.9rem; font-weight:300; text-align:center; color:#00326B;">Vidreres</p>
+                    </div>
+                </div>
+
+                <!-- TARGETA 6 -->
+                <div class="targeta-testimoni" style="min-width:100%; padding:0.5rem; box-sizing:border-box; display:flex; justify-content:center; align-items:center;">
+                    <div style="background: white; border: 2px solid #00326B; border-radius: 0; padding: 2rem; max-width: 550px; width:100%;">
+                        <div style="display:flex; justify-content:center; gap:0.3rem; margin-bottom:1rem;">
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                            <i class="fas fa-star" style="color:#00326B;"></i>
+                        </div>
+                        <p style="font-size:1.1rem; font-weight:300; line-height:1.6; color:#00326B; margin-bottom:1rem; font-style:italic; text-align:center;">"Necessitava arreglar uns endolls a casa i també em van fer una revisió de la instal·lació elèctrica. Van deixar-ho tot net, segur i amb un preu més que raonable. Excel·lents."</p>
+                        <p style="font-size:1rem; font-weight:700; text-align:center; margin-bottom:0.2rem;">Pere G.</p>
+                        <p style="font-size:0.9rem; font-weight:300; text-align:center; color:#00326B;">Sant Feliu de Guíxols</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="fletxa-testimoni esquerra" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: transparent; border: none; color: #00326B; font-size: 3rem; cursor: pointer; z-index: 10; padding: 0; line-height: 1;">◀</button>
+            <button class="fletxa-testimoni dreta" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: transparent; border: none; color: #00326B; font-size: 3rem; cursor: pointer; z-index: 10; padding: 0; line-height: 1;">▶</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTestimonis);
+        } else {
+            initTestimonis();
+        }
+
+        function initTestimonis() {
+            const slidesContainer = document.querySelector('.slides-testimonis');
+            if (!slidesContainer) return;
+
+            const slides = document.querySelectorAll('.targeta-testimoni');
+            const totalSlides = slides.length;
+            if (totalSlides === 0) return;
+
+            let currentIndex = 0; showSlide(0, true);
+            let interval = null;
+            let isTransitioning = false;
+
+            function showSlide(index, instant = false) {
+                if (isTransitioning && !instant) return;
+                if (index >= totalSlides) index = 0;
+                if (index < 0) index = totalSlides - 1;
+                currentIndex = index;
+                if (instant) {
+                    slidesContainer.style.transition = 'none';
+                    slidesContainer.style.transform = 'translateX(-' + (index * 100) + '%)';
+                    slidesContainer.offsetHeight;
+                    slidesContainer.style.transition = 'transform 0.6s ease-in-out';
+                } else {
+                    slidesContainer.style.transform = 'translateX(-' + (index * 100) + '%)';
+                }
+            }
+
+            function nextSlide() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                showSlide(currentIndex + 1);
+                setTimeout(() => { isTransitioning = false; }, 700);
+            }
+
+            function startAutoPlay() {
+                if (interval) clearInterval(interval);
+                interval = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoPlay() {
+                if (interval) {
+                    clearInterval(interval);
+                    interval = null;
+                }
+            }
+
+            startAutoPlay();
+
+            const container = document.querySelector('.carousel-testimonis');
+            if (!container) return;
+
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+
+            const fletxaEsquerra = document.querySelector('.fletxa-testimoni.esquerra');
+            const fletxaDreta = document.querySelector('.fletxa-testimoni.dreta');
+
+            if (fletxaEsquerra) {
+                fletxaEsquerra.addEventListener('click', function() {
+                    stopAutoPlay();
+                    showSlide(currentIndex - 1);
+                    startAutoPlay();
+                });
+            }
+            if (fletxaDreta) {
+                fletxaDreta.addEventListener('click', function() {
+                    stopAutoPlay();
+                    showSlide(currentIndex + 1);
+                    startAutoPlay();
+                });
+            }
+
+            let wheelTimeout = null;
+            container.addEventListener('wheel', function(e) {
+                if (Math.abs(e.deltaX) < 20) return;
+                e.preventDefault();
+                if (wheelTimeout) return;
+                wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 800);
+                stopAutoPlay();
+                if (e.deltaX > 0) {
+                    showSlide(currentIndex + 1);
+                } else {
+                    showSlide(currentIndex - 1);
+                }
+                startAutoPlay();
+            }, { passive: false });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+            container.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            container.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    stopAutoPlay();
+                    if (diff > 0) {
+                        showSlide(currentIndex + 1);
+                    } else {
+                        showSlide(currentIndex - 1);
+                    }
+                    startAutoPlay();
+                }
+            }, { passive: true });
+        }
+    })();
+</script>

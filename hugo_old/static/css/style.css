@@ -1,0 +1,842 @@
+/* ============================================
+   RESET I BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1E2A3A;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+/* ============================================
+   SNAPPING VERTICAL
+   ============================================ */
+section:not(#social-banner):not(#contacte):not(footer) {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#testimonis {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#contacte {
+    scroll-snap-align: start;
+    min-height: auto;
+}
+
+footer {
+    scroll-snap-align: end;
+    min-height: auto;
+}
+
+/* ============================================
+   HEADER FIX
+   ============================================ */
+header {
+    position: fixed !important;
+    top: 40px !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: transparent !important;
+    padding: 0.8rem 1.5rem !important;
+    box-sizing: border-box !important;
+}
+
+
+#menu-toggle {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* ============================================
+   MARKETING SPOT FIX
+   ============================================ */
+#announcement {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1001 !important;
+    background: white !important;
+    text-align: center !important;
+    padding: 0.4rem !important;
+    font-weight: bold !important;
+    color: #00326B !important;
+    font-size: 0.85rem !important;
+    border-bottom: 1px solid #00326B !important;
+}
+
+/* ============================================
+   SOCIAL BANNER
+   ============================================ */
+#social-banner {
+    scroll-snap-align: end;
+    min-height: 100vh;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #00326B !important;
+    width: 100% !important;
+    padding: 2rem 1rem !important;
+}
+
+#social-banner .social-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    max-width: 90%;
+}
+
+#social-banner h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: white;
+    margin: 0;
+}
+
+
+
+#social-banner p a:hover {
+    text-decoration: underline !important;
+    text-decoration-color: white !important;
+}
+
+
+
+#social-banner a:hover {
+    opacity: 0.85 !important;
+}
+
+/* ============================================
+   BOTONS GENERALS
+   ============================================ */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid #00326B;
+    color: #00326B;
+    background: transparent;
+    border-radius: 0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #00326B;
+    color: white;
+}
+
+/* ============================================
+   MENU OVERLAY
+   ============================================ */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#menu-overlay a {
+    text-decoration: none;
+}
+
+#menu-overlay a:hover {
+    text-decoration: underline;
+    text-decoration-color: #00326B;
+}
+
+/* ============================================
+   CARRUSEL GENÈRIC
+   ============================================ */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* ============================================
+   BOTÓ HERO
+   ============================================ */
+.btn-hero {
+    font-size: 1.2rem !important;
+    padding: 16px 40px !important;
+    background: white !important;
+    color: #00326B !important;
+    border: 2px solid white !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-hero:hover {
+    background: #00326B !important;
+    color: white !important;
+    border-color: #00326B !important;
+    box-shadow: 0 4px 20px rgba(0,50,107,0.5) !important;
+}
+
+/* ============================================
+   BOTONS SERVEI
+   ============================================ */
+.btn-servei {
+    border-radius: 0 !important;
+    font-weight: 400 !important;
+}
+
+/* ============================================
+   BOTÓ FLOTANT
+   ============================================ */
+#floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 64px;
+    height: 64px;
+    background: white;
+    color: #00326B;
+    border: 2px solid #00326B;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    z-index: 99999;
+    transition: all 0.3s ease;
+}
+
+#floating-btn:hover {
+    background: #00326B;
+    color: white;
+    border-color: white;
+}
+
+#floating-btn i {
+    pointer-events: none;
+}
+
+/* ============================================
+   FLETXES TESTIMONIS
+   ============================================ */
+.fletxa-testimoni {
+    font-size: 3rem;
+    color: #00326B;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.fletxa-testimoni:hover {
+    transform: scale(1.2);
+}
+
+/* ============================================
+   RESPONSIVE PER A MÒBIL
+   ============================================ */
+@media (max-width: 768px) {
+    section:not(#social-banner):not(#contacte):not(footer) {
+        min-height: 100vh !important;
+        padding: 2rem 0 !important;
+        background-attachment: scroll !important;
+    }
+
+    #inici {
+        min-height: 100vh !important;
+        padding: 80px 20px !important;
+    }
+
+    #social-banner {
+        min-height: 100vh !important;
+        padding: 1.5rem 1rem !important;
+        gap: 0.8rem !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    #social-banner h2 {
+        font-size: 1.4rem !important;
+        margin: 0 !important;
+    }
+
+
+
+
+    /* Graelles de botons en vertical */
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Carrusel testimonis */
+    .carousel-testimonis {
+        width: 100% !important;
+        overflow: hidden !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .slides-testimonis {
+        display: flex !important;
+        width: 100% !important;
+        transition: transform 0.6s ease-in-out !important;
+    }
+
+    .targeta-testimoni {
+        min-width: 100% !important;
+        flex-shrink: 0 !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .targeta-testimoni > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 1.2rem !important;
+        box-sizing: border-box !important;
+        border: 2px solid #00326B !important;
+    }
+
+    .targeta-testimoni > div p {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        text-align: center !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .targeta-testimoni > div p:last-of-type {
+        font-size: 0.8rem !important;
+    }
+
+    .targeta-testimoni > div .fas.fa-star {
+        font-size: 1.2rem !important;
+    }
+
+    .fletxa-testimoni {
+        display: none !important;
+    }
+
+    .carousel-slide {
+        padding: 1rem !important;
+    }
+
+    .carousel-slide h3 {
+        font-size: 1.4rem !important;
+    }
+
+    .carousel-slide p {
+        font-size: 1rem !important;
+    }
+
+    .btn-servei {
+        font-size: 0.9rem !important;
+        padding: 0.7rem !important;
+    }
+}
+
+/* ============================================
+   COMPENSAR ESPAI DEL HEADER + MARKETING
+   ============================================ */
+main {
+    padding-top: 110px !important;
+}
+
+/* Eliminar qualsevol ombra del header */
+header {
+    box-shadow: none !important;
+}
+
+header a {
+    color: white !important;
+    text-shadow: none !important;
+}
+
+/* CORRECCIÓ DEFINITIVA TESTIMONIS MÒBIL */
+@media (max-width: 768px) {
+    .carousel-testimonis {
+        width: 100% !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+    }
+    .slides-testimonis {
+        display: flex !important;
+        width: 100% !important;
+        transition: transform 0.6s ease-in-out !important;
+    }
+    .targeta-testimoni {
+        min-width: 100% !important;
+        flex-shrink: 0 !important;
+        padding: 0 0.5rem !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .targeta-testimoni > div {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 !important;
+        border: 2px solid #00326B !important;
+        box-sizing: border-box !important;
+    }
+    .targeta-testimoni > div p {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
+        word-break: break-word !important;
+    }
+    .fletxa-testimoni {
+        display: none !important;
+    }
+}
+
+
+/* Testimonis en graella (sense carrusel) */
+.carousel-testimonis {
+    overflow: visible !important;
+    height: auto !important;
+}
+.slides-testimonis {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    transform: none !important;
+    width: 100% !important;
+}
+.targeta-testimoni {
+    min-width: 250px !important;
+    flex: 1 1 300px !important;
+    max-width: 400px !important;
+    padding: 0.5rem !important;
+}
+.targeta-testimoni > div {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+.fletxa-testimoni {
+    display: none !important;
+}
+
+
+/* Ocultar barra de scroll del menú horitzontal */
+header div {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE i Edge */
+}
+header div::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Apilar jardineria en mòbil (3 columnes → 1 columna) */
+@media (max-width: 768px) {
+    div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Social banner: telèfon i email en majúscula i thin */
+#social-banner .contact-info a {
+    text-transform: uppercase !important;
+    font-weight: 300 !important;
+}
+
+/* Social banner: telèfon i email en majúscula i thin (forçat) */
+#social-banner .contact-info a,
+#social-banner .contact-info a:visited,
+#social-banner .contact-info a:hover,
+#social-banner .contact-info a:active {
+    text-transform: uppercase !important;
+    font-weight: 300 !important;
+}
+
+/* ============================================
+   SOCIAL BANNER - VERSIÓ FINAL NETA
+   ============================================ */
+
+/* Títol: gran, negreta, majúscula */
+
+/* Telèfon i email: thin, majúscula, en línia */
+
+
+
+/* Icònies socials (com estaven) */
+
+
+#social-banner .social-icons a:hover {
+    opacity: 0.7 !important;
+}
+
+/* ============================================
+   SOCIAL BANNER - AJUST FINAL (blanc i mida normal)
+   ============================================ */
+
+/* Títol: es manté */
+
+/* Telèfon i email: blanc, thin, mida normal (lleugerament més gran) */
+
+
+
+/* Icònies socials (sense canvis) */
+
+
+#social-banner .social-icons a:hover {
+    opacity: 0.7 !important;
+}
+
+/* ============================================
+   SOCIAL BANNER - PER A L'HTML ACTUAL
+   ============================================ */
+
+/* Títol: gran, negreta, majúscula, blanc */
+#social-banner .social-content h2 {
+    font-size: clamp(2rem, 6vw, 3.2rem) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    color: white !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Telèfon i email: blancs, majúscula, thin, en línia */
+#social-banner .social-content p {
+    display: inline !important;                /* Per posar en línia */
+    font-size: clamp(1rem, 2.5vw, 1.3rem) !important;
+    font-weight: 300 !important;
+    color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* Separador entre telèfon i email (per si el vols) */
+#social-banner .social-content .separador {
+    display: inline !important;
+    color: rgba(255,255,255,0.5) !important;
+    font-weight: 300 !important;
+    margin: 0 0.3rem !important;
+}
+
+/* Icònies socials */
+#social-banner .social-icons {
+    display: flex !important;
+    gap: 1.5rem !important;
+    justify-content: center !important;
+    margin-top: 0.8rem !important;
+}
+
+#social-banner .social-icons a {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+    color: white !important;
+    transition: opacity 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+#social-banner .social-icons a:hover {
+    opacity: 0.7 !important;
+}
+
+/* Forçar que NO hi hagi cap altra regla que posi blau o minúscula */
+
+
+/* ÚLTIM AJUST: subratllat només en hover i mida lleugerament més gran */
+#social-banner .social-content p {
+    font-size: clamp(1.2rem, 3.2vw, 1.8rem) !important;
+}
+#social-banner .social-content p a:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+}
+
+/* Forçar majúscules, blanc i thin als enllaços del social banner */
+#social-banner .social-content p a {
+    text-transform: uppercase !important;
+    color: white !important;
+    font-weight: 300 !important;
+}
+<!-- BOTÓ PER A LA LANDING DE JARDINERIA -->
+<div style="margin-top: 2.5rem; text-align: center;">
+    <a href="{{ if eq .Site.Language.Lang "es" }}/es/jardineria/{{ else }}/ca/jardineria/{{ end }}" 
+       class="btn-jardineria"
+       style="display: inline-block; 
+              border: 2px solid white; 
+              color: white; 
+              text-transform: uppercase; 
+              font-weight: 300; 
+              font-size: 1rem; 
+              padding: 12px 30px; 
+              text-decoration: none; 
+              letter-spacing: 1px;
+              transition: all 0.3s ease;
+              background: transparent;">
+        {{ if eq .Site.Language.Lang "es" }}Más información sobre jardinería{{ else }}Més informació sobre jardineria{{ end }}
+    </a>
+</div>
+
+.btn-jardineria:hover {
+    background: white !important;
+    color: #00326B !important;
+}
+/* ============================================
+   LANDINGS DE SERVEIS (JARDINERIA, PISCINES, ETC)
+   ============================================ */
+.servei-page {
+    padding-top: 140px;
+    padding-bottom: 60px;
+    background: #f8f9fa;
+}
+
+.servei-page .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.servei-header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #00326B;
+}
+
+.servei-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: #00326B;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.servei-subtitle {
+    font-size: 1.2rem;
+    color: #1E2A3A;
+    font-weight: 300;
+}
+
+.servei-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #1E2A3A;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.servei-content h2 {
+    font-size: 2rem;
+    color: #00326B;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.servei-content h3 {
+    font-size: 1.4rem;
+    color: #00326B;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.servei-content p {
+    margin-bottom: 15px;
+}
+
+.servei-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+.servei-content ul li {
+    padding: 8px 0 8px 30px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300326B'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") left center no-repeat;
+    background-size: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.servei-content ul li:last-child {
+    border-bottom: none;
+}
+
+.servei-content strong {
+    color: #00326B;
+}
+
+.servei-content blockquote {
+    margin: 30px 0;
+    padding: 20px 30px;
+    background: #f5f7fa;
+    border-left: 5px solid #00326B;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.servei-content blockquote p {
+    margin: 0;
+}
+
+/* CTA final de la landing */
+.servei-cta {
+    text-align: center;
+    padding: 50px 30px;
+    background: #00326B;
+    color: white;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.servei-cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+    border: none;
+    padding: 0;
+    color: white;
+}
+
+.servei-cta .btn-hero {
+    background: white !important;
+    color: #00326B !important;
+    border: 2px solid white !important;
+    font-size: 1.2rem !important;
+    padding: 16px 40px !important;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    font-weight: 700;
+}
+
+.servei-cta .btn-hero:hover {
+    background: transparent !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* BOTÓ JARDINERIA - Definitiu */
+.btn-jardineria {
+    display: inline-block;
+    border: 2px solid white;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 12px 30px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-jardineria:hover {
+    background: white !important;
+    color: #00326B !important;
+    border-color: white !important;
+}
+
+/* RESPONSIVE LANDINGS */
+@media (max-width: 768px) {
+    .servei-page {
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+    
+    .servei-content {
+        padding: 20px;
+    }
+    
+    .servei-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .servei-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .servei-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .servei-content ul li {
+        padding: 6px 0 6px 25px;
+        background-size: 18px;
+    }
+    
+    .servei-cta {
+        padding: 30px 20px;
+    }
+    
+    .servei-cta h2 {
+        font-size: 1.5rem;
+    }
+}
+/* Grid Jardineria - Responsive */
+.grid-jardineria {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .grid-jardineria {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}

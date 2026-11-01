@@ -1,0 +1,612 @@
+{
+  "meta_title": "Mantenimientos Lizana | Mantenimiento y servicios en Girona",
+  "meta_description": "Mantenimientos Lizana: reparaciones, jardinería, piscinas y mantenimiento general en Girona, la Selva, la Costa Brava y el Maresme. Presupuesto sin compromiso.",
+  "hero": {
+    "badge": "Girona y Maresme · 10 años de experiencia",
+    "title": "Manos expertas.",
+    "subtitle": "Resultados reales.",
+    "description": "Mantenimientos Lizana: reparaciones en Girona, mantenimiento, jardinería y piscinas en Girona, Maresme y Costa Brava. Un equipo cercano, puntual y profesional que deja tu hogar en perfecto estado.",
+    "cta": "Solicita presupuesto gratuito",
+    "secondary_cta": "Ver servicios",
+    "stars_label": "Más de 120 clientes satisfechos",
+    "badge_title": "Respuesta garantizada",
+    "badge_sub": "En menos de 2h",
+    "image_alt": "Equipo de Mantenimientos Lizana realizando reparaciones en Girona"
+  },
+  "nav": {
+    "serveis": "Servicios",
+    "sobre": "Sobre nosotros",
+    "piscines": "Piscinas",
+    "contacte": "Contáctanos",
+    "pressupost": "Presupuesto",
+    "pressupost_cta": "Solicita presupuesto"
+  },
+  "carousel": [
+    "PUNTUALES SIEMPRE",
+    "SIN COMPROMISO",
+    "5★ RESEÑAS VERIFICADAS",
+    "PRESUPUESTO RÁPIDO"
+  ],
+  "serveis": {
+    "title": "SERVICIOS",
+    "heading": "Todo lo que tu hogar<br /><em>necesita.</em>",
+    "subheading": "Un servicio integral que cubre todas las necesidades de mantenimiento. Si no está en la lista, pregúntanos igualmente — muy probablemente podemos resolverlo.",
+    "items": [
+      {
+        "title": "Mantenimiento",
+        "description": "Fontanería básica, electricidad, montaje de muebles, pequeñas reformas y carpintería. Mantenemos tu hogar en perfecto estado todo el año.",
+        "tag": "Todo en un servicio"
+      },
+      {
+        "title": "Piscinas",
+        "description": "Limpieza del vaso y filtro, control químico del agua, revisión de equipos, tratamientos preventivos y puesta a punto para la temporada.",
+        "tag": "Agua siempre limpia"
+      },
+      {
+        "title": "Jardines",
+        "description": "Corte de césped, poda de arbustos y árboles, desbroce, limpieza de jardines, plantación y mantenimiento, y puesta a punto para el verano.",
+        "tag": "Jardines sanos y bonitos"
+      },
+      {
+        "title": "Instalaciones",
+        "description": "Montaje de cocinas, puntos de luz y ventiladores, lámparas, enchufes e interruptores. Instalaciones eléctricas y del hogar con garantía.",
+        "tag": "Instalaciones profesionales"
+      }
+    ]
+  },
+  "forwhom": {
+    "title": "PARA QUIÉN TRABAJAMOS",
+    "heading": "Para todos los que<br /><em>confían en nosotros.</em>",
+    "subheading": "Trabajamos con particulares, empresas y comunidades en Girona, Maresme y Costa Brava. Cualquier necesidad de mantenimiento, la resolvemos.",
+    "items": [
+      {
+        "title": "Particulares",
+        "desc": "Soluciones rápidas para el hogar. Te atendemos con rapidez y cuidado, sin complicaciones."
+      },
+      {
+        "title": "Inmobiliarias y Turismo",
+        "desc": "Pisos de alquiler, alojamientos y apartamentos turísticos siempre listos para los huéspedes."
+      },
+      {
+        "title": "Comunidades de Vecinos",
+        "desc": "Mantenimiento preventivo y correctivo de zonas comunes, jardines, piscinas e instalaciones."
+      },
+      {
+        "title": "Segundas Residencias",
+        "desc": "Abrimos, cerramos y mantenemos tu casa de vacaciones para que siempre esté lista cuando llegues."
+      }
+    ]
+  },
+  "sobre": {
+    "title": "SOBRE NOSOTROS",
+    "heading": "Hola, somos<br /><em>Mantenimientos Lizana.</em>",
+    "p1": "Hola, soy Aleix. Llevo más de 10 años dedicándome al mantenimiento y las instalaciones, desde grandes equipamientos y hoteles hasta casas particulares. Trabajo con un grupo de colaboradores de confianza, pero lo que más me gusta es cuando los clientes me conocen a mí y me piden las cosas directamente.",
+    "p2": "Cada espacio es diferente y por eso me pongo al frente. Cuando digo que estaré a la hora, estoy; cuando digo que lo dejaré limpio, lo dejo limpio. Sin excusas ni complicaciones.",
+    "stats": [
+      {
+        "num": "+500",
+        "label": "Hogares atendidos"
+      },
+      {
+        "num": "+120",
+        "label": "Clientes fieles"
+      },
+      {
+        "num": "4.9★",
+        "label": "Valoración"
+      }
+    ],
+    "cta": "Contáctanos hoy",
+    "image_alt": "Equipo de mantenimiento en Girona - Mantenimientos Lizana",
+    "badge_num": "+10",
+    "badge_years": "años<br />de experiencia"
+  },
+  "whyus": {
+    "title": "POR QUÉ NOSOTROS",
+    "heading": "Por qué confiar en <em>Mantenimientos Lizana</em>",
+    "items": [
+      {
+        "title": "Profesionales cualificados",
+        "desc": "Equipo con formación y experiencia en todos los oficios. Trabajamos con garantía y seguridad."
+      },
+      {
+        "title": "Servicio rápido y puntual",
+        "desc": "Respondemos en pocas horas y cumplimos los horarios acordados. Tu tiempo es nuestro tiempo."
+      },
+      {
+        "title": "Presupuesto sin compromiso",
+        "desc": "Te explicamos el precio antes de empezar. Sin sorpresas ni costes ocultos."
+      },
+      {
+        "title": "Garantía en los trabajos",
+        "desc": "Todos los trabajos tienen garantía. Si algo no funciona, volvemos a solucionarlo."
+      }
+    ]
+  },
+  "testimonis": {
+    "title": "TESTIMONIOS",
+    "heading": "Lo que dicen<br /><em>nuestros clientes.</em>",
+    "items": [
+      {
+        "name": "Maria G.",
+        "location": "Girona",
+        "text": "Muy profesionales y rápidos. Llamé por la mañana y por la tarde ya tenían el grifo arreglado. Totalmente recomendables."
+      },
+      {
+        "name": "Ekaterina V.",
+        "location": "Platja d'Aro",
+        "text": "Llevan mi piscina desde hace tres años y siempre está perfecta. Trato excelente y muy puntuales."
+      },
+      {
+        "name": "Anna M.",
+        "location": "Palamós",
+        "text": "Hicieron la poda del jardín y quedó impecable. Además, el presupuesto fue muy ajustado."
+      },
+      {
+        "name": "Francesc R.",
+        "location": "Santa Cristina d'Aro",
+        "text": "Nos gestionan el mantenimiento de la comunidad desde hace años. Muy satisfechos con el servicio."
+      },
+      {
+        "name": "Núria V.",
+        "location": "Llagostera",
+        "text": "Excelentes profesionales. Montaron todos los muebles del piso nuevo en un solo día y sin ningún problema."
+      },
+      {
+        "name": "Pere T.",
+        "location": "Castell-Platja d'Aro",
+        "text": "Mi segunda residencia siempre la encuentro lista gracias a ellos. Un servicio de confianza al 100%."
+      }
+    ]
+  },
+  "contacte": {
+    "title": "CONTACTO",
+    "heading": "Cuéntanos el trabajo — <em>te respondemos rápido.</em>",
+    "description": "Llámamos, escríbenos un WhatsApp o rellena el formulario. Te daremos respuesta en menos de dos horas en horario laboral.",
+    "whatsapp_label": "WhatsApp",
+    "whatsapp_sub": "7:30h – 19:00h, de lunes a viernes",
+    "email_label": "Email",
+    "email_sub": "Respuesta en pocas horas",
+    "cobertura": "Zona de cobertura",
+    "cobertura_text": "Girona, Maresme y Costa Brava.",
+    "form_title": "Solicita presupuesto gratuito",
+    "form_nom": "Nombre",
+    "form_telefon": "Teléfono",
+    "form_email": "Email",
+    "form_poblacio": "Pueblo / Localidad",
+    "form_servei": "Tipo de servicio",
+    "form_servei_placeholder": "Selecciona un servicio...",
+    "form_missatge": "Cuéntanos el trabajo",
+    "form_missatge_placeholder": "Describe brevemente lo que necesitas. Puedes enviarnos fotos por WhatsApp si lo prefieres.",
+    "form_submit": "Enviar solicitud",
+    "form_response": "Respuesta garantizada en menos de 2 horas en horario laboral.",
+    "form_sent_title": "¡Mensaje enviado!",
+    "form_sent_text": "Te contactaremos en menos de 2 horas. Gracias por confiar en nosotros.",
+    "form_altres": "Otros",
+    "form_nom_placeholder": "Tu nombre",
+    "form_telefon_placeholder": "6XX XXX XXX",
+    "form_email_placeholder": "correo@ejemplo.com",
+    "form_poblacio_placeholder": "Tu pueblo o localidad"
+  },
+  "piscines": {
+    "meta_title": "Mantenimiento de piscinas en Girona | Mantenimientos Lizana",
+    "meta_description": "Mantenimiento profesional de piscinas en Girona, la Selva y la Costa Brava. Limpieza, tratamiento químico, revisión de equipos y puesta a punto de temporada.",
+    "carousel": [
+      "PISCINAS IMPECABLES",
+      "AGUA CRISTALINA",
+      "SERVICIO PROFESIONAL",
+      "PRESUPUESTO RÁPIDO",
+      "TOTAL CONFIANZA"
+    ],
+    "hero": {
+      "badge": "Girona y Maresme · Especialistas en piscinas",
+      "title": "Piscinas impecables.",
+      "subtitle": "Todo el año.",
+      "description": "Mantenimiento profesional de piscinas en Girona. Limpieza, tratamiento de agua, revisión de equipos y puesta a punto para la temporada. Disfrute de su piscina sin preocupaciones.",
+      "cta": "Solicita presupuesto gratuito",
+      "secondary_cta": "Ver servicios",
+      "reviews": "Más de 100 clientes satisfechos",
+      "badge_title": "Respuesta garantizada",
+      "badge_sub": "En menos de 2h",
+      "image_alt": "Piscina limpia y cuidada en Girona"
+    },
+    "services": {
+      "title": "NUESTRO SERVICIO",
+      "heading": "Mantenimiento de piscinas<br /><em>al detalle.</em>",
+      "subheading": "Nos cuidamos de cada detalle para que su piscina esté perfecta durante todo el año, con un servicio profesional y fiable.",
+      "items": [
+        {
+          "title": "Limpieza y Mantenimiento Semanal",
+          "description": "Filtros, skimmers, limpieza de paredes y fondo, y control de niveles químicos para mantener el agua cristalina."
+        },
+        {
+          "title": "Tratamiento Químico del Agua",
+          "description": "Análisis y ajuste del pH, cloro, alcalinidad y otros parámetros para garantizar un agua sana y segura."
+        },
+        {
+          "title": "Revisión de Equipos e Instalaciones",
+          "description": "Inspección y mantenimiento de bombas, filtros, cloradores, iluminación y sistemas de calefacción."
+        },
+        {
+          "title": "Puesta a Punto para la Temporada",
+          "description": "Apertura y cierre de la piscina, limpieza profunda, revisión de todos los sistemas y preparación para el verano."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "POR QUÉ CONFIAR EN NOSOTROS",
+      "heading": "La garantía de una piscina<br /><em>siempre cuidada.</em>",
+      "subheading": "Un equipo especializado en piscinas que combina técnica, productos de calidad y atención personalizada.",
+      "items": [
+        {
+          "title": "Técnicos Especializados",
+          "description": "Equipo formado en química del agua y mantenimiento de piscinas. Con experiencia y garantía."
+        },
+        {
+          "title": "Servicio Puntual y Fiable",
+          "description": "Cumplimos los horarios acordados. Respondemos en menos de 2h."
+        },
+        {
+          "title": "Productos de Calidad",
+          "description": "Utilizamos productos químicos y equipos de primeras marcas para garantizar los mejores resultados."
+        },
+        {
+          "title": "Garantía en los Trabajos",
+          "description": "Todos los trabajos tienen garantía. Si algo no funciona, lo solucionamos."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "TESTIMONIOS",
+      "heading": "La satisfacción de nuestros<br /><em>clientes de piscina.</em>",
+      "items": [
+        {
+          "name": "Jordi P.",
+          "location": "Girona",
+          "text": "Mantenimiento excelente. La piscina siempre cristalina y el equipo muy profesional."
+        },
+        {
+          "name": "Marta R.",
+          "location": "Platja d'Aro",
+          "text": "Llevan mi piscina desde hace 3 años. Nunca he tenido ningún problema. Muy recomendables."
+        },
+        {
+          "name": "Albert C.",
+          "location": "Sant Feliu de Guíxols",
+          "text": "Hicieron la puesta a punto de la piscina y quedó impecable. Presupuesto muy ajustado."
+        }
+      ]
+    },
+    "abans_despres": {
+      "title": "ANTES Y DESPUÉS",
+      "heading": "Recuperamos piscinas.<br /><em>Todo tipo de agua.</em>",
+      "subheading": "Nos ocupamos de cada detalle para que su piscina esté perfecta durante todo el año, con un servicio profesional y fiable.",
+      "abans": "Antes",
+      "despres": "Después",
+      "hint": "Arrastra para comparar",
+      "alt_abans": "Antes del mantenimiento de piscinas",
+      "alt_despres": "Después del mantenimiento de piscinas"
+    },
+    "cta": {
+      "title": "CONTACTO",
+      "text": "Tu piscina merece el mejor mantenimiento. Contáctanos hoy y empieza a disfrutarla sin preocupaciones.",
+      "button": "Solicita presupuesto",
+      "secondary": "Rellena el formulario"
+    }
+  },
+  "manteniment": {
+    "meta_title": "Mantenimiento General en Girona | Mantenimientos Lizana",
+    "meta_description": "Servicio integral de mantenimiento general en Girona, la Selva y la Costa Brava: reparaciones, electricidad, fontanería, calderas y pequeñas reformas.",
+    "carousel": [
+      "REPARACIONES EN 24H",
+      "PRESUPUESTO SIN COMPROMISO",
+      "PROFESIONALES CUALIFICADOS",
+      "GARANTÍA EN LOS TRABAJOS",
+      "TOTAL CONFIANZA"
+    ],
+    "hero": {
+      "badge": "Girona y Maresme · Expertos en mantenimiento",
+      "title": "Soluciones para",
+      "subtitle": "toda la casa.",
+      "description": "Reparaciones, electricidad, fontanería, calderas, montaje de muebles y pequeñas reformas. Un equipo profesional que deja tu hogar como nuevo.",
+      "cta": "Solicita presupuesto",
+      "secondary_cta": "Ver servicios",
+      "badge_title": "Respuesta garantizada",
+      "badge_sub": "En menos de 2h",
+      "image_alt": "Profesional de mantenimiento trabajando"
+    },
+    "services": {
+      "title": "NUESTROS SERVICIOS",
+      "heading": "Todo lo que tu hogar<br /><em>necesita.</em>",
+      "subheading": "Ofrecemos un servicio integral de mantenimiento para tu hogar. Desde pequeñas reparaciones hasta reformas completas, incluyendo el montaje de muebles.",
+      "items": [
+        { "icon": "🔧", "title": "Reparaciones generales", "desc": "Arreglamos averías, montamos muebles, colgamos cuadros, instalamos estanterías y resolvemos cualquier imprevisto en el hogar." },
+        { "icon": "⚡", "title": "Electricidad", "desc": "Instalaciones eléctricas, reparaciones, cambio de luminarias, enchufes, cuadros eléctricos y pequeñas averías." },
+        { "icon": "🚿", "title": "Fontanería y calderas", "desc": "Reparación de grifos, cisternas, tuberías, instalación de calefactores, y mantenimiento y reparación de calderas." },
+        { "icon": "🛠️", "title": "Montaje de muebles", "desc": "Montamos muebles, estanterías, bastidores y hacemos pequeñas reformas. Dejamos tu hogar perfecto." }
+      ],
+      "link": "Más información"
+    },
+    "before_after": {
+      "title": "RESULTADOS REALES",
+      "heading": "Antes y Después —<br /><em>Tu hogar, renovado.</em>",
+      "before": "Antes",
+      "after": "Después",
+      "hint": "Arrastra para comparar"
+    },
+    "why": {
+      "title": "POR QUÉ NOSOTROS",
+      "heading": "Compromiso con<br /><em>cada reparación.</em>",
+      "subheading": "Profesionales con años de experiencia en todos los oficios del hogar. Trabajamos con cuidado y garantía.",
+      "cta": "Solicita presupuesto",
+      "items": [
+        { "title": "Profesionales cualificados", "desc": "Equipo con formación y experiencia en todos los oficios (electricidad, fontanería, calderas, montajes). Trabajamos con garantía y seguridad." },
+        { "title": "Servicio rápido y puntual", "desc": "Respondemos en pocas horas y cumplimos los horarios acordados. Tu tiempo es nuestro tiempo." },
+        { "title": "Presupuesto sin compromiso", "desc": "Te explicamos el precio antes de empezar. Sin sorpresas ni costes ocultos." },
+        { "title": "Garantía en los trabajos", "desc": "Todos los trabajos (incluyendo montajes de muebles) tienen garantía. Si algo no funciona, volvemos a solucionarlo." }
+      ]
+    },
+    "testimonials": {
+      "title": "TESTIMONIOS",
+      "heading": "Lo que dicen<br /><em>nuestros clientes.</em>",
+      "items": [
+        { "text": "Muy profesionales y rápidos. Llamé por la mañana y por la tarde ya tenían el grifo arreglado. Totalmente recomendables.", "name": "Maria G.", "location": "Girona" },
+        { "text": "Montaron todos los muebles del piso nuevo en un solo día y sin ningún problema. Excelentes profesionales.", "name": "Núria V.", "location": "Llagostera" },
+        { "text": "Me repararon la caldera en menos de 24h. Un servicio de confianza al 100%.", "name": "Pere T.", "location": "Castell-Platja d'Aro" }
+      ]
+    },
+    "cta": {
+      "title": "CONTACTA CON NOSOTROS",
+      "text": "¿Necesitas un profesional?",
+      "description": "Contáctanos y te damos solución para cualquier reparación o mantenimiento.",
+      "button": "Solicita presupuesto"
+    }
+  },
+  "instalacions": {
+    "meta_title": "Instalaciones eléctricas en Girona | Mantenimientos Lizana",
+    "meta_description": "Instalaciones eléctricas, puntos de luz, iluminación y montaje de cocinas y muebles en Girona, la Selva y el Maresme. Profesionales cualificados con garantía.",
+    "carousel": [
+      "INSTALACIONES SEGURAS",
+      "PROFESIONALES CUALIFICADOS",
+      "PRESUPUESTO SIN COMPROMISO",
+      "GARANTÍA EN LOS TRABAJOS",
+      "MONTAJE DE COCINAS",
+      "LUZ Y FUNCIONALIDAD"
+    ],
+    "hero": {
+      "badge": "Girona y Maresme · Expertos en instalaciones",
+      "title": "Luz y funcionalidad",
+      "subtitle": "para tu hogar.",
+      "description": "Instalaciones eléctricas, puntos de luz, iluminación interior y exterior, montaje de cocinas y muebles. Un equipo profesional que hace realidad tus proyectos.",
+      "cta": "Solicita presupuesto",
+      "secondary_cta": "Ver servicios",
+      "badge_title": "Respuesta garantizada",
+      "badge_sub": "En menos de 2h",
+      "image_alt": "Instalaciones eléctricas profesionales en Girona"
+    },
+    "services": {
+      "title": "NUESTROS SERVICIOS",
+      "heading": "Todo lo que necesitas<br /><em>para tu hogar.</em>",
+      "subheading": "Ofrecemos soluciones completas: desde instalaciones eléctricas hasta el montaje de cocinas y muebles. Un equipo a tu disposición.",
+      "items": [
+        { "icon": "💡", "title": "Instalaciones eléctricas", "desc": "Instalaciones eléctricas completas: cuadros de distribución, circuitos, tomas de tierra y todo tipo de trabajos eléctricos con garantías de seguridad." },
+        { "icon": "🔌", "title": "Puntos de luz e iluminación", "desc": "Instalamos puntos de luz, lámparas, iluminación interior y exterior, sistemas de encendido automático, reguladores y luces LED. Damos vida a tu hogar." },
+        { "icon": "🛠️", "title": "Montaje de cocinas", "desc": "Montamos e instalamos cocinas completas: muebles, encimeras, campanas extractoras y todo tipo de accesorios. Cocinas funcionales y bonitas." },
+        { "icon": "🔧", "title": "Montaje de muebles", "desc": "Montamos muebles, estanterías y bastidores. Dejamos tu hogar perfecto." }
+      ],
+      "link": "Más información"
+    },
+    "includes": {
+      "title": "QUÉ INCLUYE NUESTRA INSTALACIÓN",
+      "heading": "Servicio completo<br /><em>de principio a fin.</em>",
+      "subheading": "Nos encargamos de todo el proceso: desde la planificación hasta la instalación y la puesta en marcha. No te preocupes de nada.",
+      "pas": "Paso",
+      "items": [
+        { "icon": "📋", "title": "Planificación y asesoramiento", "desc": "Visitamos tu hogar, te asesoramos sobre las mejores soluciones y te ofrecemos un presupuesto detallado sin compromiso." },
+        { "icon": "🔌", "title": "Instalación de calidad", "desc": "Utilizamos materiales de primera calidad y técnicas profesionales para garantizar resultados duraderos y seguros." },
+        { "icon": "✅", "title": "Seguridad y certificación", "desc": "Todos nuestros trabajos cumplen la normativa vigente y llevan garantía. Instalaciones seguras y certificadas." },
+        { "icon": "🧹", "title": "Limpieza y lo dejamos listo", "desc": "Una vez finalizado el trabajo, dejamos el espacio limpio y listo para que puedas disfrutarlo de inmediato." }
+      ]
+    },
+    "projects": {
+      "title": "TIPOS DE PROYECTOS",
+      "heading": "Soluciones para<br /><em>cada espacio.</em>",
+      "subheading": "Adaptamos nuestros servicios a tus necesidades. Desde pequeñas instalaciones hasta proyectos completos.",
+      "items": [
+        { "title": "Hogar particular", "desc": "Instalaciones y montajes para pisos, casas y chalets. Personalizamos cada proyecto según tus necesidades.", "img": "https://images.unsplash.com/photo-1628745277862-bc0b2d68c50c?w=600&h=400&fit=crop&auto=format" },
+        { "title": "Comunidades de vecinos", "desc": "Instalaciones eléctricas en zonas comunes, iluminación de escaleras, garajes y sistemas de seguridad.", "img": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop&auto=format" },
+        { "title": "Locales comerciales", "desc": "Iluminación de tiendas, restaurantes, oficinas e instalaciones eléctricas para negocios.", "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&auto=format" }
+      ]
+    },
+    "why": {
+      "title": "POR QUÉ NOSOTROS",
+      "heading": "Compromiso con<br /><em>cada instalación.</em>",
+      "subheading": "Profesionales con años de experiencia en instalaciones eléctricas y montaje de cocinas. Trabajamos con cuidado, garantía y seguridad.",
+      "cta": "Solicita presupuesto",
+      "items": [
+        { "title": "Profesionales cualificados", "desc": "Equipo con formación y experiencia en instalaciones eléctricas, montaje de cocinas y muebles. Trabajamos con garantía y seguridad." },
+        { "title": "Servicio rápido y puntual", "desc": "Respondemos en pocas horas y cumplimos los horarios acordados. Tu tiempo es nuestro tiempo." },
+        { "title": "Presupuesto sin compromiso", "desc": "Te explicamos el precio antes de empezar. Sin sorpresas ni costes ocultos." },
+        { "title": "Garantía en los trabajos", "desc": "Todos los trabajos llevan garantía. Si algo no funciona, volvemos a solucionarlo." }
+      ]
+    },
+    "testimonials": {
+      "title": "TESTIMONIOS",
+      "heading": "Lo que dicen<br /><em>nuestros clientes.</em>",
+      "items": [
+        { "text": "Hicieron la instalación eléctrica de toda la casa. Trabajo impecable y muy profesionales. Totalmente recomendables.", "name": "Jordi F.", "location": "Girona" },
+        { "text": "Montar la cocina fue un acierto. La dejaron perfecta y en muy poco tiempo. Excelentes profesionales.", "name": "Anna R.", "location": "Platja d'Aro" },
+        { "text": "Instalaron puntos de luz en toda la casa y quedó espectacular. Más que recomendables.", "name": "Carles M.", "location": "Sant Feliu" }
+      ]
+    },
+    "cta": {
+      "title": "CONTACTA CON NOSOTROS",
+      "text": "¿Necesitas instalaciones o montaje?",
+      "description": "Contáctanos y te damos una solución rápida y profesional.",
+      "button": "Solicita presupuesto"
+    }
+  },
+  "footer": {
+    "tagline": "GIRONA Y MARESME · 10 AÑOS DE EXPERIENCIA",
+    "description": "Servicio integral de mantenimiento, reparaciones, jardinería y piscinas en Girona, Maresme y Costa Brava. Profesionales de confianza, servicio cercano.",
+    "serveis_title": "Servicios",
+    "empresa_title": "Empresa",
+    "contacte_title": "Contacto",
+    "legal": "2026 SprintOps. Todos los derechos reservados",
+    "avis_legal": "Aviso legal",
+    "politica_privacitat": "Política de privacidad",
+    "cookies": "Cookies",
+    "inici": "Inicio",
+    "testimonis": "Testimonios",
+    "zona": "Girona, Maresme y Costa Brava",
+    "horari": "Lun–Vie: 7:30 – 19:00h"
+  },
+  "jardineria": {
+    "meta_title": "Jardinería en Girona y Costa Brava | Mantenimientos Lizana",
+    "meta_description": "Servicio profesional de jardinería en Girona, la Selva y la Costa Brava. Poda, diseño de jardines, riego automático, césped y mantenimiento continuo anual.",
+    "break_alt": "Jardín geométrico profesional",
+    "garden_alt": "Profesional de jardinería en acción",
+    "carousel": [
+      "JARDINES BIEN CUIDADOS",
+      "DISEÑO MEDITERRÁNEO",
+      "RIEGO AUTOMÁTICO",
+      "MANTENIMIENTO ANUAL",
+      "TOTAL CONFIANZA"
+    ],
+    "hero": {
+      "badge": "Girona y Maresme · Especialistas en jardinería",
+      "title": "El jardín que",
+      "subtitle": "mereces, cuidado como es debido.",
+      "description": "Diseñamos, plantamos y mantenemos jardines mediterráneos con años de experiencia local. Del pequeño patio a la gran parcela.",
+      "cta": "Pide presupuesto",
+      "secondary_cta": "Ver servicios",
+      "reviews": "Más de 350 jardines mantenidos",
+      "badge_title": "Respuesta garantizada",
+      "badge_sub": "En menos de 2h",
+      "image_alt": "Jardín formal con setos geométricos"
+    },
+    "services": {
+      "title": "NUESTROS SERVICIOS",
+      "heading": "Todo lo que<br /><em>necesita</em><br />tu jardín.",
+      "subheading": "Ofrecemos un servicio integral de jardinería: desde el diseño inicial hasta el mantenimiento periódico. Un equipo de profesionales a tu disposición durante todo el año.",
+      "items": [
+        {
+          "title": "Poda y Recorte",
+          "description": "Poda profesional de árboles, arbustos y setos vivos. Mantenimiento periódico para mantener la forma y la salud de las plantas.",
+          "img": "https://images.unsplash.com/photo-1680124744811-f779e4ad6985?w=600&h=400&fit=crop&auto=format",
+          "icon": "✂"
+        },
+        {
+          "title": "Diseño de Jardines",
+          "description": "Creación y diseño de jardines mediterráneos adaptados al clima local. Selección de plantas resistentes y estéticas.",
+          "img": "https://images.unsplash.com/photo-1783159144730-abbde99fe3ee?w=600&h=400&fit=crop&auto=format",
+          "icon": "🌿"
+        },
+        {
+          "title": "Riego Automático",
+          "description": "Instalación y mantenimiento de sistemas de riego por goteo y aspersión. Eficiencia hídrica y ahorro garantizados.",
+          "img": "https://images.unsplash.com/photo-1596916783053-b4515643e028?w=600&h=400&fit=crop&auto=format",
+          "icon": "💧"
+        },
+        {
+          "title": "Césped y Ajardinamiento",
+          "description": "Plantación de césped, nivelación del terreno y ajardinamiento completo de parcelas. Resultados profesionales.",
+          "img": "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=400&fit=crop&auto=format",
+          "icon": "🌳"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "POR QUÉ NOSOTROS",
+      "heading": "Compromiso con<br /><em>cada hoja.</em>",
+      "subheading": "Profesionales con años de experiencia en jardines de la zona. Conocemos el clima y las especies autóctonas.",
+      "items": [
+        {
+          "title": "Experiencia local",
+          "desc": "Más de 15 años trabajando en jardines de la zona. Conocemos el clima y las especies autóctonas."
+        },
+        {
+          "title": "Aleix, tu jardinero de confianza",
+          "desc": "Cada jardín es atendido personalmente por Aleix, con años de experiencia y un trato directo, cercano y de total confianza."
+        },
+        {
+          "title": "Presupuesto sin compromiso",
+          "desc": "Visita gratuita y presupuesto detallado sin ningún tipo de compromiso."
+        },
+        {
+          "title": "Mantenimiento continuo",
+          "desc": "Contratos de mantenimiento mensuales o estacionales adaptados a tus necesidades."
+        }
+      ]
+    },
+    "seasons": {
+      "title": "MANTENIMIENTO ANUAL",
+      "heading": "Cada estación,<br /><em>un trabajo.</em>",
+      "items": [
+        {
+          "season": "Primavera",
+          "tasks": [
+            "Poda de formación",
+            "Fertilización",
+            "Revisión del riego",
+            "Plantación de flores"
+          ]
+        },
+        {
+          "season": "Verano",
+          "tasks": [
+            "Riego intensivo",
+            "Control de plagas",
+            "Siega semanal",
+            "Poda ligera"
+          ]
+        },
+        {
+          "season": "Otoño",
+          "tasks": [
+            "Recogida de hojas",
+            "Plantación de bulbos",
+            "Poda de otoño",
+            "Preparación invernal"
+          ]
+        },
+        {
+          "season": "Invierno",
+          "tasks": [
+            "Poda de fructificación",
+            "Tratamientos fitosanitarios",
+            "Análisis del suelo",
+            "Planificación anual"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "TESTIMONIOS",
+      "heading": "Lo que dicen nuestros<br /><em>clientes de jardinería.</em>",
+      "items": [
+        {
+          "name": "Lluís M.",
+          "location": "Girona",
+          "text": "Transformaron mi jardín por completo. Diseño impresionante y resultados profesionales."
+        },
+        {
+          "name": "Carme P.",
+          "location": "Platja d'Aro",
+          "text": "El mantenimiento semanal es impecable. El jardín siempre está perfecto."
+        },
+        {
+          "name": "Joan G.",
+          "location": "Sant Feliu de Guíxols",
+          "text": "Instalaron el riego automático y he ahorrado muchísima agua. Muy recomendables."
+        }
+      ]
+    },
+    "cta": {
+      "title": "CONTACTO",
+      "text": "Hablemos de tu jardín. Contáctanos para pedir un presupuesto gratuito.",
+      "button": "Pide presupuesto",
+      "secondary": "Rellena el formulario"
+    }
+  }
+}

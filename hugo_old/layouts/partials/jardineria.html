@@ -1,0 +1,187 @@
+<section id="jardineria" style="padding:4rem 0; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ "images/imagelizana-jardi.webp" | relURL }}') center/cover no-repeat; color:white; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-bottom:5rem;">
+    <div style="max-width: 100%; padding: 0 20px; margin: 0 auto; text-align:center;">
+        <h2 style="color:white; font-size:2.5rem; margin-bottom:0.5rem;">{{ if eq .Site.Language.Lang "es" }}Jardinería integral{{ else }}Jardineria integral{{ end }}</h2>
+        <p style="font-size:1.5rem; margin-bottom:2rem; font-style:italic;">{{ if eq .Site.Language.Lang "es" }}Tu espacio verde, en buenas manos{{ else }}El teu espai verd, en bones mans{{ end }}</p>
+        <div class="grid-jardineria" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+            <button class="btn-servei" data-modal="modalJ1" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Corte de césped{{ else }}Tall de gespa{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modalJ2" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Poda de arbustos y árboles{{ else }}Poda d'arbustos i arbres{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modalJ3" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Desbroce de parcelas{{ else }}Desbrossament de parcel·les{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modalJ4" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Limpieza de jardines{{ else }}Neteja de jardins{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modalJ5" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Plantación y mantenimiento{{ else }}Plantació i manteniment{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+            <button class="btn-servei" data-modal="modalJ6" style="background: white; color: #00326B; border: 2px solid transparent; padding: 1rem; font-size: 1rem; font-weight: 400; text-transform: uppercase; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;">
+                {{ if eq .Site.Language.Lang "es" }}Puesta a punto para el verano{{ else }}Posada a punt per a l'estiu{{ end }}
+                <span class="btn-plus" style="font-size: 1.5rem; transition: color 0.3s ease;">+</span>
+            </button>
+        </div>
+ <!-- BOTÓ PER A LA LANDING DE JARDINERIA -->
+<div style="margin-top: 2.5rem; text-align: center;">
+    <a href="{{ if eq .Site.Language.Lang "es" }}/es/jardineria/{{ else }}/ca/jardineria/{{ end }}" 
+       class="btn-jardineria"
+       style="display: inline-block; 
+              border: 2px solid white; 
+              color: white; 
+              text-transform: uppercase; 
+              font-weight: 300; 
+              font-size: 1rem; 
+              padding: 12px 30px; 
+              text-decoration: none; 
+              letter-spacing: 1px;
+              transition: all 0.3s ease;
+              background: transparent;">
+        {{ if eq .Site.Language.Lang "es" }}Más información sobre jardinería{{ else }}Més informació sobre jardineria{{ end }}
+    </a>
+</div>
+    </div>
+</section>
+<!-- MODALS JARDINERIA -->
+<div id="modalJ1" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Corte de césped{{ else }}Tall de gespa{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Realizamos un corte de césped profesional, adaptando la altura según la época del año y el tipo de planta. Utilizamos maquinaria adecuada para obtener un corte limpio y uniforme que favorezca el crecimiento saludable del césped. Además, recogemos los restos y dejamos el jardín limpio y ordenado.{{ else }}Realitzem un tall de gespa professional, adaptant l'alçada segons l'època de l'any i el tipus de planta. Utilitzem maquinària adequada per obtenir un tall net i uniforme que afavoreixi el creixement saludable de la gespa. A més, recollim les restes i deixem el jardí net i endreçat.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Mejora el aspecto estético, favorece la densidad del césped y reduce la aparición de malas hierbas.{{ else }}Millora l'aspecte estètic, afavoreix la densitat de la gespa i redueix l'aparició de males herbes.{{ end }}</p>
+    </div>
+</div>
+<div id="modalJ2" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Poda de arbustos y árboles{{ else }}Poda d'arbustos i arbres{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Efectuamos podas de formación, mantenimiento y rejuvenecimiento para arbustos, setos y árboles. Eliminamos ramas secas o enfermas, equilibramos la copa y favorecemos una floración más abundante. Trabajamos con técnicas que respetan la salud de las plantas y la seguridad del entorno.{{ else }}Efectuem podes de formació, manteniment i rejoveniment per a arbustos, tanques i arbres. Eliminem branques seques o malaltes, equilibrem la copa i afavorim una floració més abundant. Treballem amb tècniques que respecten la salut de les plantes i la seguretat de l'entorn.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Mejora la salud de las plantas, aumenta la floración y reduce riesgos para personas y edificios.{{ else }}Millora la salut de les plantes, augmenta la floració i redueix riscos per a persones i edificis.{{ end }}</p>
+    </div>
+</div>
+<div id="modalJ3" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Desbroce de parcelas{{ else }}Desbrossament de parcel·les{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Limpiamos y desbrozamos terrenos, parcelas y zonas verdes abandonadas. Eliminamos malas hierbas, arbustos y vegetación invasiva para recuperar el espacio y prepararlo para nuevos usos. Dejamos la parcela limpia y segura, evitando incendios y plagas.{{ else }}Netegem i desbrossem terrenys, parcel·les i zones verdes abandonades. Eliminem males herbes, arbustos i vegetació invasiva per recuperar l'espai i preparar-lo per a nous usos. Deixem la parcel·la neta i segura, evitant incendis i plagues.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Recupera el uso del espacio, reduce el riesgo de incendios y plagas.{{ else }}Recupera l'ús de l'espai, redueix el risc d'incendis i plagues.{{ end }}</p>
+    </div>
+</div>
+<div id="modalJ4" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Limpieza de jardines{{ else }}Neteja de jardins{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Realizamos una limpieza integral del jardín: recogemos hojas secas, restos de poda, malas hierbas y desperdicios. Barremos y limpiamos las zonas de paso, y dejamos el jardín limpio, ordenado y preparado para disfrutarlo. También podemos incluir el tratamiento de plagas si se detecta alguna.{{ else }}Realitzem una neteja integral del jardí: recollim fulles seques, restes de poda, males herbes i deixalles. Escombrem i netegem les zones de pas, i deixem el jardí net, ordenat i preparat per gaudir-ne. També podem incloure el tractament de plagues si es detecta alguna.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Mejora la estética, previene plagas y alarga la vida de las plantas.{{ else }}Millora l'estètica, prevé plagues i allarga la vida de les plantes.{{ end }}</p>
+    </div>
+</div>
+<div id="modalJ5" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Plantación y mantenimiento{{ else }}Plantació i manteniment{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Plantamos nuevas especies adaptadas al clima y al suelo, diseñando espacios verdes sostenibles y de bajo mantenimiento. Realizamos el mantenimiento periódico de las nuevas plantaciones: riego, abonado, protección contra plagas y poda de formación.{{ else }}Plantem noves espècies adaptades al clima i al sòl, dissenyant espais verds sostenibles i de baix manteniment. Realitzem el manteniment periòdic de les noves plantacions: reg, adobat, protecció contra plagues i poda de formació.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Creación de espacios verdes sostenibles, mejora de la biodiversidad y valor estético.{{ else }}Creació d'espais verds sostenibles, millora de la biodiversitat i valor estètic.{{ end }}</p>
+    </div>
+</div>
+<div id="modalJ6" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; justify-content: center; align-items: center; padding: 0;">
+    <div style="background: white; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 3rem 2rem; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: left; position: relative;">
+        <button class="modal-tancar" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 3rem; cursor: pointer; color: #00326B; z-index: 10;">&times;</button>
+        <h3 style="color: #00326B; margin-top: 0; text-transform: uppercase; font-weight: bold; font-size: 2rem; text-align: left; max-width: 600px; width: 100%;">{{ if eq .Site.Language.Lang "es" }}Puesta a punto para el verano{{ else }}Posada a punt per a l'estiu{{ end }}</h3>
+        <p style="color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;">{{ if eq .Site.Language.Lang "es" }}Preparamos el jardín para la temporada de verano: realizamos una poda específica, mejoramos el sistema de riego, añadimos nutrientes al suelo y aplicamos tratamientos preventivos contra el calor y la sequía. Aseguramos que el jardín esté radiante y saludable durante los meses más cálidos.{{ else }}Preparem el jardí per a la temporada d'estiu: realitzem una poda específica, millorem el sistema de reg, afegim nutrients al sòl i apliquem tractaments preventius contra la calor i la sequera. Assegurem que el jardí estigui radiant i saludable durant els mesos més càlids.{{ end }}</p>
+        <p style="margin-top: 1rem; color: #00326B; font-size: 1.1rem; line-height: 1.6; max-width: 600px; width: 100%; margin: 1rem 0 0 0; text-align: left;"><strong>{{ if eq .Site.Language.Lang "es" }}Beneficios:{{ else }}Beneficis:{{ end }}</strong> {{ if eq .Site.Language.Lang "es" }}Jardín saludable y resistente al calor, ahorro de agua y reducción del esfuerzo de mantenimiento.{{ else }}Jardí saludable i resistent a la calor, estalvi d'aigua i reducció de l'esforç de manteniment.{{ end }}</p>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.btn-servei').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modalId = this.dataset.modal;
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    document.querySelectorAll('.modal-tancar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+    
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+    
+    document.querySelectorAll('.btn-servei').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+            this.style.background = 'transparent';
+            this.style.color = 'white';
+            this.style.borderColor = 'white';
+            this.querySelector('.btn-plus').style.color = 'white';
+        });
+        btn.addEventListener('mouseleave', function() {
+            this.style.background = 'white';
+            this.style.color = '#00326B';
+            this.style.borderColor = 'transparent';
+            this.querySelector('.btn-plus').style.color = '#00326B';
+        });
+    });
+    
+    // Tancar amb ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(function(modal) {
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+    });
+
+    // ============================================
+    // TANCAR MODALS NOMÉS SI ES FA SCROLL DE MÉS DE 50px
+    // ============================================
+    let lastScrollY = window.scrollY;
+    let scrollAcumulat = 0;
+    
+    document.addEventListener('scroll', function() {
+        const currentScrollY = window.scrollY;
+        
+        // Acumular el scroll en positiu (només cap amunt)
+        if (currentScrollY < lastScrollY) {
+            scrollAcumulat += (lastScrollY - currentScrollY);
+        } else {
+            // Si l'usuari fa scroll cap avall, reiniciem l'acumulador
+            scrollAcumulat = 0;
+        }
+        
+        // Si l'acumulat supera 50px, tanquem el modal
+        if (scrollAcumulat > 50) {
+            document.querySelectorAll('.modal').forEach(function(modal) {
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    scrollAcumulat = 0; // Reiniciem
+                }
+            });
+        }
+        lastScrollY = currentScrollY;
+    });
+</script>

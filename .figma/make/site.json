@@ -1,0 +1,11 @@
+{
+  "title": "MANTENIMENTS LIZANA",
+  "description": "Offers professional maintenance, repair, gardening, and pool services in Girona with fast, reliable solutions tailored for homes and businesses.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

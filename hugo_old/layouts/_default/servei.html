@@ -1,0 +1,268 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* RESET PER A LA LANDING */
+        html, body {
+            scroll-snap-type: none !important;
+            overflow-y: auto !important;
+            height: auto !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1E2A3A;
+            background: white;
+        }
+
+        main, .servei-page, section, article {
+            scroll-snap-align: none !important;
+            min-height: auto !important;
+            height: auto !important;
+        }
+
+        .servei-page {
+            padding-top: 20px;
+            padding-bottom: 0;
+            background: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .servei-page .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .servei-header {
+            margin-bottom: 30px;
+            padding-bottom: 0;
+            border-bottom: none;
+            text-align: left;
+        }
+
+        .servei-header h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: #00326B;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .servei-subtitle {
+            font-size: 1.2rem;
+            color: #1E2A3A;
+            font-weight: 300;
+            text-align: left;
+        }
+
+        .servei-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #1E2A3A;
+            background: white;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            text-align: left;
+        }
+
+        .servei-content h1:first-of-type {
+            display: none;
+        }
+
+        .servei-content h2 {
+            font-size: 2rem;
+            color: #00326B;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 0;
+            border-bottom: none;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .servei-content h3 {
+            font-size: 1.4rem;
+            color: #00326B;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .servei-content p {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .servei-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .servei-content ul li {
+            padding: 8px 0 8px 30px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300326B'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") left center no-repeat;
+            background-size: 20px;
+            border-bottom: none;
+            text-align: left;
+        }
+
+        .servei-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .servei-content strong {
+            color: #00326B;
+        }
+
+        .servei-content blockquote {
+            margin: 30px 0;
+            padding: 20px 30px;
+            background: #f5f7fa;
+            border-left: 5px solid #00326B;
+            border-radius: 5px;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .servei-content blockquote p {
+            margin: 0;
+            text-align: left;
+        }
+
+        /* ============================================
+           CTA FULL WIDTH BLAU (FORA DEL CONTAINER)
+           ============================================ */
+        .servei-cta-wrapper {
+            width: 100%;
+            background: #00326B;
+            margin-top: 50px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .servei-cta {
+            text-align: center;
+            padding: 60px 30px;
+            background: #00326B;
+            color: white;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .servei-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 25px;
+            border: none;
+            padding: 0;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .servei-cta .btn-contacte {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            padding: 14px 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .servei-cta .btn-contacte:hover {
+            background: white;
+            color: #00326B;
+            border-color: white;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .servei-page {
+                padding-top: 70px;
+                padding-bottom: 0;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .servei-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .servei-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .servei-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .servei-content ul li {
+                padding: 6px 0 6px 25px;
+                background-size: 18px;
+            }
+
+            .servei-cta {
+                padding: 40px 20px;
+            }
+
+            .servei-cta h2 {
+                font-size: 1.6rem;
+            }
+
+            .servei-cta .btn-contacte {
+                font-size: 1rem;
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article class="servei-page">
+            <div class="container">
+                <div class="servei-header">
+                    <h1>{{ .Title }}</h1>
+                    {{ with .Params.description }}
+                    <p class="servei-subtitle">{{ . }}</p>
+                    {{ end }}
+                </div>
+
+                <div class="servei-content">
+                    {{ .Content }}
+                </div>
+            </div>
+        </article>
+
+        <!-- CTA FULL WIDTH BLAU (FORA DEL CONTAINER) -->
+        <div class="servei-cta-wrapper">
+            <div class="servei-cta">
+                <h2>{{ if eq .Site.Language.Lang "es" }}EXPLÍCANOS TU NECESIDAD{{ else }}EXPLICA'NS LA TEVA NECESSITAT{{ end }}</h2>
+                <a href="{{ if eq .Site.Language.Lang "es" }}/es/contacto/{{ else }}/ca/contacte/{{ end }}" class="btn-contacte">
+                    {{ if eq .Site.Language.Lang "es" }}CONTÁCTANOS{{ else }}CONTACTA'NS{{ end }}
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+{{ end }}

@@ -1,0 +1,71 @@
+<footer style="background: #00326B; color: white; padding: 3rem 0 2rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; text-align: left;">
+
+            <!-- Columna 1: Info de contacte -->
+            <div>
+                <h4 style="color: white; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 1px;">Contacte</h4>
+                <p style="margin-bottom: 0.5rem;">
+                    <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+                    <a href="tel:+34677218303" style="color: white; text-decoration: none;">677 218 303</a>
+                </p>
+                <p style="margin-bottom: 0.5rem;">
+                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>
+                    <a href="mailto:mantenimentlizana@gmail.com" style="color: white; text-decoration: none;">mantenimentlizana@gmail.com</a>
+                </p>
+                <p style="margin-bottom: 0.5rem;">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>
+                    {{ if eq .Site.Language.Lang "es" }}Girona | La Selva | Segundas residencias{{ else }}Girona | La Selva | Segones residències{{ end }}
+                </p>
+            </div>
+
+            <!-- Columna 2: Serveis -->
+            <div>
+                <h4 style="color: white; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 1px;">Serveis</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="/ca/jardineria/" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Jardineria</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="/ca/piscines/" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Piscines</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#serveis" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Reparaciones{{ else }}Reparacions{{ end }}</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="#serveis" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">{{ if eq .Site.Language.Lang "es" }}Mantenimiento general{{ else }}Manteniment general{{ end }}</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Polítiques i legals -->
+            <div>
+                <h4 style="color: white; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 1px;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{{ if eq .Site.Language.Lang "es" }}/es/politica-privacidad/{{ else }}/ca/politica-privacitat/{{ end }}" 
+                           style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">
+                            {{ if eq .Site.Language.Lang "es" }}Política de privacidad{{ else }}Política de privacitat{{ end }}
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{{ if eq .Site.Language.Lang "es" }}/es/condiciones-uso/{{ else }}/ca/condicions-us/{{ end }}" 
+                           style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">
+                            {{ if eq .Site.Language.Lang "es" }}Condiciones de uso{{ else }}Condicions d'ús{{ end }}
+                        </a>
+                    </li>
+                    <li style="margin-bottom: 0.5rem;">
+                        <a href="{{ if eq .Site.Language.Lang "es" }}/es/rgpd/{{ else }}/ca/rgpd/{{ end }}" 
+                           style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">
+                            RGPD
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright sense fillet -->
+        <div style="padding-top: 0.5rem; text-align: center;">
+            <p style="margin-bottom: 0; font-weight: 300; opacity: 0.8; font-size: 0.9rem;">
+                © 2026 Manteniments Lizana - 
+                {{ if eq .Site.Language.Lang "es" }}
+                    Mantenemos la calidad, cuidamos tu espacio
+                {{ else }}
+                    Mantenim la qualitat, cuidem el teu espai
+                {{ end }}
+            </p>
+        </div>
+    </div>
+</footer>

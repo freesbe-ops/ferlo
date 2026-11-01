@@ -1,0 +1,18 @@
+# Hugo
+resources/
+.hugo_build.lock
+
+# Netlify
+.netlify/
+
+# Sistema
+.DS_Store
+.Trash/
+*.log
+
+# Node
+node_modules/
+dist/
+
+# Public (permetre fitxers específics de la SPA)
+# public/

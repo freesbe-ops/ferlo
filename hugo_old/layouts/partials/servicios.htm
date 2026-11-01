@@ -1,0 +1,125 @@
+<section id="serveis" style="padding:4rem 0; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ "images/theme-photos-Klby0nxseY8-unsplash.jpg" | relURL }}') center/cover no-repeat; background-attachment: fixed; color:white; min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
+    <div style="max-width: 100%; padding: 0 20px; margin: 0 auto; text-align:center;">
+        <h2 style="color:white; font-size:2.5rem; margin-bottom:2rem;">Reparacions a casa i manteniment preventiu</h2>
+        
+        <div class="carousel-container" style="position:relative; max-width:800px; margin:0 auto; overflow:hidden;">
+            <div class="carousel-slides" style="display:flex; transition: transform 0.8s ease-in-out;">
+                <div class="carousel-slide" style="min-width:100%; padding:2rem;">
+                    <h3 style="font-size:1.8rem; margin-bottom:1rem;">Manteniment preventiu d'aire condicionat</h3>
+                    <p style="font-size:1.2rem;">Millora rendiment, estalvia energia, allarga la vida de l'equip. Servei ràpid i professional.</p>
+                </div>
+                <div class="carousel-slide" style="min-width:100%; padding:2rem;">
+                    <h3 style="font-size:1.8rem; margin-bottom:1rem;">Reparacions a casa</h3>
+                    <p style="font-size:1.2rem;">Làmpades, endolls, interruptors, ventiladors, aixetes, cisternes, penjar quadres, prestatgeries, fusteria, pintura, muntatge mobles i molt més.</p>
+                </div>
+                <div class="carousel-slide" style="min-width:100%; padding:2rem;">
+                    <h3 style="font-size:1.8rem; margin-bottom:1rem;">Manteniment general de la llar</h3>
+                    <p style="font-size:1.2rem;">Fontaneria, electricitat bàsica, pintura, petites reformes, fusteria. La teva llar en bones mans.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function() {
+        // Espera que el DOM estigui completament carregat
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        } else {
+            initCarousel();
+        }
+
+        function initCarousel() {
+            const slidesContainer = document.querySelector('.carousel-slides');
+            if (!slidesContainer) return;
+
+            const totalSlides = document.querySelectorAll('.carousel-slide').length;
+            if (totalSlides === 0) return;
+
+            let currentIndex = 0;
+            let interval = null;
+
+            function showSlide(index) {
+                if (index >= totalSlides) index = 0;
+                if (index < 0) index = totalSlides - 1;
+                currentIndex = index;
+                slidesContainer.style.transform = 'translateX(-' + (index * 100) + '%)';
+            }
+
+            function nextSlide() {
+                showSlide(currentIndex + 1);
+            }
+
+            function startAutoPlay() {
+                if (interval) clearInterval(interval);
+                interval = setInterval(nextSlide, 3000);
+            }
+
+            function stopAutoPlay() {
+                if (interval) {
+                    clearInterval(interval);
+                    interval = null;
+                }
+            }
+
+            // Iniciar l'autoplay
+            startAutoPlay();
+
+            // Pausar en hover
+            const container = document.querySelector('.carousel-container');
+            if (container) {
+                container.addEventListener('mouseenter', stopAutoPlay);
+                container.addEventListener('mouseleave', startAutoPlay);
+            }
+
+            // Swipe amb touch (mòbil)
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            if (container) {
+                container.addEventListener('touchstart', function(e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                container.addEventListener('touchend', function(e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, { passive: true });
+
+                function handleSwipe() {
+                    const threshold = 50;
+                    const diff = touchStartX - touchEndX;
+                    if (Math.abs(diff) > threshold) {
+                        stopAutoPlay();
+                        if (diff > 0) {
+                            showSlide(currentIndex + 1);
+                        } else {
+                            showSlide(currentIndex - 1);
+                        }
+                        startAutoPlay();
+                    }
+                }
+            }
+
+            // Scroll horitzontal amb roda del ratolí
+            if (container) {
+                container.addEventListener('wheel', function(e) {
+                    if (Math.abs(e.deltaX) > 30) {
+                        e.preventDefault();
+                        stopAutoPlay();
+                        if (e.deltaX > 0) {
+                            showSlide(currentIndex + 1);
+                        } else {
+                            showSlide(currentIndex - 1);
+                        }
+                        startAutoPlay();
+                    }
+                }, { passive: false });
+            }
+
+            // Fallback: si alguna cosa falla, reiniciar autoplay després d'1 segon
+            setTimeout(startAutoPlay, 1000);
+        }
+    })();
+</script>
