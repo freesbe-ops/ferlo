@@ -65,7 +65,7 @@ function CatalanContent() {
       <p style={S.p}>
         Per a qualsevol dubte sobre aquesta política pots escriure'ns a <strong style={S.strong}>info@ferlo.es</strong>.
         També pots consultar la nostra{' '}
-        <a href={privacyPath('ca')} style={{ color: '#00326B' }}>política de privacitat</a>.
+        <a href={privacyPath('ca')} style={{ color: 'var(--color-primary)' }}>política de privacitat</a>.
       </p>
     </>
   )
@@ -132,7 +132,7 @@ function SpanishContent() {
       <p style={S.p}>
         Para cualquier duda sobre esta política puedes escribirnos a <strong style={S.strong}>info@ferlo.es</strong>.
         También puedes consultar nuestra{' '}
-        <a href={privacyPath('es')} style={{ color: '#00326B' }}>política de privacidad</a>.
+        <a href={privacyPath('es')} style={{ color: 'var(--color-primary)' }}>política de privacidad</a>.
       </p>
     </>
   )

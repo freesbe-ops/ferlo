@@ -55,7 +55,7 @@ function CatalanContent() {
       <h2 style={S.h2}>6. Protecció de dades</h2>
       <p style={S.p}>
         El tractament de dades personals es regeix per la nostra{' '}
-        <a href={privacyPath('ca')} style={{ color: '#00326B' }}>política de privacitat</a>.
+        <a href={privacyPath('ca')} style={{ color: 'var(--color-primary)' }}>política de privacitat</a>.
       </p>
 
       <h2 style={S.h2}>7. Legislació aplicable i jurisdicció</h2>
@@ -120,7 +120,7 @@ function SpanishContent() {
       <h2 style={S.h2}>6. Protección de datos</h2>
       <p style={S.p}>
         El tratamiento de datos personales se rige por nuestra{' '}
-        <a href={privacyPath('es')} style={{ color: '#00326B' }}>política de privacidad</a>.
+        <a href={privacyPath('es')} style={{ color: 'var(--color-primary)' }}>política de privacidad</a>.
       </p>
 
       <h2 style={S.h2}>7. Legislación aplicable y jurisdicción</h2>

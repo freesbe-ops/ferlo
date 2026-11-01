@@ -70,27 +70,27 @@ export default function NotFound() {
       />
       <LegalShell currentLang={currentLang} onLanguageChange={changeLanguage}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(72px, 16vw, 140px)', fontWeight: 700, color: '#00326B', lineHeight: 1, opacity: 0.15 }}>
+          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(72px, 16vw, 140px)', fontWeight: 700, color: 'var(--color-primary)', lineHeight: 1, opacity: 0.15 }}>
             {copy.code}
           </div>
           <h1 style={{ ...S.h1, marginTop: -24 }}>{copy.title}</h1>
           <p style={{ ...S.p, maxWidth: 560, margin: '0 auto 32px' }}>{copy.text}</p>
 
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 56 }}>
-            <Link to={homePath(currentLang)} style={{ ...buttonStyle, backgroundColor: '#00326B', color: '#FFFFFF' }}>
+            <Link to={homePath(currentLang)} style={{ ...buttonStyle, backgroundColor: 'var(--color-primary)', color: '#FFFFFF' }}>
               {copy.home}
             </Link>
-            <a href="#serveis" style={{ ...buttonStyle, backgroundColor: '#F5F5F5', color: '#00326B' }}>
+            <a href="#serveis" style={{ ...buttonStyle, backgroundColor: 'var(--color-cream)', color: 'var(--color-primary)' }}>
               {copy.services}
             </a>
           </div>
 
-          <div id="serveis" style={{ textAlign: 'left', borderTop: '1px solid #E5E5E5', paddingTop: 32 }}>
+          <div id="serveis" style={{ textAlign: 'left', borderTop: '1px solid var(--color-border)', paddingTop: 32 }}>
             <h2 style={{ ...S.h2, marginTop: 0, borderTop: 'none', paddingTop: 0 }}>{copy.servicesTitle}</h2>
             <ul style={S.ul}>
               {SERVICE_KEYS.map(key => (
                 <li key={key} style={S.li}>
-                  <Link to={servicePath(currentLang, key)} style={{ color: '#00326B', textDecoration: 'underline' }}>
+                  <Link to={servicePath(currentLang, key)} style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>
                     {copy.links[key]}
                   </Link>
                 </li>

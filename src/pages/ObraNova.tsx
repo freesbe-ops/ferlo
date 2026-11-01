@@ -24,14 +24,14 @@ function CarouselBar({ items, dark = false }: { items: string[]; dark?: boolean 
 
   return (
     <div style={{
-      borderTop: dark ? 'none' : '1px solid #E5E5E5',
-      borderBottom: dark ? 'none' : '1px solid #E5E5E5',
-      backgroundColor: dark ? '#00326B' : '#F5F5F5',
+      borderTop: dark ? 'none' : '1px solid var(--color-border)',
+      borderBottom: dark ? 'none' : '1px solid var(--color-border)',
+      backgroundColor: dark ? 'var(--color-primary)' : 'var(--color-cream)',
       padding: '20px 0',
       overflow: 'hidden',
     }}>
       <div style={{ display: 'flex', whiteSpace: 'nowrap', animation: 'scrollCarousel 12s linear infinite' }}>
-        <span style={{ fontSize: 16, fontWeight: 600, color: dark ? '#FFFFFF' : '#1A1714', letterSpacing: '0.12em', paddingRight: 0 }} dangerouslySetInnerHTML={{ __html: text }} />
+        <span style={{ fontSize: 16, fontWeight: 600, color: dark ? '#FFFFFF' : 'var(--color-ink)', letterSpacing: '0.12em', paddingRight: 0 }} dangerouslySetInnerHTML={{ __html: text }} />
       </div>
       <style>{`
         @keyframes scrollCarousel {
@@ -91,12 +91,12 @@ export default function ObraNova() {
   const testimonials = t('obraNova.testimonials.items', { returnObjects: true }) as Array<{ text: string; name: string; location: string }>
   const carouselItems = t('obraNova.carousel', { returnObjects: true }) as string[]
 
-  const brandBlue = '#00326B'
-  const brandDark = '#00245A'
-  const muted = '#5C5348'
+  const brandBlue = '#847261'
+  const brandDark = '#6B5D4F'
+  const muted = '#65615D'
 
   return (
-    <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", backgroundColor: '#F5F5F5', color: '#1A1714' }}>
+    <div style={{ fontFamily: "var(--font-sans)", backgroundColor: 'var(--color-cream)', color: 'var(--color-ink)' }}>
       <Seo
         lang={currentLang}
         path={servicePath(currentLang, 'obraNova')}
@@ -174,14 +174,14 @@ export default function ObraNova() {
       `}</style>
 
       {/* HERO */}
-      <section id="inici" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end', marginTop: '-60px', background: '#0D1F35' }}>
+      <section id="inici" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-end', marginTop: '-60px', background: 'var(--color-ink)' }}>
         <img
           src={HERO_IMG}
           alt={t('obraNova.hero.image_alt')}
           fetchPriority="high"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.45 }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,50,107,0.88) 0%, rgba(0,50,107,0.3) 50%, transparent 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.3) 50%, transparent 100%)' }} />
 
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', padding: '144px 24px 96px', width: '100%' }}>
           <div style={{ maxWidth: 700 }}>
@@ -192,10 +192,10 @@ export default function ObraNova() {
                   value={currentLang}
                   onChange={(e) => changeLanguage(e.target.value)}
                   aria-label="Idioma / Language / Idioma / Langue"
-                  style={{ background: 'transparent', border: 'none', color: '#B0C4DE', fontWeight: 700, textDecoration: 'underline', fontSize: 12, fontFamily: "'DM Sans', system-ui, sans-serif", letterSpacing: '0.12em', textTransform: 'uppercase', outline: 'none', cursor: 'pointer', padding: 0, margin: 0, appearance: 'none', WebkitAppearance: 'none' }}
+                  style={{ background: 'transparent', border: 'none', color: '#FFFFFF', fontWeight: 700, textDecoration: 'underline', fontSize: 12, fontFamily: "var(--font-sans)", letterSpacing: '0.12em', textTransform: 'uppercase', outline: 'none', cursor: 'pointer', padding: 0, margin: 0, appearance: 'none', WebkitAppearance: 'none' }}
                 >
                   {LANGS.map(l => (
-                    <option key={l} value={l} style={{ color: '#1A1714', textTransform: 'uppercase' }}>{LANG_LABELS[l]}</option>
+                    <option key={l} value={l} style={{ color: 'var(--color-ink)', textTransform: 'uppercase' }}>{LANG_LABELS[l]}</option>
                   ))}
                 </select>
                 <span style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)', fontWeight: 700, pointerEvents: 'none', lineHeight: 1 }}>▼</span>
@@ -221,7 +221,7 @@ export default function ObraNova() {
 
             {/* CTAs */}
             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-              <a href="#contacte" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', backgroundColor: brandBlue, color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 600, boxShadow: '0 4px 20px rgba(0,50,107,0.5)', transition: 'background 0.2s' }}
+              <a href="#contacte" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', backgroundColor: brandBlue, color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 600, boxShadow: '0 4px 20px rgba(10,10,10,0.5)', transition: 'background 0.2s' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = brandDark)}
                 onMouseLeave={(e) => (e.currentTarget.style.background = brandBlue)}>
                 {t('obraNova.hero.cta')}
@@ -236,7 +236,7 @@ export default function ObraNova() {
             {/* Floating badge */}
             <div style={{ position: 'absolute', bottom: 24, right: 24, zIndex: 1, background: '#FFFFFF', borderRadius: 16, padding: '16px 20px', boxShadow: '0 8px 32px rgba(0,0,0,0.18)', textAlign: 'center', display: 'none' }} className="hero-badge">
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: brandBlue, marginBottom: 2, textTransform: 'uppercase' }}>{t('obraNova.hero.badge_title')}</div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: '#1A1714' }}>{t('obraNova.hero.badge_sub')}</div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)' }}>{t('obraNova.hero.badge_sub')}</div>
             </div>
           </div>
         </div>
@@ -252,20 +252,20 @@ export default function ObraNova() {
       <CarouselBar items={carouselItems} dark />
 
       {/* SERVEIS */}
-      <section id="serveis" style={{ padding: '96px 24px', background: '#F5F5F5', maxWidth: 1200, margin: '0 auto' }}>
+      <section id="serveis" style={{ padding: '96px 24px', background: 'var(--color-cream)', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 56, maxWidth: 640 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('obraNova.services.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.services.heading') }} />
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.services.heading') }} />
           <p style={{ fontSize: 16, color: muted, lineHeight: 1.7 }}>{t('obraNova.services.subheading')}</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="inst-services-grid">
           {services.map((s) => (
             <div key={s.title} style={{ borderRadius: 16, padding: '28px', display: 'flex', flexDirection: 'column', gap: 16, background: '#FFFFFF', boxShadow: '0 2px 16px rgba(0,0,0,0.06)', transition: 'box-shadow 0.3s, transform 0.3s', cursor: 'pointer' }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,50,107,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(10,10,10,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'; e.currentTarget.style.transform = 'translateY(0)' }}>
-              <div style={{ width: 48, height: 48, borderRadius: 12, background: '#EFF6FF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>{s.icon}</div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: '#1A1714', lineHeight: 1.2, margin: 0 }}>{s.title}</h3>
+              <div style={{ width: 48, height: 48, borderRadius: 12, background: 'var(--color-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>{s.icon}</div>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: 'var(--color-ink)', lineHeight: 1.2, margin: 0 }}>{s.title}</h3>
               <p style={{ fontSize: 14, lineHeight: 1.65, color: muted, margin: 0, flex: 1 }}>{s.desc}</p>
               <a href="#contacte" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: brandBlue, textDecoration: 'none' }}>
                 {t('obraNova.services.link')}
@@ -286,20 +286,20 @@ export default function ObraNova() {
       <section style={{ padding: '96px 24px', background: '#FFFFFF', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 56, textAlign: 'center' }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('obraNova.includes.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.includes.heading') }} />
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.includes.heading') }} />
           <p style={{ fontSize: 16, color: muted, lineHeight: 1.7, maxWidth: 560, margin: '0 auto' }}>{t('obraNova.includes.subheading')}</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="inst-includes-grid">
           {includes.map((item, i) => (
-            <div key={item.title} style={{ borderRadius: 16, padding: '28px 24px', background: '#F5F5F5', display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div key={item.title} style={{ borderRadius: 16, padding: '28px 24px', background: 'var(--color-cream)', display: 'flex', flexDirection: 'column', gap: 14 }}>
               <div style={{ width: 48, height: 48, borderRadius: 12, background: brandBlue, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>
                 {item.icon}
               </div>
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: brandBlue, textTransform: 'uppercase' }}>
                 {t('obraNova.includes.pas')} {String(i + 1).padStart(2, '0')}
               </div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: '#1A1714', lineHeight: 1.25, margin: 0 }}>{item.title}</h3>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: 'var(--color-ink)', lineHeight: 1.25, margin: 0 }}>{item.title}</h3>
               <p style={{ fontSize: 14, lineHeight: 1.65, color: muted, margin: 0 }}>{item.desc}</p>
             </div>
           ))}
@@ -313,24 +313,24 @@ export default function ObraNova() {
       `}</style>
 
       {/* TIPUS DE PROJECTES */}
-      <section style={{ padding: '96px 24px', background: '#F5F5F5', maxWidth: 1200, margin: '0 auto' }}>
+      <section style={{ padding: '96px 24px', background: 'var(--color-cream)', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 56 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('obraNova.projects.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.projects.heading') }} />
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.projects.heading') }} />
           <p style={{ fontSize: 16, color: muted, lineHeight: 1.7, maxWidth: 480 }}>{t('obraNova.projects.subheading')}</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="inst-projects-grid">
           {projects.map((p) => (
             <div key={p.title} style={{ borderRadius: 16, overflow: 'hidden', background: '#FFFFFF', boxShadow: '0 2px 16px rgba(0,0,0,0.06)', transition: 'box-shadow 0.3s, transform 0.3s' }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,50,107,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 12px 40px rgba(10,10,10,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'; e.currentTarget.style.transform = 'translateY(0)' }}>
-              <div style={{ position: 'relative', height: 200, backgroundColor: '#00326B' }}>
+              <div style={{ position: 'relative', height: 200, backgroundColor: 'var(--color-primary)' }}>
                 <img src={p.img} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,50,107,0.5) 0%, transparent 60%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 60%)' }} />
               </div>
               <div style={{ padding: '24px 24px 28px' }}>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 600, color: '#1A1714', lineHeight: 1.2, margin: '0 0 10px' }}>{p.title}</h3>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 600, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 0 10px' }}>{p.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.65, color: muted, margin: 0 }}>{p.desc}</p>
               </div>
             </div>
@@ -350,7 +350,7 @@ export default function ObraNova() {
           {/* Left - sticky */}
           <div style={{ position: 'sticky', top: 100 }}>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('obraNova.why.title')}</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.why.heading') }} />
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('obraNova.why.heading') }} />
             <p style={{ fontSize: 16, color: muted, lineHeight: 1.7, maxWidth: 440, marginBottom: 32 }}>{t('obraNova.why.subheading')}</p>
             <a href="#contacte" style={{ display: 'inline-block', padding: '14px 28px', backgroundColor: brandBlue, color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>
               {t('obraNova.why.cta')}
@@ -360,12 +360,12 @@ export default function ObraNova() {
           {/* Right - items */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {whyItems.map((w, i) => (
-              <div key={w.title} style={{ display: 'flex', gap: 20, padding: '24px', borderRadius: 16, background: '#F5F5F5', border: '1px solid transparent', transition: 'background 0.2s, border-color 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(0,50,107,0.15)'; e.currentTarget.style.background = '#EFF6FF' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = '#F5F5F5' }}>
+              <div key={w.title} style={{ display: 'flex', gap: 20, padding: '24px', borderRadius: 16, background: 'var(--color-cream)', border: '1px solid transparent', transition: 'background 0.2s, border-color 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(10,10,10,0.15)'; e.currentTarget.style.background = 'var(--color-warm)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = 'var(--color-cream)' }}>
                 <div style={{ width: 32, height: 32, borderRadius: '50%', background: brandBlue, color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, flexShrink: 0, marginTop: 2 }}>{i + 1}</div>
                 <div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 600, color: '#1A1714', marginBottom: 8, lineHeight: 1.2 }}>{w.title}</h3>
+                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 600, color: 'var(--color-ink)', marginBottom: 8, lineHeight: 1.2 }}>{w.title}</h3>
                   <p style={{ fontSize: 14, lineHeight: 1.7, color: muted, margin: 0 }}>{w.desc}</p>
                 </div>
               </div>
@@ -382,28 +382,28 @@ export default function ObraNova() {
       `}</style>
 
       {/* TESTIMONIS */}
-      <section style={{ padding: '96px 24px', background: '#F5F5F5', maxWidth: 1200, margin: '0 auto' }}>
+      <section style={{ padding: '96px 24px', background: 'var(--color-cream)', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('obraNova.testimonials.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#1A1714', letterSpacing: '-0.02em', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('obraNova.testimonials.heading') }} />
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('obraNova.testimonials.heading') }} />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="inst-testimonials-grid">
           {testimonials.map((item) => (
             <div key={item.name} style={{ padding: '32px', borderRadius: 16, background: '#FFFFFF', boxShadow: '0 2px 16px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', gap: 20, transition: 'box-shadow 0.2s, transform 0.2s' }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,50,107,0.12)'; e.currentTarget.style.transform = 'translateY(-3px)' }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(10,10,10,0.12)'; e.currentTarget.style.transform = 'translateY(-3px)' }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'; e.currentTarget.style.transform = 'translateY(0)' }}>
               <div style={{ display: 'flex', gap: 4 }}>
                 {[1,2,3,4,5].map(i => (
                   <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                 ))}
               </div>
-              <p style={{ fontSize: 14, lineHeight: 1.75, color: '#374151', margin: 0, flex: 1 }}>"{item.text}"</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, paddingTop: 8, borderTop: '1px solid #E5E5E5' }}>
+              <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--color-muted)', margin: 0, flex: 1 }}>"{item.text}"</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, paddingTop: 8, borderTop: '1px solid var(--color-border)' }}>
                 <div style={{ width: 36, height: 36, borderRadius: '50%', background: brandBlue, color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700 }}>{item.name[0]}</div>
                 <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: '#1A1714' }}>{item.name}</div>
-                  <div style={{ fontSize: 12, color: '#9CA3AF' }}>{item.location}</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--color-ink)' }}>{item.name}</div>
+                  <div style={{ fontSize: 12, color: 'var(--color-muted)' }}>{item.location}</div>
                 </div>
               </div>
             </div>
@@ -442,60 +442,60 @@ export default function ObraNova() {
 
       {/* FOOTER - unificat */}
       <footer style={{ padding: '60px 24px 40px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', backgroundColor: '#FFFFFF', borderRadius: 28, padding: '48px 48px 28px', boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid #EEEEEE' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', backgroundColor: '#FFFFFF', borderRadius: 28, padding: '48px 48px 28px', boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid var(--color-warm)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
                 <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
                 <div>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
-                  <div style={{ fontSize: 11, color: '#5C5348', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
+                  <div style={{ fontSize: 11, color: 'var(--color-muted)', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
                 </div>
               </div>
-              <p style={{ fontSize: 13, color: '#5C5348', lineHeight: 1.7, maxWidth: 280, margin: 0 }}>{t('footer.description')}</p>
+              <p style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.7, maxWidth: 280, margin: 0 }}>{t('footer.description')}</p>
               <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-                <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid #E5E5E5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, textDecoration: 'none' }}>
+                <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, textDecoration: 'none' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 </a>
               </div>
             </div>
 
             <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.serveis_title')}</div>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.serveis_title')}</div>
               {[
                 { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes') },
                 { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines') },
                 { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys') },
                 { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova') },
               ].map((service) => (
-                <Link key={service.label} to={service.href} style={{ display: 'block', fontSize: 13, color: '#5C5348', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{service.label}</Link>
+                <Link key={service.label} to={service.href} style={{ display: 'block', fontSize: 13, color: 'var(--color-muted)', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{service.label}</Link>
               ))}
             </div>
 
             <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.empresa_title')}</div>
-              <Link to={`/${currentLang}`} style={{ display: 'block', fontSize: 13, color: '#5C5348', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{t('footer.inici')}</Link>
-              <Link to={`/${currentLang}/#sobre`} style={{ display: 'block', fontSize: 13, color: '#5C5348', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{t('nav.sobre')}</Link>
-              <Link to={`/${currentLang}/#contacte`} style={{ display: 'block', fontSize: 13, color: '#5C5348', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{t('nav.contacte')}</Link>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.empresa_title')}</div>
+              <Link to={`/${currentLang}`} style={{ display: 'block', fontSize: 13, color: 'var(--color-muted)', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{t('footer.inici')}</Link>
+              <Link to={`/${currentLang}/#sobre`} style={{ display: 'block', fontSize: 13, color: 'var(--color-muted)', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{t('nav.sobre')}</Link>
+              <Link to={`/${currentLang}/#contacte`} style={{ display: 'block', fontSize: 13, color: 'var(--color-muted)', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{t('nav.contacte')}</Link>
             </div>
 
             <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.contacte_title')}</div>
-              <div style={{ fontSize: 13, color: '#5C5348', lineHeight: 1.8 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.contacte_title')}</div>
+              <div style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.8 }}>
                 <div>💬 <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ color: '#25D366', textDecoration: 'none', fontWeight: 500 }}>692 586 863</a></div>
                 <div>✉️ <a href="mailto:info@ferlo.es" style={{ color: brandBlue, textDecoration: 'none', fontWeight: 500 }}>info@ferlo.es</a></div>
                 <div style={{ marginTop: 8 }}>{t('footer.zona')}</div>
-                <div style={{ fontSize: 12, color: '#6B6258', marginTop: 4 }}>{t('footer.horari')}</div>
+                <div style={{ fontSize: 12, color: 'var(--color-muted)', marginTop: 4 }}>{t('footer.horari')}</div>
               </div>
             </div>
           </div>
 
-          <div style={{ borderTop: '1px solid #E5E5E5', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-            <a href="https://www.sprintops.es" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.legal')}</a>
+          <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+            <a href="https://www.sprintops.es" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: 'var(--color-muted)', textDecoration: 'none' }}>{t('footer.legal')}</a>
             <div style={{ display: 'flex', gap: 24 }}>
-              <Link to={legalPath(currentLang)} style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.avis_legal')}</Link>
-              <Link to={privacyPath(currentLang)} style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.politica_privacitat')}</Link>
-              <Link to={cookiesPath(currentLang)} style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.cookies')}</Link>
+              <Link to={legalPath(currentLang)} style={{ fontSize: 12, color: 'var(--color-muted)', textDecoration: 'none' }}>{t('footer.avis_legal')}</Link>
+              <Link to={privacyPath(currentLang)} style={{ fontSize: 12, color: 'var(--color-muted)', textDecoration: 'none' }}>{t('footer.politica_privacitat')}</Link>
+              <Link to={cookiesPath(currentLang)} style={{ fontSize: 12, color: 'var(--color-muted)', textDecoration: 'none' }}>{t('footer.cookies')}</Link>
             </div>
           </div>
         </div>

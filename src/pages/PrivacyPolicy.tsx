@@ -151,7 +151,7 @@ function CatalanContent() {
         Aquest lloc web utilitza cookies tècniques i analítiques per mesurar l'ús del lloc i millorar l'experiència.
         Pots configurar o bloquejar les cookies des del teu navegador. En cap cas no fem servir cookies per obtenir
         dades personals identificables. Trobes tota la informació a la{' '}
-        <a href={cookiesPath('ca')} style={{ color: '#00326B' }}>política de cookies</a>.
+        <a href={cookiesPath('ca')} style={{ color: 'var(--color-primary)' }}>política de cookies</a>.
       </p>
 
       <h2 style={S.h2}>12. Modificacions de la política</h2>
@@ -279,7 +279,7 @@ function SpanishContent() {
         Este sitio web utiliza cookies técnicas y analíticas para medir el uso del sitio y mejorar la experiencia. Puedes
         configurar o bloquear las cookies desde tu navegador. En ningún caso utilizamos cookies para obtener datos
         personales identificables. Encuentras toda la información en la{' '}
-        <a href={cookiesPath('es')} style={{ color: '#00326B' }}>política de cookies</a>.
+        <a href={cookiesPath('es')} style={{ color: 'var(--color-primary)' }}>política de cookies</a>.
       </p>
 
       <h2 style={S.h2}>12. Modificaciones de la política</h2>
