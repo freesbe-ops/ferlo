@@ -5,15 +5,18 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import App from './App'
 import { useUtmParams } from './hooks/useUtmParams'
 import { trackPageView } from './lib/tracking'
-import { DEFAULT_LANG, canonicalPath, isLang, pathSegments, routePath } from './lib/lang'
+import { DEFAULT_LANG, ROUTES, canonicalPath, homePath, isLang, pathSegments } from './lib/lang'
 import './i18n'
 import './index.css'
 
-const Piscines = lazy(() => import('./pages/Piscines'))
-const Jardineria = lazy(() => import('./pages/Jardineria'))
-const Manteniment = lazy(() => import('./pages/Manteniment'))
-const Instalacions = lazy(() => import('./pages/Instalacions'))
+const Reformes = lazy(() => import('./pages/Reformes'))
+const Cuines = lazy(() => import('./pages/Cuines'))
+const Banys = lazy(() => import('./pages/Banys'))
+const ObraNova = lazy(() => import('./pages/ObraNova'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const Legal = lazy(() => import('./pages/Legal'))
+const Cookies = lazy(() => import('./pages/Cookies'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollManager() {
   const location = useLocation()
@@ -27,7 +30,7 @@ function ScrollManager() {
       const id = location.hash.slice(1)
       const element = document.getElementById(id)
       if (element) {
-        // Si venim d'una altra pàgina (ex: de /ca/serveis/piscines a /ca#sobre),
+        // Si venim d'una altra pàgina (ex: de /ca/serveis/reformes a /ca#sobre),
         // esperem que el component es munti abans de fer scroll.
         // Si és la mateixa pàgina amb un hash nou, actuem immediatament.
         const isNewPage = prevPathname.current !== location.pathname
@@ -58,12 +61,13 @@ function CatchAllRedirect() {
   const location = useLocation()
   const [firstSegment] = pathSegments(location.pathname)
   const lang = isLang(firstSegment) ? firstSegment : DEFAULT_LANG
-  return <Navigate to={routePath(lang, 'home')} replace />
+  return <Navigate to={homePath(lang)} replace />
 }
 
-// Canonicalitza les URLs localitzades: cada idioma té els seus slugs
-// (/ca/serveis/jardineria, /fr/services/jardins...), de manera que qualsevol
-// variant retorna a la forma canònica abans que es renderitzi cap pàgina.
+// Canonicalitza les URLs localitzades: cada idioma té els seus propis slugs
+// (/es/servicios/cocinas, /ca/serveis/cuines), de manera que qualsevol variant
+// (majúscules, barra final, slug d'un altre idioma) retorna a la forma canònica
+// abans que es renderitzi cap pàgina.
 function AppRoutes() {
   const location = useLocation()
   const canonical = canonicalPath(location.pathname)
@@ -75,25 +79,30 @@ function AppRoutes() {
   return (
     <Suspense fallback={<div>Carregant...</div>}>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Navigate to={homePath(DEFAULT_LANG)} replace />} />
         <Route path="/:lang" element={<App />} />
 
-        {/* Serveis — slugs compartits a CA/ES/EN i slugs francesos a FR */}
-        <Route path="/:lang/serveis/piscines" element={<Piscines />} />
-        <Route path="/:lang/serveis/jardineria" element={<Jardineria />} />
-        <Route path="/:lang/serveis/manteniment" element={<Manteniment />} />
-        <Route path="/:lang/serveis/instalacions" element={<Instalacions />} />
-        <Route path="/:lang/services/piscines" element={<Piscines />} />
-        <Route path="/:lang/services/jardins" element={<Jardineria />} />
-        <Route path="/:lang/services/maintenance" element={<Manteniment />} />
-        <Route path="/:lang/services/installations" element={<Instalacions />} />
+        {/* Serveis: un slug diferent per idioma */}
+        <Route path={`/:lang/${ROUTES.reformes.es}`} element={<Reformes />} />
+        <Route path={`/:lang/${ROUTES.reformes.ca}`} element={<Reformes />} />
+        <Route path={`/:lang/${ROUTES.cuines.es}`} element={<Cuines />} />
+        <Route path={`/:lang/${ROUTES.cuines.ca}`} element={<Cuines />} />
+        <Route path={`/:lang/${ROUTES.banys.es}`} element={<Banys />} />
+        <Route path={`/:lang/${ROUTES.banys.ca}`} element={<Banys />} />
+        <Route path={`/:lang/${ROUTES.obraNova.es}`} element={<ObraNova />} />
+        <Route path={`/:lang/${ROUTES.obraNova.ca}`} element={<ObraNova />} />
 
-        {/* Privacitat — un slug per idioma */}
-        <Route path="/:lang/politica-de-privacitat" element={<PrivacyPolicy />} />
-        <Route path="/:lang/politica-de-privacidad" element={<PrivacyPolicy />} />
-        <Route path="/:lang/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/:lang/politique-de-confidentialite" element={<PrivacyPolicy />} />
+        {/* Pàgines legals */}
+        <Route path={`/:lang/${ROUTES.privacy.es}`} element={<PrivacyPolicy />} />
+        <Route path={`/:lang/${ROUTES.privacy.ca}`} element={<PrivacyPolicy />} />
+        <Route path={`/:lang/${ROUTES.legal.es}`} element={<Legal />} />
+        <Route path={`/:lang/${ROUTES.legal.ca}`} element={<Legal />} />
+        <Route path={`/:lang/${ROUTES.cookies.es}`} element={<Cookies />} />
+        <Route path={`/:lang/${ROUTES.cookies.ca}`} element={<Cookies />} />
 
+        {/* 404 explícit + qualsevol altra ruta localitzada desconeguda */}
+        <Route path="/:lang/404" element={<NotFound />} />
+        <Route path="/:lang/*" element={<NotFound />} />
         <Route path="*" element={<CatchAllRedirect />} />
       </Routes>
     </Suspense>

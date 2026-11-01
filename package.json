@@ -1,9 +1,9 @@
 {
-  "name": "manteniments-lizana",
+  "name": "ferlo",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://mantenimentslizana.com/",
+  "homepage": "https://ferlo.es/",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "node scripts/generate-sitemap.mjs && vite build",

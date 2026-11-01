@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
  * Generates /sitemap.xml (build-time) with every real, indexable page:
- *   - language homepages  (/ca, /es, /en, /fr)
- *   - service pages       (/<lang>/serveis/{piscines,jardineria,manteniment,instalacions}
- *                          plus the localised French slugs /fr/services/{...})
- *   - privacy pages       (/ca/politica-de-privacitat, /es/politica-de-privacidad,
- *                          /en/privacy-policy, /fr/politique-de-confidentialite)
+ *   - language homepages  (/es, /ca)
+ *   - service pages       (/es/servicios/{reformas-integrales,cocinas,banos,obra-nueva}
+ *                          and /ca/serveis/{reformes-integrals,cuines,banys,obra-nova})
+ *   - legal pages         (privacy, aviso legal, cookies) in both languages
+ *
+ * The 404 page is intentionally excluded (it is `noindex, follow`).
  *
  * Each URL includes <lastmod>, <changefreq>, <priority> and <xhtml:link
  * rel="alternate" hreflang> pointing to every language variant.
@@ -19,76 +20,65 @@ import { writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const DOMAIN = 'https://mantenimentslizana.com'
-const LANGUAGES = ['ca', 'es', 'en', 'fr']
-const DEFAULT_LANGUAGE = 'ca'
+const DOMAIN = 'https://ferlo.es'
+const LANGUAGES = ['es', 'ca']
+const DEFAULT_LANGUAGE = 'es'
 
-/** Localised URL segments per route (mirrors ROUTE_SEGMENTS in src/lib/lang.ts). */
+/** Localised URL segments per route (mirrors ROUTES in src/lib/lang.ts). */
 const ROUTES = [
   {
     key: 'home',
-    langs: LANGUAGES,
-    segments: { ca: [], es: [], en: [], fr: [] },
+    segments: { es: [], ca: [] },
     changefreq: 'weekly',
     priority: '1.0',
   },
   {
-    key: 'piscines',
-    langs: LANGUAGES,
+    key: 'reformes',
     segments: {
-      ca: ['serveis', 'piscines'],
-      es: ['serveis', 'piscines'],
-      en: ['serveis', 'piscines'],
-      fr: ['services', 'piscines'],
+      es: ['servicios', 'reformas-integrales'],
+      ca: ['serveis', 'reformes-integrals'],
     },
     changefreq: 'monthly',
     priority: '0.9',
   },
   {
-    key: 'jardineria',
-    langs: LANGUAGES,
-    segments: {
-      ca: ['serveis', 'jardineria'],
-      es: ['serveis', 'jardineria'],
-      en: ['serveis', 'jardineria'],
-      fr: ['services', 'jardins'],
-    },
+    key: 'cuines',
+    segments: { es: ['servicios', 'cocinas'], ca: ['serveis', 'cuines'] },
     changefreq: 'monthly',
     priority: '0.9',
   },
   {
-    key: 'manteniment',
-    langs: LANGUAGES,
-    segments: {
-      ca: ['serveis', 'manteniment'],
-      es: ['serveis', 'manteniment'],
-      en: ['serveis', 'manteniment'],
-      fr: ['services', 'maintenance'],
-    },
+    key: 'banys',
+    segments: { es: ['servicios', 'banos'], ca: ['serveis', 'banys'] },
     changefreq: 'monthly',
     priority: '0.9',
   },
   {
-    key: 'instalacions',
-    langs: LANGUAGES,
-    segments: {
-      ca: ['serveis', 'instalacions'],
-      es: ['serveis', 'instalacions'],
-      en: ['serveis', 'instalacions'],
-      fr: ['services', 'installations'],
-    },
+    key: 'obraNova',
+    segments: { es: ['servicios', 'obra-nueva'], ca: ['serveis', 'obra-nova'] },
     changefreq: 'monthly',
     priority: '0.9',
   },
   {
-    // Privacy has its own localised slug in every language.
     key: 'privacy',
-    langs: LANGUAGES,
     segments: {
-      ca: ['politica-de-privacitat'],
       es: ['politica-de-privacidad'],
-      en: ['privacy-policy'],
-      fr: ['politique-de-confidentialite'],
+      ca: ['politica-de-privacitat'],
+    },
+    changefreq: 'yearly',
+    priority: '0.3',
+  },
+  {
+    key: 'legal',
+    segments: { es: ['aviso-legal'], ca: ['avis-legal'] },
+    changefreq: 'yearly',
+    priority: '0.3',
+  },
+  {
+    key: 'cookies',
+    segments: {
+      es: ['politica-de-cookies'],
+      ca: ['politica-de-cookies'],
     },
     changefreq: 'yearly',
     priority: '0.3',
@@ -110,12 +100,11 @@ function buildEntries() {
   const entries = []
 
   for (const route of ROUTES) {
-    // Only the languages where the route really exists are advertised.
     const alternates = Object.fromEntries(
-      route.langs.map((lang) => [lang, abs(routePath(route, lang))]),
+      LANGUAGES.map((lang) => [lang, abs(routePath(route, lang))]),
     )
 
-    for (const lang of route.langs) {
+    for (const lang of LANGUAGES) {
       entries.push({
         path: routePath(route, lang),
         lastmod: LAST_MOD,

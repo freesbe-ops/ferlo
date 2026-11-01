@@ -8,7 +8,7 @@ import { getTraffic, persistTrafficFromSearch, type Traffic } from '../lib/track
  *
  * - On mount (and on every route change that carries fresh UTM/gclid params) it
  *   persists the campaign to sessionStorage, so it survives internal SPA
- *   navigation (language changes, going from /ca to /ca/serveis/piscines…)
+ *   navigation (language changes, going from /es to /es/servicios/cocinas…)
  *   where react-router drops the query string.
  * - `traffic` contains source/medium/campaign/term/content, gclid, a
  *   `googleAds` boolean, plus page_location and page_referrer.

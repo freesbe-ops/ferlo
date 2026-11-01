@@ -105,9 +105,11 @@ export interface SeoProps {
   image?: string
   /** Optional hreflang overrides (absolute URLs). */
   alternates?: Record<string, string>
+  /** Emit `noindex, follow` — only safe for pages that must stay out of the index (404). */
+  noindex?: boolean
 }
 
-export default function Seo({ lang, path, title, description, image, alternates }: SeoProps) {
+export default function Seo({ lang, path, title, description, image, alternates, noindex }: SeoProps) {
   const url = `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`
   const imageAbs = image
     ? image.startsWith('http')
@@ -123,7 +125,7 @@ export default function Seo({ lang, path, title, description, image, alternates 
     '@id': `${SITE_URL}/#localbusiness`,
     name: BUSINESS_NAP.name,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
+    logo: `${SITE_URL}/logo.png`,
     image: [`${SITE_URL}/hero.webp`],
     description: BUSINESS_DESCRIPTION[lang],
     telephone: BUSINESS_NAP.telephone,
@@ -159,6 +161,7 @@ export default function Seo({ lang, path, title, description, image, alternates 
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
 
       {Object.entries(allAlternates).map(([hreflang, href]) => (
         <link key={hreflang} rel="alternate" hrefLang={hreflang} href={href} />

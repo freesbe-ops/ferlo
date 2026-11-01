@@ -8,7 +8,9 @@ import {
   DEFAULT_LANG,
   LANG_LABELS,
   LANGS,
+  cookiesPath,
   isLang,
+  legalPath,
   normalizeLang,
   privacyPath,
   servicePath,
@@ -45,11 +47,11 @@ const WHY_US_ICONS = [
   </svg>,
 ]
 
-const POOL_IMAGES = [
-  'https://images.unsplash.com/photo-1562016600-ece13e8ba570?w=600&h=400&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop&auto=format',
-  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop&auto=format',
+const SERVICE_IMAGES = [
+  '/hero.webp',
+  '/despues.webp',
+  '/antes.webp',
+  '/hero.webp',
 ]
 
 function CarouselBar({ items }: { items: string[] }) {
@@ -76,16 +78,16 @@ function BeforeAfterSection() {
 
   const abans = '/antes.webp'
   const despres = '/despues.webp'
-  const abansLabel = t('piscines.abans_despres.abans')
-  const despresLabel = t('piscines.abans_despres.despres')
+  const abansLabel = t('reformes.abans_despres.abans')
+  const despresLabel = t('reformes.abans_despres.despres')
 
   return (
     <section style={{ padding: '96px 24px', background: '#1A1714' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#60D394', textTransform: 'uppercase', marginBottom: 16 }}>{t('piscines.abans_despres.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.15 }} dangerouslySetInnerHTML={{ __html: t('piscines.abans_despres.heading') }} />
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#60D394', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.abans_despres.title')}</div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.15 }} dangerouslySetInnerHTML={{ __html: t('reformes.abans_despres.heading') }} />
         </div>
 
         {/* Split fix 50/50 - sense arrossegament */}
@@ -112,13 +114,13 @@ function BeforeAfterSection() {
           <div style={{ position: 'absolute', top: 0, bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 3, background: '#FFFFFF', boxShadow: '0 0 12px rgba(0,0,0,0.3)' }} />
         </div>
 
-        <p style={{ textAlign: 'center', marginTop: 12, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>{t('piscines.abans_despres.hint')}</p>
+        <p style={{ textAlign: 'center', marginTop: 12, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>{t('reformes.abans_despres.hint')}</p>
       </div>
     </section>
   )
 }
 
-export default function Piscines() {
+export default function Reformes() {
   const { t, i18n } = useTranslation()
   const { lang: langParam } = useParams<{ lang?: string }>()
   const navigate = useNavigate()
@@ -133,54 +135,54 @@ export default function Piscines() {
       }
       localStorage.setItem('i18nextLng', langParam)
     } else {
-      navigate(servicePath(DEFAULT_LANG, 'piscines'), { replace: true })
+      navigate(servicePath(DEFAULT_LANG, 'reformes'), { replace: true })
     }
   }, [langParam, navigate, i18n])
 
   const changeLanguage = (value: string) => {
     i18n.changeLanguage(value)
     localStorage.setItem('i18nextLng', value)
-    navigate(servicePath(normalizeLang(value), 'piscines'), { replace: false })
+    navigate(servicePath(normalizeLang(value), 'reformes'), { replace: false })
   }
 
-  const whatsappBase = 'https://wa.me/34677218303'
-  const waHeader = `${whatsappBase}?utm_source=web&utm_medium=whatsapp&utm_campaign=piscines&utm_content=${currentLang}`
-  const waFooter = `${whatsappBase}?utm_source=web&utm_medium=whatsapp&utm_campaign=piscines&utm_content=${currentLang}`
+  const whatsappBase = 'https://wa.me/34692586863'
+  const waHeader = `${whatsappBase}?utm_source=web&utm_medium=whatsapp&utm_campaign=reformes&utm_content=${currentLang}`
+  const waFooter = `${whatsappBase}?utm_source=web&utm_medium=whatsapp&utm_campaign=reformes&utm_content=${currentLang}`
 
   const trackWhatsApp = (label: string) => trackWhatsAppClick(label)
 
   const navLinks = [
     { label: t('nav.serveis'), href: '#serveis', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> },
     { label: t('nav.sobre'), href: `/${currentLang}/#sobre`, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg> },
-    { label: t('nav.piscines'), href: servicePath(currentLang, 'piscines'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 18c2-3 4-4.5 7-4.5S14 15 16.5 18" /><path d="M4 9.5C5.5 8 7.5 7 9.5 7s3.5 1 5 2.5" /><path d="M13 3.5c1.6 1.2 2.8 3 3.5 5" /><path d="M8 5.5c-1.2 1.3-2 3.2-2.2 5.1" /></svg> },
-    { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'jardineria'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> },
-    { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'manteniment'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> },
-    { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'instalacions'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg> },
+    { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> },
+    { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="10" width="18" height="9" rx="2"/><path d="M1.5 13.5h1.5M21 13.5h1.5"/><path d="M8 6.5c0-.9.7-1.3.7-2.2M12 6.5c0-.9.7-1.3.7-2.2M16 6.5c0-.9.7-1.3.7-2.2"/></svg> },
+    { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.7l5.4 5.4a7.64 7.64 0 1 1-10.8 0z"/><path d="M9 13a3 3 0 0 0 3 3"/></svg> },
+    { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 21h20"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9.5 21v-6h5v6"/><path d="M9.5 10h5"/></svg> },
     { label: 'WhatsApp', href: waHeader, external: true, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> },
   ]
 
-  const services = t('piscines.services.items', { returnObjects: true }) as Array<{ title: string; description: string }>
-  const benefits = t('piscines.benefits.items', { returnObjects: true }) as Array<{ title: string; description: string }>
-  const testimonials = t('piscines.testimonials.items', { returnObjects: true }) as Array<{ name: string; location: string; text: string }>
-  const carouselItems = t('piscines.carousel', { returnObjects: true }) as string[]
+  const services = t('reformes.services.items', { returnObjects: true }) as Array<{ title: string; description: string }>
+  const benefits = t('reformes.benefits.items', { returnObjects: true }) as Array<{ title: string; description: string }>
+  const testimonials = t('reformes.testimonials.items', { returnObjects: true }) as Array<{ name: string; location: string; text: string }>
+  const carouselItems = t('reformes.carousel', { returnObjects: true }) as string[]
 
   return (
     <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", backgroundColor: '#F5F5F5', color: '#1A1714' }}>
       <Seo
         lang={currentLang}
-        path={servicePath(currentLang, 'piscines')}
-        title={t('piscines.meta_title')}
-        description={t('piscines.meta_description')}
+        path={servicePath(currentLang, 'reformes')}
+        title={t('reformes.meta_title')}
+        description={t('reformes.meta_description')}
       />
 
       <header style={{ position: 'sticky', top: 20, zIndex: 50, padding: '0 24px' }}>
         <div style={{ width: 'fit-content', margin: '0 auto', backgroundColor: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 100, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, height: 60, boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid rgba(255,255,255,0.3)' }}>
           <Link to={`/${currentLang}`} style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img src="/logo-lizana.webp" alt="FERLO - Reparacions a Girona" width={128} height={128} style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover' }} />
+              <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover' }} />
               <div className="logo-text">
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 15, color: '#1A1714', lineHeight: 1.1 }}>Manteniments</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontSize: 12, color: '#5C5348', letterSpacing: '0.08em' }}>LIZANA</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 15, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontSize: 12, color: '#5C5348', letterSpacing: '0.08em' }}>TORDERA</div>
               </div>
             </div>
           </Link>
@@ -255,7 +257,7 @@ export default function Piscines() {
 
       <section id="inici" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-start', marginTop: '-60px', paddingTop: '60px' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?w=1200&h=600&fit=crop&auto=format" alt={t('piscines.hero.image_alt')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+          <img src="/hero.webp" alt={t('reformes.hero.image_alt')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
           <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.46)' }} />
         </div>
 
@@ -279,26 +281,26 @@ export default function Piscines() {
 
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: 28, fontSize: 12, fontWeight: 500, letterSpacing: '0.12em', color: '#B0C4DE', textTransform: 'uppercase' }}>
               <span style={{ width: 20, height: 1, backgroundColor: '#FFFFFF', display: 'inline-block' }} />
-              {t('piscines.hero.badge')}
+              {t('reformes.hero.badge')}
             </div>
 
             <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
-              {t('piscines.hero.title')}
+              {t('reformes.hero.title')}
             </h1>
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(36px, 4.8vw, 58px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.1, marginBottom: 28, color: '#FFFFFF' }}>
-              {t('piscines.hero.subtitle')}
+              {t('reformes.hero.subtitle')}
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.7, color: '#E0E0E0', maxWidth: 460, marginBottom: 40 }}>
-              {t('piscines.hero.description')}
+              {t('reformes.hero.description')}
             </p>
 
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', marginBottom: 48 }}>
               <a href="#contacte" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', backgroundColor: '#FFFFFF', color: '#1A1714', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
-                {t('piscines.hero.cta')}
+                {t('reformes.hero.cta')}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12,5 19,12 12,19" /></svg>
               </a>
               <a href="#serveis" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '13px 24px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.4)', color: '#FFFFFF', textDecoration: 'none', fontSize: 14, fontWeight: 400, backgroundColor: 'transparent' }}>
-                {t('piscines.hero.secondary_cta')}
+                {t('reformes.hero.secondary_cta')}
               </a>
             </div>
 
@@ -306,7 +308,7 @@ export default function Piscines() {
               {[1, 2, 3, 4, 5].map((star) => (
                 <svg key={star} width="16" height="16" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               ))}
-              <span style={{ fontSize: 13, color: '#E0E0E0' }}><strong style={{ color: '#FFFFFF' }}>4.9 / 5</strong> · {t('piscines.hero.reviews')}</span>
+              <span style={{ fontSize: 13, color: '#E0E0E0' }}><strong style={{ color: '#FFFFFF' }}>4.9 / 5</strong> · {t('reformes.hero.reviews')}</span>
             </div>
           </div>
         </div>
@@ -353,10 +355,10 @@ export default function Piscines() {
 
       <section id="serveis" style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
         <div style={{ marginBottom: 64 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('piscines.services.title')}</div>
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('reformes.services.title')}</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('piscines.services.heading') }} />
-            <p style={{ fontSize: 16, color: '#5C5348', lineHeight: 1.65, margin: 0 }}>{t('piscines.services.subheading')}</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.services.heading') }} />
+            <p style={{ fontSize: 16, color: '#5C5348', lineHeight: 1.65, margin: 0 }}>{t('reformes.services.subheading')}</p>
           </div>
         </div>
 
@@ -364,7 +366,7 @@ export default function Piscines() {
           {services.map((service, index) => (
             <div key={service.title} style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid #E5E5E5', backgroundColor: '#FAFAFA' }}>
               <div style={{ aspectRatio: '16/7', overflow: 'hidden', backgroundColor: '#E5E5E5' }}>
-                <img src={POOL_IMAGES[index]} alt={`${service.title} - FERLO`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <img src={SERVICE_IMAGES[index]} alt={`${service.title} - FERLO`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
               <div style={{ padding: '28px 28px 32px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#00326B', marginBottom: 14 }}>
@@ -394,10 +396,10 @@ export default function Piscines() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 60, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
             <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('piscines.benefits.title')}</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('piscines.benefits.heading') }} />
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('reformes.benefits.title')}</div>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: '#1A1714', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.benefits.heading') }} />
             </div>
-            <p style={{ fontSize: 16, color: '#5C5348', lineHeight: 1.65, margin: 0 }}>{t('piscines.benefits.subheading')}</p>
+            <p style={{ fontSize: 16, color: '#5C5348', lineHeight: 1.65, margin: 0 }}>{t('reformes.benefits.subheading')}</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="benefits-grid">
@@ -420,8 +422,8 @@ export default function Piscines() {
 
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
         <div style={{ marginBottom: 60 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 16 }}>{t('piscines.testimonials.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: '#1A1714', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('piscines.testimonials.heading') }} />
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.testimonials.title')}</div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: '#1A1714', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('reformes.testimonials.heading') }} />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="testimonials-grid">
@@ -455,16 +457,16 @@ export default function Piscines() {
 
       <section id="contacte" style={{ backgroundColor: '#F5F5F5', padding: '100px 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', backgroundColor: '#FFFFFF', border: '1px solid #E5E5E5', borderRadius: 28, padding: '72px 32px' }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 16 }}>{t('piscines.cta.title')}</div>
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.cta.title')}</div>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: '#1A1714', lineHeight: 1.2, margin: '0 auto 20px', maxWidth: 760 }}>
-            {t('piscines.cta.text')}
+            {t('reformes.cta.text')}
           </h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
             <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('cta_final')} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 24px', borderRadius: 40, backgroundColor: '#25D366', color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, boxShadow: '0 10px 24px rgba(37, 211, 102, 0.25)' }}>
-              {t('piscines.cta.button')}
+              {t('reformes.cta.button')}
             </a>
             <Link to={`/${currentLang}/#contacte`} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 24px', borderRadius: 40, border: '1px solid #D9D9D9', backgroundColor: '#FFFFFF', color: '#1A1714', textDecoration: 'none', fontWeight: 600 }}>
-              {t('piscines.cta.secondary')}
+              {t('reformes.cta.secondary')}
             </Link>
           </div>
         </div>
@@ -475,7 +477,7 @@ export default function Piscines() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-                <img src="/logo-lizana.webp" alt="FERLO - Reparacions a Girona" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+                <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
                 <div>
                   <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
                   <div style={{ fontSize: 11, color: '#5C5348', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
@@ -483,12 +485,6 @@ export default function Piscines() {
               </div>
               <p style={{ fontSize: 13, color: '#5C5348', lineHeight: 1.7, maxWidth: 280 }}>{t('footer.description')}</p>
               <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-                <a href="https://www.facebook.com/p/Manteniments-Lizana-61590819927805/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid #E5E5E5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1877F2', fontSize: 14, textDecoration: 'none' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
-                </a>
-                <a href="https://www.instagram.com/manteniments_lizana" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid #E5E5E5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, textDecoration: 'none' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="igG" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="#833AB4"/><stop offset="50%" stopColor="#FD1D1D"/><stop offset="100%" stopColor="#F77737"/></linearGradient></defs><path fill="url(#igG)" d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.107.29 2.6.481.653.253 1.121.556 1.612 1.046.49.49.793.958 1.046 1.612.191.493.419 1.234.481 2.6.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.29 2.107-.481 2.6-.253.653-.556 1.121-1.046 1.612-.49.49-.958.793-1.612 1.046-.493.191-1.234.419-2.6.481-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.107-.29-2.6-.481-.653-.253-1.121-.556-1.612-1.046-.49-.49-.793-.958-1.046-1.612-.191-.493-.419-1.234-.481-2.6-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.29-2.107.481-2.6.253-.653.556-1.121 1.046-1.612.49-.49.958-.793 1.612-1.046.493-.191 1.234-.419 2.6-.481 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.281.06-2.155.262-2.913.558-.79.307-1.459.717-2.126 1.384-.667.667-1.077 1.336-1.384 2.126-.296.758-.498 1.632-.558 2.913-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.06 1.281.262 2.155.558 2.913.307.79.717 1.459 1.384 2.126.667.667 1.336 1.077 2.126 1.384.758.296 1.632.498 2.913.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.281-.06 2.155-.262 2.913-.558.79-.307 1.459-.717 2.126-1.384.667-.667 1.077-1.336 1.384-2.126.296-.758.498-1.632.558-2.913.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.06-1.281-.262-2.155-.558-2.913-.307-.79-.717-1.459-1.384-2.126-.667-.667-1.336-1.077-2.126-1.384-.758-.296-1.632-.498-2.913-.558-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
                 <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid #E5E5E5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', fontSize: 14, textDecoration: 'none' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
                 </a>
@@ -498,10 +494,10 @@ export default function Piscines() {
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.serveis_title')}</div>
               {[
-                { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'manteniment') },
-                { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'piscines') },
-                { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'jardineria') },
-                { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'instalacions') },
+                { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes') },
+                { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines') },
+                { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys') },
+                { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova') },
               ].map((service) => (
                 <Link key={service.label} to={service.href} style={{ display: 'block', fontSize: 13, color: '#5C5348', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}>{service.label}</Link>
               ))}
@@ -517,8 +513,8 @@ export default function Piscines() {
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: '#5C5348', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.contacte_title')}</div>
               <div style={{ fontSize: 13, color: '#5C5348', lineHeight: 1.8 }}>
-                <div>💬 <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ color: '#25D366', textDecoration: 'none', fontWeight: 500 }}>677 218 303</a></div>
-                <div>✉️ <a href="mailto:mantenimentlizana@gmail.com" style={{ color: '#00326B', textDecoration: 'none', fontWeight: 500 }}>mantenimentlizana@gmail.com</a></div>
+                <div>💬 <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ color: '#25D366', textDecoration: 'none', fontWeight: 500 }}>692 586 863</a></div>
+                <div>✉️ <a href="mailto:info@ferlo.es" style={{ color: '#00326B', textDecoration: 'none', fontWeight: 500 }}>info@ferlo.es</a></div>
                 <div style={{ marginTop: 8 }}>{t('footer.zona')}</div>
                 <div style={{ fontSize: 12, color: '#6B6258', marginTop: 4 }}>{t('footer.horari')}</div>
               </div>
@@ -528,9 +524,9 @@ export default function Piscines() {
           <div style={{ borderTop: '1px solid #E5E5E5', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
             <a href="https://www.sprintops.es" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.legal')}</a>
             <div style={{ display: 'flex', gap: 24 }}>
-              <a href="#" style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.avis_legal')}</a>
+              <Link to={legalPath(currentLang)} style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.avis_legal')}</Link>
               <Link to={privacyPath(currentLang)} style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.politica_privacitat')}</Link>
-              <a href="#" style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.cookies')}</a>
+              <Link to={cookiesPath(currentLang)} style={{ fontSize: 12, color: '#6B6258', textDecoration: 'none' }}>{t('footer.cookies')}</Link>
             </div>
           </div>
         </div>

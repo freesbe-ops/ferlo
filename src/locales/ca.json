@@ -1,77 +1,103 @@
 {
-  "meta_title": "FERLO | Manteniment i serveis a Girona",
-  "meta_description": "FERLO: reparacions, jardineria, piscines i manteniment general a Girona, la Selva, la Costa Brava i el Maresme. Pressupost sense compromís.",
+  "meta_title": "Reformes i Obra Nova a Tordera, Blanes i Maresme | FERLO",
+  "meta_description": "Especialistes en reformes integrals, cuines, banys i obra nova a Tordera, Blanes, Lloret i Maresme. Pressupost gratuït i sense compromís.",
   "hero": {
-    "badge": "Girona i Maresme · 10 anys d'experiència",
-    "title": "Mans expertes.",
-    "subtitle": "Resultats reals.",
-    "description": "FERLO: reparacions a Girona, manteniment, jardineria i piscines a Girona, Maresme i Costa Brava. Un equip proper, puntual i professional que deixa la teva llar en perfecte estat.",
-    "cta": "Sol·licita pressupost gratuït",
+    "badge": "Tordera · Corredor Girona-Barcelona",
+    "title": "Obres que",
+    "subtitle": "transformen espais.",
+    "description": "Especialistes en reformes integrals, cuines, banys i obra nova a Tordera, Blanes, Lloret i rodalies. Un sol interlocutor, compliment de terminis i pressupost tancat.",
+    "cta": "Demana pressupost gratuït",
     "secondary_cta": "Veure serveis",
-    "stars_label": "Més de 120 clients satisfets",
-    "badge_title": "Resposta garantida",
-    "badge_sub": "En menys de 2h",
-    "image_alt": "Equip de FERLO realitzant reparacions a Girona"
+    "stars_label": "Clients a Tordera, Blanes i Lloret",
+    "badge_title": "Pressupost tancat",
+    "badge_sub": "Sense sorpreses",
+    "image_alt": "Equip de FERLO fent una reforma a Tordera"
   },
   "nav": {
     "serveis": "Serveis",
-    "sobre": "Nosaltres",
-    "piscines": "Piscines",
-    "contacte": "Contacta'ns",
+    "sobre": "Sobre nosaltres",
+    "reformes": "Reformes integrals",
+    "contacte": "Contacte",
     "pressupost": "Pressupost",
-    "pressupost_cta": "Sol·licita pressupost"
+    "pressupost_cta": "Demana pressupost"
   },
-  "carousel": ["PUNTUALS SEMPRE", "SENSE COMPROMÍS", "5★ REVIEWS VERIFICADES", "PRESSUPOST RÀPID"],
+  "carousel": [
+    "PRESSUPOST TANCAT",
+    "UN SOL INTERLOCUTOR",
+    "TERMINIS COMPLITS",
+    "ACABATS DE QUALITAT"
+  ],
   "serveis": {
     "title": "SERVEIS",
-    "heading": "Tot el que la teva llar<br /><em>necessita.</em>",
-    "subheading": "Un servei integral que cobreix totes les necessitats de manteniment. Si no és a la llista, pregunta'ns igualment — molt probablement t'ho podem resoldre.",
+    "heading": "Tot el que el teu projecte<br /><em>necessita.</em>",
+    "subheading": "Reformes integrals, cuines, banys i obra nova. Coordinem tots els gremis amb un únic interlocutor i un pressupost tancat.",
     "items": [
       {
-        "title": "Manteniment",
-        "description": "Fontaneria bàsica, electricitat, muntatge de mobles, petites reformes i fusteria. Mantenim la teva llar en perfecte estat tot l'any.",
-        "tag": "Tot en un servei"
+        "title": "Reformes integrals",
+        "description": "De l'enderroc inicial als últims detalls de pintura i neteja. Coordinem lampisteria, electricitat, paleteria i acabats en una sola obra.",
+        "tag": "Un sol interlocutor"
       },
       {
-        "title": "Piscines",
-        "description": "Neteja del vas i filtre, control químic de l'aigua, revisió d'equips, tractaments preventius i posada a punt per a la temporada.",
-        "tag": "Aigua sempre neta"
+        "title": "Cuines",
+        "description": "Disseny i muntatge de cuines funcionals i modernes, amb renovació de les instal·lacions, taulells i revestiments resistents a l'ús diari.",
+        "tag": "Disseny a mida"
       },
       {
-        "title": "Jardins",
-        "description": "Tall de gespa, poda d'arbustos i arbres, desbrossament, neteja de jardins, plantació i manteniment, i posada a punt per a l'estiu.",
-        "tag": "Jardins sans i bonics"
+        "title": "Banys",
+        "description": "Canvi de banyera per plat de dutxa, renovació de sanitaris i aixetes, i impermeabilització garantida contra les humitats.",
+        "tag": "Ràpid i net"
       },
       {
-        "title": "Instal·lacions",
-        "description": "Muntatge de cuines, punts de llum i ventiladors, llums, endolls i interruptors. Instal·lacions elèctriques i de llar amb garantia.",
-        "tag": "Instal·lacions professionals"
+        "title": "Obra nova",
+        "description": "Habitatges unifamiliars, ampliacions i segones residències. Gestionem la llicència i cuidem cada fase constructiva des dels fonaments.",
+        "tag": "Des dels fonaments"
       }
     ]
   },
   "forwhom": {
     "title": "PER A QUI TREBALLEM",
-    "heading": "Per a tothom que<br /><em>confia en nosaltres.</em>",
-    "subheading": "Treballem amb particulars, empreses i comunitats a Girona, Maresme i Costa Brava. Qualsevol necessitat de manteniment, la resolem.",
+    "heading": "Per a qui vol<br /><em>fer-ho bé.</em>",
+    "subheading": "Treballem amb particulars, inversors i propietaris de segona residència a Tordera, Blanes, Lloret i el Maresme.",
     "items": [
-      { "title": "Particulars", "desc": "Solucions ràpides per a la llar. T'atenem amb rapidesa i cura, sense complicacions." },
-      { "title": "Immobiliàries i Turisme", "desc": "Pisos de lloguer, allotjaments i apartaments turístics sempre a punt per als hostes." },
-      { "title": "Comunitats de Veïns", "desc": "Manteniment preventiu i correctiu de zones comunes, jardins, piscines i instal·lacions." },
-      { "title": "Segones Residències", "desc": "Obrim, tanquem i mantenim la teva casa de vacances perquè sempre estigui llesta quan arribes." }
+      {
+        "title": "Particulars",
+        "desc": "Reformes pensades per viure millor a casa teva: distribució, confort i acabats que aguanten el dia a dia."
+      },
+      {
+        "title": "Segones residències",
+        "desc": "Reformem i ampliem cases de vacances a la costa perquè estiguin a punt quan hi arribis."
+      },
+      {
+        "title": "Inversors i immobiliàries",
+        "desc": "Reformes amb termini tancat i pressupost per partides, pensades per revalorar l'immoble."
+      },
+      {
+        "title": "Locals comercials",
+        "desc": "Condicionament de botigues, oficines i restaurants complint normativa i terminis d'obertura."
+      }
     ]
   },
   "sobre": {
     "title": "SOBRE NOSALTRES",
     "heading": "Hola, som<br /><em>FERLO.</em>",
-    "p1": "Hola, sóc l'Aleix. Fa més de 10 anys que em dedico al manteniment i les instal·lacions, des de grans equipaments i hotels fins a cases particulars. Treballo amb un grup de col·laboradors de confiança, però el que més m'agrada és quan els clients em coneixen a mi i em demanen les coses directament.",
-    "p2": "Cada espai és diferent i per això m'hi poso al davant. Quan dic que hi seré a l'hora, hi sóc; quan dic que ho deixaré net, ho deixo net. Sense excuses ni complicacions.",
+    "p1": "Som una empresa de construcció i reformes amb base a Tordera. Executem projectes integrals al corredor Girona-Barcelona: des d'un bany que s'ha quedat antic fins a un habitatge unifamiliar d'obra nova.",
+    "p2": "Cada obra té un responsable que coneix el projecte de principi a fi. Això significa una sola persona a qui preguntar, un pressupost tancat per partides i un cronograma que es compleix.",
     "stats": [
-      { "num": "+500", "label": "Llars ateses" },
-      { "num": "+120", "label": "Clients fidels" },
-      { "num": "4.9★", "label": "Valoració" }
+      {
+        "num": "+10",
+        "label": "Anys d'experiència"
+      },
+      {
+        "num": "+100",
+        "label": "Obres lliurades"
+      },
+      {
+        "num": "4.9★",
+        "label": "Valoració"
+      }
     ],
-    "cta": "Contacta'ns avui",
-    "image_alt": "Equip de manteniment a Girona - FERLO",
+    "cta": "Parlem del teu projecte",
+    "image_alt": "Equip de FERLO treballant en una obra a Tordera",
     "badge_num": "+10",
     "badge_years": "anys<br />d'experiència"
   },
@@ -79,335 +105,623 @@
     "title": "PER QUÈ NOSALTRES",
     "heading": "Per què confiar en <em>FERLO</em>",
     "items": [
-      { "title": "Professionals qualificats", "desc": "Equip amb formació i experiència en tots els oficis. Treballem amb garantia i seguretat." },
-      { "title": "Servei ràpid i puntual", "desc": "Responem en poques hores i complim els horaris acordats. El teu temps és el nostre temps." },
-      { "title": "Pressupost sense compromís", "desc": "T'expliquem el preu abans de començar. Sense sorpreses ni costos amagats." },
-      { "title": "Garantia en els treballs", "desc": "Tots els treballs porten garantia. Si qualsevol cosa no funciona, tornem a solucionar-ho." }
+      {
+        "title": "Pressupost tancat",
+        "desc": "Sense ensurts ni costos ocults. El que pressupostem és el que pagues, detallat partida per partida."
+      },
+      {
+        "title": "Un sol interlocutor",
+        "desc": "Oblida't de coordinar paletes, electricistes o lampistes. Nosaltres ens encarreguem de tot l'equip."
+      },
+      {
+        "title": "Garantia per escrit",
+        "desc": "Avalem tots els nostres treballs de construcció i reforma amb garantia professional de qualitat."
+      },
+      {
+        "title": "Proximitat i rapidesa",
+        "desc": "Som a Tordera i donem servei àgil a tot el corredor Girona-Barcelona i el Maresme."
+      }
     ]
   },
   "testimonis": {
     "title": "TESTIMONIS",
-    "heading": "El que diuen els<br /><em>nostres clients.</em>",
+    "heading": "Què diuen<br /><em>els nostres clients.</em>",
     "items": [
-      { "name": "Maria G.", "location": "Girona", "text": "Molt professionals i ràpids. Vaig trucar al matí i a la tarda ja tenien l'aixeta arreglada. Totalment recomanables." },
-      { "name": "Ekaterina V.", "location": "Platja d'Aro", "text": "Porten la meva piscina des de fa tres anys i sempre és perfecta. Tracte excel·lent i molt puntuals." },
-      { "name": "Anna M.", "location": "Palamós", "text": "Van fer la poda del jardí i va quedar impecable. A més, el pressupost va ser molt ajustat." },
-      { "name": "Francesc R.", "location": "Santa Cristina d'Aro", "text": "Ens gestionen el manteniment de la comunitat des de fa anys. Molt satisfets amb el servei." },
-      { "name": "Núria V.", "location": "Llagostera", "text": "Excel·lents professionals. Van muntar tots els mobles del pis nou en un sol dia i sense cap problema." },
-      { "name": "Pere T.", "location": "Castell-Platja d'Aro", "text": "La meva segona residència sempre la trobo a punt gràcies a ells. Un servei de confiança al 100%." }
+      {
+        "name": "Jordi Martí",
+        "location": "Tordera",
+        "text": "Van reformar el pis sencer i van complir els terminis al mil·límetre. Fa gust treballar amb professionals seriosos i nets."
+      },
+      {
+        "name": "Marta Soler",
+        "location": "Blanes",
+        "text": "Vam canviar la cuina i el bany principal. El tracte va ser excel·lent i el pressupost es va ajustar exactament al que havíem parlat."
+      },
+      {
+        "name": "Carles Rovira",
+        "location": "Lloret de Mar",
+        "text": "Vam fer una ampliació a la nostra casa de segona residència. Molt bona comunicació en tot moment i acabats impecables."
+      }
+    ]
+  },
+  "faq": {
+    "title": "PREGUNTES FREQÜENTS",
+    "heading": "Dubtes abans de<br /><em>començar la teva obra.</em>",
+    "items": [
+      {
+        "q": "Quant de temps es triga a fer una reforma integral?",
+        "a": "El termini depèn dels metres quadrats i l'abast dels treballs, però una reforma integral d'un pis estàndard sol durar entre 6 i 10 setmanes. Et lliurarem un cronograma detallat abans de començar."
+      },
+      {
+        "q": "El pressupost inclou tots els gremis i materials?",
+        "a": "Sí, els nostres pressupostos són tancats i globals. Inclouen la mà d'obra de tots els gremis (paleteria, lampisteria, electricitat, pintura) i el subministrament dels materials acordats, sense sorpreses."
+      },
+      {
+        "q": "Necessito permisos o llicència d'obres a Tordera o Blanes?",
+        "a": "Depèn del tipus d'obra. Per a reformes estètiques o menors normalment només cal una comunicació prèvia, mentre que les obres majors o l'obra nova requereixen llicència municipal. T'assessorem i gestionem els tràmits."
+      },
+      {
+        "q": "Quin tipus de garantia oferiu en els treballs?",
+        "a": "Oferim garantia per escrit en totes les nostres instal·lacions i execucions d'obra, d'acord amb la normativa vigent, assegurant la teva tranquil·litat a llarg termini."
+      },
+      {
+        "q": "Quines són les formes de pagament habituals?",
+        "a": "Treballem amb un sistema fraccionat per fites d'obra assolides: un avançament inicial en acceptar el pressupost i certificacions segons l'avenç dels treballs."
+      }
     ]
   },
   "contacte": {
     "title": "CONTACTE",
-    "heading": "Explica'ns la feina — <em>t'hi responem de pressa.</em>",
-    "description": "Truca'ns, escriu-nos un WhatsApp o omple el formulari. Et donarem resposta en menys de dues hores en horari laboral.",
+    "heading": "Explica'ns el teu projecte — <em>et responem de seguida.</em>",
+    "description": "Truca'ns, escriu-nos un WhatsApp o omple el formulari. Et donem resposta en menys de 24 hores laborables.",
     "whatsapp_label": "WhatsApp",
-    "whatsapp_sub": "7:30h – 19:00h, de dilluns a divendres",
+    "whatsapp_sub": "8:00h – 19:00h, de dilluns a divendres",
     "email_label": "Email",
-    "email_sub": "Resposta en poques hores",
-    "cobertura": "Zona de cobertura",
-    "cobertura_text": "Girona, Maresme i Costa Brava.",
-    "form_title": "Sol·licita pressupost gratuït",
-    "form_nom": "Nom",
+    "email_sub": "Resposta en menys de 24h",
+    "cobertura": "Zona de treball",
+    "cobertura_text": "Tordera, Blanes, Lloret de Mar, Malgrat de Mar, Palafolls, Pineda de Mar, Santa Susanna, Fogars de la Selva i Hostalric.",
+    "form_title": "Demana pressupost gratuït",
+    "form_nom": "Nom i cognoms",
     "form_telefon": "Telèfon",
     "form_email": "Email",
     "form_poblacio": "Poble / Localitat",
-    "form_servei": "Tipus de servei",
+    "form_servei": "Tipus de projecte",
     "form_servei_placeholder": "Selecciona un servei...",
-    "form_missatge": "Explica'ns la feina",
-    "form_missatge_placeholder": "Descriu breument el que necessites. Pots enviar-nos fotos per WhatsApp si ho prefereixes.",
+    "form_missatge": "Explica'ns el teu projecte",
+    "form_missatge_placeholder": "Descriu breument el que necessites. Si tens plànols o fotos, ens els pots enviar per WhatsApp.",
     "form_submit": "Enviar sol·licitud",
-    "form_response": "Resposta garantida en menys de 2 hores en horari laboral.",
-    "form_sent_title": "Missatge enviat!",
-    "form_sent_text": "Et contactarem en menys de 2 hores. Gràcies per confiar en nosaltres.",
+    "form_response": "Resposta en menys de 24 hores laborables.",
+    "form_sent_title": "Sol·licitud enviada!",
+    "form_sent_text": "Et contactarem en menys de 24 hores. Gràcies per confiar en FERLO.",
     "form_altres": "Altres",
     "form_nom_placeholder": "El teu nom",
     "form_telefon_placeholder": "6XX XXX XXX",
     "form_email_placeholder": "correu@exemple.com",
     "form_poblacio_placeholder": "El teu poble o localitat"
   },
-  "piscines": {
-    "meta_title": "Manteniment de piscines a Girona | FERLO",
-    "meta_description": "Manteniment professional de piscines a Girona, la Selva i la Costa Brava. Neteja, tractament químic, revisió d'equips i posada a punt per a la temporada.",
-    "carousel": ["PISCINES IMPECABLES", "AIGUA CRISTAL·LINA", "SERVEI PROFESSIONAL", "PRESSUPOST RÀPID", "TOTAL CONFIANÇA"],
+  "reformes": {
+    "meta_title": "Reformes Integrals a Tordera, Blanes i Lloret | FERLO",
+    "meta_description": "Transformem el teu pis o casa amb un únic interlocutor. Reformes integrals al corredor Girona-Barcelona. Demana el teu pressupost gratuït.",
+    "carousel": [
+      "PRESSUPOST TANCAT",
+      "UN SOL INTERLOCUTOR",
+      "TERMINIS COMPLITS",
+      "ACABATS DE QUALITAT",
+      "FEINA NETA"
+    ],
     "hero": {
-      "badge": "Girona i Maresme · Especialistes en piscines",
-      "title": "Piscines impecables.",
-      "subtitle": "Tot l'any.",
-      "description": "Manteniment professional de piscines a Girona. Neteja, tractament d'aigua, revisió d'equips i posada a punt per a la temporada. Gaudiu de la vostra piscina sense preocupacions.",
-      "cta": "Sol·licita pressupost gratuït",
+      "badge": "Tordera, Blanes i Lloret · Reformes integrals",
+      "title": "Reformes integrals.",
+      "subtitle": "Sense sorpreses.",
+      "description": "Ens encarreguem de tot el procés de la teva reforma, des de l'enderroc inicial fins als últims detalls de pintura i neteja. Coordinem tots els gremis perquè no t'hagis de preocupar per res.",
+      "cta": "Demana pressupost gratuït",
       "secondary_cta": "Veure serveis",
-      "reviews": "Més de 100 clients satisfets",
-      "badge_title": "Resposta garantida",
-      "badge_sub": "En menys de 2h",
-      "image_alt": "Piscina neta i cuidada a Girona"
+      "reviews": "Obres lliurades a Tordera i el Maresme",
+      "badge_title": "Pressupost tancat",
+      "badge_sub": "Partida per partida",
+      "image_alt": "Interior d'un habitatge reformat per FERLO a Tordera"
     },
     "services": {
-      "title": "EL NOSTRE SERVEI",
-      "heading": "Manteniment de piscines<br /><em>al detall.</em>",
-      "subheading": "Ens cuidem de cada detall perquè la vostra piscina estigui perfecta durant tot l'any, amb un servei professional i fiable.",
+      "title": "QUÈ INCLOU",
+      "heading": "La teva reforma integral<br /><em>de principi a fi.</em>",
+      "subheading": "Una sola empresa per a tot el procés: enderroc, instal·lacions, paleteria i acabats finals.",
       "items": [
-        { "title": "Neteja i Manteniment Setmanal", "description": "Filtres, skimmers, neteja de parets i fons, i control de nivells químics per mantenir l'aigua cristal·lina." },
-        { "title": "Tractament Químic de l'Aigua", "description": "Anàlisi i ajust del pH, clor, alcalinitat i altres paràmetres per garantir una aigua sana i segura." },
-        { "title": "Revisió d'Equips i Instal·lacions", "description": "Inspecció i manteniment de bombes, filtres, cloradors, il·luminació i sistemes de calefacció." },
-        { "title": "Posada a Punt per a la Temporada", "description": "Obertura i tancament de la piscina, neteja profunda, revisió de tots els sistemes i preparació per a l'estiu." }
+        {
+          "title": "Enderroc i paleteria",
+          "description": "Demolició selectiva, envans nous, aïllament i regularització de paraments abans de començar els acabats."
+        },
+        {
+          "title": "Lampisteria i electricitat",
+          "description": "Renovació completa de les instal·lacions amb materials actuals, quadre elèctric nou i punts d'aigua adaptats a la distribució final."
+        },
+        {
+          "title": "Paviments, rajoles i pintura",
+          "description": "Col·locació de paviment i revestiment, anivellat de parets i pintura d'acabat amb protecció de l'habitatge durant tota l'obra."
+        },
+        {
+          "title": "Coordinació i neteja final",
+          "description": "Un responsable d'obra que coordina els gremis, controla el cronograma i lliura l'habitatge net i a punt per entrar-hi."
+        }
       ]
     },
     "benefits": {
       "title": "PER QUÈ CONFIAR EN NOSALTRES",
-      "heading": "La garantia d'una piscina<br /><em>sempre cuidada.</em>",
-      "subheading": "Un equip especialitzat en piscina que combina tècnica, productes de qualitat i atenció personalitzada.",
+      "heading": "Una reforma seriosa<br /><em>es nota en els detalls.</em>",
+      "subheading": "Treballem amb partides tancades, un calendari realista i un únic responsable d'obra.",
       "items": [
-        { "title": "Tècnics Especialitzats", "description": "Equip format en química de l'aigua i manteniment de piscines. Amb experiència i garantia." },
-        { "title": "Servei Puntual i Fiable", "description": "Complim els horaris acordats. Responem en menys de 2h." },
-        { "title": "Productes de Qualitat", "description": "Utilitzem productes químics i equips de primeres marques per garantir els millors resultats." },
-        { "title": "Garantia en els Treballs", "description": "Tots els treballs porten garantia. Si alguna cosa no funciona, ho solucionem." }
+        {
+          "title": "Un únic interlocutor",
+          "description": "Una sola persona coordina tots els gremis i respon als teus dubtes durant tota l'obra."
+        },
+        {
+          "title": "Pressupost tancat",
+          "description": "Detallem cada partida abans de començar. Sense extres d'última hora ni costos ocults."
+        },
+        {
+          "title": "Terminis que es compleixen",
+          "description": "Planifiquem l'ordre dels gremis per no perdre dies i t'avisem de cada fita."
+        },
+        {
+          "title": "Obra neta i segura",
+          "description": "Protegim zones comunes i mobiliari, retirem runes cada dia i deixem la casa neta en acabar."
+        }
       ]
     },
     "testimonials": {
       "title": "TESTIMONIS",
-      "heading": "La satisfacció dels nostres<br /><em>clients de piscina.</em>",
+      "heading": "Reformes que<br /><em>parlen per si soles.</em>",
       "items": [
-        { "name": "Jordi P.", "location": "Girona", "text": "Manteniment excel·lent. La piscina sempre cristal·lina i l'equip molt professional." },
-        { "name": "Marta R.", "location": "Platja d'Aro", "text": "Porten la meva piscina des de fa 3 anys. Mai he tingut cap problema. Molt recomanables." },
-        { "name": "Albert C.", "location": "Sant Feliu de Guíxols", "text": "Van fer la posada a punt de la piscina i va quedar impecable. Pressupost molt ajustat." }
+        {
+          "name": "Jordi Martí",
+          "location": "Tordera",
+          "text": "Van reformar el pis sencer i van complir els terminis al mil·límetre. Fa gust treballar amb professionals seriosos i nets."
+        },
+        {
+          "name": "Marta Soler",
+          "location": "Blanes",
+          "text": "Vam canviar la cuina i el bany principal. El tracte va ser excel·lent i el pressupost es va ajustar exactament al que havíem parlat."
+        },
+        {
+          "name": "Carles Rovira",
+          "location": "Lloret de Mar",
+          "text": "Vam fer una ampliació a la nostra casa de segona residència. Molt bona comunicació en tot moment i acabats impecables."
+        }
       ]
     },
     "abans_despres": {
       "title": "ABANS I DESPRÉS",
-      "heading": "Recuperem piscines.<br /><em>Tot tipus d'aigua.</em>",
-      "subheading": "Ens cuidem de cada detall perquè la vostra piscina estigui perfecta durant tot l'any, amb un servei professional i fiable.",
+      "heading": "Reformes reals.<br /><em>Resultats visibles.</em>",
+      "subheading": "Comparem l'estat inicial i el resultat final d'un dels nostres projectes a la zona.",
       "abans": "Abans",
       "despres": "Després",
       "hint": "Arrossega per comparar",
-      "alt_abans": "Abans del manteniment de piscines",
-      "alt_despres": "Després del manteniment de piscines"
+      "alt_abans": "Habitatge abans de la reforma integral",
+      "alt_despres": "Habitatge després de la reforma integral"
     },
     "cta": {
       "title": "CONTACTE",
-      "text": "La teva piscina mereix el millor manteniment. Contacta'ns avui i comença a gaudir-ne sense preocupacions.",
-      "button": "Sol·licita pressupost",
-      "secondary": "Omple el formulari"
-    }
-  },
-  "jardineria": {
-    "meta_title": "Jardineria a Girona i Costa Brava | FERLO",
-    "meta_description": "Servei professional de jardineria a Girona, la Selva i la Costa Brava. Poda, disseny de jardins, reg automàtic, gespa i manteniment continu tot l'any.",
-    "break_alt": "Jardí geomètric professional",
-    "garden_alt": "Professional de jardineria en acció",
-    "carousel": ["JARDINS BEN CUIDATS", "DISSENY MEDITERRANI", "REG AUTOMÀTIC", "MANTENIMENT ANUAL", "TOTAL CONFIANÇA"],
-    "hero": {
-      "badge": "Girona i Maresme · Especialistes en jardineria",
-      "title": "El jardí que",
-      "subtitle": "mereixes, cuidat com cal.",
-      "description": "Dissenyem, plantem i mantenim jardins mediterranis amb anys d'experiència local. Del petit pati a la gran parcel·la.",
-      "cta": "Demana pressupost",
-      "secondary_cta": "Veure serveis",
-      "reviews": "Més de 350 jardins mantinguts",
-      "badge_title": "Resposta garantida",
-      "badge_sub": "En menys de 2h",
-      "image_alt": "Jardí formal amb tanques geomètriques"
-    },
-    "services": {
-      "title": "ELS NOSTRES SERVEIS",
-      "heading": "Tot el que<br /><em>necessita</em><br />el teu jardí.",
-      "subheading": "Oferim un servei integral de jardineria: des del disseny inicial fins al manteniment periòdic. Un equip de professionals a la teva disposició durant tot l'any.",
-      "items": [
-        { "title": "Poda i Retall", "description": "Poda professional d'arbres, arbustos i tanques vives. Manteniment periòdic per mantenir la forma i la salut de les plantes.", "img": "https://images.unsplash.com/photo-1680124744811-f779e4ad6985?w=600&h=400&fit=crop&auto=format", "icon": "✂" },
-        { "title": "Disseny de Jardins", "description": "Creació i disseny de jardins mediterranis adaptats al clima local. Selecció de plantes resistents i estètiques.", "img": "https://images.unsplash.com/photo-1783159144730-abbde99fe3ee?w=600&h=400&fit=crop&auto=format", "icon": "🌿" },
-        { "title": "Reg Automàtic", "description": "Instal·lació i manteniment de sistemes de reg per degoteig i aspersió. Eficiència hídrica i estalvi garantits.", "img": "https://images.unsplash.com/photo-1596916783053-b4515643e028?w=600&h=400&fit=crop&auto=format", "icon": "💧" },
-        { "title": "Gespa i Enjardinament", "description": "Plantació de gespa, anivellació del terreny i enjardinament complet de parcel·les. Resultats professionals.", "img": "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=400&fit=crop&auto=format", "icon": "🌳" }
-      ]
-    },
-    "benefits": {
-      "title": "PER QUÈ NOSALTRES",
-      "heading": "Compromís amb<br /><em>cada fulla.</em>",
-      "subheading": "Professionals amb anys d'experiència en jardins de la zona. Coneixem el clima i les espècies autòctones.",
-      "items": [
-        { "title": "Experiència local", "desc": "Més de 15 anys treballant en jardins de la zona. Coneixem el clima i les espècies autòctones." },
-        { "title": "Aleix, el teu jardiner de confiança", "desc": "Cada jardí és atès personalment per l'Aleix, amb anys d'experiència i un tracte directe, proper i de total confiança." },
-        { "title": "Pressupost sense compromís", "desc": "Visita gratuïta i pressupost detallat sense cap tipus de compromís." },
-        { "title": "Manteniment continu", "desc": "Contractes de manteniment mensuals o estacionals adaptats a les teves necessitats." }
-      ]
-    },
-    "seasons": {
-      "title": "MANTENIMENT ANUAL",
-      "heading": "Cada estació,<br /><em>una feina.</em>",
-      "items": [
-        { "season": "Primavera", "tasks": ["Poda de formació", "Fertilització", "Revisió del reg", "Plantació de flors"] },
-        { "season": "Estiu", "tasks": ["Reg intensiu", "Control de plagues", "Sega setmanal", "Poda lleugera"] },
-        { "season": "Tardor", "tasks": ["Recollida de fulles", "Plantació de bulbs", "Poda de tardor", "Preparació hivernal"] },
-        { "season": "Hivern", "tasks": ["Poda de fructificació", "Tractaments fitosanitaris", "Anàlisi del sòl", "Planificació anual"] }
-      ]
-    },
-    "testimonials": {
-      "title": "TESTIMONIS",
-      "heading": "El que diuen els nostres<br /><em>clients de jardineria.</em>",
-      "items": [
-        { "name": "Lluís M.", "location": "Girona", "text": "Van transformar el meu jardí completament. Disseny impressionant i resultats professionals." },
-        { "name": "Carme P.", "location": "Platja d'Aro", "text": "El manteniment setmanal és impecable. El jardí sempre està perfecte." },
-        { "name": "Joan G.", "location": "Sant Feliu de Guíxols", "text": "Van instal·lar el reg automàtic i he estalviat moltíssima aigua. Molt recomanables." }
-      ]
-    },
-    "cta": {
-      "title": "CONTACTE",
-      "text": "Parlem del teu jardí. Contacta'ns per demanar un pressupost gratuït.",
+      "text": "Explica'ns com és el teu habitatge i què vols canviar. Et donem un pressupost tancat i un calendari d'obra.",
       "button": "Demana pressupost",
       "secondary": "Omple el formulari"
     }
   },
-  "manteniment": {
-    "meta_title": "Manteniment General a Girona | FERLO",
-    "meta_description": "Servei integral de manteniment general a Girona, la Selva i la Costa Brava: reparacions, electricitat, fontaneria, calderes i petites reformes i molt més.",
-    "carousel": ["REPARACIONS EN 24H", "PRESSUPOST SENSE COMPROMÍS", "PROFESSIONALS QUALIFICATS", "GARANTIA EN ELS TREBALLS", "TOTAL CONFIANÇA"],
+  "cuines": {
+    "meta_title": "Reformes de Cuines a Mida a Tordera i Maresme | FERLO",
+    "meta_description": "Disseny i muntatge de cuines funcionals i modernes. Optimitzem el teu espai amb acabats de primera. Sol·licita pressupost sense compromís.",
+    "break_alt": "Cuina reformada per FERLO a Tordera",
+    "gallery_alt": "Detall del taulell i els mobles d'una cuina reformada",
+    "carousel": [
+      "CUINES A MIDA",
+      "DISSENY FUNCIONAL",
+      "ACABATS RESISTENTS",
+      "MUNTATGE NET",
+      "PRESSUPOST TANCAT"
+    ],
     "hero": {
-      "badge": "Girona i Maresme · Experts en manteniment",
-      "title": "Solucions per a",
-      "subtitle": "tota la casa.",
-      "description": "Reparacions, electricitat, fontaneria, calderes, muntatge de mobles i petites reformes. Un equip professional que deixa la teva llar com nova.",
-      "cta": "Sol·licita pressupost",
+      "badge": "Tordera, Blanes i Maresme · Cuines",
+      "title": "Cuines que",
+      "subtitle": "es viuen millor.",
+      "description": "Transformem la teva cuina en un espai pràctic, lluminós i adaptat al teu estil de vida. Optimitzem l'emmagatzematge, renovem lampisteria i electricitat, i col·loquem paviments i revestiments duradors.",
+      "cta": "Demana pressupost gratuït",
       "secondary_cta": "Veure serveis",
-      "badge_title": "Resposta garantida",
-      "badge_sub": "En menys de 2h",
-      "image_alt": "Professional de manteniment treballant"
+      "reviews": "Cuines reformades al Maresme i La Selva",
+      "badge_title": "Pressupost tancat",
+      "badge_sub": "Partida per partida",
+      "image_alt": "Cuina reformada per FERLO a Tordera"
+    },
+    "services": {
+      "title": "EL NOSTRE SERVEI",
+      "heading": "Reforma de cuina<br /><em>completa.</em>",
+      "subheading": "Del disseny a l'última motllura: ens encarreguem de l'obra i del muntatge del mobiliari.",
+      "items": [
+        {
+          "title": "Disseny i distribució",
+          "icon": "📐",
+          "img": "/despues.webp",
+          "description": "Estudiem la distribució per guanyar emmagatzematge i millorar els recorreguts entre aigüera, placa i nevera."
+        },
+        {
+          "title": "Instal·lacions renovades",
+          "icon": "🔧",
+          "img": "/hero.webp",
+          "description": "Renovem lampisteria, desguassos i electricitat, i situem els endolls segons l'ús real de la cuina."
+        },
+        {
+          "title": "Taulells i revestiments",
+          "icon": "🧱",
+          "img": "/despues.webp",
+          "description": "Taulells i revestiments resistents a la calor, la humitat i l'ús diari, amb juntes netes."
+        },
+        {
+          "title": "Muntatge i acabats",
+          "icon": "✨",
+          "img": "/antes.webp",
+          "description": "Muntatge de mobiliari, electrodomèstics i aixetes, amb ajust final i neteja d'obra."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "PER QUÈ CONFIAR EN NOSALTRES",
+      "heading": "Una cuina pensada<br /><em>per fer-la servir cada dia.</em>",
+      "subheading": "Disseny, instal·lacions i muntatge coordinats pel mateix equip.",
+      "items": [
+        {
+          "title": "Espai optimitzat",
+          "description": "Aprofitem cada racó amb solucions d'emmagatzematge a mida."
+        },
+        {
+          "title": "Instal·lacions noves",
+          "description": "Lampisteria i electricitat renovades per evitar avaries i sobrecàrregues."
+        },
+        {
+          "title": "Materials duradors",
+          "description": "Acabats resistents a la humitat, la calor i l'ús intensiu."
+        },
+        {
+          "title": "Obra neta",
+          "description": "Protegim la resta de l'habitatge i retirem les runes cada dia."
+        }
+      ]
+    },
+    "seasons": {
+      "title": "CLAUS DEL PROJECTE",
+      "heading": "Els quatre punts<br /><em>que ho canvien tot.</em>",
+      "items": [
+        {
+          "season": "Distribució",
+          "tasks": [
+            "Triangle de treball eficient",
+            "Emmagatzematge fins al sostre",
+            "Calaixos en lloc de prestatges"
+          ]
+        },
+        {
+          "season": "Il·luminació",
+          "tasks": [
+            "Llum general i de treball",
+            "Punts sobre el taulell",
+            "Endolls a illa i península"
+          ]
+        },
+        {
+          "season": "Taulells",
+          "tasks": [
+            "Resistència a la calor",
+            "Juntes i cants nets",
+            "Aigüera sota taulell"
+          ]
+        },
+        {
+          "season": "Ventilació",
+          "tasks": [
+            "Extractor dimensionat",
+            "Sortida de fums correcta",
+            "Renovació d'aire"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "TESTIMONIS",
+      "heading": "Cuines que<br /><em>canvien la casa.</em>",
+      "items": [
+        {
+          "name": "Marta Soler",
+          "location": "Blanes",
+          "text": "Vam canviar la cuina i el bany principal. El tracte va ser excel·lent i el pressupost es va ajustar exactament al que havíem parlat."
+        },
+        {
+          "name": "Jordi Martí",
+          "location": "Tordera",
+          "text": "Van reformar el pis sencer i van complir els terminis al mil·límetre. Fa gust treballar amb professionals seriosos i nets."
+        },
+        {
+          "name": "Carles Rovira",
+          "location": "Lloret de Mar",
+          "text": "Vam fer una ampliació a la nostra casa de segona residència. Molt bona comunicació en tot moment i acabats impecables."
+        }
+      ]
+    },
+    "cta": {
+      "title": "CONTACTE",
+      "text": "Envia'ns les mides o una foto de la teva cuina actual i et proposem una distribució amb pressupost tancat.",
+      "button": "Demana pressupost",
+      "secondary": "Omple el formulari"
+    }
+  },
+  "banys": {
+    "meta_title": "Reformes de Banys a Tordera, Blanes i Lloret | FERLO",
+    "meta_description": "Renova el teu bany amb plats de dutxa moderns, mamperes i lampisteria de qualitat. Rapidesa i neteja garantides en la teva reforma.",
+    "carousel": [
+      "BANYS EN DIES",
+      "PLAT DE DUTXA",
+      "SENSE HUMITATS",
+      "MUNTATGE NET",
+      "PRESSUPOST TANCAT"
+    ],
+    "hero": {
+      "badge": "Tordera, Blanes i Lloret · Banys",
+      "title": "Banys nous.",
+      "subtitle": "Sense obres eternes.",
+      "description": "Actualitzem el teu bany substituint l'antiga banyera per un plat de dutxa antilliscant, renovant sanitaris, aixetes i mamperes, i millorant la il·luminació i la ventilació.",
+      "cta": "Demana pressupost gratuït",
+      "secondary_cta": "Veure serveis",
+      "badge_title": "Termini tancat",
+      "badge_sub": "Bany en dies",
+      "image_alt": "Bany reformat per FERLO amb plat de dutxa"
     },
     "services": {
       "title": "ELS NOSTRES SERVEIS",
-      "heading": "Tot el que la teva llar<br /><em>necessita.</em>",
-      "subheading": "Oferim un servei integral de manteniment per a la teva llar. Des de petites reparacions fins a reformes completes, incloent el muntatge de mobles.",
+      "heading": "Tot el que el teu bany<br /><em>necessita.</em>",
+      "subheading": "Reformes completes o canvis puntuals, sempre amb impermeabilització i acabats cuidats.",
+      "link": "Demana pressupost",
       "items": [
-        { "icon": "🔧", "title": "Reparacions generals", "desc": "Arreglem avaries, muntem mobles, pengem quadres, instal·lem prestatgeries i resolem qualsevol imprevist de la llar." },
-        { "icon": "⚡", "title": "Electricitat", "desc": "Instal·lacions elèctriques, reparacions, canvi de lluminàries, endolls, quadres elèctrics i petites avaries." },
-        { "icon": "🚿", "title": "Fontaneria i calderes", "desc": "Reparació d'aixetes, cisternes, canonades, instal·lació de calefactors i manteniment i reparació de calderes." },
-        { "icon": "🛠️", "title": "Muntatge de mobles", "desc": "Muntem mobles, prestatgeries, bastidors i fem petites reformes. Deixem la teva llar perfecta." }
-      ],
-      "link": "Més informació"
+        {
+          "icon": "🚿",
+          "title": "Banyera per plat de dutxa",
+          "desc": "Substitució de la banyera per un plat de dutxa antilliscant, amb desguàs i pendents correctes."
+        },
+        {
+          "icon": "🧱",
+          "title": "Rajoles i paviment",
+          "desc": "Col·locació de revestiment i paviment antilliscant, amb juntes tractades contra la humitat."
+        },
+        {
+          "icon": "🔧",
+          "title": "Lampisteria i sanitaris",
+          "desc": "Renovació de canonades, aixetes i sanitaris amb materials de marques contrastades."
+        },
+        {
+          "icon": "💡",
+          "title": "Il·luminació i ventilació",
+          "desc": "Llum adequada al mirall i extracció dimensionada per evitar condensació i humitats."
+        }
+      ]
     },
     "before_after": {
-      "title": "RESULTATS REALS",
-      "heading": "Abans i Després —<br /><em>La teva llar, renovada.</em>",
+      "title": "ABANS I DESPRÉS",
+      "heading": "El canvi d'un bany<br /><em>es nota de seguida.</em>",
       "before": "Abans",
       "after": "Després",
       "hint": "Arrossega per comparar"
     },
     "why": {
-      "title": "PER QUÈ NOSALTRES",
-      "heading": "Compromís amb<br /><em>cada reparació.</em>",
-      "subheading": "Professionals amb anys d'experiència en tots els oficis de la llar. Treballem amb cura i garantia.",
-      "cta": "Sol·licita pressupost",
+      "title": "PER QUÈ CONFIAR EN NOSALTRES",
+      "heading": "Un bany reformat<br /><em>sense complicacions.</em>",
+      "subheading": "Obra curta, neta i amb un responsable que t'informa de cada pas.",
+      "cta": "Demana pressupost",
       "items": [
-        { "title": "Professionals qualificats", "desc": "Equip amb formació i experiència en tots els oficis (electricitat, fontaneria, calderes, muntatges). Treballem amb garantia i seguretat." },
-        { "title": "Servei ràpid i puntual", "desc": "Responem en poques hores i complim els horaris acordats. El teu temps és el nostre temps." },
-        { "title": "Pressupost sense compromís", "desc": "T'expliquem el preu abans de començar. Sense sorpreses ni costos amagats." },
-        { "title": "Garantia en els treballs", "desc": "Tots els treballs (incloent muntatges de mobles) tenen garantia. Si alguna cosa no funciona, ho tornem a solucionar." }
+        {
+          "title": "Termini tancat",
+          "desc": "Planifiquem l'obra perquè el bany estigui operatiu en el menor temps possible."
+        },
+        {
+          "title": "Sense humitats",
+          "desc": "Impermeabilitzem abans de col·locar les rajoles i cuidem els pendents d'evacuació."
+        },
+        {
+          "title": "Accessibilitat",
+          "desc": "Plats extraplans i barres de suport per a banys més segurs."
+        },
+        {
+          "title": "Neteja diària",
+          "desc": "Protegim la resta de l'habitatge i retirem runes cada dia."
+        }
       ]
     },
     "testimonials": {
       "title": "TESTIMONIS",
-      "heading": "El que diuen<br /><em>els nostres clients.</em>",
+      "heading": "Banys que<br /><em>canvien la rutina.</em>",
       "items": [
-        { "text": "Molt professionals i ràpids. Vaig trucar al matí i a la tarda ja tenien l'aixeta arreglada. Totalment recomanables.", "name": "Maria G.", "location": "Girona" },
-        { "text": "Van muntar tots els mobles del pis nou en un sol dia i sense cap problema. Excel·lents professionals.", "name": "Núria V.", "location": "Llagostera" },
-        { "text": "Em van reparar la caldera en menys de 24h. Un servei de confiança al 100%.", "name": "Pere T.", "location": "Castell-Platja d'Aro" }
+        {
+          "name": "Marta Soler",
+          "location": "Blanes",
+          "text": "Vam canviar la cuina i el bany principal. El tracte va ser excel·lent i el pressupost es va ajustar exactament al que havíem parlat."
+        },
+        {
+          "name": "Jordi Martí",
+          "location": "Tordera",
+          "text": "Van reformar el pis sencer i van complir els terminis al mil·límetre. Fa gust treballar amb professionals seriosos i nets."
+        },
+        {
+          "name": "Carles Rovira",
+          "location": "Lloret de Mar",
+          "text": "Vam fer una ampliació a la nostra casa de segona residència. Molt bona comunicació en tot moment i acabats impecables."
+        }
       ]
     },
     "cta": {
-      "title": "CONTACTA AMB NOSALTRES",
-      "text": "Necessites un professional?",
-      "description": "Contacta'ns i et donem solució per a qualsevol reparació o manteniment.",
-      "button": "Sol·licita pressupost"
+      "title": "CONTACTE",
+      "text": "Envia'ns una foto del teu bany actual i et diem què s'hi pot fer, en quant de temps i per quant.",
+      "description": "Pressupost tancat, sense compromís i amb termini d'obra per escrit.",
+      "button": "Demana pressupost"
     }
   },
-  "instalacions": {
-    "meta_title": "Instal·lacions elèctriques a Girona | FERLO",
-    "meta_description": "Instal·lacions elèctriques, punts de llum, il·luminació i muntatge de cuines i mobles a Girona, la Selva i el Maresme. Professionals qualificats amb garantia.",
-    "carousel": ["INSTAL·LACIONS SEGURES", "PROFESSIONALS QUALIFICATS", "PRESSUPOST SENSE COMPROMÍS", "GARANTIA EN ELS TREBALLS", "MUNTATGE DE CUINES", "LLUM I FUNCIONALITAT"],
+  "obraNova": {
+    "meta_title": "Construcció i Obra Nova a Tordera i La Selva | FERLO",
+    "meta_description": "Construïm el teu habitatge unifamiliar, ampliació o segona residència des dels fonaments. Gestió integral de projecte i llicències.",
+    "carousel": [
+      "OBRA NOVA",
+      "HABITATGE UNIFAMILIAR",
+      "AMPLIACIONS",
+      "GESTIÓ DE LLICÈNCIES",
+      "SEGUIMENT D'OBRA",
+      "ACABATS A MIDA"
+    ],
     "hero": {
-      "badge": "Girona i Maresme · Experts en instal·lacions",
-      "title": "Llum i funcionalitat",
-      "subtitle": "per a la teva llar.",
-      "description": "Instal·lacions elèctriques, punts de llum, il·luminació interior i exterior, muntatge de cuines i mobles. Un equip professional que fa realitat els teus projectes.",
-      "cta": "Sol·licita pressupost",
+      "badge": "Tordera, La Selva i Maresme · Obra nova",
+      "title": "Casa teva,",
+      "subtitle": "des dels fonaments.",
+      "description": "Desenvolupem projectes d'obra nova, ampliacions i segones residències. Cuidem cada fase constructiva, des de la fonamentació i l'estructura fins als tancaments i acabats finals.",
+      "cta": "Demana pressupost gratuït",
       "secondary_cta": "Veure serveis",
-      "badge_title": "Resposta garantida",
-      "badge_sub": "En menys de 2h",
-      "image_alt": "Instal·lacions elèctriques professionals a Girona"
+      "badge_title": "Gestió integral",
+      "badge_sub": "Projecte i llicències",
+      "image_alt": "Habitatge unifamiliar d'obra nova construït per FERLO"
     },
     "services": {
       "title": "ELS NOSTRES SERVEIS",
-      "heading": "Tot el que necessites<br /><em>per a la teva llar.</em>",
-      "subheading": "Oferim solucions completes: des d'instal·lacions elèctriques fins al muntatge de cuines i mobles. Un equip a la teva disposició.",
+      "heading": "Construïm<br /><em>el teu projecte.</em>",
+      "subheading": "Obra nova, ampliacions i reformes estructurals amb direcció tècnica i seguiment continu.",
+      "link": "Demana pressupost",
       "items": [
-        { "icon": "💡", "title": "Instal·lacions elèctriques", "desc": "Instal·lacions elèctriques completes: quadres de distribució, circuits, preses de terra i tot tipus de treballs elèctrics amb garanties de seguretat." },
-        { "icon": "🔌", "title": "Punts de llum i il·luminació", "desc": "Instal·lem punts de llum, llums, làmpades, il·luminació interior i exterior, sistemes d'encesa automàtica, dimmers i llums LED. Donem vida a la teva llar." },
-        { "icon": "🛠️", "title": "Muntatge de cuines", "desc": "Muntem i instal·lem cuines completes: mobles, taulells, campanes extractores i tot tipus d'accessoris. Cuines funcionals i boniques." },
-        { "icon": "🔧", "title": "Muntatge de mobles", "desc": "Muntem mobles, prestatgeries i bastidors. Deixem la teva llar perfecta." }
-      ],
-      "link": "Més informació"
+        {
+          "icon": "🏠",
+          "title": "Habitatge unifamiliar",
+          "desc": "Construcció completa de casa unifamiliar, des de la fonamentació fins al lliurament amb els acabats acordats."
+        },
+        {
+          "icon": "📐",
+          "title": "Ampliacions",
+          "desc": "Ampliació d'habitatge en planta, alçada o cos annex, amb càlcul estructural i permisos."
+        },
+        {
+          "icon": "🧱",
+          "title": "Reformes estructurals",
+          "desc": "Obertura de forats, reforç d'estructura i redistribució amb seguretat verificada."
+        },
+        {
+          "icon": "🌿",
+          "title": "Segones residències",
+          "desc": "Construcció a la costa amb materials i aïllaments adaptats al clima i a l'ús estacional."
+        }
+      ]
     },
     "includes": {
-      "title": "QUÈ INCLOU LA NOSTRA INSTAL·LACIÓ",
-      "heading": "Servei complet<br /><em>de principi a fi.</em>",
-      "subheading": "Ens encarreguem de tot el procés: des de la planificació fins a la instal·lació i la posada en marxa. No et preocupis de res.",
-      "pas": "Pas",
+      "title": "FASES DEL PROJECTE",
+      "heading": "Així portem<br /><em>una obra nova.</em>",
+      "subheading": "Un procés ordenat, amb documentació en cada fase i un responsable únic.",
+      "pas": "Fase",
       "items": [
-        { "icon": "📋", "title": "Planificació i assessorament", "desc": "Visitem la teva llar, t'assessorem sobre les millors solucions i t'oferim un pressupost detallat sense compromís." },
-        { "icon": "🔌", "title": "Instal·lació de qualitat", "desc": "Utilitzem materials de primera qualitat i tècniques professionals per garantir resultats duradors i segurs." },
-        { "icon": "✅", "title": "Seguretat i certificació", "desc": "Tots els nostres treballs compleixen la normativa vigent i porten garantia. Instal·lacions segures i certificades." },
-        { "icon": "🧹", "title": "Neteja i ho deixem a punt", "desc": "Un cop finalitzada la feina, deixem l'espai net i a punt perquè puguis gaudir immediatament." }
+        {
+          "icon": "📋",
+          "title": "Projecte i llicència",
+          "desc": "Estudi de viabilitat, redacció del projecte amb tècnic i tramitació de la llicència municipal."
+        },
+        {
+          "icon": "🏗️",
+          "title": "Fonamentació i estructura",
+          "desc": "Moviment de terres, fonamentació, estructura i tancaments amb control de qualitat."
+        },
+        {
+          "icon": "⚡",
+          "title": "Instal·lacions",
+          "desc": "Lampisteria, electricitat, climatització i ventilació segons normativa vigent."
+        },
+        {
+          "icon": "✨",
+          "title": "Acabats i lliurament",
+          "desc": "Revestiments, fusteria, pintura i repàs final abans del lliurament de claus."
+        }
       ]
     },
     "projects": {
-      "title": "TIPUS DE PROJECTES",
-      "heading": "Solucions per a<br /><em>cada espai.</em>",
-      "subheading": "Adaptem els nostres serveis a les teves necessitats. Des de petites instal·lacions fins a projectes complets.",
+      "title": "PROJECTES",
+      "heading": "Obres en marxa<br /><em>i lliurades.</em>",
+      "subheading": "Alguns dels treballs que hem executat a Tordera, La Selva i el Maresme.",
       "items": [
-        { "title": "Llar particular", "desc": "Instal·lacions i muntatge per a pisos, cases i xalets. Personalitzem cada projecte segons les teves necessitats.", "img": "https://images.unsplash.com/photo-1628745277862-bc0b2d68c50c?w=600&h=400&fit=crop&auto=format" },
-        { "title": "Comunitats de veïns", "desc": "Instal·lacions elèctriques en zones comunes, il·luminació d'escales, garatges i sistemes de seguretat.", "img": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop&auto=format" },
-        { "title": "Locals comercials", "desc": "Il·luminació de botigues, restaurants, oficines i instal·lacions elèctriques per a negocis.", "img": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&auto=format" }
+        {
+          "title": "Unifamiliar a Tordera",
+          "desc": "Habitatge de nova planta amb estructura de formigó i tancament d'alta eficiència.",
+          "img": "/hero.webp"
+        },
+        {
+          "title": "Ampliació a Blanes",
+          "desc": "Ampliació de planta baixa amb nou menjador i accés directe al jardí.",
+          "img": "/despues.webp"
+        },
+        {
+          "title": "Segona residència a Lloret",
+          "desc": "Reforma estructural i actualització completa d'instal·lacions.",
+          "img": "/antes.webp"
+        }
       ]
     },
     "why": {
-      "title": "PER QUÈ NOSALTRES",
-      "heading": "Compromís amb<br /><em>cada instal·lació.</em>",
-      "subheading": "Professionals amb anys d'experiència en instal·lacions elèctriques i muntatge de cuines. Treballem amb cura, garantia i seguretat.",
-      "cta": "Sol·licita pressupost",
+      "title": "PER QUÈ CONFIAR EN NOSALTRES",
+      "heading": "Una obra nova<br /><em>ben portada.</em>",
+      "subheading": "Gestió tècnica, control de terminis i transparència en cada certificació.",
+      "cta": "Demana pressupost",
       "items": [
-        { "title": "Professionals qualificats", "desc": "Equip amb formació i experiència en instal·lacions elèctriques, muntatge de cuines i mobles. Treballem amb garantia i seguretat." },
-        { "title": "Servei ràpid i puntual", "desc": "Responem en poques hores i complim els horaris acordats. El teu temps és el nostre temps." },
-        { "title": "Pressupost sense compromís", "desc": "T'expliquem el preu abans de començar. Sense sorpreses ni costos amagats." },
-        { "title": "Garantia en els treballs", "desc": "Tots els treballs porten garantia. Si alguna cosa no funciona, tornem a solucionar-ho." }
+        {
+          "title": "Gestió de llicències",
+          "desc": "Ens ocupem dels tràmits municipals i de la documentació tècnica."
+        },
+        {
+          "title": "Estructures sòlides",
+          "desc": "Materials i execució verificats per direcció facultativa."
+        },
+        {
+          "title": "Eficiència energètica",
+          "desc": "Aïllament tèrmic i solucions que redueixen el consum."
+        },
+        {
+          "title": "Seguiment transparent",
+          "desc": "Informes d'avenç i certificacions segons l'estat real de l'obra."
+        }
       ]
     },
     "testimonials": {
       "title": "TESTIMONIS",
-      "heading": "El que diuen<br /><em>els nostres clients.</em>",
+      "heading": "Projectes que<br /><em>segueixen dempeus.</em>",
       "items": [
-        { "text": "Van fer la instal·lació elèctrica de tota la casa. Treball impecable i molt professionals. Totalment recomanables.", "name": "Jordi F.", "location": "Girona" },
-        { "text": "Muntar la cuina va ser un encert. Van deixar-la perfecta i en molt poc temps. Excel·lents professionals.", "name": "Anna R.", "location": "Platja d'Aro" },
-        { "text": "Van instal·lar punts de llum a tota la casa i va quedar espectacular. Més que recomanables.", "name": "Carles M.", "location": "Sant Feliu" }
+        {
+          "name": "Carles Rovira",
+          "location": "Lloret de Mar",
+          "text": "Vam fer una ampliació a la nostra casa de segona residència. Molt bona comunicació en tot moment i acabats impecables."
+        },
+        {
+          "name": "Jordi Martí",
+          "location": "Tordera",
+          "text": "Van reformar el pis sencer i van complir els terminis al mil·límetre. Fa gust treballar amb professionals seriosos i nets."
+        },
+        {
+          "name": "Marta Soler",
+          "location": "Blanes",
+          "text": "Vam canviar la cuina i el bany principal. El tracte va ser excel·lent i el pressupost es va ajustar exactament al que havíem parlat."
+        }
       ]
     },
     "cta": {
-      "title": "CONTACTA AMB NOSALTRES",
-      "text": "Necessites instal·lacions o muntatge?",
-      "description": "Contacta'ns i et donem solució ràpida i professional.",
-      "button": "Sol·licita pressupost"
+      "title": "CONTACTE",
+      "text": "Si tens un terreny o un projecte al cap, explica-nos-ho i estudiem la viabilitat sense compromís.",
+      "description": "Estudi inicial, pressupost per fases i calendari d'obra.",
+      "button": "Demana pressupost"
     }
   },
   "footer": {
-    "tagline": "GIRONA I MARESME · 10 ANYS D'EXPERIÈNCIA",
-    "description": "Servei integral de manteniment, reparacions, jardineria i piscines a Girona, Maresme i Costa Brava. Professionals de confiança, servei proper.",
+    "tagline": "TORDERA · CORREDOR GIRONA-BARCELONA",
+    "description": "Especialistes en construcció, reformes integrals i obra nova a Tordera i el Maresme. Un sol interlocutor i pressupost tancat.",
     "serveis_title": "Serveis",
     "empresa_title": "Empresa",
     "contacte_title": "Contacte",
-    "legal": "2026 SprintOps. Tots els drets reservats",
+    "legal": "© 2026 FERLO SL. Tots els drets reservats.",
     "avis_legal": "Avís legal",
     "politica_privacitat": "Política de privacitat",
-    "cookies": "Cookies",
+    "cookies": "Política de cookies",
     "inici": "Inici",
     "testimonis": "Testimonis",
-    "zona": "Girona, Maresme i Costa Brava",
-    "horari": "Dl–Dv: 7:30 – 19:00h"
+    "zona": "Tordera, Blanes, Lloret i Maresme",
+    "horari": "Dl–Dv: 8:00 – 19:00h"
   }
 }
