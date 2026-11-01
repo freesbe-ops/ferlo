@@ -28,10 +28,10 @@
  * as conversions / import them in Google Ads.
  */
 
-export const GA4_MEASUREMENT_ID = 'G-CB6G5KWZS6'
-export const ADS_CONVERSION_ID = 'AW-18273495657'
+export const GA4_MEASUREMENT_ID = 'G-DEV'
+export const ADS_CONVERSION_ID = 'AW-DEV'
 /** Conversion label currently used for BOTH WhatsApp clicks and form submits. */
-export const ADS_WA_FORM_LABEL = 'JRRlCLet-eMcEOnUvYlE'
+export const ADS_WA_FORM_LABEL = 'DEV_LABEL'
 
 /**
  * When true the native Google Ads tag fires (only for Google-Ads-attributed
@@ -41,7 +41,7 @@ export const ADS_WA_FORM_LABEL = 'JRRlCLet-eMcEOnUvYlE'
 export const FIRE_DIRECT_ADS_TAG = true
 
 const STORAGE_KEY = 'ml_session_traffic'
-const OWN_HOSTS = ['mantenimentslizana.com', 'www.mantenimentslizana.com', 'localhost', '127.0.0.1']
+const OWN_HOSTS = ['ferlo.es', 'www.ferlo.es', 'localhost', '127.0.0.1']
 
 export interface CampaignParams {
   source: string

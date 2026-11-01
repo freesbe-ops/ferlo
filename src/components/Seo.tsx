@@ -5,7 +5,7 @@ import { LANGS, DEFAULT_LANG, alternatesForPath, type Lang } from '../lib/lang'
 /*  Single source of truth for SEO (canonical, hreflang, meta, JSON-LD)*/
 /* ------------------------------------------------------------------ */
 
-export const SITE_URL = 'https://mantenimentslizana.com'
+export const SITE_URL = 'https://ferlo.es'
 
 // Re-exported so every page keeps a single import source for languages.
 export { LANGS, DEFAULT_LANG }
@@ -13,7 +13,7 @@ export type { Lang }
 
 /* NAP + business data — MUST stay consistent with Google Business Profile */
 export const BUSINESS_NAP = {
-  name: 'Manteniments Lizana',
+  name: 'FERLO',
   telephone: '+34677218303',
   email: 'mantenimentlizana@gmail.com',
   locality: 'Maçanet de la Selva',

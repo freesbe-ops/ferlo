@@ -1,17 +1,17 @@
 {
-  "meta_title": "Manteniments Lizana | Manteniment i serveis a Girona",
-  "meta_description": "Manteniments Lizana: reparacions, jardineria, piscines i manteniment general a Girona, la Selva, la Costa Brava i el Maresme. Pressupost sense compromís.",
+  "meta_title": "FERLO | Manteniment i serveis a Girona",
+  "meta_description": "FERLO: reparacions, jardineria, piscines i manteniment general a Girona, la Selva, la Costa Brava i el Maresme. Pressupost sense compromís.",
   "hero": {
     "badge": "Girona i Maresme · 10 anys d'experiència",
     "title": "Mans expertes.",
     "subtitle": "Resultats reals.",
-    "description": "Manteniments Lizana: reparacions a Girona, manteniment, jardineria i piscines a Girona, Maresme i Costa Brava. Un equip proper, puntual i professional que deixa la teva llar en perfecte estat.",
+    "description": "FERLO: reparacions a Girona, manteniment, jardineria i piscines a Girona, Maresme i Costa Brava. Un equip proper, puntual i professional que deixa la teva llar en perfecte estat.",
     "cta": "Sol·licita pressupost gratuït",
     "secondary_cta": "Veure serveis",
     "stars_label": "Més de 120 clients satisfets",
     "badge_title": "Resposta garantida",
     "badge_sub": "En menys de 2h",
-    "image_alt": "Equip de Manteniments Lizana realitzant reparacions a Girona"
+    "image_alt": "Equip de FERLO realitzant reparacions a Girona"
   },
   "nav": {
     "serveis": "Serveis",
@@ -62,7 +62,7 @@
   },
   "sobre": {
     "title": "SOBRE NOSALTRES",
-    "heading": "Hola, som<br /><em>Manteniments Lizana.</em>",
+    "heading": "Hola, som<br /><em>FERLO.</em>",
     "p1": "Hola, sóc l'Aleix. Fa més de 10 anys que em dedico al manteniment i les instal·lacions, des de grans equipaments i hotels fins a cases particulars. Treballo amb un grup de col·laboradors de confiança, però el que més m'agrada és quan els clients em coneixen a mi i em demanen les coses directament.",
     "p2": "Cada espai és diferent i per això m'hi poso al davant. Quan dic que hi seré a l'hora, hi sóc; quan dic que ho deixaré net, ho deixo net. Sense excuses ni complicacions.",
     "stats": [
@@ -71,13 +71,13 @@
       { "num": "4.9★", "label": "Valoració" }
     ],
     "cta": "Contacta'ns avui",
-    "image_alt": "Equip de manteniment a Girona - Manteniments Lizana",
+    "image_alt": "Equip de manteniment a Girona - FERLO",
     "badge_num": "+10",
     "badge_years": "anys<br />d'experiència"
   },
   "whyus": {
     "title": "PER QUÈ NOSALTRES",
-    "heading": "Per què confiar en <em>Manteniments Lizana</em>",
+    "heading": "Per què confiar en <em>FERLO</em>",
     "items": [
       { "title": "Professionals qualificats", "desc": "Equip amb formació i experiència en tots els oficis. Treballem amb garantia i seguretat." },
       { "title": "Servei ràpid i puntual", "desc": "Responem en poques hores i complim els horaris acordats. El teu temps és el nostre temps." },
@@ -127,7 +127,7 @@
     "form_poblacio_placeholder": "El teu poble o localitat"
   },
   "piscines": {
-    "meta_title": "Manteniment de piscines a Girona | Manteniments Lizana",
+    "meta_title": "Manteniment de piscines a Girona | FERLO",
     "meta_description": "Manteniment professional de piscines a Girona, la Selva i la Costa Brava. Neteja, tractament químic, revisió d'equips i posada a punt per a la temporada.",
     "carousel": ["PISCINES IMPECABLES", "AIGUA CRISTAL·LINA", "SERVEI PROFESSIONAL", "PRESSUPOST RÀPID", "TOTAL CONFIANÇA"],
     "hero": {
@@ -191,7 +191,7 @@
     }
   },
   "jardineria": {
-    "meta_title": "Jardineria a Girona i Costa Brava | Manteniments Lizana",
+    "meta_title": "Jardineria a Girona i Costa Brava | FERLO",
     "meta_description": "Servei professional de jardineria a Girona, la Selva i la Costa Brava. Poda, disseny de jardins, reg automàtic, gespa i manteniment continu tot l'any.",
     "break_alt": "Jardí geomètric professional",
     "garden_alt": "Professional de jardineria en acció",
@@ -257,7 +257,7 @@
     }
   },
   "manteniment": {
-    "meta_title": "Manteniment General a Girona | Manteniments Lizana",
+    "meta_title": "Manteniment General a Girona | FERLO",
     "meta_description": "Servei integral de manteniment general a Girona, la Selva i la Costa Brava: reparacions, electricitat, fontaneria, calderes i petites reformes i molt més.",
     "carousel": ["REPARACIONS EN 24H", "PRESSUPOST SENSE COMPROMÍS", "PROFESSIONALS QUALIFICATS", "GARANTIA EN ELS TREBALLS", "TOTAL CONFIANÇA"],
     "hero": {
@@ -319,7 +319,7 @@
     }
   },
   "instalacions": {
-    "meta_title": "Instal·lacions elèctriques a Girona | Manteniments Lizana",
+    "meta_title": "Instal·lacions elèctriques a Girona | FERLO",
     "meta_description": "Instal·lacions elèctriques, punts de llum, il·luminació i muntatge de cuines i mobles a Girona, la Selva i el Maresme. Professionals qualificats amb garantia.",
     "carousel": ["INSTAL·LACIONS SEGURES", "PROFESSIONALS QUALIFICATS", "PRESSUPOST SENSE COMPROMÍS", "GARANTIA EN ELS TREBALLS", "MUNTATGE DE CUINES", "LLUM I FUNCIONALITAT"],
     "hero": {
