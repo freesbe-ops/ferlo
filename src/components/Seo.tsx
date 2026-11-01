@@ -1,59 +1,58 @@
 import { Helmet } from 'react-helmet-async'
-import { LANGS, DEFAULT_LANG, alternatesForPath, type Lang } from '../lib/lang'
+import { LANGS, ROUTES, type Lang } from '../lib/lang'
 
 /* ------------------------------------------------------------------ */
 /*  Single source of truth for SEO (canonical, hreflang, meta, JSON-LD)*/
 /* ------------------------------------------------------------------ */
 
 export const SITE_URL = 'https://ferlo.es'
-
-// Re-exported so every page keeps a single import source for languages.
-export { LANGS, DEFAULT_LANG }
-export type { Lang }
+export const DEFAULT_LANG: Lang = 'es'
 
 /* NAP + business data — MUST stay consistent with Google Business Profile */
 export const BUSINESS_NAP = {
-  name: 'FERLO',
-  telephone: '+34677218303',
-  email: 'mantenimentlizana@gmail.com',
-  locality: 'Maçanet de la Selva',
-  postalCode: '17412',
-  region: 'Girona',
+  name: 'FERLO SL',
+  telephone: '+34692586863',
+  email: 'info@ferlo.es',
+  street: 'Calle Ramon Llull, 1 - P. 3 Pta. 2',
+  locality: 'Tordera',
+  postalCode: '08490',
+  region: 'Barcelona',
   country: 'ES',
-  // Town-centre coordinates of Maçanet de la Selva (41°46′46″N 2°44′0″E)
-  geo: { latitude: 41.7794, longitude: 2.7333 },
+  // Tordera (41°42′00″N 2°43′00″E approx.)
+  geo: { latitude: 41.6994, longitude: 2.7189 },
 } as const
 
 /** Official profiles, used for `sameAs` (helps the Google knowledge panel). */
-const SOCIAL_PROFILES = [
-  'https://www.facebook.com/p/Manteniments-Lizana-61590819927805/',
-  'https://www.instagram.com/manteniments_lizana',
-  'https://share.google/MP6A0EmNCzBuHSuTd',
+const SOCIAL_PROFILES: string[] = [
+  // Omple quan tinguis FB / IG / Google Business:
+  // 'https://www.facebook.com/ferlo',
+  // 'https://www.instagram.com/ferlo',
 ]
 
 const BUSINESS_DESCRIPTION: Record<Lang, string> = {
-  ca: 'Servei professional de manteniment general, piscines, jardineria i instal·lacions a Girona, la Selva, la Costa Brava i el Maresme.',
-  es: 'Servicio profesional de mantenimiento general, piscinas, jardinería e instalaciones en Girona, la Selva, la Costa Brava y el Maresme.',
-  en: 'Professional general maintenance, pool, gardening and installation services in Girona, La Selva, Costa Brava and Maresme.',
-  fr: 'Service professionnel de maintenance générale, piscines, jardinage et installations à Girona, La Selva, Costa Brava et Maresme.',
+  es: 'Empresa de reformas integrales, cocinas, baños, alicatados, pladur y obra nueva en Tordera, La Selva, Blanes, Lloret de Mar, Malgrat de Mar y alrededores. Presupuesto gratis.',
+  ca: 'Empresa de reformes integrals, cuines, banys, enrajolats, pladur i obra nova a Tordera, La Selva, Blanes, Lloret de Mar, Malgrat de Mar i rodalies. Pressupost gratuït.',
 }
 
 const SERVICE_AREAS: Array<{ name: string; type?: 'City' | 'Place' }> = [
-  { name: 'Girona', type: 'City' },
+  { name: 'Tordera', type: 'City' },
+  { name: 'Blanes', type: 'City' },
+  { name: 'Lloret de Mar', type: 'City' },
+  { name: 'Malgrat de Mar', type: 'City' },
+  { name: 'Palafolls', type: 'City' },
+  { name: 'Pineda de Mar', type: 'City' },
+  { name: 'Santa Susanna', type: 'City' },
+  { name: 'Fogars de la Selva', type: 'City' },
+  { name: 'Hostalric', type: 'City' },
   { name: 'La Selva', type: 'City' },
-  { name: 'Costa Brava' },
-  { name: 'Baix Empordà', type: 'City' },
-  { name: 'Gironès', type: 'City' },
-  { name: 'Maresme' },
+  { name: 'Maresme', type: 'City' },
 ]
 
-// Must match the hours shown on the site (contact + footer): Mon–Fri 7:30–19:00,
-// Sat 9:00–13:00. Keep in sync with the Google Business Profile.
 const OPENING_HOURS = [
   {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '07:30',
+    opens: '08:00',
     closes: '19:00',
   },
   {
@@ -65,81 +64,76 @@ const OPENING_HOURS = [
 ]
 
 const OG_LOCALE: Record<Lang, string> = {
-  ca: 'ca_ES',
   es: 'es_ES',
-  en: 'en_US',
-  fr: 'fr_FR',
+  ca: 'ca_ES',
 }
 
-/** Replaces the language segment of a canonical path (e.g. /ca/serveis/x -> /es/serveis/x). */
-export function localizePath(path: string, lang: Lang): string {
-  const segments = path.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean)
-  if (segments.length > 0 && (LANGS as readonly string[]).includes(segments[0])) {
-    segments[0] = lang
-  } else {
-    segments.unshift(lang)
-  }
-  return `/${segments.join('/')}`
-}
-
-/**
- * hreflang alternates (absolute URLs) for a canonical page path.
- * Uses the shared route map so localised French slugs are resolved correctly
- * (/ca/serveis/jardineria <-> /fr/services/jardins) and only routes that really
- * exist in a language are listed (there is no English privacy page).
- */
+/** Resolves ca/es/x-default absolute URLs from a canonical path like `/es/servicios/cocinas`. */
 export function hreflangUrls(path: string): Record<string, string> {
-  return Object.fromEntries(
-    Object.entries(alternatesForPath(path)).map(([hreflang, href]) => [
-      hreflang,
-      href.startsWith('http') ? href : `${SITE_URL}${href}`,
-    ]),
-  )
+  const clean = path.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean)
+  const lang = (clean[0] || DEFAULT_LANG) as Lang
+  const rest = clean.slice(1).join('/')
+
+  // Home page
+  if (rest === '') {
+    const out: Record<string, string> = {}
+    for (const l of LANGS) out[l] = `${SITE_URL}/${l}`
+    out['x-default'] = `${SITE_URL}/${DEFAULT_LANG}`
+    return out
+  }
+
+  // Look up in the shared route map
+  for (const map of Object.values(ROUTES)) {
+    if (map[lang] === rest) {
+      const out: Record<string, string> = {}
+      for (const l of LANGS) out[l] = `${SITE_URL}/${l}/${map[l]}`
+      out['x-default'] = `${SITE_URL}/${DEFAULT_LANG}/${map[DEFAULT_LANG]}`
+      return out
+    }
+  }
+
+  return {}
 }
 
 export interface SeoProps {
   lang: Lang
-  /** Canonical path of THIS page (no trailing slash), e.g. '/ca/serveis/piscines' */
+  /** Canonical path of THIS page (no trailing slash), e.g. '/es/servicios/cocinas' */
   path: string
   title: string
   description: string
   /** Path or absolute URL of the social image (defaults to /hero.webp) */
   image?: string
-  /**
-   * Optional hreflang overrides (absolute URLs). When omitted the alternates are
-   * derived from the shared route map, which already knows every localised slug.
-   */
+  /** Optional hreflang overrides (absolute URLs). */
   alternates?: Record<string, string>
 }
 
 export default function Seo({ lang, path, title, description, image, alternates }: SeoProps) {
-  const url = `${SITE_URL}${path}`
+  const url = `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`
   const imageAbs = image
     ? image.startsWith('http')
       ? image
       : `${SITE_URL}${image}`
     : `${SITE_URL}/hero.webp`
 
-  // Explicit alternates fully control the list; otherwise the ca/es/en/fr/x-default
-  // set is derived from the canonical path through the shared route map.
-  const allAlternates: Record<string, string> = alternates ? { ...alternates } : hreflangUrls(path)
+  const allAlternates = alternates ?? hreflangUrls(path)
 
   const localBusiness = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
     '@id': `${SITE_URL}/#localbusiness`,
     name: BUSINESS_NAP.name,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo-lizana.webp`,
-    image: [`${SITE_URL}/logo-lizana.webp`, `${SITE_URL}/hero.webp`],
+    logo: `${SITE_URL}/logo.svg`,
+    image: [`${SITE_URL}/hero.webp`],
     description: BUSINESS_DESCRIPTION[lang],
     telephone: BUSINESS_NAP.telephone,
     email: BUSINESS_NAP.email,
     priceRange: '€€',
     sameAs: SOCIAL_PROFILES,
-    knowsLanguage: ['ca', 'es', 'en', 'fr'],
+    knowsLanguage: [...LANGS],
     address: {
       '@type': 'PostalAddress',
+      streetAddress: BUSINESS_NAP.street,
       addressLocality: BUSINESS_NAP.locality,
       postalCode: BUSINESS_NAP.postalCode,
       addressRegion: BUSINESS_NAP.region,
@@ -154,7 +148,6 @@ export default function Seo({ lang, path, title, description, image, alternates 
     areaServed: SERVICE_AREAS.map((a) => ({ '@type': a.type ?? 'Place', name: a.name })),
   }
 
-  // Keep the inline JSON safe inside an HTML <script> element.
   const jsonLd = JSON.stringify(localBusiness)
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
