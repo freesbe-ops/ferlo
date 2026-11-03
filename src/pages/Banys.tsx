@@ -109,10 +109,10 @@ export default function Banys() {
         <div style={{ width: 'fit-content', margin: '0 auto', backgroundColor: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 100, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, height: 60, boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid rgba(255,255,255,0.3)' }}>
           <Link to={`/${currentLang}`} style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover' }} />
+              <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 34, height: 34, objectFit: 'contain' }} />
               <div className="logo-text">
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 15, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontSize: 12, color: '#5C5348', letterSpacing: '0.08em' }}>TORDERA</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: '#0A0A0A', lineHeight: 1.1 }}>FERLO</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: '#65615D', letterSpacing: '0.08em' }}>TORDERA</div>
               </div>
             </div>
           </Link>
@@ -138,9 +138,9 @@ export default function Banys() {
                 key={link.label}
                 to={link.href}
                 title={link.label}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#5C5348', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1714'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#5C5348'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{link.label}</span>
@@ -152,7 +152,7 @@ export default function Banys() {
           <MobileNav currentLang={currentLang} waHeader={waHeader} />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: brandBlue, color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile">
+            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: '#0A0A0A', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile" onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#847261' }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#0A0A0A' }}>
               {t('nav.pressupost_cta')}
             </Link>
           </div>
@@ -209,7 +209,7 @@ export default function Banys() {
             </div>
 
             {/* Title */}
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.1, marginBottom: 24 }}>
+            <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.1, marginBottom: 24 }}>
               {t('banys.hero.title')}{' '}
               <em style={{ fontStyle: 'italic' }}>{t('banys.hero.subtitle')}</em>
             </h1>
@@ -236,7 +236,7 @@ export default function Banys() {
             {/* Floating badge */}
             <div style={{ position: 'absolute', bottom: 24, right: 24, zIndex: 1, background: '#FFFFFF', borderRadius: 16, padding: '16px 20px', boxShadow: '0 8px 32px rgba(0,0,0,0.18)', textAlign: 'center', display: 'none' }} className="hero-badge">
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: brandBlue, marginBottom: 2, textTransform: 'uppercase' }}>{t('banys.hero.badge_title')}</div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)' }}>{t('banys.hero.badge_sub')}</div>
+              <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)' }}>{t('banys.hero.badge_sub')}</div>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function Banys() {
       <section id="serveis" style={{ padding: '96px 24px', background: 'var(--color-cream)', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 56, maxWidth: 640 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('banys.services.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('banys.services.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('banys.services.heading') }} />
           <p style={{ fontSize: 16, color: muted, lineHeight: 1.7 }}>{t('banys.services.subheading')}</p>
         </div>
 
@@ -265,7 +265,7 @@ export default function Banys() {
               onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(10,10,10,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'; e.currentTarget.style.transform = 'translateY(0)' }}>
               <div style={{ width: 48, height: 48, borderRadius: 12, background: 'var(--color-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>{s.icon}</div>
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: 'var(--color-ink)', lineHeight: 1.2, margin: 0 }}>{s.title}</h3>
+              <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 600, color: 'var(--color-ink)', lineHeight: 1.2, margin: 0 }}>{s.title}</h3>
               <p style={{ fontSize: 14, lineHeight: 1.65, color: muted, margin: 0, flex: 1 }}>{s.desc}</p>
               <a href="#contacte" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 600, color: brandBlue, textDecoration: 'none' }}>
                 {t('banys.services.link')}
@@ -291,7 +291,7 @@ export default function Banys() {
           {/* Left - sticky */}
           <div style={{ position: 'sticky', top: 100 }}>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('banys.why.title')}</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('banys.why.heading') }} />
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('banys.why.heading') }} />
             <p style={{ fontSize: 16, color: muted, lineHeight: 1.7, maxWidth: 440, marginBottom: 32 }}>{t('banys.why.subheading')}</p>
             <a href="#contacte" style={{ display: 'inline-block', padding: '14px 28px', backgroundColor: brandBlue, color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>
               {t('banys.why.cta')}
@@ -306,7 +306,7 @@ export default function Banys() {
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'transparent'; e.currentTarget.style.background = 'var(--color-cream)' }}>
                 <div style={{ width: 32, height: 32, borderRadius: '50%', background: brandBlue, color: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, flexShrink: 0, marginTop: 2 }}>{i + 1}</div>
                 <div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 600, color: 'var(--color-ink)', marginBottom: 8, lineHeight: 1.2 }}>{w.title}</h3>
+                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 16, fontWeight: 600, color: 'var(--color-ink)', marginBottom: 8, lineHeight: 1.2 }}>{w.title}</h3>
                   <p style={{ fontSize: 14, lineHeight: 1.7, color: muted, margin: 0 }}>{w.desc}</p>
                 </div>
               </div>
@@ -326,7 +326,7 @@ export default function Banys() {
       <section style={{ padding: '96px 24px', background: 'var(--color-cream)', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: brandBlue, textTransform: 'uppercase', marginBottom: 16 }}>{t('banys.testimonials.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('banys.testimonials.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('banys.testimonials.heading') }} />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="mant-testimonials-grid">
@@ -363,7 +363,7 @@ export default function Banys() {
         <div style={{ position: 'absolute', inset: 0, opacity: 0.05, backgroundImage: 'radial-gradient(circle at center, #fff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div style={{ position: 'relative', maxWidth: 640, margin: '0 auto' }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', marginBottom: 20 }}>{t('banys.cta.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.2, margin: '0 auto 24px' }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.2, margin: '0 auto 24px' }}>
             {t('banys.cta.text')}
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: 'rgba(255,255,255,0.75)', marginBottom: 40 }}>
@@ -387,9 +387,9 @@ export default function Banys() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-                <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+                <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 32, height: 32, objectFit: 'contain' }} />
                 <div>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
+                  <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
                   <div style={{ fontSize: 11, color: 'var(--color-muted)', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
                 </div>
               </div>

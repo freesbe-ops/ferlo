@@ -70,7 +70,7 @@ export default function NotFound() {
       />
       <LegalShell currentLang={currentLang} onLanguageChange={changeLanguage}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(72px, 16vw, 140px)', fontWeight: 700, color: 'var(--color-primary)', lineHeight: 1, opacity: 0.15 }}>
+          <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(72px, 16vw, 140px)', fontWeight: 700, color: 'var(--color-primary)', lineHeight: 1, opacity: 0.15 }}>
             {copy.code}
           </div>
           <h1 style={{ ...S.h1, marginTop: -24 }}>{copy.title}</h1>

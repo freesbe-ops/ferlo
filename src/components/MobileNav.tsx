@@ -69,7 +69,7 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
     gap: 1,
     padding: '4px 8px',
     borderRadius: 40,
-    color: '#7A6F65',
+    color: '#65615D',
     textDecoration: 'none',
     transition: 'color 0.2s, background 0.2s',
     background: 'transparent',
@@ -94,11 +94,11 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
   }
 
   const hoverPop = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.color = '#1A1714'
+    e.currentTarget.style.color = '#0A0A0A'
     e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)'
   }
   const hoverPopOut = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.color = '#7A6F65'
+    e.currentTarget.style.color = '#65615D'
     e.currentTarget.style.backgroundColor = 'transparent'
   }
 
@@ -110,7 +110,7 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
           aria-expanded={open}
           aria-haspopup="true"
           onClick={() => setOpen((v: boolean) => !v)}
-          style={{ ...navItemStyle, color: open ? '#00326B' : '#7A6F65' }}
+          style={{ ...navItemStyle, color: open ? '#847261' : '#65615D' }}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
           <span style={navLabelStyle}>{t('nav.serveis')}</span>
@@ -130,12 +130,12 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
         {/* PRESSUPOST */}
         <Link
           to={`${prefix}/#contacte`}
-          style={{ ...navItemStyle, color: '#00326B' }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#00326B'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = '#00326B'; e.currentTarget.style.backgroundColor = 'transparent' }}
+          style={{ ...navItemStyle, color: '#847261' }}
+          onMouseEnter={e => { e.currentTarget.style.color = '#847261'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
+          onMouseLeave={e => { e.currentTarget.style.color = '#847261'; e.currentTarget.style.backgroundColor = 'transparent' }}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          <span style={{ ...navLabelStyle, color: '#00326B' }}>{t('nav.pressupost')}</span>
+          <span style={{ ...navLabelStyle, color: '#847261' }}>{t('nav.pressupost')}</span>
         </Link>
 
         {/* WHATSAPP — opció més a la dreta */}
@@ -200,14 +200,14 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
                   width: '100%',
                   boxSizing: 'border-box',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,50,107,0.06)')}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(132,114,97,0.06)')}
                 onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
               >
-                <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: 8, backgroundColor: 'rgba(0,50,107,0.08)', color: '#00326B', flexShrink: 0 }}>
+                <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: 8, backgroundColor: 'rgba(132,114,97,0.08)', color: '#847261', flexShrink: 0 }}>
                   {s.icon}
                 </span>
-                <span style={{ fontSize: 13, fontWeight: 500, color: '#1A1714', letterSpacing: '0.01em' }}>{s.label}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9A8F86" strokeWidth="2.5" style={{ marginLeft: 'auto', flexShrink: 0 }}><polyline points="9,6 15,12 9,18"/></svg>
+                <span style={{ fontSize: 13, fontWeight: 500, color: '#0A0A0A', letterSpacing: '0.01em' }}>{s.label}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#A89685" strokeWidth="2.5" style={{ marginLeft: 'auto', flexShrink: 0 }}><polyline points="9,6 15,12 9,18"/></svg>
               </Link>
             ))}
           </div>

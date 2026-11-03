@@ -119,10 +119,10 @@ export default function Cuines() {
         <div style={{ width: 'fit-content', margin: '0 auto', backgroundColor: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 100, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, height: 60, boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid rgba(255,255,255,0.3)' }}>
           <Link to={`/${currentLang}`} style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover' }} />
+              <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 34, height: 34, objectFit: 'contain' }} />
               <div className="logo-text">
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 15, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontSize: 12, color: '#5C5348', letterSpacing: '0.08em' }}>TORDERA</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: '#0A0A0A', lineHeight: 1.1 }}>FERLO</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: '#65615D', letterSpacing: '0.08em' }}>TORDERA</div>
               </div>
             </div>
           </Link>
@@ -148,9 +148,9 @@ export default function Cuines() {
                 key={link.label}
                 to={link.href}
                 title={link.label}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#5C5348', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1714'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#5C5348'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{link.label}</span>
@@ -162,7 +162,7 @@ export default function Cuines() {
           <MobileNav currentLang={currentLang} waHeader={waHeader} />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: accent, color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile">
+            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: '#0A0A0A', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile" onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#847261' }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#0A0A0A' }}>
               {t('nav.pressupost_cta')}
             </Link>
           </div>
@@ -213,10 +213,10 @@ export default function Cuines() {
               {t('cuines.hero.badge')}
             </div>
 
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
+            <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
               {t('cuines.hero.title')}
             </h1>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.15, marginBottom: 24, color: '#A5D6A7' }}>
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.15, marginBottom: 24, color: '#A5D6A7' }}>
               {t('cuines.hero.subtitle')}
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.7, color: '#E8F5E9', maxWidth: 460, marginBottom: 40 }}>
@@ -245,7 +245,7 @@ export default function Cuines() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }} className="services-grid">
           <div style={{ position: 'sticky', top: 100 }}>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: accent, textTransform: 'uppercase', marginBottom: 16 }}>{t('cuines.services.title')}</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', letterSpacing: '-0.02em', marginBottom: 24 }} dangerouslySetInnerHTML={{ __html: t('cuines.services.heading') }} />
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', letterSpacing: '-0.02em', marginBottom: 24 }} dangerouslySetInnerHTML={{ __html: t('cuines.services.heading') }} />
             <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.7, maxWidth: 360, marginBottom: 40 }}>
               {t('cuines.services.subheading')}
             </p>
@@ -285,7 +285,7 @@ export default function Cuines() {
                 <div style={{ borderRadius: 16, overflow: 'hidden', backgroundColor: 'var(--color-warm)', marginBottom: 24 }}>
                   <img src={s.img} alt={s.title} style={{ width: '100%', height: 340, objectFit: 'cover', display: 'block' }} />
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 12 }}>{s.title}</h3>
+                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 28, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 12 }}>{s.title}</h3>
                 <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.7, marginBottom: 24 }}>{s.description}</p>
                 <Link to={`/${currentLang}/#contacte`} style={{
                   display: 'inline-block',
@@ -324,7 +324,7 @@ export default function Cuines() {
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(43,94,50,0.45)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 24 }}>
           <div>
-            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(22px, 4vw, 44px)', fontWeight: 700, color: '#FFFFFF', fontStyle: 'italic', letterSpacing: '-0.01em', lineHeight: 1.2 }}>
+            <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(22px, 4vw, 44px)', fontWeight: 700, color: '#FFFFFF', fontStyle: 'italic', letterSpacing: '-0.01em', lineHeight: 1.2 }}>
               "Un jardí ben cuidat és la millor presentació de casa."
             </p>
             <p style={{ marginTop: 16, fontSize: 13, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>FERLO</p>
@@ -338,7 +338,7 @@ export default function Cuines() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="why-grid">
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: accent, textTransform: 'uppercase', marginBottom: 16 }}>{t('cuines.benefits.title')}</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 3.5vw, 48px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--color-ink)', letterSpacing: '-0.02em', marginBottom: 32 }} dangerouslySetInnerHTML={{ __html: t('cuines.benefits.heading') }} />
+              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 3.5vw, 48px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--color-ink)', letterSpacing: '-0.02em', marginBottom: 32 }} dangerouslySetInnerHTML={{ __html: t('cuines.benefits.heading') }} />
               <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.7, maxWidth: 420, marginBottom: 32 }}>{t('cuines.benefits.subheading')}</p>
               <img src={GALLERY_IMAGES[currentLang] || GALLERY_IMAGES.ca} alt={t('cuines.gallery_alt')} style={{ width: '100%', borderRadius: 14, objectFit: 'cover', height: 340 }} />
             </div>
@@ -352,7 +352,7 @@ export default function Cuines() {
                   gridTemplateColumns: '48px 1fr',
                   gap: 20,
                 }}>
-                  <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 13, fontWeight: 700, color: accent, letterSpacing: '0.06em', paddingTop: 4 }}>
+                  <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, fontWeight: 700, color: accent, letterSpacing: '0.06em', paddingTop: 4 }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
@@ -374,7 +374,7 @@ export default function Cuines() {
       <section style={{ padding: '96px 24px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: accent, textTransform: 'uppercase', marginBottom: 16 }}>{t('cuines.seasons.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em' }} dangerouslySetInnerHTML={{ __html: t('cuines.seasons.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em' }} dangerouslySetInnerHTML={{ __html: t('cuines.seasons.heading') }} />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }} className="seasons-grid">
@@ -401,7 +401,7 @@ export default function Cuines() {
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
                   <span style={{ fontSize: 24, lineHeight: 1 }}>{isActive ? SEASON_EMOJIS[i] : '🌱'}</span>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, fontStyle: 'italic', color: isActive ? '#FFFFFF' : accent, margin: 0 }}>{s.season}</h3>
+                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, fontStyle: 'italic', color: isActive ? '#FFFFFF' : accent, margin: 0 }}>{s.season}</h3>
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {s.tasks.map((task) => (
@@ -427,7 +427,7 @@ export default function Cuines() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: accent, textTransform: 'uppercase', marginBottom: 16 }}>{t('cuines.testimonials.title')}</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em' }} dangerouslySetInnerHTML={{ __html: t('cuines.testimonials.heading') }} />
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: 'var(--color-ink)', letterSpacing: '-0.02em' }} dangerouslySetInnerHTML={{ __html: t('cuines.testimonials.heading') }} />
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="testimonials-grid">
@@ -464,7 +464,7 @@ export default function Cuines() {
       <section id="contacte" style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', borderRadius: 28, padding: '72px 32px' }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: accent, textTransform: 'uppercase', marginBottom: 16 }}>{t('cuines.cta.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto 20px', maxWidth: 760 }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto 20px', maxWidth: 760 }}>
             {t('cuines.cta.text')}
           </h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
@@ -484,9 +484,9 @@ export default function Cuines() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-                <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+                <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 32, height: 32, objectFit: 'contain' }} />
                 <div>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
+                  <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
                   <div style={{ fontSize: 11, color: 'var(--color-muted)', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
                 </div>
               </div>

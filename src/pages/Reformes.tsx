@@ -87,7 +87,7 @@ function BeforeAfterSection() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#60D394', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.abans_despres.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.15 }} dangerouslySetInnerHTML={{ __html: t('reformes.abans_despres.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.15 }} dangerouslySetInnerHTML={{ __html: t('reformes.abans_despres.heading') }} />
         </div>
 
         {/* Split fix 50/50 - sense arrossegament */}
@@ -179,10 +179,10 @@ export default function Reformes() {
         <div style={{ width: 'fit-content', margin: '0 auto', backgroundColor: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 100, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, height: 60, boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid rgba(255,255,255,0.3)' }}>
           <Link to={`/${currentLang}`} style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover' }} />
+              <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 34, height: 34, objectFit: 'contain' }} />
               <div className="logo-text">
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 15, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontSize: 12, color: '#5C5348', letterSpacing: '0.08em' }}>TORDERA</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: '#0A0A0A', lineHeight: 1.1 }}>FERLO</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: '#65615D', letterSpacing: '0.08em' }}>TORDERA</div>
               </div>
             </div>
           </Link>
@@ -208,9 +208,9 @@ export default function Reformes() {
                 key={link.label}
                 to={link.href}
                 title={link.label}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#5C5348', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1714'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#5C5348'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{link.label}</span>
@@ -220,9 +220,9 @@ export default function Reformes() {
                 key={link.label}
                 href={link.href}
                 title={link.label}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#5C5348', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1714'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#5C5348'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{link.label}</span>
@@ -234,7 +234,7 @@ export default function Reformes() {
           <MobileNav currentLang={currentLang} waHeader={waHeader} />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: '#00326B', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile">
+            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: '#0A0A0A', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile" onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#847261' }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#0A0A0A' }}>
               {t('nav.pressupost_cta')}
             </Link>
           </div>
@@ -284,10 +284,10 @@ export default function Reformes() {
               {t('reformes.hero.badge')}
             </div>
 
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
+            <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
               {t('reformes.hero.title')}
             </h1>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(36px, 4.8vw, 58px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.1, marginBottom: 28, color: '#FFFFFF' }}>
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(36px, 4.8vw, 58px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.1, marginBottom: 28, color: '#FFFFFF' }}>
               {t('reformes.hero.subtitle')}
             </h2>
             <p style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.85)', maxWidth: 460, marginBottom: 40 }}>
@@ -357,7 +357,7 @@ export default function Reformes() {
         <div style={{ marginBottom: 64 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('reformes.services.title')}</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.services.heading') }} />
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.services.heading') }} />
             <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{t('reformes.services.subheading')}</p>
           </div>
         </div>
@@ -371,7 +371,7 @@ export default function Reformes() {
               <div style={{ padding: '28px 28px 32px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--color-primary)', marginBottom: 14 }}>
                   {SERVICE_ICONS[index]}
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, margin: 0, color: 'var(--color-ink)' }}>{service.title}</h3>
+                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, margin: 0, color: 'var(--color-ink)' }}>{service.title}</h3>
                 </div>
                 <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--color-muted)', margin: 0 }}>{service.description}</p>
               </div>
@@ -397,7 +397,7 @@ export default function Reformes() {
           <div style={{ marginBottom: 60, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('reformes.benefits.title')}</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.benefits.heading') }} />
+              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.benefits.heading') }} />
             </div>
             <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{t('reformes.benefits.subheading')}</p>
           </div>
@@ -406,7 +406,7 @@ export default function Reformes() {
             {benefits.map((benefit, index) => (
               <div key={benefit.title} style={{ padding: '32px 24px', borderRadius: 14, border: '1px solid var(--color-border)', backgroundColor: '#FFFFFF' }}>
                 <div style={{ color: 'var(--color-primary)', marginBottom: 18 }}>{WHY_US_ICONS[index]}</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{benefit.title}</h3>
+                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{benefit.title}</h3>
                 <p style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{benefit.description}</p>
               </div>
             ))}
@@ -423,7 +423,7 @@ export default function Reformes() {
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
         <div style={{ marginBottom: 60 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.testimonials.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('reformes.testimonials.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('reformes.testimonials.heading') }} />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="testimonials-grid">
@@ -458,7 +458,7 @@ export default function Reformes() {
       <section id="contacte" style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', borderRadius: 28, padding: '72px 32px' }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.cta.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto 20px', maxWidth: 760 }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto 20px', maxWidth: 760 }}>
             {t('reformes.cta.text')}
           </h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
@@ -477,9 +477,9 @@ export default function Reformes() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-                <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+                <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 32, height: 32, objectFit: 'contain' }} />
                 <div>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
+                  <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
                   <div style={{ fontSize: 11, color: 'var(--color-muted)', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
                 </div>
               </div>

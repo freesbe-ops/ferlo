@@ -3,7 +3,7 @@
 @theme {
   /* Tipografia */
   --font-sans: 'Montserrat', system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
 
   /* Paleta aprovada (taupe + ink) */
   --color-primary: #847261;

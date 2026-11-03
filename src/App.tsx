@@ -216,10 +216,10 @@ export default function App() {
           {/* Logo */}
           <a href="#inici" style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 34, height: 34, borderRadius: '50%', objectFit: 'cover' }} />
+              <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 34, height: 34, objectFit: 'contain' }} />
               <div className="logo-text">
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 15, color: '#1A1714', lineHeight: 1.1 }}>FERLO</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400, fontSize: 12, color: '#5C5348', letterSpacing: '0.08em' }}>TORDERA</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: '#0A0A0A', lineHeight: 1.1 }}>FERLO</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: '#65615D', letterSpacing: '0.08em' }}>TORDERA</div>
               </div>
             </div>
           </a>
@@ -235,16 +235,16 @@ export default function App() {
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{l.label}</span>
               </a>
             ) : l.href.startsWith('/') ? (
-              <Link key={l.label} to={l.href} title={l.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#5C5348', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#1A1714'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#5C5348'; e.currentTarget.style.backgroundColor = 'transparent'; }}>
+              <Link key={l.label} to={l.href} title={l.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent'; }}>
                 {l.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{l.label}</span>
               </Link>
             ) : (
-              <a key={l.label} href={l.href} title={l.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#5C5348', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#1A1714'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#5C5348'; e.currentTarget.style.backgroundColor = 'transparent'; }}>
+              <a key={l.label} href={l.href} title={l.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent'; }}>
                 {l.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{l.label}</span>
               </a>
@@ -256,7 +256,7 @@ export default function App() {
 
           {/* Right side */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <a href="#contacte" style={{ padding: '8px 18px', backgroundColor: '#00326B', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile">
+            <a href="#contacte" style={{ padding: '8px 18px', backgroundColor: '#0A0A0A', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile" onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#847261' }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#0A0A0A' }}>
               {t('nav.pressupost_cta')}
             </a>
           </div>
@@ -277,79 +277,112 @@ export default function App() {
         }
       `}</style>
 
-      {/* HERO - Full width background */}
-      <section id="inici" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-start', marginTop: '-60px', paddingTop: '60px' }}>
-        {/* Background image - full width */}
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            <img
-            src="/hero.webp"
-            alt={t('hero.image_alt')}
-            fetchPriority="high"
-            width={1200}
-            height={800}
-            decoding="async"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-          />
-          {/* Dark overlay for readability */}
-          <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.5)' }} />
-        </div>
-
-        {/* Content */}
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', padding: '80px 24px', width: '100%' }}>
-          <div style={{ maxWidth: 600 }}>
-            {/* Language selector (just above badge) */}
-            <div style={{ marginBottom: 4 }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+      {/* HERO - Split layout (port de Figma Make) */}
+      <section id="inici" className="hero">
+        <div className="hero-outer">
+          <div className="hero-grid">
+            <div className="hero-copy">
+              {/* Language selector (únic selector d'idioma de la home) */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginBottom: 28 }}>
                 <select
                   value={currentLang}
                   onChange={e => changeLanguage(e.target.value)}
                   aria-label="Idioma / Language / Idioma / Langue"
-                  style={{ background: 'transparent', border: 'none', color: '#FFFFFF', fontWeight: 700, textDecoration: 'underline', fontSize: 12, fontFamily: "var(--font-sans)", letterSpacing: '0.12em', textTransform: 'uppercase', outline: 'none', cursor: 'pointer', padding: 0, margin: 0, appearance: 'none', WebkitAppearance: 'none' }}
+                  style={{ background: 'transparent', border: 'none', color: 'var(--color-muted)', fontWeight: 700, textDecoration: 'underline', fontSize: 12, fontFamily: "var(--font-sans)", letterSpacing: '0.12em', textTransform: 'uppercase', outline: 'none', cursor: 'pointer', padding: 0, margin: 0, appearance: 'none', WebkitAppearance: 'none' }}
                 >
                   {LANGS.map(l => (
                     <option key={l} value={l} style={{ color: 'var(--color-ink)', textTransform: 'uppercase' }}>{LANG_LABELS[l]}</option>
                   ))}
                 </select>
-                <span style={{ fontSize: 9, color: '#FFFFFF', fontWeight: 700, pointerEvents: 'none', lineHeight: 1 }}>▼</span>
+                <span style={{ fontSize: 9, color: 'var(--color-muted)', fontWeight: 700, pointerEvents: 'none', lineHeight: 1 }}>▼</span>
+              </div>
+
+              <span className="hero-eyebrow">{t('hero.badge')}</span>
+
+              <h1>
+                {t('hero.title')}{' '}
+                <span className="hl">{t('hero.subtitle').split(' ')[0]}</span>{' '}
+                {t('hero.subtitle').split(' ').slice(1).join(' ')}
+              </h1>
+
+              <p>{t('hero.description')}</p>
+
+              <div className="hero-actions">
+                <a href="#contacte" style={{ minHeight: 52, padding: '0 25px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 999, fontSize: 14, fontWeight: 600, color: '#FFFFFF', background: 'var(--color-ink)', boxShadow: '0 8px 20px rgba(0,0,0,0.12)', textDecoration: 'none', transition: 'transform 0.2s, background 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = 'var(--color-primary-dark)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'var(--color-ink)')}>
+                  {t('hero.cta')}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
+                </a>
+                <a href="#serveis" style={{ minHeight: 52, padding: '0 25px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 999, fontSize: 14, fontWeight: 600, border: '1px solid rgba(10,10,10,0.22)', background: 'transparent', color: 'var(--color-ink)', textDecoration: 'none', transition: 'border 0.2s, color 0.2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--color-primary)'; e.currentTarget.style.color = 'var(--color-primary-dark)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(10,10,10,0.22)'; e.currentTarget.style.color = 'var(--color-ink)'; }}>
+                  {t('hero.secondary_cta')}
+                </a>
+              </div>
+
+              <div className="hero-note">
+                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>
+                {t('hero.note')}
               </div>
             </div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: 28, fontSize: 12, fontWeight: 500, letterSpacing: '0.12em', color: '#FFFFFF', textTransform: 'uppercase' }}>
-              <span style={{ width: 20, height: 1, backgroundColor: '#FFFFFF', display: 'inline-block' }} />
-              {t('hero.badge')}
-            </div>
-            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
-              {t('hero.title')}
-            </h1>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.1, marginBottom: 28, color: '#FFFFFF' }}>
-              {t('hero.subtitle')}
-            </h2>
-            <p style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.85)', maxWidth: 440, marginBottom: 40 }}>
-              {t('hero.description')}
-            </p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', marginBottom: 48 }}>
-              <a href="#contacte" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', backgroundColor: '#FFFFFF', color: 'var(--color-ink)', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 500, transition: 'background 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--color-border)')}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#FFFFFF')}>
-                {t('hero.cta')}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-              </a>
-              <a href="#serveis" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '13px 24px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.4)', color: '#FFFFFF', textDecoration: 'none', fontSize: 14, fontWeight: 400, backgroundColor: 'transparent' }}>
-                {t('hero.secondary_cta')}
-              </a>
-            </div>
-            {/* Stars */}
-            <a href="https://share.google/MP6A0EmNCzBuHSuTd" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-              <div style={{ display: 'flex', gap: 2 }}>
-                {[1,2,3,4,5].map(i => (
-                  <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                ))}
+
+            <div className="hero-visual">
+              <img
+                src="/hero.webp"
+                alt={t('hero.image_alt')}
+                fetchPriority="high"
+                width={1200}
+                height={800}
+                decoding="async"
+              />
+              <div className="hero-project-badge">
+                <span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3 5 6v5c0 4.8 2.8 8.2 7 10 4.2-1.8 7-5.2 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                <div><small>{t('hero.badge_sub')}</small><strong>{t('hero.badge_title')}</strong></div>
               </div>
-              <span style={{ fontSize: 13, color: 'rgba(255, 255, 255, 0.85)' }}><strong style={{ color: '#FFFFFF' }}>4.9 / 5</strong> · {t('hero.stars_label')}</span>
-            </a>
+              <div className="hero-stamp"><strong>+10</strong><span>{t('hero.stamp_label')}</span></div>
+            </div>
           </div>
         </div>
-
       </section>
+      <style>{`
+        .hero { position: relative; display: flex; align-items: center; min-height: 82vh; padding: 104px 0 72px; overflow: hidden; }
+        .hero-outer { width: 100%; }
+        .hero-grid { position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center; }
+        .hero-copy .hero-eyebrow { display: block; color: var(--color-primary); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
+        .hero-copy h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.05; margin: 0; color: var(--color-ink); }
+        .hero-copy h1 .hl { position: relative; color: var(--color-primary); white-space: nowrap; }
+        .hero-copy h1 .hl::after { content: ''; position: absolute; left: 1%; right: 0; bottom: 3px; height: 8px; z-index: -1; border-radius: 99px; background: rgba(132,114,97,0.2); transform: rotate(-1deg); }
+        .hero-copy p { max-width: 600px; margin: 28px 0 0; font-size: 19px; line-height: 1.7; color: var(--color-muted); }
+        .hero-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+        .hero-note { display: flex; align-items: center; gap: 9px; margin-top: 20px; color: var(--color-muted); font-size: 13px; }
+        .hero-note span { display: grid; place-items: center; width: 24px; height: 24px; color: #fff; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+        .hero-visual { position: relative; height: 650px; }
+        .hero-visual > img { width: 100%; height: 100%; object-fit: cover; border-radius: 180px 16px 16px 16px; filter: saturate(0.78) sepia(0.05); display: block; }
+        .hero-visual::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: 180px 16px 16px 16px; background: linear-gradient(180deg, transparent 65%, rgba(50,36,25,0.16)); }
+        .hero-project-badge { position: absolute; z-index: 2; left: -38px; bottom: 48px; display: flex; gap: 13px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; background: rgba(247,244,241,0.82); border: 1px solid rgba(255,255,255,0.65); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: var(--shadow-md); }
+        .hero-project-badge > span { width: 44px; height: 44px; display: grid; place-items: center; color: #fff; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+        .hero-project-badge div { display: flex; flex-direction: column; }
+        .hero-project-badge small { color: var(--color-muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+        .hero-project-badge strong { margin-top: 4px; font-size: 14px; color: var(--color-ink); }
+        .hero-stamp { position: absolute; z-index: 3; right: -25px; top: 42px; width: 120px; height: 120px; display: grid; place-content: center; text-align: center; color: #fff; border-radius: 50%; background: var(--color-primary); box-shadow: var(--shadow-md); transform: rotate(7deg); }
+        .hero-stamp strong { font-size: 29px; line-height: 1; }
+        .hero-stamp span { margin-top: 5px; font-size: 9px; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; max-width: 90px; }
+        @media (max-width: 900px) {
+          .hero { min-height: 0; padding: 104px 0 56px; }
+          .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+          .hero-copy .hero-eyebrow { margin-bottom: 20px; }
+          .hero-copy p { margin-top: 20px; font-size: 16px; }
+          .hero-actions { flex-direction: column; }
+          .hero-actions a { width: 100%; }
+          .hero-note { justify-content: center; }
+          .hero-visual { width: 100%; height: 430px; }
+          .hero-visual > img, .hero-visual::after { border-radius: 72px 14px 14px 14px; }
+          .hero-stamp { right: -6px; top: -25px; width: 96px; height: 96px; }
+          .hero-stamp strong { font-size: 24px; }
+          .hero-project-badge { left: 12px; right: 12px; bottom: 14px; }
+        }
+      `}</style>
 
       {/* TRUST BAR - Auto carousel */}
       <CarouselBar items={carouselItems} />
@@ -359,7 +392,7 @@ export default function App() {
         <div style={{ marginBottom: 64 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('serveis.title')}</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('serveis.heading') }} />
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('serveis.heading') }} />
             <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>
               {t('serveis.subheading')}
             </p>
@@ -399,7 +432,7 @@ export default function App() {
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px 12px', marginBottom: 14 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--color-primary)', minWidth: 0 }}>
                       {SERVICE_ICONS[i]}
-                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, margin: 0, color: 'var(--color-ink)', lineHeight: 1.2 }}>{s.title}</h3>
+                      <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, margin: 0, color: 'var(--color-ink)', lineHeight: 1.2 }}>{s.title}</h3>
                     </div>
                     <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', padding: '4px 10px', backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', borderRadius: 40, color: 'var(--color-muted)', whiteSpace: 'normal', textAlign: 'center' }}>{s.tag}</span>
                   </div>
@@ -432,7 +465,7 @@ export default function App() {
           <div style={{ marginBottom: 60, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('forwhom.title')}</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('forwhom.heading') }} />
+              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('forwhom.heading') }} />
             </div>
             <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>
               {t('forwhom.subheading')}
@@ -445,7 +478,7 @@ export default function App() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-primary)'; (e.currentTarget as HTMLElement).style.backgroundColor = '#FFFFFF'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)'; (e.currentTarget as HTMLElement).style.backgroundColor = '#FFFFFF'; }}>
                 <div style={{ color: 'var(--color-primary)', marginBottom: 18 }}>{FOR_WHOM_ICONS[i]}</div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{f.title}</h3>
+                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{f.title}</h3>
                 <p style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
               </div>
             ))}
@@ -474,14 +507,14 @@ export default function App() {
             />
           </div>
           <div style={{ position: 'absolute', top: 32, right: 16, backgroundColor: 'var(--color-primary)', borderRadius: 12, padding: '20px 24px' }} className="about-badge">
-            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 36, fontWeight: 700, color: '#FFFFFF', lineHeight: 1 }}>{t('sobre.badge_num')}</div>
+            <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 700, color: '#FFFFFF', lineHeight: 1 }}>{t('sobre.badge_num')}</div>
             <div style={{ fontSize: 12, color: '#FFFFFF', marginTop: 4, lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: t('sobre.badge_years') }} />
           </div>
         </div>
 
         <div>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('sobre.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.2, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('sobre.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.2, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('sobre.heading') }} />
           <p style={{ fontSize: 16, lineHeight: 1.75, color: 'var(--color-muted)', marginBottom: 20 }}>
             {t('sobre.p1')}
           </p>
@@ -492,7 +525,7 @@ export default function App() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 24, marginBottom: 40 }}>
             {sobreStats.map(s => (
               <div key={s.label}>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 700, color: 'var(--color-primary)' }}>{s.num}</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 28, fontWeight: 700, color: 'var(--color-primary)' }}>{s.num}</div>
                 <div style={{ fontSize: 12, color: 'var(--color-muted)', marginTop: 2 }}>{s.label}</div>
               </div>
             ))}
@@ -519,7 +552,7 @@ export default function App() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
             <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('whyus.title')}</div>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto', maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('whyus.heading') }} />
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto', maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('whyus.heading') }} />
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32 }} className="whyus-grid">
@@ -528,7 +561,7 @@ export default function App() {
                 <div style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-primary)', marginBottom: 20 }}>
                   {WHY_US_ICONS[i]}
                 </div>
-                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{w.title}</h3>
+                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{w.title}</h3>
                 <p style={{ fontSize: 14, color: 'var(--color-muted)', lineHeight: 1.7, margin: 0 }}>{w.desc}</p>
               </div>
             ))}
@@ -546,7 +579,7 @@ export default function App() {
       <section style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
         <div style={{ marginBottom: 60 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('testimonis.title')}</div>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('testimonis.heading') }} />
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('testimonis.heading') }} />
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="testimonials-grid">
@@ -586,7 +619,7 @@ export default function App() {
             {/* Left */}
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('contacte.title')}</div>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.2, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('contacte.heading') }} />
+              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.2, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('contacte.heading') }} />
               <p style={{ fontSize: 15, color: 'var(--color-muted)', lineHeight: 1.7, marginBottom: 48 }}>
                 {t('contacte.description')}
               </p>
@@ -618,12 +651,12 @@ export default function App() {
               {sent ? (
                 <div style={{ textAlign: 'center', padding: '40px 0' }}>
                   <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 12 }}>{t('contacte.form_sent_title')}</h3>
+                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 26, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 12 }}>{t('contacte.form_sent_title')}</h3>
                   <p style={{ fontSize: 15, color: 'var(--color-muted)' }}>{t('contacte.form_sent_text')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 28 }}>{t('contacte.form_title')}</h3>
+                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 28 }}>{t('contacte.form_title')}</h3>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
                     <div>
@@ -708,9 +741,9 @@ export default function App() {
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-                <img src="/logo.webp" alt="FERLO - Reformes i obra nova" width={128} height={128} style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+                <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 32, height: 32, objectFit: 'contain' }} />
                 <div>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
+                  <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 14, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
                   <div style={{ fontSize: 11, color: 'var(--color-muted)', letterSpacing: '0.08em' }}>{t('footer.tagline')}</div>
                 </div>
               </div>
