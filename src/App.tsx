@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import Seo from './components/Seo'
 import { trackFormLead, trackWhatsAppClick } from './lib/tracking'
@@ -102,6 +102,7 @@ export default function App() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({ nom: '', telefon: '', email: '', poblacio: '', servei: '', missatge: '' })
   const [sent, setSent] = useState(false)
+  const honeypotRef = useRef<HTMLInputElement>(null)
 
   const urlLang = isLang(langParam) ? langParam : null
   const currentLang = urlLang ?? normalizeLang(i18n.language)
@@ -157,6 +158,9 @@ export default function App() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Honeypot: only bots fill a field no human can see.
+    if (honeypotRef.current?.value) return
 
     // 1) Track the lead immediately. The conversion must never depend on how
     //    fast (or whether) the external Google Apps Script endpoint answers.
@@ -647,118 +651,122 @@ export default function App() {
       `}</style>
 
       {/* CONTACT */}
-      <section id="contacte" style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 80, alignItems: 'start' }} className="contact-grid">
+      <section id="contacte" className="ct-section">
+        <div className="ct-container">
+          <div className="ct-grid">
+            {/* Left: copy + direct actions */}
+            <div className="ct-copy">
+              <span className="ct-eyebrow">{t('contacte.title')}</span>
+              <h2 className="ct-title" dangerouslySetInnerHTML={{ __html: t('contacte.heading') }} />
+              <p className="ct-lead">{t('contacte.description')}</p>
 
-            {/* Left */}
-            <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('contacte.title')}</div>
-              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, lineHeight: 1.2, color: 'var(--color-ink)', marginBottom: 20 }} dangerouslySetInnerHTML={{ __html: t('contacte.heading') }} />
-              <p style={{ fontSize: 15, color: 'var(--color-muted)', lineHeight: 1.7, marginBottom: 48 }}>
-                {t('contacte.description')}
-              </p>
+              <div className="ct-actions">
+                <a href="tel:+34692586863" className="ct-btn ct-btn--primary">
+                  {t('contacte.form_title')}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>
+                </a>
+                <a href={waContacte} target="_blank" rel="noopener noreferrer" className="ct-btn ct-btn--wa" onClick={() => trackWhatsApp('contacte')}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  {t('contacte.whatsapp_label')}
+                </a>
+                <span className="ct-hint">{t('contacte.whatsapp_sub')}</span>
+              </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-                {[
-                  { icon: '💬', label: t('contacte.whatsapp_label'), val: '692 586 863', sub: t('contacte.whatsapp_sub'), href: waContacte },
-                  { icon: '✉️', label: t('contacte.email_label'), val: 'info@ferlo.es', sub: t('contacte.email_sub'), href: 'mailto:info@ferlo.es' },
-                ].map(c => (
-                  <a key={c.label} href={c.href} style={{ textDecoration: 'none', display: 'flex', gap: 16, alignItems: 'flex-start' }} onClick={() => { if (c.label === 'WhatsApp') trackWhatsApp('contacte') }}>
-                    <div style={{ width: 40, height: 40, borderRadius: 10, backgroundColor: 'var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{c.icon}</div>
-                    <div>
-                      <div style={{ fontSize: 11, color: 'var(--color-muted)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 3 }}>{c.label}</div>
-                      <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--color-ink)', marginBottom: 2 }}>{c.val}</div>
-                      <div style={{ fontSize: 12, color: 'var(--color-muted)' }}>{c.sub}</div>
-                    </div>
-                  </a>
-                ))}
-
-                <div style={{ marginTop: 8 }}>
-                  <div style={{ fontSize: 11, color: 'var(--color-muted)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>{t('contacte.cobertura')}</div>
-                  <div style={{ fontSize: 14, color: 'var(--color-muted)', lineHeight: 1.6 }}>{t('contacte.cobertura_text')}</div>
+              <div className="ct-meta">
+                <div>
+                  <div className="ct-meta-label">{t('contacte.email_label')}</div>
+                  <a className="ct-meta-value" href="mailto:info@ferlo.es">info@ferlo.es</a>
+                  <div className="ct-meta-sub">{t('contacte.email_sub')}</div>
+                </div>
+                <div>
+                  <div className="ct-meta-label">{t('contacte.cobertura')}</div>
+                  <div className="ct-meta-sub">{t('contacte.cobertura_text')}</div>
                 </div>
               </div>
             </div>
 
-            {/* Form */}
-            <div style={{ backgroundColor: '#FFFFFF', borderRadius: 20, padding: '40px 36px', border: '1px solid var(--color-border)' }}>
+            {/* Right: form card */}
+            <div className="ct-card">
               {sent ? (
-                <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                  <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
-                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 26, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 12 }}>{t('contacte.form_sent_title')}</h3>
-                  <p style={{ fontSize: 15, color: 'var(--color-muted)' }}>{t('contacte.form_sent_text')}</p>
+                <div className="ct-sent">
+                  <div className="ct-sent-icon">✅</div>
+                  <h3 className="ct-sent-title">{t('contacte.form_sent_title')}</h3>
+                  <p className="ct-sent-text">{t('contacte.form_sent_text')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
+                  <div className="ct-hp" aria-hidden="true">
+                    <label htmlFor="ct-website">No rellenar</label>
+                    <input ref={honeypotRef} id="ct-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                  </div>
                   <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 28 }}>{t('contacte.form_title')}</h3>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_nom')}</label>
-                      <input value={formData.nom} onChange={e => setFormData({ ...formData, nom: e.target.value })} placeholder={t('contacte.form_nom_placeholder')} required
-                        style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
-                        onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                        onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
-                    </div>
-                    <div>
-                      <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_telefon')}</label>
-                      <input value={formData.telefon} onChange={e => setFormData({ ...formData, telefon: e.target.value })} placeholder={t('contacte.form_telefon_placeholder')} type="tel"
-                        style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
-                        onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                        onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
-                    </div>
-                  </div>
+                  <div className="ct-field-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_nom')}</label>
+                  <input value={formData.nom} onChange={e => setFormData({ ...formData, nom: e.target.value })} placeholder={t('contacte.form_nom_placeholder')} required
+                    style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
+                    onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+                    onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
+                </div>
+                <div>
+                  <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_telefon')}</label>
+                  <input value={formData.telefon} onChange={e => setFormData({ ...formData, telefon: e.target.value })} placeholder={t('contacte.form_telefon_placeholder')} type="tel"
+                    style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
+                    onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+                    onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
+                </div>
+              </div>
 
-                  <div style={{ marginBottom: 16 }}>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_email')}</label>
-                    <input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder={t('contacte.form_email_placeholder')} type="email" required
-                      style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
-                      onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                      onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
-                  </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_email')}</label>
+                <input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder={t('contacte.form_email_placeholder')} type="email" required
+                  style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
+                  onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
+              </div>
 
-                  <div style={{ marginBottom: 16 }}>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_poblacio')}</label>
-                    <input value={formData.poblacio} onChange={e => setFormData({ ...formData, poblacio: e.target.value })} placeholder={t('contacte.form_poblacio_placeholder')}
-                      style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
-                      onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                      onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
-                  </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_poblacio')}</label>
+                <input value={formData.poblacio} onChange={e => setFormData({ ...formData, poblacio: e.target.value })} placeholder={t('contacte.form_poblacio_placeholder')}
+                  style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit' }}
+                  onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
+              </div>
 
-                  <div style={{ marginBottom: 16 }}>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_servei')}</label>
-                    <select value={formData.servei} onChange={e => setFormData({ ...formData, servei: e.target.value })} aria-label={t('contacte.form_servei')}
-                      style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: formData.servei ? 'var(--color-ink)' : 'var(--color-muted)', outline: 'none', fontFamily: 'inherit', appearance: 'none' }}
-                      onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                      onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')}>
-                      <option value="">{t('contacte.form_servei_placeholder')}</option>
-                      <option>{t('serveis.items.0.title')}</option>
-                      <option>{t('serveis.items.1.title')}</option>
-                      <option>{t('serveis.items.2.title')}</option>
-                      <option>{t('serveis.items.3.title')}</option>
-                      <option>{t('contacte.form_altres')}</option>
-                    </select>
-                  </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_servei')}</label>
+                <select value={formData.servei} onChange={e => setFormData({ ...formData, servei: e.target.value })} aria-label={t('contacte.form_servei')}
+                  style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: formData.servei ? 'var(--color-ink)' : 'var(--color-muted)', outline: 'none', fontFamily: 'inherit', appearance: 'none' }}
+                  onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')}>
+                  <option value="">{t('contacte.form_servei_placeholder')}</option>
+                  <option>{t('serveis.items.0.title')}</option>
+                  <option>{t('serveis.items.1.title')}</option>
+                  <option>{t('serveis.items.2.title')}</option>
+                  <option>{t('serveis.items.3.title')}</option>
+                  <option>{t('contacte.form_altres')}</option>
+                </select>
+              </div>
 
-                  <div style={{ marginBottom: 24 }}>
-                    <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_missatge')}</label>
-                    <textarea value={formData.missatge} onChange={e => setFormData({ ...formData, missatge: e.target.value })} rows={4}
-                      placeholder={t('contacte.form_missatge_placeholder')}
-                      style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit', resize: 'vertical' }}
-                      onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
-                      onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
-                  </div>
+              <div style={{ marginBottom: 24 }}>
+                <label style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 6 }}>{t('contacte.form_missatge')}</label>
+                <textarea value={formData.missatge} onChange={e => setFormData({ ...formData, missatge: e.target.value })} rows={4}
+                  placeholder={t('contacte.form_missatge_placeholder')}
+                  style={{ width: '100%', padding: '11px 14px', border: '1px solid var(--color-border)', borderRadius: 8, fontSize: 14, backgroundColor: '#fff', color: 'var(--color-ink)', outline: 'none', fontFamily: 'inherit', resize: 'vertical' }}
+                  onFocus={e => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+                  onBlur={e => (e.currentTarget.style.borderColor = 'var(--color-border)')} />
+              </div>
 
-                  <button type="submit" style={{ width: '100%', padding: '14px', backgroundColor: 'var(--color-primary)', color: '#FFFFFF', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'background 0.2s' }}
-                    onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--color-primary-dark)')}
-                    onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--color-primary)')}>
-                    {t('contacte.form_submit')}
-                  </button>
-                  <p style={{ fontSize: 12, color: 'var(--color-muted)', textAlign: 'center', marginTop: 12, lineHeight: 1.5 }}>
-                    {t('contacte.form_response')}
-                  </p>
-                </form>
+              <button type="submit" style={{ width: '100%', padding: '14px', backgroundColor: 'var(--color-primary)', color: '#FFFFFF', border: 'none', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', transition: 'background 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--color-primary-dark)')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--color-primary)')}>
+                {t('contacte.form_submit')}
+              </button>
+              <p style={{ fontSize: 12, color: 'var(--color-muted)', textAlign: 'center', marginTop: 12, lineHeight: 1.5 }}>
+                {t('contacte.form_response')}
+              </p>
+            </form>
               )}
             </div>
           </div>
@@ -766,8 +774,47 @@ export default function App() {
       </section>
 
       <style>{`
-        .contact-grid { grid-template-columns: 1fr 1.4fr; }
-        @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr !important; } }
+        .ct-section { --ct-accent: var(--color-primary-light); padding: 112px 0; background: var(--color-ink); color: var(--color-cream); }
+        .ct-container { width: min(1248px, calc(100% - 64px)); margin: 0 auto; }
+        .ct-grid { display: grid; grid-template-columns: 1fr 1.02fr; gap: 72px; align-items: start; }
+        .ct-eyebrow { display: block; margin-bottom: 26px; color: var(--ct-accent); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .ct-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; color: var(--color-cream); }
+        .ct-title em { font-style: normal; color: var(--ct-accent); }
+        .ct-lead { margin: 22px 0 0; max-width: 46ch; color: rgba(255, 255, 255, 0.76); font-size: 16px; line-height: 1.7; }
+        .ct-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 36px; }
+        .ct-btn { min-height: 52px; padding: 0 26px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s, border-color 0.2s; }
+        .ct-btn:hover { transform: translateY(-1px); }
+        .ct-btn--primary { background: var(--color-cream); color: var(--color-ink); }
+        .ct-btn--primary:hover { background: #ffffff; }
+        .ct-btn--wa { border: 1px solid rgba(255, 255, 255, 0.28); color: var(--color-cream); }
+        .ct-btn--wa:hover { border-color: rgba(255, 255, 255, 0.6); }
+        .ct-hint { margin-top: 2px; color: rgba(255, 255, 255, 0.68); font-size: 12px; }
+        .ct-meta { display: grid; gap: 24px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.15); }
+        .ct-meta-label { margin-bottom: 6px; color: var(--ct-accent); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .ct-meta-value { display: inline-block; color: var(--color-cream); font-size: 15px; font-weight: 600; text-decoration: none; }
+        .ct-meta-value:hover { color: var(--ct-accent); }
+        .ct-meta-sub { margin-top: 4px; color: rgba(255, 255, 255, 0.68); font-size: 13px; line-height: 1.65; }
+        .ct-card { padding: 40px 36px; border: 1px solid var(--color-border); border-radius: 20px; background: #ffffff; }
+        .ct-sent { padding: 40px 0; text-align: center; }
+        .ct-sent-icon { margin-bottom: 16px; font-size: 48px; }
+        .ct-sent-title { margin: 0 0 12px; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 700; color: var(--color-ink); }
+        .ct-sent-text { font-size: 15px; color: var(--color-muted); }
+        .ct-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+        @media (max-width: 1024px) {
+          .ct-section { padding: 96px 0; }
+          .ct-grid { grid-template-columns: 1fr; gap: 48px; }
+        }
+        @media (max-width: 640px) {
+          .ct-section { padding: 72px 0; }
+          .ct-container { width: calc(100% - 40px); }
+          .ct-title { font-size: 30px; }
+          .ct-btn { width: 100%; }
+          .ct-meta { margin-top: 32px; padding-top: 26px; }
+          .ct-card { padding: 28px 22px; border-radius: 16px; }
+        }
+        @media (max-width: 520px) {
+          .ct-field-row { grid-template-columns: 1fr !important; }
+        }
       `}</style>
 
       {/* FOOTER - Floating pill style */}
