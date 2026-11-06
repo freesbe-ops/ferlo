@@ -401,7 +401,6 @@ export default function App() {
               <Link key={s.title} to={servicePath(currentLang, SERVICE_KEYS[i])} className="svc-card">
                 <div className="svc-image">
                   <img src={SERVICE_IMAGES[i]} alt={`${s.title} — FERLO`} loading="lazy" decoding="async" width={600} height={400} />
-                  <span className="svc-number">{String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <div className="svc-content">
                   <span className="svc-icon">{SERVICE_ICONS[i]}</span>
@@ -430,7 +429,6 @@ export default function App() {
         .svc-image { position: relative; height: 350px; overflow: hidden; flex-shrink: 0; }
         .svc-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.75) sepia(0.06); transition: transform 0.6s; display: block; }
         .svc-card:hover .svc-image img { transform: scale(1.025); }
-        .svc-number { position: absolute; top: 18px; right: 18px; padding: 8px 12px; color: #fff; border: 1px solid rgba(255,255,255,0.45); border-radius: 999px; background: rgba(10,10,10,0.28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-size: 12px; font-weight: 500; line-height: 1; }
         .svc-content { position: relative; padding: 32px; display: flex; flex-direction: column; flex: 1; }
         .svc-icon { position: absolute; right: 28px; top: -27px; width: 54px; height: 54px; display: grid; place-items: center; color: #fff; border-radius: 50%; background: var(--color-primary); }
         .svc-content h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; margin: 0; color: var(--color-ink); }
@@ -451,44 +449,51 @@ export default function App() {
         }
       `}</style>
 
-      <style>{`
-        .section-header-grid { grid-template-columns: 1fr 1fr; }
-        @media (max-width: 768px) {
-          .section-header-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-
       {/* FOR WHOM */}
-      <section style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ marginBottom: 60, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
-            <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('forwhom.title')}</div>
-              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('forwhom.heading') }} />
-            </div>
-            <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>
-              {t('forwhom.subheading')}
-            </p>
+      <section className="fw-section">
+        <div className="fw-container">
+          <div className="fw-head">
+            <span className="fw-eyebrow">{t('forwhom.title')}</span>
+            <h2 className="fw-title" dangerouslySetInnerHTML={{ __html: t('forwhom.heading') }} />
+            <p className="fw-body">{t('forwhom.subheading')}</p>
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="forwhom-grid">
+          <div className="fw-grid">
             {forWhom.map((f, i) => (
-              <div key={f.title} style={{ padding: '32px 24px', borderRadius: 14, border: '1px solid var(--color-border)', backgroundColor: '#FFFFFF', transition: 'border-color 0.2s, background 0.2s' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-primary)'; (e.currentTarget as HTMLElement).style.backgroundColor = '#FFFFFF'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)'; (e.currentTarget as HTMLElement).style.backgroundColor = '#FFFFFF'; }}>
-                <div style={{ color: 'var(--color-primary)', marginBottom: 18 }}>{FOR_WHOM_ICONS[i]}</div>
-                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{f.title}</h3>
-                <p style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
-              </div>
+              <article key={f.title} className="fw-card">
+                <span className="fw-icon">{FOR_WHOM_ICONS[i]}</span>
+                <div className="fw-text">
+                  <h3>{f.title}</h3>
+                  <p>{f.desc}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <style>{`
-        .forwhom-grid { grid-template-columns: repeat(4, 1fr); }
-        @media (max-width: 900px) { .forwhom-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 500px) { .forwhom-grid { grid-template-columns: 1fr !important; } }
+        .fw-section { padding: 120px 0; background: var(--color-warm); }
+        .fw-container { width: min(1248px, calc(100% - 64px)); margin: 0 auto; }
+        .fw-head { display: grid; grid-template-columns: 0.8fr 1.35fr 1fr; align-items: end; gap: 40px; margin-bottom: 56px; }
+        .fw-eyebrow { display: block; align-self: start; padding-top: 10px; color: var(--color-primary-dark); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .fw-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--color-ink); }
+        .fw-body { margin: 0; color: var(--color-muted); font-size: 16px; line-height: 1.65; }
+        .fw-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .fw-card { display: flex; align-items: flex-start; gap: 20px; min-width: 0; padding: 28px; border: 1px solid var(--color-border); border-radius: 16px; background: #fff; box-shadow: 0 10px 30px rgba(20, 15, 10, 0.05); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+        .fw-card:hover { transform: translateY(-2px); border-color: var(--color-primary); box-shadow: var(--shadow-md); }
+        .fw-icon { flex-shrink: 0; width: 54px; height: 54px; display: grid; place-items: center; color: #fff; border-radius: 50%; background: var(--color-primary); }
+        .fw-text { min-width: 0; }
+        .fw-text h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; color: var(--color-ink); }
+        .fw-text p { margin: 8px 0 0; color: var(--color-muted); font-size: 14px; line-height: 1.65; }
+        @media (max-width: 768px) {
+          .fw-section { padding: 64px 0; }
+          .fw-container { width: calc(100% - 40px); }
+          .fw-head { display: block; margin-bottom: 34px; }
+          .fw-eyebrow { margin-bottom: 16px; padding: 0; }
+          .fw-body { margin-top: 18px; }
+          .fw-grid { grid-template-columns: 1fr; }
+          .fw-card { padding: 24px; gap: 16px; }
+        }
       `}</style>
 
       {/* SOBRE NOSALTRES */}
