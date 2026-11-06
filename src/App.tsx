@@ -552,31 +552,62 @@ export default function App() {
       `}</style>
 
       {/* WHY US */}
-      <section style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px', borderTop: '1px solid var(--color-border)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('whyus.title')}</div>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto', maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('whyus.heading') }} />
+      <section className="wy-section">
+        <div className="wy-container">
+          <div className="wy-head">
+            <span className="wy-eyebrow">{t('whyus.title')}</span>
+            <h2 className="wy-title" dangerouslySetInnerHTML={{ __html: t('whyus.heading') }} />
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32 }} className="whyus-grid">
+          <div className="wy-grid">
             {whyUs.map((w, i) => (
-              <div key={w.title}>
-                <div style={{ width: 48, height: 48, borderRadius: 12, backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-primary)', marginBottom: 20 }}>
-                  {WHY_US_ICONS[i]}
-                </div>
-                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{w.title}</h3>
-                <p style={{ fontSize: 14, color: 'var(--color-muted)', lineHeight: 1.7, margin: 0 }}>{w.desc}</p>
-              </div>
+              <article key={w.title} className="wy-item">
+                <span className="wy-index">{String(i + 1).padStart(2, '0')}</span>
+                <span className="wy-icon">{WHY_US_ICONS[i]}</span>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <style>{`
-        .whyus-grid { grid-template-columns: repeat(4, 1fr); }
-        @media (max-width: 900px) { .whyus-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 500px) { .whyus-grid { grid-template-columns: 1fr !important; } }
+        .wy-section { --wy-accent: color-mix(in srgb, var(--color-primary-light) 92%, #fff); padding: 120px 0; background: var(--color-ink); color: var(--color-cream); }
+        .wy-container { width: min(1248px, calc(100% - 64px)); margin: 0 auto; }
+        .wy-head { display: grid; grid-template-columns: 0.8fr 1.35fr 1fr; align-items: end; gap: 40px; margin-bottom: 56px; }
+        .wy-eyebrow { display: block; align-self: start; padding-top: 10px; color: var(--wy-accent); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .wy-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--color-cream); }
+        .wy-title em { font-style: normal; color: var(--wy-accent); }
+        .wy-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255, 255, 255, 0.15); }
+        .wy-item { position: relative; min-width: 0; min-height: 280px; padding: 40px 30px 12px 0; border-right: 1px solid rgba(255, 255, 255, 0.15); }
+        .wy-item:not(:first-child) { padding-left: 30px; }
+        .wy-item:last-child { border-right: 0; }
+        .wy-index { position: absolute; top: 24px; right: 24px; color: rgba(255, 255, 255, 0.46); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
+        .wy-icon { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 38px; color: #fff; border-radius: 50%; background: var(--color-primary); }
+        .wy-item h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: var(--color-cream); }
+        .wy-item p { margin: 12px 0 0; color: rgba(255, 255, 255, 0.62); font-size: 14px; line-height: 1.65; }
+        @media (max-width: 900px) {
+          .wy-section { padding: 96px 0; }
+          .wy-container { width: calc(100% - 40px); }
+          .wy-head { display: block; margin-bottom: 34px; }
+          .wy-eyebrow { margin-bottom: 16px; padding: 0; }
+          .wy-grid { grid-template-columns: repeat(2, 1fr); }
+          .wy-item { min-height: 0; padding: 32px 24px 32px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+          .wy-item:nth-child(2n) { padding: 32px 0 32px 24px; border-right: 0; }
+          .wy-item:nth-child(2n+1) { padding-left: 0; }
+          .wy-item:nth-child(2n) .wy-index { right: 0; }
+          .wy-icon { margin-bottom: 26px; }
+        }
+        @media (max-width: 500px) {
+          .wy-section { padding: 64px 0; }
+          .wy-grid { grid-template-columns: 1fr; }
+          .wy-item,
+          .wy-item:nth-child(2n),
+          .wy-item:nth-child(2n+1) { padding: 30px 0; border-right: 0; }
+          .wy-item:last-child { border-bottom: 0; }
+          .wy-title { font-size: 30px; }
+          .wy-icon { margin-bottom: 22px; }
+        }
       `}</style>
 
       {/* TESTIMONIALS */}
