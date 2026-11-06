@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cat /Users/oriolmartinez/Sites/ferlo/src/locales/ca\\.json \\| python3 -c \"import json,sys; d=json\\.load\\(sys\\.stdin\\); print\\(json\\.dumps\\(d\\.get\\('serveis', d\\), ensure_ascii=False, indent=2\\)\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

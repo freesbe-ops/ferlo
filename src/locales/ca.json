@@ -30,28 +30,29 @@
     "ACABATS DE QUALITAT"
   ],
   "serveis": {
-    "title": "SERVEIS",
-    "heading": "Tot el que el teu projecte<br /><em>necessita.</em>",
-    "subheading": "Reformes integrals, cuines, banys i obra nova. Coordinem tots els gremis amb un únic interlocutor i un pressupost tancat.",
+    "title": "Ho fem possible",
+    "heading": "Un equip per a tot el teu projecte.",
+    "subheading": "Planificació, coordinació i execució amb la cura d'un estudi i la solvència d'un equip constructor.",
+    "view": "Veure servei",
     "items": [
       {
         "title": "Reformes integrals",
-        "description": "De l'enderroc inicial als últims detalls de pintura i neteja. Coordinem lampisteria, electricitat, paleteria i acabats en una sola obra.",
+        "description": "Transformem el teu habitatge de principi a fi, amb un únic equip i un pressupost clar.",
         "tag": "Un sol interlocutor"
       },
       {
         "title": "Cuines",
-        "description": "Disseny i muntatge de cuines funcionals i modernes, amb renovació de les instal·lacions, taulells i revestiments resistents a l'ús diari.",
+        "description": "Espais funcionals i serens, dissenyats per viure'ls cada dia.",
         "tag": "Disseny a mida"
       },
       {
         "title": "Banys",
-        "description": "Canvi de banyera per plat de dutxa, renovació de sanitaris i aixetes, i impermeabilització garantida contra les humitats.",
+        "description": "Materials duradors, solucions a mida i acabats impecables.",
         "tag": "Ràpid i net"
       },
       {
         "title": "Obra nova",
-        "description": "Habitatges unifamiliars, ampliacions i segones residències. Gestionem la llicència i cuidem cada fase constructiva des dels fonaments.",
+        "description": "Construcció cuidada des del primer plànol fins al lliurament de claus.",
         "tag": "Des dels fonaments"
       }
     ]

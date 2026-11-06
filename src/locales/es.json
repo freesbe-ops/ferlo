@@ -30,28 +30,29 @@
     "ACABADOS DE CALIDAD"
   ],
   "serveis": {
-    "title": "SERVICIOS",
-    "heading": "Todo lo que tu proyecto<br /><em>necesita.</em>",
-    "subheading": "Reformas integrales, cocinas, baños y obra nueva. Coordinamos todos los gremios con un único interlocutor y un presupuesto cerrado.",
+    "title": "Lo hacemos posible",
+    "heading": "Un equipo para todo tu proyecto.",
+    "subheading": "Planificación, coordinación y ejecución con el cuidado de un estudio y la solvencia de un equipo constructor.",
+    "view": "Ver servicio",
     "items": [
       {
         "title": "Reformas integrales",
-        "description": "Del derribo inicial a los últimos detalles de pintura y limpieza. Coordinamos fontanería, electricidad, albañilería y acabados en una sola obra.",
+        "description": "Transformamos tu vivienda de principio a fin, con un único equipo y un presupuesto claro.",
         "tag": "Un solo interlocutor"
       },
       {
         "title": "Cocinas",
-        "description": "Diseño y montaje de cocinas funcionales y modernas, con renovación de instalaciones, encimeras y revestimientos resistentes al uso diario.",
+        "description": "Espacios funcionales y serenos, diseñados para vivirlos cada día.",
         "tag": "Diseño a medida"
       },
       {
         "title": "Baños",
-        "description": "Cambio de bañera por plato de ducha, renovación de sanitarios y grifería, e impermeabilización garantizada contra humedades.",
+        "description": "Materiales duraderos, soluciones a medida y acabados impecables.",
         "tag": "Rápido y limpio"
       },
       {
         "title": "Obra nueva",
-        "description": "Viviendas unifamiliares, ampliaciones y segundas residencias. Gestionamos la licencia y cuidamos cada fase constructiva desde los cimientos.",
+        "description": "Construcción cuidada desde el primer plano hasta la entrega de llaves.",
         "tag": "Desde los cimientos"
       }
     ]
