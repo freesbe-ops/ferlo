@@ -200,7 +200,8 @@
     "form_nom_placeholder": "El teu nom",
     "form_telefon_placeholder": "6XX XXX XXX",
     "form_email_placeholder": "correu@exemple.com",
-    "form_poblacio_placeholder": "El teu poble o localitat"
+    "form_poblacio_placeholder": "El teu poble o localitat",
+    "form_error": "No hem pogut enviar la sol·licitud. Revisa la teva connexió i torna-ho a provar, o escriu-nos per WhatsApp al 692 586 863."
   },
   "reformes": {
     "meta_title": "Reformes Integrals a Tordera, Blanes i Lloret | FERLO",
@@ -726,5 +727,14 @@
     "testimonis": "Testimonis",
     "zona": "Tordera, Blanes, Lloret i Maresme",
     "horari": "Dl–Dv: 8:00 – 19:00h"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cookies i privacitat",
+      "text": "Utilitzem cookies tècniques necessàries perquè la web funcioni i, només si les acceptes, cookies analítiques de Google per mesurar el tràfic. Les pots acceptar o rebutjar, i canviar la teva decisió quan vulguis.",
+      "accept_all": "Acceptar-les totes",
+      "only_necessary": "Només les necessàries",
+      "policy_link": "Política de cookies"
+    }
   }
 }

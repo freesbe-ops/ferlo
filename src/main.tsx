@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import App from './App'
+import CookieBanner from './components/CookieBanner'
 import { useUtmParams } from './hooks/useUtmParams'
 import { trackPageView } from './lib/tracking'
 import { DEFAULT_LANG, ROUTES, canonicalPath, homePath, isLang, pathSegments } from './lib/lang'
@@ -135,6 +136,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <ScrollManager />
         <AnalyticsSync />
+        <CookieBanner />
         <AppRoutes />
       </BrowserRouter>
     </HelmetProvider>

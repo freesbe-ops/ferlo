@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import Seo from './components/Seo'
-import { trackFormLead, trackWhatsAppClick } from './lib/tracking'
+import { getTraffic, trackFormLead, trackWhatsAppClick } from './lib/tracking'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import MobileNav from './components/MobileNav'
 import {
@@ -77,6 +77,41 @@ const SERVICE_IMAGES = [
   '/hero.webp',
 ]
 
+const LEAD_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbxI5llz39CkCAhf3GcKGl5WkCXAuBtvesn-srXs-27yfHhiz4tSYa9KWR_B63F3Es7q/exec'
+
+/**
+ * Posts a lead to the Apps Script web app that feeds the "Leads FERLO" sheet.
+ *
+ * `text/plain` makes it a CORS "simple request" (no preflight), so the browser
+ * exposes the response and a real HTTP failure surfaces as an error. Only when
+ * the response stays opaque (a CORS misconfiguration) do we retry with
+ * `no-cors` and treat a resolved request as success.
+ */
+async function postLead(payload: Record<string, string>, signal: AbortSignal) {
+  let response: Response
+  try {
+    response = await fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      signal,
+    })
+  } catch (err) {
+    if (signal.aborted) throw err
+    await fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+      signal,
+    })
+    return
+  }
+
+  if (!response.ok) throw new Error(`Lead endpoint responded ${response.status}`)
+}
+
 function CarouselBar({ items }: { items: string[] }) {
   const all = [...items, ...items, ...items]
   const text = all.join(' &nbsp;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&nbsp; ')
@@ -102,6 +137,7 @@ export default function App() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({ nom: '', telefon: '', email: '', poblacio: '', servei: '', missatge: '' })
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const honeypotRef = useRef<HTMLInputElement>(null)
 
   const urlLang = isLang(langParam) ? langParam : null
@@ -159,43 +195,53 @@ export default function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    // Honeypot: only bots fill a field no human can see.
-    if (honeypotRef.current?.value) return
+    // Honeypot: only bots fill a field no human can see. They get the same
+    // success message but nothing is sent, so no row and no email are created.
+    const honeypot = honeypotRef.current?.value || ''
+    if (honeypot) {
+      setSent(true)
+      return
+    }
 
     // 1) Track the lead immediately. The conversion must never depend on how
     //    fast (or whether) the external Google Apps Script endpoint answers.
     trackFormLead({ service: analyticsService(formData.servei) })
 
-    // 2) Fire-and-forget POST to the Apps Script endpoint that writes to the
-    //    Google Sheet. A hard timeout guarantees the visitor always gets
-    //    feedback instead of an endlessly spinning form.
+    // 2) POST to the Apps Script endpoint that appends the row to the
+    //    "Leads FERLO" sheet. The sheet has no "població" column, so the town
+    //    the visitor typed is prepended to the message instead of being lost.
+    const poblacio = formData.poblacio.trim()
+    const missatge = poblacio
+      ? `${t('contacte.form_poblacio')}: ${poblacio}${formData.missatge ? `\n\n${formData.missatge}` : ''}`
+      : formData.missatge
+    const traffic = getTraffic()
+    const data = {
+      servei: formData.servei,
+      nom: formData.nom,
+      telefon: formData.telefon,
+      email: formData.email,
+      missatge,
+      source: traffic.source,
+      medium: traffic.medium,
+      campaign: traffic.campaign,
+      gclid: traffic.gclid,
+      page_location: traffic.page_location,
+      website: honeypot,
+    }
+
+    setError(null)
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 10000)
     try {
-      const data = {
-        nom: formData.nom,
-        telefon: formData.telefon,
-        email: formData.email,
-        servei: formData.servei,
-        tipus: formData.servei,
-        poblacio: formData.poblacio,
-        missatge: formData.missatge,
-        comentaris: formData.missatge,
-      }
-      await fetch('https://script.google.com/macros/s/AKfycbwjfVhosVKw2o2nOxulbwbvRku7W-squiE8rRBpzzNl7JX__ApvawIgI6mNTQRqIuwi/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        signal: controller.signal,
-      })
-    } catch (_) {
-      // silently ignore: the request is best-effort and no-cors hides the status
+      await postLead(data, controller.signal)
+      setSent(true)
+    } catch {
+      // Abort (timeout) or network failure: keep the form so the visitor can
+      // retry, and show the WhatsApp fallback.
+      setError(t('contacte.form_error'))
     } finally {
       clearTimeout(timeout)
     }
-
-    setSent(true)
   }
 
   const changeLanguage = (value: string) => {
@@ -695,6 +741,11 @@ export default function App() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
+                  {error && (
+                    <div role="alert" style={{ backgroundColor: '#FEF3F2', border: '1px solid #FDA29B', color: '#B42318', borderRadius: 8, padding: '12px 14px', fontSize: 13, lineHeight: 1.6, marginBottom: 20 }}>
+                      {error}
+                    </div>
+                  )}
                   <div className="ct-hp" aria-hidden="true">
                     <label htmlFor="ct-website">No rellenar</label>
                     <input ref={honeypotRef} id="ct-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
