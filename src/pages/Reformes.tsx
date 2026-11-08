@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import MobileNav from '../components/MobileNav'
@@ -15,6 +15,8 @@ import {
   privacyPath,
   servicePath,
 } from '../lib/lang'
+
+const WHATSAPP_PATH = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z'
 
 const SERVICE_ICONS = [
   <svg key="clean" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -75,46 +77,109 @@ function CarouselBar({ items }: { items: string[] }) {
 
 function BeforeAfterSection() {
   const { t } = useTranslation()
+  const trackRef = useRef<HTMLDivElement>(null)
+  // El ref manté l'estat de drag de forma síncrona: un pointermove pot arribar
+  // abans que React torni a renderitzar després del pointerup.
+  const draggingRef = useRef(false)
+  const [position, setPosition] = useState(50)
+  const [dragging, setDragging] = useState(false)
 
-  const abans = '/antes.webp'
-  const despres = '/despues.webp'
-  const abansLabel = t('reformes.abans_despres.abans')
-  const despresLabel = t('reformes.abans_despres.despres')
+  const hint = t('reformes.abans_despres.hint')
+
+  const updateFromClientX = useCallback((clientX: number) => {
+    const track = trackRef.current
+    if (!track) return
+    const rect = track.getBoundingClientRect()
+    if (rect.width === 0) return
+    const next = ((clientX - rect.left) / rect.width) * 100
+    setPosition(Math.min(100, Math.max(0, next)))
+  }, [])
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    event.currentTarget.setPointerCapture(event.pointerId)
+    draggingRef.current = true
+    setDragging(true)
+    updateFromClientX(event.clientX)
+  }
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!draggingRef.current) return
+    updateFromClientX(event.clientX)
+  }
+
+  const handlePointerEnd = (event: React.PointerEvent<HTMLDivElement>) => {
+    draggingRef.current = false
+    setDragging(false)
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId)
+    }
+  }
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      setPosition((value) => Math.max(0, value - 5))
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      setPosition((value) => Math.min(100, value + 5))
+    } else if (event.key === 'Home') {
+      event.preventDefault()
+      setPosition(0)
+    } else if (event.key === 'End') {
+      event.preventDefault()
+      setPosition(100)
+    }
+  }
+
+  const rounded = Math.round(position)
 
   return (
-    <section style={{ padding: '96px 24px', background: 'var(--color-ink)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: '#60D394', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.abans_despres.title')}</div>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: 700, color: '#FFFFFF', letterSpacing: '-0.02em', lineHeight: 1.15 }} dangerouslySetInnerHTML={{ __html: t('reformes.abans_despres.heading') }} />
+    <section className="landing-ba-section">
+      <div className="landing-container">
+        <div className="landing-ba-head">
+          <span className="landing-ba-eyebrow">{t('reformes.abans_despres.title')}</span>
+          <h2 className="landing-ba-title" dangerouslySetInnerHTML={{ __html: t('reformes.abans_despres.heading') }} />
+          <p className="landing-ba-sub">{t('reformes.abans_despres.subheading')}</p>
         </div>
 
-        {/* Split fix 50/50 - sense arrossegament */}
-        <div style={{
-          position: 'relative',
-          borderRadius: 16,
-          overflow: 'hidden',
-          height: 'clamp(280px, 50vw, 560px)',
-          userSelect: 'none',
-        }}>
-          {/* Després (dreta 50%) */}
-          <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '50%', overflow: 'hidden' }}>
-            <img src={despres} alt={despresLabel} draggable={false} style={{ position: 'absolute', top: 0, left: 0, width: '200%', height: '100%', objectFit: 'cover' }} />
-            <div style={{ position: 'absolute', top: 16, right: 16, borderRadius: 40, padding: '4px 12px', fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'var(--color-primary)', color: '#FFFFFF' }}>{despresLabel}</div>
+        <div
+          ref={trackRef}
+          className="landing-ba-track"
+          role="slider"
+          tabIndex={0}
+          aria-label={hint}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={rounded}
+          aria-valuetext={`${rounded}%`}
+          data-dragging={dragging ? 'true' : 'false'}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerEnd}
+          onPointerCancel={handlePointerEnd}
+          onKeyDown={handleKeyDown}
+        >
+          <img className="landing-ba-img" src="/antes.webp" alt={t('reformes.abans_despres.alt_abans')} draggable={false} decoding="async" />
+          <div
+            className="landing-ba-after"
+            style={{ clipPath: `inset(0 0 0 ${position}%)`, WebkitClipPath: `inset(0 0 0 ${position}%)` }}
+          >
+            <img src="/despres.webp" alt={t('reformes.abans_despres.alt_despres')} draggable={false} decoding="async" />
           </div>
 
-          {/* Abans (esquerra 50%) */}
-          <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '50%', overflow: 'hidden' }}>
-            <img src={abans} alt={abansLabel} draggable={false} style={{ position: 'absolute', top: 0, left: 0, width: '200%', height: '100%', objectFit: 'cover' }} />
-            <div style={{ position: 'absolute', top: 16, left: 16, borderRadius: 40, padding: '4px 12px', fontSize: 12, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', background: 'var(--color-ink)', color: '#FFFFFF' }}>{abansLabel}</div>
-          </div>
+          <span className="landing-ba-label landing-ba-label--abans">{t('reformes.abans_despres.abans')}</span>
+          <span className="landing-ba-label landing-ba-label--despres">{t('reformes.abans_despres.despres')}</span>
 
-          {/* Divider central fix */}
-          <div style={{ position: 'absolute', top: 0, bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 3, background: '#FFFFFF', boxShadow: '0 0 12px rgba(0,0,0,0.3)' }} />
+          <div className="landing-ba-handle" style={{ left: `${position}%` }}>
+            <span className="landing-ba-knob" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 6 3 12l6 6" /><path d="M15 6l6 6-6 6" />
+              </svg>
+            </span>
+          </div>
         </div>
 
-        <p style={{ textAlign: 'center', marginTop: 12, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>{t('reformes.abans_despres.hint')}</p>
+        <p className="landing-ba-hint">{hint}</p>
       </div>
     </section>
   )
@@ -153,12 +218,12 @@ export default function Reformes() {
 
   const navLinks = [
     { label: t('nav.serveis'), href: '#serveis', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> },
-    { label: t('nav.sobre'), href: `/${currentLang}/#sobre`, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg> },
+    { label: t('nav.sobre'), href: `/${currentLang}/#sobre`, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> },
     { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> },
     { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="10" width="18" height="9" rx="2"/><path d="M1.5 13.5h1.5M21 13.5h1.5"/><path d="M8 6.5c0-.9.7-1.3.7-2.2M12 6.5c0-.9.7-1.3.7-2.2M16 6.5c0-.9.7-1.3.7-2.2"/></svg> },
     { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.7l5.4 5.4a7.64 7.64 0 1 1-10.8 0z"/><path d="M9 13a3 3 0 0 0 3 3"/></svg> },
     { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 21h20"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9.5 21v-6h5v6"/><path d="M9.5 10h5"/></svg> },
-    { label: 'WhatsApp', href: waHeader, external: true, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> },
+    { label: 'WhatsApp', href: waHeader, external: true, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d={WHATSAPP_PATH}/></svg> },
   ]
 
   const services = t('reformes.services.items', { returnObjects: true }) as Array<{ title: string; description: string }>
@@ -176,13 +241,13 @@ export default function Reformes() {
       />
 
       <header style={{ position: 'sticky', top: 20, zIndex: 50, padding: '0 24px' }}>
-        <div style={{ width: 'fit-content', margin: '0 auto', backgroundColor: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 100, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, height: 60, boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid rgba(255,255,255,0.3)' }}>
+        <div style={{ width: 'fit-content', margin: '0 auto', backgroundColor: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 100, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 32, height: 60, boxShadow: '0 4px 24px rgba(10,10,10,0.06), 0 1px 4px rgba(10,10,10,0.04)', border: '1px solid rgba(255,255,255,0.3)' }}>
           <Link to={`/${currentLang}`} style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 34, height: 34, objectFit: 'contain' }} />
               <div className="logo-text">
-                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: '#0A0A0A', lineHeight: 1.1 }}>FERLO</div>
-                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: '#65615D', letterSpacing: '0.08em' }}>TORDERA</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 12, color: 'var(--color-muted)', letterSpacing: '0.08em' }}>TORDERA</div>
               </div>
             </div>
           </Link>
@@ -208,9 +273,9 @@ export default function Reformes() {
                 key={link.label}
                 to={link.href}
                 title={link.label}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: 'var(--color-muted)', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'rgba(10,10,10,0.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-muted)'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{link.label}</span>
@@ -220,9 +285,9 @@ export default function Reformes() {
                 key={link.label}
                 href={link.href}
                 title={link.label}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: '#65615D', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#0A0A0A'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#65615D'; e.currentTarget.style.backgroundColor = 'transparent' }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 1, padding: '4px 10px', borderRadius: 40, color: 'var(--color-muted)', textDecoration: 'none', transition: 'color 0.2s, background 0.2s' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-ink)'; e.currentTarget.style.backgroundColor = 'rgba(10,10,10,0.04)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-muted)'; e.currentTarget.style.backgroundColor = 'transparent' }}
               >
                 {link.icon}
                 <span style={{ fontSize: 9, fontWeight: 500, letterSpacing: '0.02em', whiteSpace: 'nowrap' }}>{link.label}</span>
@@ -234,7 +299,10 @@ export default function Reformes() {
           <MobileNav currentLang={currentLang} waHeader={waHeader} />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: '#0A0A0A', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile" onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#847261' }} onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#0A0A0A' }}>
+            <Link to={`/${currentLang}#contacte`} style={{ padding: '8px 18px', backgroundColor: 'var(--color-ink)', color: '#FFFFFF', borderRadius: 40, textDecoration: 'none', fontSize: 13, fontWeight: 500, whiteSpace: 'nowrap' }} className="hidden-mobile"
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-primary)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-ink)' }}
+            >
               {t('nav.pressupost_cta')}
             </Link>
           </div>
@@ -255,225 +323,410 @@ export default function Reformes() {
         }
       `}</style>
 
-      <section id="inici" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'flex-start', marginTop: '-60px', paddingTop: '60px' }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <img src="/hero.webp" alt={t('reformes.hero.image_alt')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-          <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.46)' }} />
-        </div>
-
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 1200, margin: '0 auto', padding: '80px 24px', width: '100%' }}>
-          <div style={{ maxWidth: 600 }}>
-            <div style={{ marginBottom: 4 }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+      {/* HERO — Split (C.1) */}
+      <section id="inici" className="landing-hero">
+        <div className="landing-hero-outer">
+          <div className="landing-hero-grid">
+            <div className="landing-hero-copy">
+              <div className="landing-lang">
                 <select
                   value={currentLang}
                   onChange={(e) => changeLanguage(e.target.value)}
                   aria-label="Idioma / Language / Idioma / Langue"
-                  style={{ background: 'transparent', border: 'none', color: '#FFFFFF', fontWeight: 700, textDecoration: 'underline', fontSize: 12, fontFamily: "var(--font-sans)", letterSpacing: '0.12em', textTransform: 'uppercase', outline: 'none', cursor: 'pointer', padding: 0, margin: 0, appearance: 'none', WebkitAppearance: 'none' }}
+                  className="landing-lang-select"
                 >
-                  {LANGS.map(l => (
+                  {LANGS.map((l) => (
                     <option key={l} value={l} style={{ color: 'var(--color-ink)', textTransform: 'uppercase' }}>{LANG_LABELS[l]}</option>
                   ))}
                 </select>
-                <span style={{ fontSize: 9, color: '#FFFFFF', fontWeight: 700, pointerEvents: 'none', lineHeight: 1 }}>▼</span>
+                <span className="landing-lang-caret" aria-hidden="true">▼</span>
+              </div>
+
+              <span className="landing-hero-eyebrow">{t('reformes.hero.badge')}</span>
+
+              <h1 className="landing-hero-title">
+                {t('reformes.hero.title')}{' '}
+                <em>{t('reformes.hero.subtitle')}</em>
+              </h1>
+
+              <p className="landing-hero-lead">{t('reformes.hero.description')}</p>
+
+              <div className="landing-hero-actions">
+                <a href="#contacte" className="landing-btn landing-btn--primary">
+                  {t('reformes.hero.cta')}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M14 7l5 5-5 5" />
+                  </svg>
+                </a>
+                <a href="#serveis" className="landing-btn landing-btn--ghost">
+                  {t('reformes.hero.secondary_cta')}
+                </a>
+              </div>
+
+              <div className="landing-hero-note">
+                <span aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m5 12 4 4L19 6" />
+                  </svg>
+                </span>
+                {t('reformes.hero.reviews')}
               </div>
             </div>
 
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: 28, fontSize: 12, fontWeight: 500, letterSpacing: '0.12em', color: '#FFFFFF', textTransform: 'uppercase' }}>
-              <span style={{ width: 20, height: 1, backgroundColor: '#FFFFFF', display: 'inline-block' }} />
-              {t('reformes.hero.badge')}
-            </div>
-
-            <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 8, color: '#FFFFFF' }}>
-              {t('reformes.hero.title')}
-            </h1>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(36px, 4.8vw, 58px)', fontWeight: 700, fontStyle: 'italic', lineHeight: 1.1, marginBottom: 28, color: '#FFFFFF' }}>
-              {t('reformes.hero.subtitle')}
-            </h2>
-            <p style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.85)', maxWidth: 460, marginBottom: 40 }}>
-              {t('reformes.hero.description')}
-            </p>
-
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', marginBottom: 48 }}>
-              <a href="#contacte" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', backgroundColor: '#FFFFFF', color: 'var(--color-ink)', borderRadius: 40, textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
-                {t('reformes.hero.cta')}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12,5 19,12 12,19" /></svg>
+            <div className="landing-hero-visual">
+              <img
+                src="/hero.webp"
+                alt={t('reformes.hero.image_alt')}
+                fetchPriority="high"
+                width={1200}
+                height={800}
+                decoding="async"
+              />
+              <div className="landing-hero-badge">
+                <span aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3 5 6v5c0 4.8 2.8 8.2 7 10 4.2-1.8 7-5.2 7-10V6l-7-3Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+                <div>
+                  <small>{t('reformes.hero.badge_sub')}</small>
+                  <strong>{t('reformes.hero.badge_title')}</strong>
+                </div>
+              </div>
+              <div className="landing-hero-stamp">
+                <strong>+10</strong>
+                <span>{t('hero.stamp_label')}</span>
+              </div>
+              <a
+                href={waHeader}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                onClick={() => trackWhatsApp('hero')}
+                className="landing-hero-wa"
+              >
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="#25D366" stroke="none" aria-hidden="true">
+                  <path d={WHATSAPP_PATH} />
+                </svg>
               </a>
-              <a href="#serveis" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '13px 24px', borderRadius: 40, border: '1px solid rgba(255,255,255,0.4)', color: '#FFFFFF', textDecoration: 'none', fontSize: 14, fontWeight: 400, backgroundColor: 'transparent' }}>
-                {t('reformes.hero.secondary_cta')}
-              </a>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg key={star} width="16" height="16" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              ))}
-              <span style={{ fontSize: 13, color: 'rgba(255, 255, 255, 0.85)' }}><strong style={{ color: '#FFFFFF' }}>4.9 / 5</strong> · {t('reformes.hero.reviews')}</span>
             </div>
           </div>
         </div>
-
-        <a
-          href={waHeader}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="WhatsApp"
-          onClick={() => trackWhatsApp('hero')}
-          style={{
-            position: 'absolute',
-            bottom: 40,
-            right: 40,
-            zIndex: 1,
-            width: 66,
-            height: 66,
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'rgba(255,255,255,0.18)',
-            border: '1.5px solid rgba(37,211,102,0.9)',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4), 0 12px 30px rgba(0,0,0,0.18)',
-            backdropFilter: 'blur(14px)',
-            WebkitBackdropFilter: 'blur(14px)',
-            textDecoration: 'none',
-          }}
-          className="hero-badge"
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366" stroke="none" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
-        </a>
       </section>
 
       <style>{`
-        @media (max-width: 768px) {
-          .hero-badge { display: none !important; }
+        .landing-hero { padding: 104px 0 72px; }
+        .landing-hero-outer { width: 100%; }
+        .landing-hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center; width: min(1248px, calc(100% - 64px)); margin: 0 auto; }
+        .landing-lang { display: inline-flex; align-items: center; gap: 4px; margin-bottom: 28px; }
+        .landing-lang-select { background: transparent; border: none; color: var(--color-muted); font-weight: 700; text-decoration: underline; font-size: 12px; font-family: var(--font-sans); letter-spacing: 0.12em; text-transform: uppercase; outline: none; cursor: pointer; padding: 0; margin: 0; appearance: none; -webkit-appearance: none; }
+        .landing-lang-caret { font-size: 9px; color: var(--color-muted); font-weight: 700; pointer-events: none; line-height: 1; }
+        .landing-hero-eyebrow { display: block; color: var(--color-primary); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
+        .landing-hero-title { font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.05; margin: 0; color: var(--color-ink); }
+        .landing-hero-title em { font-style: italic; color: var(--color-primary-light); }
+        .landing-hero-lead { max-width: 600px; margin: 28px 0 0; font-size: 19px; line-height: 1.7; color: var(--color-muted); }
+        .landing-hero-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+        .landing-hero-note { display: flex; align-items: center; gap: 9px; margin-top: 20px; color: var(--color-muted); font-size: 13px; }
+        .landing-hero-note span { display: grid; place-items: center; width: 24px; height: 24px; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+        .landing-hero-visual { position: relative; height: 650px; }
+        .landing-hero-visual > img { width: 100%; height: 100%; object-fit: cover; border-radius: 180px 16px 16px 16px; filter: saturate(0.78) sepia(0.05); display: block; }
+        .landing-hero-visual::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: 180px 16px 16px 16px; background: linear-gradient(180deg, transparent 70%, rgba(10,10,10,0.14)); }
+        .landing-hero-badge { position: absolute; z-index: 2; left: -38px; bottom: 48px; display: flex; gap: 13px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; background: rgba(247,244,241,0.82); border: 1px solid rgba(255,255,255,0.65); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: var(--shadow-md); }
+        .landing-hero-badge > span { width: 44px; height: 44px; display: grid; place-items: center; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+        .landing-hero-badge div { display: flex; flex-direction: column; }
+        .landing-hero-badge small { color: var(--color-muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+        .landing-hero-badge strong { margin-top: 4px; font-size: 14px; color: var(--color-ink); }
+        .landing-hero-stamp { position: absolute; z-index: 3; right: -25px; top: 42px; width: 120px; height: 120px; display: grid; place-content: center; text-align: center; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); box-shadow: var(--shadow-md); transform: rotate(7deg); }
+        .landing-hero-stamp strong { font-size: 29px; line-height: 1; }
+        .landing-hero-stamp span { margin-top: 5px; font-size: 9px; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; max-width: 90px; }
+        .landing-hero-wa { position: absolute; z-index: 4; right: 18px; bottom: 18px; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--color-cream); border: 1px solid var(--color-border); box-shadow: var(--shadow-md); transition: transform 0.2s; }
+        .landing-hero-wa:hover { transform: translateY(-2px); }
+        .landing-btn { min-height: 52px; padding: 0 25px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s; }
+        .landing-btn:hover { transform: translateY(-1px); }
+        .landing-btn--primary { background: var(--color-ink); color: #FFFFFF; box-shadow: 0 8px 20px rgba(10,10,10,0.12); }
+        .landing-btn--primary:hover { background: var(--color-primary-dark); }
+        .landing-btn--ghost { border: 1px solid rgba(10,10,10,0.22); color: var(--color-ink); }
+        .landing-btn--ghost:hover { border-color: var(--color-primary); color: var(--color-primary-dark); }
+        .landing-btn--cream { background: var(--color-cream); color: var(--color-ink); }
+        .landing-btn--cream:hover { background: #FFFFFF; }
+        .landing-btn--wa { border: 1px solid rgba(255,255,255,0.28); color: var(--color-cream); }
+        .landing-btn--wa:hover { border-color: rgba(255,255,255,0.6); }
+        @media (max-width: 900px) {
+          .landing-hero { padding: 96px 0 56px; }
+          .landing-hero-grid { grid-template-columns: 1fr; gap: 44px; width: calc(100% - 40px); }
+          .landing-hero-eyebrow { margin-bottom: 20px; }
+          .landing-hero-lead { margin-top: 20px; font-size: 16px; }
+          .landing-hero-actions { flex-direction: column; }
+          .landing-hero-actions .landing-btn { width: 100%; }
+          .landing-hero-note { justify-content: center; }
+          .landing-hero-visual { width: 100%; height: 430px; }
+          .landing-hero-visual > img, .landing-hero-visual::after { border-radius: 72px 14px 14px 14px; }
+          .landing-hero-stamp { right: -6px; top: -25px; width: 96px; height: 96px; }
+          .landing-hero-stamp strong { font-size: 24px; }
+          .landing-hero-badge { left: 12px; right: 12px; bottom: 14px; }
+          .landing-hero-wa { right: 12px; bottom: 92px; width: 54px; height: 54px; }
         }
       `}</style>
 
       <CarouselBar items={carouselItems} />
 
-      <section id="serveis" style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
-        <div style={{ marginBottom: 64 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('reformes.services.title')}</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.services.heading') }} />
-            <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{t('reformes.services.subheading')}</p>
+      {/* SERVEIS (C.2) */}
+      <section id="serveis" className="landing-svc-section">
+        <div className="landing-container">
+          <div className="landing-head">
+            <span className="landing-eyebrow">{t('reformes.services.title')}</span>
+            <h2 className="landing-title" dangerouslySetInnerHTML={{ __html: t('reformes.services.heading') }} />
+            <p className="landing-body">{t('reformes.services.subheading')}</p>
           </div>
-        </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }} className="services-grid">
-          {services.map((service, index) => (
-            <div key={service.title} style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--color-border)', backgroundColor: '#FFFFFF' }}>
-              <div style={{ aspectRatio: '16/7', overflow: 'hidden', backgroundColor: 'var(--color-border)' }}>
-                <img src={SERVICE_IMAGES[index]} alt={`${service.title} - FERLO`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              </div>
-              <div style={{ padding: '28px 28px 32px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--color-primary)', marginBottom: 14 }}>
-                  {SERVICE_ICONS[index]}
-                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, margin: 0, color: 'var(--color-ink)' }}>{service.title}</h3>
+          <div className="landing-svc-grid">
+            {services.map((service, index) => (
+              <article key={service.title} className="landing-svc-card">
+                <div className="landing-svc-image">
+                  <img src={SERVICE_IMAGES[index]} alt={`${service.title} — FERLO`} loading="lazy" decoding="async" width={600} height={400} />
                 </div>
-                <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--color-muted)', margin: 0 }}>{service.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <style>{`
-        .section-header-grid { grid-template-columns: 1fr 1fr; }
-        .services-grid { grid-template-columns: repeat(2, 1fr); }
-        @media (max-width: 768px) {
-          .section-header-grid { grid-template-columns: 1fr !important; }
-          .services-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-
-      {/* SECCIÓ ABANS I DESPRÉS */}
-      <BeforeAfterSection />
-
-      <section style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ marginBottom: 60, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'end' }} className="section-header-grid">
-            <div>
-              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('reformes.benefits.title')}</div>
-              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.15, color: 'var(--color-ink)', margin: 0 }} dangerouslySetInnerHTML={{ __html: t('reformes.benefits.heading') }} />
-            </div>
-            <p style={{ fontSize: 16, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{t('reformes.benefits.subheading')}</p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24 }} className="benefits-grid">
-            {benefits.map((benefit, index) => (
-              <div key={benefit.title} style={{ padding: '32px 24px', borderRadius: 14, border: '1px solid var(--color-border)', backgroundColor: '#FFFFFF' }}>
-                <div style={{ color: 'var(--color-primary)', marginBottom: 18 }}>{WHY_US_ICONS[index]}</div>
-                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 18, fontWeight: 700, color: 'var(--color-ink)', marginBottom: 10, lineHeight: 1.2 }}>{benefit.title}</h3>
-                <p style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.65, margin: 0 }}>{benefit.description}</p>
-              </div>
+                <div className="landing-svc-content">
+                  <span className="landing-svc-icon">{SERVICE_ICONS[index]}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <style>{`
-        .benefits-grid { grid-template-columns: repeat(4, 1fr); }
-        @media (max-width: 900px) { .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 500px) { .benefits-grid { grid-template-columns: 1fr !important; } }
+        .landing-container { width: min(1248px, calc(100% - 64px)); margin: 0 auto; }
+        .landing-head { display: grid; grid-template-columns: 0.8fr 1.35fr 1fr; align-items: end; gap: 40px; margin-bottom: 56px; }
+        .landing-eyebrow { display: block; align-self: start; padding-top: 10px; color: var(--color-primary-dark); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .landing-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--color-ink); }
+        .landing-title em { font-style: normal; color: var(--color-primary-light); }
+        .landing-body { margin: 0; color: var(--color-muted); font-size: 16px; line-height: 1.65; }
+        .landing-svc-section { padding: 120px 0; background: var(--color-cream); }
+        .landing-svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .landing-svc-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: 16px; background: #FFFFFF; color: inherit; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .landing-svc-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .landing-svc-image { position: relative; height: 350px; overflow: hidden; flex-shrink: 0; }
+        .landing-svc-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.75) sepia(0.06); transition: transform 0.6s; display: block; }
+        .landing-svc-card:hover .landing-svc-image img { transform: scale(1.025); }
+        .landing-svc-content { position: relative; padding: 32px; display: flex; flex-direction: column; flex: 1; }
+        .landing-svc-icon { position: absolute; right: 28px; top: -27px; width: 54px; height: 54px; display: grid; place-items: center; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); }
+        .landing-svc-content h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; color: var(--color-ink); }
+        .landing-svc-content p { max-width: 480px; min-height: 54px; margin: 12px 0 0; color: var(--color-muted); font-size: 15px; line-height: 1.6; flex: 1; }
+        @media (max-width: 768px) {
+          .landing-svc-section { padding: 64px 0; }
+          .landing-container { width: calc(100% - 40px); }
+          .landing-head { display: block; margin-bottom: 34px; }
+          .landing-eyebrow { margin-bottom: 16px; padding: 0; }
+          .landing-body { margin-top: 18px; }
+          .landing-svc-grid { grid-template-columns: 1fr; }
+          .landing-svc-image { height: 250px; }
+          .landing-svc-content { padding: 26px 24px; }
+          .landing-svc-content p { min-height: 0; }
+        }
       `}</style>
 
-      <section style={{ maxWidth: 1200, margin: '0 auto', padding: '100px 24px' }}>
-        <div style={{ marginBottom: 60 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.testimonials.title')}</div>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, maxWidth: 540 }} dangerouslySetInnerHTML={{ __html: t('reformes.testimonials.heading') }} />
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }} className="testimonials-grid">
-          {testimonials.map((item) => (
-            <div key={item.name} style={{ padding: '28px 28px 32px', borderRadius: 14, border: '1px solid var(--color-border)', backgroundColor: '#FFFFFF' }}>
-              <div style={{ display: 'flex', gap: 2, marginBottom: 16 }}>
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <svg key={star} width="14" height="14" viewBox="0 0 24 24" fill="#847261"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                ))}
-              </div>
-              <p style={{ fontSize: 14, lineHeight: 1.75, color: 'var(--color-ink)', margin: '0 0 20px', fontStyle: 'italic' }}>"{item.text}"</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <div style={{ width: 36, height: 36, borderRadius: '50%', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: '#FFFFFF' }}>{item.name[0]}</span>
-                </div>
-                <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-ink)' }}>{item.name}</div>
-                  <div style={{ fontSize: 12, color: 'var(--color-muted)' }}>{item.location}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ABANS I DESPRÉS (slider arrossegable) */}
+      <BeforeAfterSection />
 
       <style>{`
-        .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
-        @media (max-width: 900px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-        @media (max-width: 600px) { .testimonials-grid { grid-template-columns: 1fr !important; } }
+        .landing-ba-section { padding: 112px 0; background: var(--color-ink); color: var(--color-cream); }
+        .landing-ba-head { display: grid; grid-template-columns: 0.8fr 1.35fr 1fr; align-items: end; gap: 40px; margin-bottom: 48px; }
+        .landing-ba-eyebrow { display: block; align-self: start; padding-top: 10px; color: var(--color-primary-light); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .landing-ba-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: var(--color-cream); }
+        .landing-ba-title em { font-style: normal; color: var(--color-primary-light); }
+        .landing-ba-sub { margin: 0; color: rgba(255,255,255,0.62); font-size: 16px; line-height: 1.65; }
+        .landing-ba-track { position: relative; height: clamp(280px, 50vw, 560px); border-radius: 16px; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; outline: none; }
+        .landing-ba-track[data-dragging='true'] { cursor: grabbing; }
+        .landing-ba-track:focus-visible { box-shadow: 0 0 0 3px var(--color-primary-light); }
+        .landing-ba-track > img, .landing-ba-after img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .landing-ba-after { position: absolute; inset: 0; pointer-events: none; }
+        .landing-ba-label { position: absolute; z-index: 2; top: 16px; padding: 5px 13px; border-radius: 40px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFFFFF; pointer-events: none; }
+        .landing-ba-label--abans { left: 16px; background: var(--color-ink); border: 1px solid rgba(255,255,255,0.22); }
+        .landing-ba-label--despres { right: 16px; background: var(--color-primary); }
+        .landing-ba-handle { position: absolute; z-index: 3; top: 0; bottom: 0; width: 44px; transform: translateX(-50%); display: grid; place-items: center; pointer-events: none; }
+        .landing-ba-handle::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; transform: translateX(-50%); background: var(--color-primary-light); }
+        .landing-ba-knob { position: relative; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--color-primary-light); color: var(--color-ink); box-shadow: 0 4px 14px rgba(10,10,10,0.32); }
+        .landing-ba-hint { margin: 14px 0 0; text-align: center; font-size: 13px; color: rgba(255,255,255,0.62); }
+        @media (max-width: 900px) {
+          .landing-ba-section { padding: 88px 0; }
+          .landing-ba-head { display: block; margin-bottom: 32px; }
+          .landing-ba-eyebrow { margin-bottom: 16px; padding: 0; }
+          .landing-ba-sub { margin-top: 18px; }
+        }
+        @media (max-width: 500px) {
+          .landing-ba-section { padding: 64px 0; }
+          .landing-ba-track { border-radius: 12px; }
+        }
       `}</style>
 
-      <section id="contacte" style={{ backgroundColor: 'var(--color-cream)', padding: '100px 24px' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto', textAlign: 'center', backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', borderRadius: 28, padding: '72px 32px' }}>
-          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 16 }}>{t('reformes.cta.title')}</div>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 700, color: 'var(--color-ink)', lineHeight: 1.2, margin: '0 auto 20px', maxWidth: 760 }}>
-            {t('reformes.cta.text')}
-          </h2>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
-            <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('cta_final')} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 24px', borderRadius: 40, backgroundColor: '#25D366', color: '#FFFFFF', textDecoration: 'none', fontWeight: 600, boxShadow: '0 10px 24px rgba(37, 211, 102, 0.25)' }}>
-              {t('reformes.cta.button')}
-            </a>
-            <Link to={`/${currentLang}/#contacte`} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 24px', borderRadius: 40, border: '1px solid var(--color-border)', backgroundColor: '#FFFFFF', color: 'var(--color-ink)', textDecoration: 'none', fontWeight: 600 }}>
-              {t('reformes.cta.secondary')}
-            </Link>
+      {/* PER QUÈ NOSALTRES (C.4 ink) */}
+      <section className="landing-benefits">
+        <div className="landing-container">
+          <div className="landing-head landing-head--ink">
+            <span className="landing-eyebrow">{t('reformes.benefits.title')}</span>
+            <h2 className="landing-title" dangerouslySetInnerHTML={{ __html: t('reformes.benefits.heading') }} />
+            <p className="landing-body">{t('reformes.benefits.subheading')}</p>
+          </div>
+
+          <div className="landing-benefits-grid">
+            {benefits.map((benefit, index) => (
+              <article key={benefit.title} className="landing-benefit">
+                <span className="landing-benefit-index">{String(index + 1).padStart(2, '0')}</span>
+                <span className="landing-benefit-icon">{WHY_US_ICONS[index]}</span>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
+      <style>{`
+        .landing-benefits { padding: 120px 0; background: var(--color-ink); color: var(--color-cream); }
+        .landing-head--ink .landing-eyebrow { color: var(--color-primary-light); }
+        .landing-head--ink .landing-title { color: var(--color-cream); }
+        .landing-head--ink .landing-body { color: rgba(255,255,255,0.62); }
+        .landing-benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,0.15); }
+        .landing-benefit { position: relative; min-width: 0; min-height: 280px; padding: 40px 30px 12px 0; border-right: 1px solid rgba(255,255,255,0.15); }
+        .landing-benefit:not(:first-child) { padding-left: 30px; }
+        .landing-benefit:last-child { border-right: 0; }
+        .landing-benefit-index { position: absolute; top: 24px; right: 24px; color: rgba(255,255,255,0.46); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
+        .landing-benefit-icon { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 38px; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); }
+        .landing-benefit h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; color: var(--color-cream); }
+        .landing-benefit p { margin: 12px 0 0; color: rgba(255,255,255,0.62); font-size: 14px; line-height: 1.65; }
+        @media (max-width: 900px) {
+          .landing-benefits { padding: 96px 0; }
+          .landing-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+          .landing-benefit { min-height: 0; padding: 32px 24px 32px 0; border-bottom: 1px solid rgba(255,255,255,0.15); }
+          .landing-benefit:nth-child(2n) { padding: 32px 0 32px 24px; border-right: 0; }
+          .landing-benefit:nth-child(2n+1) { padding-left: 0; }
+          .landing-benefit:nth-child(2n) .landing-benefit-index { right: 0; }
+          .landing-benefit-icon { margin-bottom: 26px; }
+        }
+        @media (max-width: 500px) {
+          .landing-benefits { padding: 64px 0; }
+          .landing-benefits-grid { grid-template-columns: 1fr; }
+          .landing-benefit,
+          .landing-benefit:nth-child(2n),
+          .landing-benefit:nth-child(2n+1) { padding: 30px 0; border-right: 0; }
+          .landing-benefit:last-child { border-bottom: 0; }
+          .landing-title { font-size: 30px; }
+          .landing-benefit-icon { margin-bottom: 22px; }
+        }
+      `}</style>
+
+      {/* TESTIMONIS */}
+      <section className="landing-tst-section">
+        <div className="landing-container">
+          <div className="landing-tst-head">
+            <span className="landing-eyebrow">{t('reformes.testimonials.title')}</span>
+            <h2 className="landing-title" dangerouslySetInnerHTML={{ __html: t('reformes.testimonials.heading') }} />
+          </div>
+
+          <div className="landing-tst-grid">
+            {testimonials.map((item) => (
+              <article key={item.name} className="landing-tst-card">
+                <div className="landing-tst-stars" aria-hidden="true">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg key={star} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="landing-tst-text">"{item.text}"</p>
+                <div className="landing-tst-author">
+                  <span className="landing-tst-avatar" aria-hidden="true">{item.name[0]}</span>
+                  <div>
+                    <div className="landing-tst-name">{item.name}</div>
+                    <div className="landing-tst-location">{item.location}</div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .landing-tst-section { padding: 112px 0; background: var(--color-cream); }
+        .landing-tst-head { margin-bottom: 56px; }
+        .landing-tst-head .landing-eyebrow { padding: 0; margin-bottom: 16px; }
+        .landing-tst-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .landing-tst-card { display: flex; flex-direction: column; padding: 28px 28px 32px; border-radius: 14px; border: 1px solid var(--color-border); background: #FFFFFF; transition: transform 0.3s, box-shadow 0.3s; }
+        .landing-tst-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .landing-tst-stars { display: flex; gap: 2px; margin-bottom: 16px; color: var(--color-primary); }
+        .landing-tst-text { margin: 0 0 20px; font-size: 14px; line-height: 1.75; color: var(--color-ink); font-style: italic; flex: 1; }
+        .landing-tst-author { display: flex; align-items: center; gap: 10px; }
+        .landing-tst-avatar { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: var(--color-primary); color: #FFFFFF; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+        .landing-tst-name { font-size: 13px; font-weight: 600; color: var(--color-ink); }
+        .landing-tst-location { font-size: 12px; color: var(--color-muted); }
+        @media (max-width: 900px) {
+          .landing-tst-section { padding: 96px 0; }
+          .landing-tst-grid { grid-template-columns: 1fr; gap: 16px; }
+          .landing-tst-head { margin-bottom: 34px; }
+        }
+        @media (max-width: 500px) {
+          .landing-tst-section { padding: 64px 0; }
+          .landing-tst-card { padding: 24px 22px 28px; }
+        }
+      `}</style>
+
+      {/* CTA FINAL (C.6 split) */}
+      <section id="contacte" className="landing-cta">
+        <div className="landing-container">
+          <div className="landing-cta-grid">
+            <div>
+              <span className="landing-eyebrow">{t('reformes.cta.title')}</span>
+              <h2 className="landing-cta-title">{t('reformes.cta.text')}</h2>
+            </div>
+
+            <div className="landing-cta-actions">
+              <Link to={`/${currentLang}#contacte`} className="landing-btn landing-btn--cream">
+                {t('reformes.cta.button')}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5" />
+                </svg>
+              </Link>
+              <a
+                href={waFooter}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('reformes_cta')}
+                className="landing-btn landing-btn--wa"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true">
+                  <path d={WHATSAPP_PATH} />
+                </svg>
+                {t('contacte.whatsapp_label')}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .landing-cta { padding: 112px 0; background: var(--color-ink); color: var(--color-cream); }
+        .landing-cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+        .landing-cta .landing-eyebrow { padding: 0; margin-bottom: 26px; color: var(--color-primary-light); }
+        .landing-cta-title { margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; color: var(--color-cream); }
+        .landing-cta-title em { font-style: normal; color: var(--color-primary-light); }
+        .landing-cta-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+        @media (max-width: 900px) {
+          .landing-cta { padding: 96px 0; }
+          .landing-cta-grid { grid-template-columns: 1fr; gap: 36px; }
+        }
+        @media (max-width: 500px) {
+          .landing-cta { padding: 64px 0; }
+          .landing-cta-actions { width: 100%; }
+          .landing-cta-actions .landing-btn { width: 100%; }
+        }
+      `}</style>
+
       <footer style={{ padding: '60px 24px 40px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', backgroundColor: '#FFFFFF', borderRadius: 28, padding: '48px 48px 28px', boxShadow: '0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)', border: '1px solid var(--color-warm)' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', backgroundColor: '#FFFFFF', borderRadius: 28, padding: '48px 48px 28px', boxShadow: '0 4px 24px rgba(10,10,10,0.06), 0 1px 4px rgba(10,10,10,0.04)', border: '1px solid var(--color-warm)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 40, marginBottom: 40 }} className="footer-grid">
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
@@ -486,7 +739,7 @@ export default function Reformes() {
               <p style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.7, maxWidth: 280 }}>{t('footer.description')}</p>
               <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
                 <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" onClick={() => trackWhatsApp('footer')} style={{ width: 34, height: 34, borderRadius: '50%', border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', fontSize: 14, textDecoration: 'none' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d={WHATSAPP_PATH} /></svg>
                 </a>
               </div>
             </div>
