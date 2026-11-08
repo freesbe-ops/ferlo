@@ -457,6 +457,9 @@ export default function App() {
                   <h3>{s.title}</h3>
                   <p>{s.description}</p>
                 </div>
+                <svg className="svc-card-arrow" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M14 7l5 5-5 5" />
+                </svg>
               </Link>
             ))}
           </div>
@@ -470,8 +473,10 @@ export default function App() {
         .svc-title { font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin: 0; color: var(--color-ink); }
         .svc-body { margin: 0; color: var(--color-muted); font-size: 16px; line-height: 1.65; }
         .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .svc-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: 16px; background: #fff; color: inherit; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .svc-card { position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: 16px; background: #fff; color: inherit; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
         .svc-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .svc-card-arrow { position: absolute; top: 20px; right: 20px; color: var(--color-primary); opacity: 0.55; transition: opacity 0.2s, transform 0.2s; }
+        .svc-card:hover .svc-card-arrow { opacity: 1; transform: translateX(3px); }
         .svc-image { position: relative; height: 350px; overflow: hidden; flex-shrink: 0; }
         .svc-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.75) sepia(0.06); transition: transform 0.6s; display: block; }
         .svc-card:hover .svc-image img { transform: scale(1.025); }
