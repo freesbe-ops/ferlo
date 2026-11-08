@@ -456,10 +456,6 @@ export default function App() {
                   <span className="svc-icon">{SERVICE_ICONS[i]}</span>
                   <h3>{s.title}</h3>
                   <p>{s.description}</p>
-                  <span className="svc-text-link">
-                    {t('serveis.view')}
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 7l5 5-5 5"/></svg>
-                  </span>
                 </div>
               </Link>
             ))}
@@ -483,9 +479,6 @@ export default function App() {
         .svc-icon { position: absolute; right: 28px; top: -27px; width: 54px; height: 54px; display: grid; place-items: center; color: #fff; border-radius: 50%; background: var(--color-primary); }
         .svc-content h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; margin: 0; color: var(--color-ink); }
         .svc-content p { max-width: 480px; min-height: 54px; margin: 12px 0 0; color: var(--color-muted); font-size: 15px; line-height: 1.6; flex: 1; }
-        .svc-text-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; color: var(--color-primary-dark); font-size: 13px; font-weight: 600; }
-        .svc-text-link svg { transition: transform 0.2s; }
-        .svc-card:hover .svc-text-link svg { transform: translateX(4px); }
         @media (max-width: 768px) {
           .svc-section { padding: 64px 0; }
           .svc-container { width: calc(100% - 40px); }
