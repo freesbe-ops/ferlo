@@ -1,11 +1,11 @@
 {
-  "meta_title": "Reformes i Obra Nova a Tordera, Blanes i Maresme | FERLO",
-  "meta_description": "Especialistes en reformes integrals, cuines, banys i obra nova a Tordera, Blanes, Lloret i Maresme. Pressupost gratuït i sense compromís.",
+  "meta_title": "Reformes, Cuines i Banys a Tordera, Blanes i Maresme | FERLO",
+  "meta_description": "Especialistes en reformes integrals, cuines i banys a Tordera, Blanes, Lloret i Maresme. Pressupost gratuït i sense compromís.",
   "hero": {
     "badge": "Tordera · Corredor Girona-Barcelona",
     "title": "Obres que",
     "subtitle": "transformen espais.",
-    "description": "Especialistes en reformes integrals, cuines, banys i obra nova a Tordera, Blanes, Lloret i rodalies. Un sol interlocutor, compliment de terminis i pressupost tancat.",
+    "description": "Especialistes en reformes integrals, cuines i banys a Tordera, Blanes, Lloret i rodalies. Un sol interlocutor, compliment de terminis i pressupost tancat.",
     "cta": "Demana pressupost gratuït",
     "secondary_cta": "Veure serveis",
     "stars_label": "Clients a Tordera, Blanes i Lloret",
@@ -48,11 +48,6 @@
         "title": "Banys",
         "description": "Materials duradors, solucions a mida i acabats impecables.",
         "tag": "Ràpid i net"
-      },
-      {
-        "title": "Obra nova",
-        "description": "Construcció cuidada des del primer plànol fins al lliurament de claus.",
-        "tag": "Des dels fonaments"
       }
     ]
   },
@@ -82,7 +77,7 @@
   "sobre": {
     "title": "SOBRE NOSALTRES",
     "heading": "Hola, som<br /><em>FERLO.</em>",
-    "p1": "Som una empresa de construcció i reformes amb base a Tordera. Executem projectes integrals al corredor Girona-Barcelona: des d'un bany que s'ha quedat antic fins a un habitatge unifamiliar d'obra nova.",
+    "p1": "Som una empresa de construcció i reformes amb base a Tordera. Executem projectes integrals al corredor Girona-Barcelona: des d'un bany que s'ha quedat antic fins a un habitatge unifamiliar complet.",
     "p2": "Cada obra té un responsable que coneix el projecte de principi a fi. Això significa una sola persona a qui preguntar, un pressupost tancat per partides i un cronograma que es compleix.",
     "stats": [
       {
@@ -560,161 +555,9 @@
       "button": "Demana pressupost"
     }
   },
-  "obraNova": {
-    "meta_title": "Construcció i Obra Nova a Tordera i La Selva | FERLO",
-    "meta_description": "Construïm el teu habitatge unifamiliar, ampliació o segona residència des dels fonaments. Gestió integral de projecte i llicències.",
-    "carousel": [
-      "OBRA NOVA",
-      "HABITATGE UNIFAMILIAR",
-      "AMPLIACIONS",
-      "GESTIÓ DE LLICÈNCIES",
-      "SEGUIMENT D'OBRA",
-      "ACABATS A MIDA"
-    ],
-    "hero": {
-      "badge": "Tordera, La Selva i Maresme · Obra nova",
-      "title": "Casa teva,",
-      "subtitle": "des dels fonaments.",
-      "description": "Desenvolupem projectes d'obra nova, ampliacions i segones residències. Cuidem cada fase constructiva, des de la fonamentació i l'estructura fins als tancaments i acabats finals.",
-      "cta": "Demana pressupost gratuït",
-      "secondary_cta": "Veure serveis",
-      "badge_title": "Gestió integral",
-      "badge_sub": "Projecte i llicències",
-      "image_alt": "Habitatge unifamiliar d'obra nova construït per FERLO"
-    },
-    "services": {
-      "title": "ELS NOSTRES SERVEIS",
-      "heading": "Construïm<br /><em>el teu projecte.</em>",
-      "subheading": "Obra nova, ampliacions i reformes estructurals amb direcció tècnica i seguiment continu.",
-      "link": "Demana pressupost",
-      "items": [
-        {
-          "icon": "🏠",
-          "title": "Habitatge unifamiliar",
-          "desc": "Construcció completa de casa unifamiliar, des de la fonamentació fins al lliurament amb els acabats acordats."
-        },
-        {
-          "icon": "📐",
-          "title": "Ampliacions",
-          "desc": "Ampliació d'habitatge en planta, alçada o cos annex, amb càlcul estructural i permisos."
-        },
-        {
-          "icon": "🧱",
-          "title": "Reformes estructurals",
-          "desc": "Obertura de forats, reforç d'estructura i redistribució amb seguretat verificada."
-        },
-        {
-          "icon": "🌿",
-          "title": "Segones residències",
-          "desc": "Construcció a la costa amb materials i aïllaments adaptats al clima i a l'ús estacional."
-        }
-      ]
-    },
-    "includes": {
-      "title": "FASES DEL PROJECTE",
-      "heading": "Així portem<br /><em>una obra nova.</em>",
-      "subheading": "Un procés ordenat, amb documentació en cada fase i un responsable únic.",
-      "pas": "Fase",
-      "items": [
-        {
-          "icon": "📋",
-          "title": "Projecte i llicència",
-          "desc": "Estudi de viabilitat, redacció del projecte amb tècnic i tramitació de la llicència municipal."
-        },
-        {
-          "icon": "🏗️",
-          "title": "Fonamentació i estructura",
-          "desc": "Moviment de terres, fonamentació, estructura i tancaments amb control de qualitat."
-        },
-        {
-          "icon": "⚡",
-          "title": "Instal·lacions",
-          "desc": "Lampisteria, electricitat, climatització i ventilació segons normativa vigent."
-        },
-        {
-          "icon": "✨",
-          "title": "Acabats i lliurament",
-          "desc": "Revestiments, fusteria, pintura i repàs final abans del lliurament de claus."
-        }
-      ]
-    },
-    "projects": {
-      "title": "PROJECTES",
-      "heading": "Obres en marxa<br /><em>i lliurades.</em>",
-      "subheading": "Alguns dels treballs que hem executat a Tordera, La Selva i el Maresme.",
-      "items": [
-        {
-          "title": "Unifamiliar a Tordera",
-          "desc": "Habitatge de nova planta amb estructura de formigó i tancament d'alta eficiència.",
-          "img": "/hero.webp"
-        },
-        {
-          "title": "Ampliació a Blanes",
-          "desc": "Ampliació de planta baixa amb nou menjador i accés directe al jardí.",
-          "img": "/despues.webp"
-        },
-        {
-          "title": "Segona residència a Lloret",
-          "desc": "Reforma estructural i actualització completa d'instal·lacions.",
-          "img": "/antes.webp"
-        }
-      ]
-    },
-    "why": {
-      "title": "PER QUÈ CONFIAR EN NOSALTRES",
-      "heading": "Una obra nova<br /><em>ben portada.</em>",
-      "subheading": "Gestió tècnica, control de terminis i transparència en cada certificació.",
-      "cta": "Demana pressupost",
-      "items": [
-        {
-          "title": "Gestió de llicències",
-          "desc": "Ens ocupem dels tràmits municipals i de la documentació tècnica."
-        },
-        {
-          "title": "Estructures sòlides",
-          "desc": "Materials i execució verificats per direcció facultativa."
-        },
-        {
-          "title": "Eficiència energètica",
-          "desc": "Aïllament tèrmic i solucions que redueixen el consum."
-        },
-        {
-          "title": "Seguiment transparent",
-          "desc": "Informes d'avenç i certificacions segons l'estat real de l'obra."
-        }
-      ]
-    },
-    "testimonials": {
-      "title": "TESTIMONIS",
-      "heading": "Projectes que<br /><em>segueixen dempeus.</em>",
-      "items": [
-        {
-          "name": "Carles Rovira",
-          "location": "Lloret de Mar",
-          "text": "Vam fer una ampliació a la nostra casa de segona residència. Molt bona comunicació en tot moment i acabats impecables."
-        },
-        {
-          "name": "Jordi Martí",
-          "location": "Tordera",
-          "text": "Van reformar el pis sencer i van complir els terminis al mil·límetre. Fa gust treballar amb professionals seriosos i nets."
-        },
-        {
-          "name": "Marta Soler",
-          "location": "Blanes",
-          "text": "Vam canviar la cuina i el bany principal. El tracte va ser excel·lent i el pressupost es va ajustar exactament al que havíem parlat."
-        }
-      ]
-    },
-    "cta": {
-      "title": "CONTACTE",
-      "text": "Si tens un terreny o un projecte al cap, explica-nos-ho i estudiem la viabilitat sense compromís.",
-      "description": "Estudi inicial, pressupost per fases i calendari d'obra.",
-      "button": "Demana pressupost"
-    }
-  },
   "footer": {
     "tagline": "TORDERA · CORREDOR GIRONA-BARCELONA",
-    "description": "Especialistes en construcció, reformes integrals i obra nova a Tordera i el Maresme. Un sol interlocutor i pressupost tancat.",
+    "description": "Especialistes en construcció i reformes integrals a Tordera i el Maresme. Un sol interlocutor i pressupost tancat.",
     "serveis_title": "Serveis",
     "empresa_title": "Empresa",
     "contacte_title": "Contacte",

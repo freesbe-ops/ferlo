@@ -30,8 +30,8 @@ const SOCIAL_PROFILES: string[] = [
 ]
 
 const BUSINESS_DESCRIPTION: Record<Lang, string> = {
-  es: 'Empresa de reformas integrales, cocinas, baños, alicatados, pladur y obra nueva en Tordera, La Selva, Blanes, Lloret de Mar, Malgrat de Mar y alrededores. Presupuesto gratis.',
-  ca: 'Empresa de reformes integrals, cuines, banys, enrajolats, pladur i obra nova a Tordera, La Selva, Blanes, Lloret de Mar, Malgrat de Mar i rodalies. Pressupost gratuït.',
+  es: 'Empresa de reformas integrales, cocinas, baños, alicatados y pladur en Tordera, La Selva, Blanes, Lloret de Mar, Malgrat de Mar y alrededores. Presupuesto gratis.',
+  ca: 'Empresa de reformes integrals, cuines, banys, enrajolats i pladur a Tordera, La Selva, Blanes, Lloret de Mar, Malgrat de Mar i rodalies. Pressupost gratuït.',
 }
 
 const SERVICE_AREAS: Array<{ name: string; type?: 'City' | 'Place' }> = [

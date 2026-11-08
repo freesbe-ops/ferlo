@@ -2,8 +2,8 @@
 /**
  * Generates /sitemap.xml (build-time) with every real, indexable page:
  *   - language homepages  (/es, /ca)
- *   - service pages       (/es/servicios/{reformas-integrales,cocinas,banos,obra-nueva}
- *                          and /ca/serveis/{reformes-integrals,cuines,banys,obra-nova})
+ *   - service pages       (/es/servicios/{reformas-integrales,cocinas,banos}
+ *                          and /ca/serveis/{reformes-integrals,cuines,banys})
  *   - legal pages         (privacy, aviso legal, cookies) in both languages
  *
  * The 404 page is intentionally excluded (it is `noindex, follow`).
@@ -50,12 +50,6 @@ const ROUTES = [
   {
     key: 'banys',
     segments: { es: ['servicios', 'banos'], ca: ['serveis', 'banys'] },
-    changefreq: 'monthly',
-    priority: '0.9',
-  },
-  {
-    key: 'obraNova',
-    segments: { es: ['servicios', 'obra-nueva'], ca: ['serveis', 'obra-nova'] },
     changefreq: 'monthly',
     priority: '0.9',
   },

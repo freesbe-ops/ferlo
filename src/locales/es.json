@@ -1,11 +1,11 @@
 {
-  "meta_title": "Reformas y Obra Nueva en Tordera, Blanes y Maresme | FERLO",
-  "meta_description": "Especialistas en reformas integrales, cocinas, baños y obra nueva en Tordera, Blanes, Lloret y Maresme. Presupuesto gratuito y sin compromiso.",
+  "meta_title": "Reformas, Cocinas y Baños en Tordera, Blanes y Maresme | FERLO",
+  "meta_description": "Especialistas en reformas integrales, cocinas y baños en Tordera, Blanes, Lloret y Maresme. Presupuesto gratuito y sin compromiso.",
   "hero": {
     "badge": "Tordera · Corredor Girona-Barcelona",
     "title": "Obras que",
     "subtitle": "transforman espacios.",
-    "description": "Especialistas en reformas integrales, cocinas, baños y obra nueva en Tordera, Blanes, Lloret y alrededores. Un solo interlocutor, plazos cumplidos y presupuesto cerrado.",
+    "description": "Especialistas en reformas integrales, cocinas y baños en Tordera, Blanes, Lloret y alrededores. Un solo interlocutor, plazos cumplidos y presupuesto cerrado.",
     "cta": "Pedir presupuesto gratuito",
     "secondary_cta": "Ver servicios",
     "stars_label": "Clientes en Tordera, Blanes y Lloret",
@@ -48,11 +48,6 @@
         "title": "Baños",
         "description": "Materiales duraderos, soluciones a medida y acabados impecables.",
         "tag": "Rápido y limpio"
-      },
-      {
-        "title": "Obra nueva",
-        "description": "Construcción cuidada desde el primer plano hasta la entrega de llaves.",
-        "tag": "Desde los cimientos"
       }
     ]
   },
@@ -82,7 +77,7 @@
   "sobre": {
     "title": "SOBRE NOSOTROS",
     "heading": "Hola, somos<br /><em>FERLO.</em>",
-    "p1": "Somos una empresa de construcción y reformas con base en Tordera. Ejecutamos proyectos integrales en el corredor Girona-Barcelona: desde un baño que se ha quedado antiguo hasta una vivienda unifamiliar de obra nueva.",
+    "p1": "Somos una empresa de construcción y reformas con base en Tordera. Ejecutamos proyectos integrales en el corredor Girona-Barcelona: desde un baño que se ha quedado antiguo hasta una vivienda unifamiliar completa.",
     "p2": "Cada obra tiene un responsable que conoce el proyecto de principio a fin. Eso significa una sola persona a la que preguntar, un presupuesto cerrado por partidas y un cronograma que se cumple.",
     "stats": [
       {
@@ -560,161 +555,9 @@
       "button": "Pedir presupuesto"
     }
   },
-  "obraNova": {
-    "meta_title": "Construcción y Obra Nueva en Tordera y La Selva | FERLO",
-    "meta_description": "Construimos tu vivienda unifamiliar, ampliación o segunda residencia desde los cimientos. Gestión integral de proyecto y licencias.",
-    "carousel": [
-      "OBRA NUEVA",
-      "VIVIENDA UNIFAMILIAR",
-      "AMPLIACIONES",
-      "GESTIÓN DE LICENCIAS",
-      "SEGUMIENTO DE OBRA",
-      "ACABADOS A MEDIDA"
-    ],
-    "hero": {
-      "badge": "Tordera, La Selva y Maresme · Obra nueva",
-      "title": "Tu casa,",
-      "subtitle": "desde los cimientos.",
-      "description": "Desarrollamos proyectos de obra nueva, ampliaciones y segundas residencias. Cuidamos cada fase constructiva, desde la cimentación y estructura hasta los cerramientos y acabados finales.",
-      "cta": "Pedir presupuesto gratuito",
-      "secondary_cta": "Ver servicios",
-      "badge_title": "Gestión integral",
-      "badge_sub": "Proyecto y licencias",
-      "image_alt": "Vivienda unifamiliar de obra nueva construida por FERLO"
-    },
-    "services": {
-      "title": "NUESTROS SERVICIOS",
-      "heading": "Construimos<br /><em>tu proyecto.</em>",
-      "subheading": "Obra nueva, ampliaciones y reformas estructurales con dirección técnica y seguimiento continuo.",
-      "link": "Pedir presupuesto",
-      "items": [
-        {
-          "icon": "🏠",
-          "title": "Vivienda unifamiliar",
-          "desc": "Construcción completa de casa unifamiliar, desde la cimentación hasta la entrega con los acabados acordados."
-        },
-        {
-          "icon": "📐",
-          "title": "Ampliaciones",
-          "desc": "Ampliación de vivienda en planta, altura o cuerpo anexo, con cálculo estructural y permisos."
-        },
-        {
-          "icon": "🧱",
-          "title": "Reformas estructurales",
-          "desc": "Apertura de huecos, refuerzo de estructura y redistribución con seguridad verificada."
-        },
-        {
-          "icon": "🌿",
-          "title": "Segundas residencias",
-          "desc": "Construcción en la costa con materiales y aislamientos adaptados al clima y al uso estacional."
-        }
-      ]
-    },
-    "includes": {
-      "title": "FASES DEL PROYECTO",
-      "heading": "Así llevamos<br /><em>una obra nueva.</em>",
-      "subheading": "Un proceso ordenado, con documentación en cada fase y un responsable único.",
-      "pas": "Fase",
-      "items": [
-        {
-          "icon": "📋",
-          "title": "Proyecto y licencia",
-          "desc": "Estudio de viabilidad, redacción del proyecto con técnico y tramitación de la licencia municipal."
-        },
-        {
-          "icon": "🏗️",
-          "title": "Cimentación y estructura",
-          "desc": "Movimiento de tierras, cimentación, estructura y cerramientos con control de calidad."
-        },
-        {
-          "icon": "⚡",
-          "title": "Instalaciones",
-          "desc": "Fontanería, electricidad, climatización y ventilación según normativa vigente."
-        },
-        {
-          "icon": "✨",
-          "title": "Acabados y entrega",
-          "desc": "Revestimientos, carpintería, pintura y repaso final antes de la entrega de llaves."
-        }
-      ]
-    },
-    "projects": {
-      "title": "PROYECTOS",
-      "heading": "Obras en marcha<br /><em>y entregadas.</em>",
-      "subheading": "Algunos de los trabajos que hemos ejecutado en Tordera, La Selva y el Maresme.",
-      "items": [
-        {
-          "title": "Unifamiliar en Tordera",
-          "desc": "Vivienda de nueva planta con estructura de hormigón y cerramiento de alta eficiencia.",
-          "img": "/hero.webp"
-        },
-        {
-          "title": "Ampliación en Blanes",
-          "desc": "Ampliación de planta baja con nuevo salón y acceso directo al jardín.",
-          "img": "/despues.webp"
-        },
-        {
-          "title": "Segunda residencia en Lloret",
-          "desc": "Reforma estructural y actualización completa de instalaciones.",
-          "img": "/antes.webp"
-        }
-      ]
-    },
-    "why": {
-      "title": "POR QUÉ CONFIAR EN NOSOTROS",
-      "heading": "Una obra nueva<br /><em>bien llevada.</em>",
-      "subheading": "Gestión técnica, control de plazos y transparencia en cada certificación.",
-      "cta": "Pedir presupuesto",
-      "items": [
-        {
-          "title": "Gestión de licencias",
-          "desc": "Nos ocupamos de los trámites municipales y de la documentación técnica."
-        },
-        {
-          "title": "Estructuras sólidas",
-          "desc": "Materiales y ejecución verificados por dirección facultativa."
-        },
-        {
-          "title": "Eficiencia energética",
-          "desc": "Aislamiento térmico y soluciones que reducen el consumo."
-        },
-        {
-          "title": "Seguimiento transparente",
-          "desc": "Informes de avance y certificaciones según el estado real de la obra."
-        }
-      ]
-    },
-    "testimonials": {
-      "title": "TESTIMONIOS",
-      "heading": "Proyectos que<br /><em>siguen en pie.</em>",
-      "items": [
-        {
-          "name": "Carles Rovira",
-          "location": "Lloret de Mar",
-          "text": "Hicimos una ampliación en nuestra casa de segunda residencia. Muy buena comunicación en todo momento y acabados impecables."
-        },
-        {
-          "name": "Jordi Martí",
-          "location": "Tordera",
-          "text": "Reformaron el piso entero y cumplieron los plazos al milímetro. Da gusto trabajar con profesionales serios y limpios."
-        },
-        {
-          "name": "Marta Soler",
-          "location": "Blanes",
-          "text": "Cambiamos la cocina y el baño principal. El trato fue excelente y el presupuesto se ajustó exactamente a lo hablado."
-        }
-      ]
-    },
-    "cta": {
-      "title": "CONTACTO",
-      "text": "Si tienes un terreno o un proyecto en mente, cuéntanoslo y estudiamos la viabilidad sin compromiso.",
-      "description": "Estudio inicial, presupuesto por fases y calendario de obra.",
-      "button": "Pedir presupuesto"
-    }
-  },
   "footer": {
     "tagline": "TORDERA · CORREDOR GIRONA-BARCELONA",
-    "description": "Especialistas en construcción, reformas integrales y obra nueva en Tordera y el Maresme. Un solo interlocutor y presupuesto cerrado.",
+    "description": "Especialistas en construcción y reformas integrales en Tordera y el Maresme. Un solo interlocutor y presupuesto cerrado.",
     "serveis_title": "Servicios",
     "empresa_title": "Empresa",
     "contacte_title": "Contacto",

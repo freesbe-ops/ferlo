@@ -16,7 +16,6 @@ const COPY = {
       reformes: 'Reformas integrales',
       cuines: 'Reforma de cocinas',
       banys: 'Reforma de baños',
-      obraNova: 'Obra nueva',
     },
   },
   ca: {
@@ -30,7 +29,6 @@ const COPY = {
       reformes: 'Reformes integrals',
       cuines: 'Reforma de cuines',
       banys: 'Reforma de banys',
-      obraNova: 'Obra nova',
     },
   },
 } as const

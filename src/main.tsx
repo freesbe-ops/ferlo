@@ -13,7 +13,6 @@ import './index.css'
 const Reformes = lazy(() => import('./pages/Reformes'))
 const Cuines = lazy(() => import('./pages/Cuines'))
 const Banys = lazy(() => import('./pages/Banys'))
-const ObraNova = lazy(() => import('./pages/ObraNova'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const Legal = lazy(() => import('./pages/Legal'))
 const Cookies = lazy(() => import('./pages/Cookies'))
@@ -90,8 +89,6 @@ function AppRoutes() {
         <Route path={`/:lang/${ROUTES.cuines.ca}`} element={<Cuines />} />
         <Route path={`/:lang/${ROUTES.banys.es}`} element={<Banys />} />
         <Route path={`/:lang/${ROUTES.banys.ca}`} element={<Banys />} />
-        <Route path={`/:lang/${ROUTES.obraNova.es}`} element={<ObraNova />} />
-        <Route path={`/:lang/${ROUTES.obraNova.ca}`} element={<ObraNova />} />
 
         {/* Pàgines legals */}
         <Route path={`/:lang/${ROUTES.privacy.es}`} element={<PrivacyPolicy />} />

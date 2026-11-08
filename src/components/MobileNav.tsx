@@ -17,12 +17,6 @@ const SERVICES_ICONS = [
     <path d="M12 2.7l5.4 5.4a7.64 7.64 0 1 1-10.8 0z" />
     <path d="M9 13a3 3 0 0 0 3 3" />
   </svg>,
-  <svg key="obraNova" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 21h20" />
-    <path d="M5 21V7l7-4 7 4v14" />
-    <path d="M9.5 21v-6h5v6" />
-    <path d="M9.5 10h5" />
-  </svg>,
 ]
 
 interface MobileNavProps {
@@ -53,12 +47,11 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
 
   const prefix = isHome ? '' : `/${currentLang}`
 
-  // Ordre alineat amb SERVICE_KEYS i amb `serveis.items` (reformes, cuines, banys, obraNova).
+  // Ordre alineat amb SERVICE_KEYS i amb `serveis.items` (reformes, cuines, banys).
   const services = [
     { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes'), icon: SERVICES_ICONS[0] },
     { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines'), icon: SERVICES_ICONS[1] },
     { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys'), icon: SERVICES_ICONS[2] },
-    { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova'), icon: SERVICES_ICONS[3] },
   ]
 
   const navItemStyle: React.CSSProperties = {

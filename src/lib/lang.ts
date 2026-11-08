@@ -18,7 +18,6 @@ export const ROUTES = {
   reformes: { es: 'servicios/reformas-integrales', ca: 'serveis/reformes-integrals' },
   cuines:   { es: 'servicios/cocinas',             ca: 'serveis/cuines' },
   banys:    { es: 'servicios/banos',               ca: 'serveis/banys' },
-  obraNova: { es: 'servicios/obra-nueva',          ca: 'serveis/obra-nova' },
   privacy:  { es: 'politica-de-privacidad',        ca: 'politica-de-privacitat' },
   legal:    { es: 'aviso-legal',                   ca: 'avis-legal' },
   cookies:  { es: 'politica-de-cookies',           ca: 'politica-de-cookies' },
@@ -26,8 +25,8 @@ export const ROUTES = {
 
 export type RouteKey = keyof typeof ROUTES;
 
-/** The four service landing pages, in the order they are shown on the site. */
-export const SERVICE_KEYS = ['reformes', 'cuines', 'banys', 'obraNova'] as const;
+/** The three service landing pages, in the order they are shown on the site. */
+export const SERVICE_KEYS = ['reformes', 'cuines', 'banys'] as const;
 export type ServiceKey = typeof SERVICE_KEYS[number];
 
 export function isLang(value: string | undefined | null): value is Lang {

@@ -18,7 +18,7 @@ import {
   servicePath,
 } from './lib/lang'
 
-// Order matches `serveis.items`: reformes, cuines, banys, obra nova
+// Order matches `serveis.items`: reformes, cuines, banys
 const SERVICE_ICONS = [
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -31,12 +31,6 @@ const SERVICE_ICONS = [
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 2.7l5.4 5.4a7.64 7.64 0 1 1-10.8 0z" />
     <path d="M9 13a3 3 0 0 0 3 3" />
-  </svg>,
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 21h20" />
-    <path d="M5 21V7l7-4 7 4v14" />
-    <path d="M9.5 21v-6h5v6" />
-    <path d="M9.5 10h5" />
   </svg>,
 ]
 
@@ -74,7 +68,6 @@ const SERVICE_IMAGES = [
   '/hero.webp',
   '/despues.webp',
   '/antes.webp',
-  '/hero.webp',
 ]
 
 const LEAD_ENDPOINT =
@@ -167,7 +160,6 @@ export default function App() {
     { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> },
     { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="10" width="18" height="9" rx="2"/><path d="M1.5 13.5h1.5M21 13.5h1.5"/><path d="M8 6.5c0-.9.7-1.3.7-2.2M12 6.5c0-.9.7-1.3.7-2.2M16 6.5c0-.9.7-1.3.7-2.2"/></svg> },
     { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.7l5.4 5.4a7.64 7.64 0 1 1-10.8 0z"/><path d="M9 13a3 3 0 0 0 3 3"/></svg> },
-    { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova'), icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 21h20"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9.5 21v-6h5v6"/><path d="M9.5 10h5"/></svg> },
     { label: 'WhatsApp', href: waHeader, external: true, icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> },
   ]
 
@@ -184,8 +176,8 @@ export default function App() {
 
   // Stable, language-independent service label for analytics. The value posted
   // to the Google Sheet is untouched (it stays the label the visitor picked),
-  // but GA4 always receives the same key across the 4 languages.
-  const SERVICE_ANALYTICS_KEYS = ['reformes', 'cuines', 'banys', 'obraNova']
+  // but GA4 always receives the same key across the 2 languages.
+  const SERVICE_ANALYTICS_KEYS = ['reformes', 'cuines', 'banys']
   const analyticsService = (label: string) => {
     const index = SERVICE_ANALYTICS_KEYS.findIndex((_, i) => label === t(`serveis.items.${i}.title`))
     if (index >= 0) return SERVICE_ANALYTICS_KEYS[index]
@@ -472,7 +464,7 @@ export default function App() {
         .svc-eyebrow { display: block; color: var(--color-primary-dark); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; align-self: start; padding-top: 10px; }
         .svc-title { font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 3.3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin: 0; color: var(--color-ink); }
         .svc-body { margin: 0; color: var(--color-muted); font-size: 16px; line-height: 1.65; }
-        .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .svc-card { position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: 16px; background: #fff; color: inherit; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
         .svc-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
         .svc-card-arrow { position: absolute; top: 20px; right: 20px; color: var(--color-primary); opacity: 0.55; transition: opacity 0.2s, transform 0.2s; }
@@ -484,13 +476,15 @@ export default function App() {
         .svc-icon { position: absolute; right: 28px; top: -27px; width: 54px; height: 54px; display: grid; place-items: center; color: #fff; border-radius: 50%; background: var(--color-primary); }
         .svc-content h3 { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; margin: 0; color: var(--color-ink); }
         .svc-content p { max-width: 480px; min-height: 54px; margin: 12px 0 0; color: var(--color-muted); font-size: 15px; line-height: 1.6; flex: 1; }
+        @media (max-width: 900px) {
+          .svc-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 768px) {
           .svc-section { padding: 64px 0; }
           .svc-container { width: calc(100% - 40px); }
           .svc-head { display: block; margin-bottom: 34px; }
           .svc-eyebrow { margin-bottom: 16px; padding: 0; }
           .svc-body { margin-top: 18px; }
-          .svc-grid { grid-template-columns: 1fr; }
           .svc-image { height: 250px; }
           .svc-content { padding: 26px 24px; }
           .svc-content p { min-height: 0; }
@@ -793,7 +787,6 @@ export default function App() {
                   <option>{t('serveis.items.0.title')}</option>
                   <option>{t('serveis.items.1.title')}</option>
                   <option>{t('serveis.items.2.title')}</option>
-                  <option>{t('serveis.items.3.title')}</option>
                   <option>{t('contacte.form_altres')}</option>
                 </select>
               </div>
@@ -894,7 +887,6 @@ export default function App() {
                 { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes') },
                 { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines') },
                 { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys') },
-                { label: t('serveis.items.3.title'), href: servicePath(currentLang, 'obraNova') },
               ].map(s => (
                 <Link key={s.label} to={s.href} style={{ display: 'block', fontSize: 13, color: 'var(--color-muted)', textDecoration: 'none', marginBottom: 10, transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
