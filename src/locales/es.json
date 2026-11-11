@@ -17,8 +17,9 @@
   },
   "nav": {
     "serveis": "Servicios",
-    "sobre": "Sobre nosotros",
+    "sobre": "Nosotros",
     "reformes": "Reformas integrales",
+    "reformes_curt": "Reformas",
     "contacte": "Contacto",
     "pressupost": "Presupuesto",
     "pressupost_cta": "Pide presupuesto"

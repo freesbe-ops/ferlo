@@ -17,8 +17,9 @@
   },
   "nav": {
     "serveis": "Serveis",
-    "sobre": "Sobre nosaltres",
+    "sobre": "Nosaltres",
     "reformes": "Reformes integrals",
+    "reformes_curt": "Reformes",
     "contacte": "Contacte",
     "pressupost": "Pressupost",
     "pressupost_cta": "Demana pressupost"
