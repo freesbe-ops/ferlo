@@ -1,76 +1,33 @@
 {
-  "redirects": [
-    { "source": "/index.html", "destination": "/ca", "permanent": true },
-    { "source": "/404.html", "destination": "/ca", "permanent": true },
-    { "source": "/", "destination": "/ca", "permanent": true },
-
-    { "source": "/:lang/index.html", "destination": "/:lang", "permanent": true },
-    { "source": "/:lang/serveis/:service/index.html", "destination": "/:lang/serveis/:service", "permanent": true },
-    { "source": "/:path*/index.html", "destination": "/:path*", "permanent": true },
-    { "source": "/:path*.html", "destination": "/:path*", "permanent": true },
-
-    { "source": "/react", "destination": "/ca", "permanent": true },
-    { "source": "/react/", "destination": "/ca", "permanent": true },
-    { "source": "/react/:path*", "destination": "/:path*", "permanent": true },
-
-    { "source": "/fr/serveis/piscines", "destination": "/fr/services/piscines", "permanent": true },
-    { "source": "/fr/serveis/jardineria", "destination": "/fr/services/jardins", "permanent": true },
-    { "source": "/fr/serveis/manteniment", "destination": "/fr/services/maintenance", "permanent": true },
-    { "source": "/fr/serveis/instalacions", "destination": "/fr/services/installations", "permanent": true },
-    { "source": "/fr/services/jardineria", "destination": "/fr/services/jardins", "permanent": true },
-    { "source": "/fr/services/manteniment", "destination": "/fr/services/maintenance", "permanent": true },
-    { "source": "/fr/services/instalacions", "destination": "/fr/services/installations", "permanent": true },
-    { "source": "/fr/piscines", "destination": "/fr/services/piscines", "permanent": true },
-    { "source": "/fr/jardineria", "destination": "/fr/services/jardins", "permanent": true },
-    { "source": "/fr/contacte", "destination": "/fr", "permanent": true },
-
-    { "source": "/:lang/serveis/jardins", "destination": "/:lang/serveis/jardineria", "permanent": true },
-    { "source": "/:lang/serveis/jardins/", "destination": "/:lang/serveis/jardineria", "permanent": true },
-    { "source": "/:lang/serveis/manteniment-general", "destination": "/:lang/serveis/manteniment", "permanent": true },
-    { "source": "/:lang/serveis/manteniment-general/", "destination": "/:lang/serveis/manteniment", "permanent": true },
-
-    { "source": "/ca/jardineria", "destination": "/ca/serveis/jardineria", "permanent": true },
-    { "source": "/ca/jardineria/", "destination": "/ca/serveis/jardineria", "permanent": true },
-    { "source": "/es/jardineria", "destination": "/es/serveis/jardineria", "permanent": true },
-    { "source": "/es/jardineria/", "destination": "/es/serveis/jardineria", "permanent": true },
-    { "source": "/ca/piscines", "destination": "/ca/serveis/piscines", "permanent": true },
-    { "source": "/ca/piscines/", "destination": "/ca/serveis/piscines", "permanent": true },
-    { "source": "/es/piscinas", "destination": "/es/serveis/piscines", "permanent": true },
-    { "source": "/es/piscinas/", "destination": "/es/serveis/piscines", "permanent": true },
-
-    { "source": "/ca/politica-privacitat", "destination": "/ca/politica-de-privacitat", "permanent": true },
-    { "source": "/ca/politica-privacitat/", "destination": "/ca/politica-de-privacitat", "permanent": true },
-    { "source": "/es/politica-privacidad", "destination": "/es/politica-de-privacidad", "permanent": true },
-    { "source": "/es/politica-privacidad/", "destination": "/es/politica-de-privacidad", "permanent": true },
-    { "source": "/ca/rgpd", "destination": "/ca/politica-de-privacitat", "permanent": true },
-    { "source": "/ca/rgpd/", "destination": "/ca/politica-de-privacitat", "permanent": true },
-    { "source": "/es/rgpd", "destination": "/es/politica-de-privacidad", "permanent": true },
-    { "source": "/es/rgpd/", "destination": "/es/politica-de-privacidad", "permanent": true },
-
-    { "source": "/fr/politica-de-privacitat", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-    { "source": "/fr/politica-de-privacitat/", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-    { "source": "/fr/politica-de-privacidad", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-    { "source": "/fr/politica-de-privacidad/", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-    { "source": "/fr/confidentialite", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-    { "source": "/fr/rgpd", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-    { "source": "/fr/rgpd/", "destination": "/fr/politique-de-confidentialite", "permanent": true },
-
-    { "source": "/en/politica-de-privacitat", "destination": "/en/privacy-policy", "permanent": true },
-    { "source": "/en/politica-de-privacitat/", "destination": "/en/privacy-policy", "permanent": true },
-    { "source": "/en/politica-de-privacidad", "destination": "/en/privacy-policy", "permanent": true },
-    { "source": "/en/politica-de-privacidad/", "destination": "/en/privacy-policy", "permanent": true },
-    { "source": "/en/rgpd", "destination": "/en/privacy-policy", "permanent": true },
-    { "source": "/en/rgpd/", "destination": "/en/privacy-policy", "permanent": true },
-    { "source": "/en/privacitat", "destination": "/en/privacy-policy", "permanent": true },
-
-    { "source": "/ca/condicions-us", "destination": "/ca", "permanent": true },
-    { "source": "/ca/condicions-us/", "destination": "/ca", "permanent": true },
-    { "source": "/es/condiciones-uso", "destination": "/es", "permanent": true },
-    { "source": "/es/condiciones-uso/", "destination": "/es", "permanent": true },
-    { "source": "/ca/contacte", "destination": "/ca", "permanent": true },
-    { "source": "/ca/contacte/", "destination": "/ca", "permanent": true },
-    { "source": "/es/contacto", "destination": "/es", "permanent": true },
-    { "source": "/es/contacto/", "destination": "/es", "permanent": true }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml" }
+      ]
+    }
+  ]
 }
