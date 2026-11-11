@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://ferlo.es/",
+  "homepage": "https://construccionesferlo.com/",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "node scripts/generate-sitemap.mjs && vite build",

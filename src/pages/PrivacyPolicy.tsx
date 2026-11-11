@@ -17,8 +17,8 @@ function Responsable({ lang }: { lang: Lang }) {
         <strong style={S.strong}>Activitat:</strong> Construcció, reformes integrals, cuines, banys i obra nova.<br />
         <strong style={S.strong}>Adreça:</strong> Carrer Ramon Llull, 1 – P. 3 Pta. 2, 08490 Tordera (Barcelona)<br />
         <strong style={S.strong}>Telèfon:</strong> 692 586 863<br />
-        <strong style={S.strong}>Correu electrònic:</strong> info@ferlo.es<br />
-        <strong style={S.strong}>Lloc web:</strong> https://ferlo.es
+        <strong style={S.strong}>Correu electrònic:</strong> reformasferlo@outlook.es<br />
+        <strong style={S.strong}>Lloc web:</strong> https://construccionesferlo.com
       </p>
     )
   }
@@ -29,8 +29,8 @@ function Responsable({ lang }: { lang: Lang }) {
       <strong style={S.strong}>Actividad:</strong> Construcción, reformas integrales, cocinas, baños y obra nueva.<br />
       <strong style={S.strong}>Dirección:</strong> Calle Ramon Llull, 1 – P. 3 Pta. 2, 08490 Tordera (Barcelona)<br />
       <strong style={S.strong}>Teléfono:</strong> 692 586 863<br />
-      <strong style={S.strong}>Correo electrónico:</strong> info@ferlo.es<br />
-      <strong style={S.strong}>Sitio web:</strong> https://ferlo.es
+      <strong style={S.strong}>Correo electrónico:</strong> reformasferlo@outlook.es<br />
+      <strong style={S.strong}>Sitio web:</strong> https://construccionesferlo.com
     </p>
   )
 }
@@ -122,7 +122,7 @@ function CatalanContent() {
         <li style={S.li}><strong style={S.strong}>Oposició:</strong> oposar-te al tractament i a les comunicacions comercials.</li>
       </ul>
       <p style={S.p}>
-        Per exercir-los, escriu-nos a <strong style={S.strong}>info@ferlo.es</strong> indicant el dret que vols
+        Per exercir-los, escriu-nos a <strong style={S.strong}>reformasferlo@outlook.es</strong> indicant el dret que vols
         exercir i adjuntant una còpia d'un document que acrediti la teva identitat. Et responem en el termini màxim
         d'un mes.
       </p>
@@ -251,7 +251,7 @@ function SpanishContent() {
         <li style={S.li}><strong style={S.strong}>Oposición:</strong> oponerte al tratamiento y a las comunicaciones comerciales.</li>
       </ul>
       <p style={S.p}>
-        Para ejercerlos, escríbenos a <strong style={S.strong}>info@ferlo.es</strong> indicando el derecho que deseas
+        Para ejercerlos, escríbenos a <strong style={S.strong}>reformasferlo@outlook.es</strong> indicando el derecho que deseas
         ejercer y adjuntando una copia de un documento que acredite tu identidad. Te respondemos en el plazo máximo de un
         mes.
       </p>

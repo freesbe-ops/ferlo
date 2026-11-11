@@ -5,14 +5,14 @@ import { LANGS, ROUTES, type Lang } from '../lib/lang'
 /*  Single source of truth for SEO (canonical, hreflang, meta, JSON-LD)*/
 /* ------------------------------------------------------------------ */
 
-export const SITE_URL = 'https://ferlo.es'
+export const SITE_URL = 'https://construccionesferlo.com'
 export const DEFAULT_LANG: Lang = 'es'
 
 /* NAP + business data — MUST stay consistent with Google Business Profile */
 export const BUSINESS_NAP = {
   name: 'FERLO SL',
   telephone: '+34692586863',
-  email: 'info@ferlo.es',
+  email: 'reformasferlo@outlook.es',
   street: 'Calle Ramon Llull, 1 - P. 3 Pta. 2',
   locality: 'Tordera',
   postalCode: '08490',

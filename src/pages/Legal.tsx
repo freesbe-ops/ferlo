@@ -18,7 +18,7 @@ function CatalanContent() {
         <strong style={S.strong}>NIF:</strong> [PENDENT D'INTRODUIR]<br />
         <strong style={S.strong}>Domicili social:</strong> Carrer Ramon Llull, 1 – P. 3 Pta. 2, 08490 Tordera (Barcelona)<br />
         <strong style={S.strong}>Telèfon:</strong> 692 586 863<br />
-        <strong style={S.strong}>Correu electrònic:</strong> info@ferlo.es<br />
+        <strong style={S.strong}>Correu electrònic:</strong> reformasferlo@outlook.es<br />
         <strong style={S.strong}>Activitat:</strong> construcció, reformes integrals, cuines, banys i obra nova.
       </p>
 
@@ -82,7 +82,7 @@ function SpanishContent() {
         <strong style={S.strong}>NIF:</strong> [PENDIENTE DE INTRODUCIR]<br />
         <strong style={S.strong}>Domicilio social:</strong> Calle Ramon Llull, 1 – P. 3 Pta. 2, 08490 Tordera (Barcelona)<br />
         <strong style={S.strong}>Teléfono:</strong> 692 586 863<br />
-        <strong style={S.strong}>Correo electrónico:</strong> info@ferlo.es<br />
+        <strong style={S.strong}>Correo electrónico:</strong> reformasferlo@outlook.es<br />
         <strong style={S.strong}>Actividad:</strong> construcción, reformas integrales, cocinas, baños y obra nueva.
       </p>
 

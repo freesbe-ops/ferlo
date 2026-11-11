@@ -41,7 +41,7 @@ export const ADS_WA_FORM_LABEL = 'DEV_LABEL'
 export const FIRE_DIRECT_ADS_TAG = true
 
 const STORAGE_KEY = 'ml_session_traffic'
-const OWN_HOSTS = ['ferlo.es', 'www.ferlo.es', 'localhost', '127.0.0.1']
+const OWN_HOSTS = ['construccionesferlo.com', 'www.construccionesferlo.com', 'localhost', '127.0.0.1']
 
 export interface CampaignParams {
   source: string

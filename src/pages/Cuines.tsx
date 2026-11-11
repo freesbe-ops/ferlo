@@ -685,7 +685,7 @@ export default function Cuines() {
               <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', color: 'var(--color-muted)', textTransform: 'uppercase', marginBottom: 20 }}>{t('footer.contacte_title')}</div>
               <div style={{ fontSize: 13, color: 'var(--color-muted)', lineHeight: 1.8 }}>
                 <div>💬 <a href={waFooter} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 692 586 863" onClick={() => trackWhatsApp('footer')} style={{ color: '#25D366', textDecoration: 'none', fontWeight: 500 }}>692 586 863</a></div>
-                <div>✉️ <a href="mailto:info@ferlo.es" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 500 }}>info@ferlo.es</a></div>
+                <div>✉️ <a href="mailto:reformasferlo@outlook.es" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 500 }}>reformasferlo@outlook.es</a></div>
                 <div style={{ marginTop: 8 }}>{t('footer.zona')}</div>
                 <div style={{ fontSize: 12, color: 'var(--color-muted)', marginTop: 4 }}>{t('footer.horari')}</div>
               </div>
