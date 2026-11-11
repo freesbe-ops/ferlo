@@ -46,7 +46,7 @@ export default function MobileNav({ currentLang, waHeader }: MobileNavProps) {
 
   // Ordre alineat amb SERVICE_KEYS i amb `serveis.items` (reformes, cuines, banys).
   const services = [
-    { label: t('serveis.items.0.title'), href: servicePath(currentLang, 'reformes'), icon: SERVICES_ICONS[0] },
+    { label: t('nav.reformes_curt'), href: servicePath(currentLang, 'reformes'), icon: SERVICES_ICONS[0] },
     { label: t('serveis.items.1.title'), href: servicePath(currentLang, 'cuines'), icon: SERVICES_ICONS[1] },
     { label: t('serveis.items.2.title'), href: servicePath(currentLang, 'banys'), icon: SERVICES_ICONS[2] },
   ]
