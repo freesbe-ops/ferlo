@@ -295,7 +295,7 @@ export default function App() {
           </nav>
 
           {/* Mobile Nav - amb desplegable de serveis (liquid glass) */}
-          <MobileNav currentLang={currentLang} waHeader={waHeader} isHome />
+          <MobileNav currentLang={currentLang} waHeader={waHeader} />
 
           {/* Right side */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

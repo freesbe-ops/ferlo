@@ -22,10 +22,9 @@ const SERVICES_ICONS = [
 interface MobileNavProps {
   currentLang: Lang
   waHeader: string
-  isHome?: boolean
 }
 
-export default function MobileNav({ currentLang, waHeader, isHome = false }: MobileNavProps) {
+export default function MobileNav({ currentLang, waHeader }: MobileNavProps) {
   const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
@@ -44,8 +43,6 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
       document.removeEventListener('touchstart', handleClose)
     }
   }, [])
-
-  const prefix = isHome ? '' : `/${currentLang}`
 
   // Ordre alineat amb SERVICE_KEYS i amb `serveis.items` (reformes, cuines, banys).
   const services = [
@@ -111,8 +108,9 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
 
         {/* SOBRE */}
         <Link
-          to={`${prefix}/#sobre`}
+          to={`/${currentLang}#sobre`}
           style={navItemStyle}
+          onClick={() => setOpen(false)}
           onMouseEnter={hoverPop}
           onMouseLeave={hoverPopOut}
         >
@@ -122,8 +120,9 @@ export default function MobileNav({ currentLang, waHeader, isHome = false }: Mob
 
         {/* PRESSUPOST */}
         <Link
-          to={`${prefix}/#contacte`}
+          to={`/${currentLang}#contacte`}
           style={{ ...navItemStyle, color: '#847261' }}
+          onClick={() => setOpen(false)}
           onMouseEnter={e => { e.currentTarget.style.color = '#847261'; e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.04)' }}
           onMouseLeave={e => { e.currentTarget.style.color = '#847261'; e.currentTarget.style.backgroundColor = 'transparent' }}
         >

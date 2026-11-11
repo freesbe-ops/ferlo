@@ -73,7 +73,9 @@ function AppRoutes() {
   const canonical = canonicalPath(location.pathname)
 
   if (canonical && canonical !== location.pathname) {
-    return <Navigate to={`${canonical}${location.search}`} replace />
+    // Conservem query i hash: si no, els enllaços a `/${lang}/#seccio` perdien
+    // l'àncora (i amb ella l'scroll) en ser canonicalitzats.
+    return <Navigate to={`${canonical}${location.search}${location.hash}`} replace />
   }
 
   return (
