@@ -343,7 +343,7 @@ export default function Cuines() {
       </section>
 
       <style>{`
-        .landing-hero-full { position: relative; min-height: 88vh; padding: 140px 0 96px; overflow: hidden; display: flex; align-items: center; color: var(--color-cream); }
+        .landing-hero-full { position: relative; margin-top: -80px; min-height: 100vh; padding: 220px 0 192px; overflow: hidden; display: flex; align-items: center; color: var(--color-cream); }
         .landing-hero-full-bg { position: absolute; inset: 0; z-index: 0; }
         .landing-hero-full-bg > img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .landing-hero-full-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.42) 45%, rgba(10,10,10,0) 72%), linear-gradient(180deg, rgba(10,10,10,0.30) 0%, rgba(10,10,10,0.72) 100%); }
@@ -361,12 +361,12 @@ export default function Cuines() {
         .landing-hero-full-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
         .landing-hero-full-note { display: flex; align-items: center; gap: 9px; margin-top: 20px; color: rgba(255,255,255,0.75); font-size: 13px; }
         .landing-hero-full-note span { display: grid; place-items: center; width: 24px; height: 24px; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
-        .landing-hero-full-badge { position: absolute; z-index: 3; left: 32px; bottom: 32px; display: flex; gap: 13px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; background: rgba(247,244,241,0.12); border: 1px solid rgba(255,255,255,0.24); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: var(--color-cream); }
+        .landing-hero-full-badge { position: absolute; z-index: 3; left: max(32px, calc(50% - 624px)); bottom: 56px; display: flex; gap: 13px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; background: rgba(247,244,241,0.14); border: 1px solid rgba(255,255,255,0.24); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: var(--color-cream); }
         .landing-hero-full-badge > span { width: 44px; height: 44px; display: grid; place-items: center; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
         .landing-hero-full-badge div { display: flex; flex-direction: column; }
         .landing-hero-full-badge small { color: rgba(255,255,255,0.6); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
         .landing-hero-full-badge strong { margin-top: 4px; font-size: 14px; color: var(--color-cream); }
-        .landing-hero-full-stamp { position: absolute; z-index: 3; right: 32px; top: 120px; width: 120px; height: 120px; display: grid; place-content: center; text-align: center; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); box-shadow: var(--shadow-md); transform: rotate(7deg); }
+        .landing-hero-full-stamp { position: absolute; z-index: 3; right: 32px; top: 190px; width: 120px; height: 120px; display: grid; place-content: center; text-align: center; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); box-shadow: var(--shadow-md); transform: rotate(7deg); }
         .landing-hero-full-stamp strong { font-size: 29px; line-height: 1; }
         .landing-hero-full-stamp span { margin-top: 5px; font-size: 9px; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; max-width: 90px; }
         .landing-hero-full-wa { position: absolute; z-index: 4; right: 32px; bottom: 32px; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--color-cream); border: 1px solid var(--color-border); box-shadow: var(--shadow-md); transition: transform 0.2s; }
@@ -384,7 +384,7 @@ export default function Cuines() {
         .landing-btn--wa { border: 1px solid rgba(255,255,255,0.28); color: var(--color-cream); }
         .landing-btn--wa:hover { border-color: rgba(255,255,255,0.6); }
         @media (max-width: 900px) {
-          .landing-hero-full { display: block; min-height: 0; padding: 112px 0 88px; }
+          .landing-hero-full { display: block; min-height: 0; padding: 192px 0 88px; }
           .landing-hero-full-overlay { background: linear-gradient(180deg, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.85) 100%); }
           .landing-hero-full-content { width: calc(100% - 40px); max-width: none; margin: 0 auto; }
           .landing-hero-full-eyebrow { margin-bottom: 20px; }
@@ -395,6 +395,10 @@ export default function Cuines() {
           .landing-hero-full-badge { position: static; margin: 36px auto 0; max-width: 320px; justify-content: center; }
           .landing-hero-full-stamp { display: none; }
           .landing-hero-full-wa { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+        }
+        /* A 768px el header passa a ser una barra inferior fixa (index.css): sense header a dalt */
+        @media (max-width: 768px) {
+          .landing-hero-full { padding-top: 112px; }
         }
       `}</style>
 

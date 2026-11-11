@@ -324,125 +324,127 @@ export default function Reformes() {
         }
       `}</style>
 
-      {/* HERO — Split (C.1) */}
-      <section id="inici" className="landing-hero">
-        <div className="landing-hero-outer">
-          <div className="landing-hero-grid">
-            <div className="landing-hero-copy">
-              <div className="landing-lang">
-                <select
-                  value={currentLang}
-                  onChange={(e) => changeLanguage(e.target.value)}
-                  aria-label="Idioma / Language / Idioma / Langue"
-                  className="landing-lang-select"
-                >
-                  {LANGS.map((l) => (
-                    <option key={l} value={l} style={{ color: 'var(--color-ink)', textTransform: 'uppercase' }}>{LANG_LABELS[l]}</option>
-                  ))}
-                </select>
-                <span className="landing-lang-caret" aria-hidden="true">▼</span>
-              </div>
+      {/* HERO — Full-width (imatge full-bleed + overlay) */}
+      <section id="inici" className="landing-hero-full">
+        <div className="landing-hero-full-bg">
+          <img
+            src={IMAGES.heroReformes}
+            alt={t('reformes.hero.image_alt')}
+            fetchPriority="high"
+            width={1920}
+            height={1080}
+            decoding="async"
+          />
+          <div className="landing-hero-full-overlay" aria-hidden="true" />
+        </div>
 
-              <span className="landing-hero-eyebrow">{t('reformes.hero.badge')}</span>
+        <div className="landing-hero-full-content">
+          <div className="landing-lang">
+            <select
+              value={currentLang}
+              onChange={(e) => changeLanguage(e.target.value)}
+              aria-label="Idioma / Language / Idioma / Langue"
+              className="landing-lang-select landing-lang-select--light"
+            >
+              {LANGS.map((l) => (
+                <option key={l} value={l} style={{ color: 'var(--color-ink)', textTransform: 'uppercase' }}>{LANG_LABELS[l]}</option>
+              ))}
+            </select>
+            <span className="landing-lang-caret landing-lang-caret--light" aria-hidden="true">▼</span>
+          </div>
 
-              <h1 className="landing-hero-title">
-                {t('reformes.hero.title')}{' '}
-                <em>{t('reformes.hero.subtitle')}</em>
-              </h1>
+          <span className="landing-hero-full-eyebrow">{t('reformes.hero.badge')}</span>
 
-              <p className="landing-hero-lead">{t('reformes.hero.description')}</p>
+          <h1 className="landing-hero-full-title">
+            {t('reformes.hero.title')}{' '}
+            <em>{t('reformes.hero.subtitle')}</em>
+          </h1>
 
-              <div className="landing-hero-actions">
-                <a href="#contacte" className="landing-btn landing-btn--primary">
-                  {t('reformes.hero.cta')}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M14 7l5 5-5 5" />
-                  </svg>
-                </a>
-                <a href="#serveis" className="landing-btn landing-btn--ghost">
-                  {t('reformes.hero.secondary_cta')}
-                </a>
-              </div>
+          <p className="landing-hero-full-lead">{t('reformes.hero.description')}</p>
 
-              <div className="landing-hero-note">
-                <span aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m5 12 4 4L19 6" />
-                  </svg>
-                </span>
-                {t('reformes.hero.reviews')}
-              </div>
-            </div>
+          <div className="landing-hero-full-actions">
+            <a href="#contacte" className="landing-btn landing-btn--cream">
+              {t('reformes.hero.cta')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M14 7l5 5-5 5" />
+              </svg>
+            </a>
+            <a href="#serveis" className="landing-btn landing-btn--ghost-light">
+              {t('reformes.hero.secondary_cta')}
+            </a>
+          </div>
 
-            <div className="landing-hero-visual">
-              <img
-                src={IMAGES.heroReformes}
-                alt={t('reformes.hero.image_alt')}
-                fetchPriority="high"
-                width={1200}
-                height={800}
-                decoding="async"
-              />
-              <div className="landing-hero-badge">
-                <span aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 3 5 6v5c0 4.8 2.8 8.2 7 10 4.2-1.8 7-5.2 7-10V6l-7-3Z" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </span>
-                <div>
-                  <small>{t('reformes.hero.badge_sub')}</small>
-                  <strong>{t('reformes.hero.badge_title')}</strong>
-                </div>
-              </div>
-              <div className="landing-hero-stamp">
-                <strong>+10</strong>
-                <span>{t('hero.stamp_label')}</span>
-              </div>
-              <a
-                href={waHeader}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                onClick={() => trackWhatsApp('hero')}
-                className="landing-hero-wa"
-              >
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="#25D366" stroke="none" aria-hidden="true">
-                  <path d={WHATSAPP_PATH} />
-                </svg>
-              </a>
-            </div>
+          <div className="landing-hero-full-note">
+            <span aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m5 12 4 4L19 6" />
+              </svg>
+            </span>
+            {t('reformes.hero.reviews')}
           </div>
         </div>
+
+        <div className="landing-hero-full-badge">
+          <span aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 3 5 6v5c0 4.8 2.8 8.2 7 10 4.2-1.8 7-5.2 7-10V6l-7-3Z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </span>
+          <div>
+            <small>{t('reformes.hero.badge_sub')}</small>
+            <strong>{t('reformes.hero.badge_title')}</strong>
+          </div>
+        </div>
+
+        <div className="landing-hero-full-stamp">
+          <strong>+10</strong>
+          <span>{t('hero.stamp_label')}</span>
+        </div>
+
+        <a
+          href={waHeader}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          onClick={() => trackWhatsApp('hero')}
+          className="landing-hero-full-wa"
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="#25D366" stroke="none" aria-hidden="true">
+            <path d={WHATSAPP_PATH} />
+          </svg>
+        </a>
       </section>
 
       <style>{`
-        .landing-hero { padding: 104px 0 72px; }
-        .landing-hero-outer { width: 100%; }
-        .landing-hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: center; width: min(1248px, calc(100% - 64px)); margin: 0 auto; }
+        .landing-hero-full { position: relative; margin-top: -80px; min-height: 100vh; padding: 220px 0 192px; overflow: hidden; display: flex; align-items: center; color: var(--color-cream); }
+        .landing-hero-full-bg { position: absolute; inset: 0; z-index: 0; }
+        .landing-hero-full-bg > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .landing-hero-full-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.42) 45%, rgba(10,10,10,0) 72%), linear-gradient(180deg, rgba(10,10,10,0.30) 0%, rgba(10,10,10,0.72) 100%); }
+        .landing-hero-full-content { position: relative; z-index: 2; width: min(720px, calc(100% - 64px)); margin-left: max(32px, calc(50% - 624px)); }
         .landing-lang { display: inline-flex; align-items: center; gap: 4px; margin-bottom: 28px; }
         .landing-lang-select { background: transparent; border: none; color: var(--color-muted); font-weight: 700; text-decoration: underline; font-size: 12px; font-family: var(--font-sans); letter-spacing: 0.12em; text-transform: uppercase; outline: none; cursor: pointer; padding: 0; margin: 0; appearance: none; -webkit-appearance: none; }
         .landing-lang-caret { font-size: 9px; color: var(--color-muted); font-weight: 700; pointer-events: none; line-height: 1; }
-        .landing-hero-eyebrow { display: block; color: var(--color-primary); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; }
-        .landing-hero-title { font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.05; margin: 0; color: var(--color-ink); }
-        .landing-hero-title em { font-style: italic; color: var(--color-primary-light); }
-        .landing-hero-lead { max-width: 600px; margin: 28px 0 0; font-size: 19px; line-height: 1.7; color: var(--color-muted); }
-        .landing-hero-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
-        .landing-hero-note { display: flex; align-items: center; gap: 9px; margin-top: 20px; color: var(--color-muted); font-size: 13px; }
-        .landing-hero-note span { display: grid; place-items: center; width: 24px; height: 24px; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
-        .landing-hero-visual { position: relative; height: 650px; }
-        .landing-hero-visual > img { width: 100%; height: 100%; object-fit: cover; border-radius: 180px 16px 16px 16px; filter: saturate(0.78) sepia(0.05); display: block; }
-        .landing-hero-visual::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: 180px 16px 16px 16px; background: linear-gradient(180deg, transparent 70%, rgba(10,10,10,0.14)); }
-        .landing-hero-badge { position: absolute; z-index: 2; left: -38px; bottom: 48px; display: flex; gap: 13px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; background: rgba(247,244,241,0.82); border: 1px solid rgba(255,255,255,0.65); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: var(--shadow-md); }
-        .landing-hero-badge > span { width: 44px; height: 44px; display: grid; place-items: center; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
-        .landing-hero-badge div { display: flex; flex-direction: column; }
-        .landing-hero-badge small { color: var(--color-muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
-        .landing-hero-badge strong { margin-top: 4px; font-size: 14px; color: var(--color-ink); }
-        .landing-hero-stamp { position: absolute; z-index: 3; right: -25px; top: 42px; width: 120px; height: 120px; display: grid; place-content: center; text-align: center; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); box-shadow: var(--shadow-md); transform: rotate(7deg); }
-        .landing-hero-stamp strong { font-size: 29px; line-height: 1; }
-        .landing-hero-stamp span { margin-top: 5px; font-size: 9px; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; max-width: 90px; }
-        .landing-hero-wa { position: absolute; z-index: 4; right: 18px; bottom: 18px; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--color-cream); border: 1px solid var(--color-border); box-shadow: var(--shadow-md); transition: transform 0.2s; }
-        .landing-hero-wa:hover { transform: translateY(-2px); }
+        .landing-lang-select--light { color: var(--color-cream); text-decoration-color: var(--color-cream); }
+        .landing-lang-select--light option { color: var(--color-ink); }
+        .landing-lang-caret--light { color: var(--color-cream); }
+        .landing-hero-full-eyebrow { display: block; color: var(--color-primary-light); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; text-shadow: 0 1px 14px rgba(10,10,10,0.55); }
+        .landing-hero-full-title { font-family: 'Montserrat', sans-serif; font-size: clamp(42px, 5.5vw, 72px); font-weight: 700; line-height: 1.05; margin: 0; color: var(--color-cream); }
+        .landing-hero-full-title em { font-style: italic; color: var(--color-primary-light); }
+        .landing-hero-full-lead { max-width: 600px; margin: 28px 0 0; font-size: 19px; line-height: 1.7; color: rgba(255,255,255,0.85); }
+        .landing-hero-full-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+        .landing-hero-full-note { display: flex; align-items: center; gap: 9px; margin-top: 20px; color: rgba(255,255,255,0.75); font-size: 13px; }
+        .landing-hero-full-note span { display: grid; place-items: center; width: 24px; height: 24px; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+        .landing-hero-full-badge { position: absolute; z-index: 3; left: max(32px, calc(50% - 624px)); bottom: 56px; display: flex; gap: 13px; align-items: center; padding: 14px 20px 14px 14px; border-radius: 16px; background: rgba(247,244,241,0.14); border: 1px solid rgba(255,255,255,0.24); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: var(--color-cream); }
+        .landing-hero-full-badge > span { width: 44px; height: 44px; display: grid; place-items: center; color: #FFFFFF; background: var(--color-primary); border-radius: 50%; flex-shrink: 0; }
+        .landing-hero-full-badge div { display: flex; flex-direction: column; }
+        .landing-hero-full-badge small { color: rgba(255,255,255,0.6); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+        .landing-hero-full-badge strong { margin-top: 4px; font-size: 14px; color: var(--color-cream); }
+        .landing-hero-full-stamp { position: absolute; z-index: 3; right: 32px; top: 190px; width: 120px; height: 120px; display: grid; place-content: center; text-align: center; color: #FFFFFF; border-radius: 50%; background: var(--color-primary); box-shadow: var(--shadow-md); transform: rotate(7deg); }
+        .landing-hero-full-stamp strong { font-size: 29px; line-height: 1; }
+        .landing-hero-full-stamp span { margin-top: 5px; font-size: 9px; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; max-width: 90px; }
+        .landing-hero-full-wa { position: absolute; z-index: 4; right: 32px; bottom: 32px; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: var(--color-cream); border: 1px solid var(--color-border); box-shadow: var(--shadow-md); transition: transform 0.2s; }
+        .landing-hero-full-wa:hover { transform: translateY(-2px); }
         .landing-btn { min-height: 52px; padding: 0 25px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s; }
         .landing-btn:hover { transform: translateY(-1px); }
         .landing-btn--primary { background: var(--color-ink); color: #FFFFFF; box-shadow: 0 8px 20px rgba(10,10,10,0.12); }
@@ -453,20 +455,24 @@ export default function Reformes() {
         .landing-btn--cream:hover { background: #FFFFFF; }
         .landing-btn--wa { border: 1px solid rgba(255,255,255,0.28); color: var(--color-cream); }
         .landing-btn--wa:hover { border-color: rgba(255,255,255,0.6); }
+        .landing-btn--ghost-light { border: 1px solid rgba(255,255,255,0.32); color: var(--color-cream); }
+        .landing-btn--ghost-light:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
         @media (max-width: 900px) {
-          .landing-hero { padding: 96px 0 56px; }
-          .landing-hero-grid { grid-template-columns: 1fr; gap: 44px; width: calc(100% - 40px); }
-          .landing-hero-eyebrow { margin-bottom: 20px; }
-          .landing-hero-lead { margin-top: 20px; font-size: 16px; }
-          .landing-hero-actions { flex-direction: column; }
-          .landing-hero-actions .landing-btn { width: 100%; }
-          .landing-hero-note { justify-content: center; }
-          .landing-hero-visual { width: 100%; height: 430px; }
-          .landing-hero-visual > img, .landing-hero-visual::after { border-radius: 72px 14px 14px 14px; }
-          .landing-hero-stamp { right: -6px; top: -25px; width: 96px; height: 96px; }
-          .landing-hero-stamp strong { font-size: 24px; }
-          .landing-hero-badge { left: 12px; right: 12px; bottom: 14px; }
-          .landing-hero-wa { right: 12px; bottom: 92px; width: 54px; height: 54px; }
+          .landing-hero-full { display: block; min-height: 0; padding: 192px 0 88px; }
+          .landing-hero-full-overlay { background: linear-gradient(180deg, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.85) 100%); }
+          .landing-hero-full-content { width: calc(100% - 40px); max-width: none; margin: 0 auto; }
+          .landing-hero-full-eyebrow { margin-bottom: 20px; }
+          .landing-hero-full-lead { margin-top: 20px; font-size: 16px; }
+          .landing-hero-full-actions { flex-direction: column; }
+          .landing-hero-full-actions .landing-btn { width: 100%; }
+          .landing-hero-full-note { justify-content: center; }
+          .landing-hero-full-badge { position: static; margin: 36px auto 0; max-width: 320px; justify-content: center; }
+          .landing-hero-full-stamp { display: none; }
+          .landing-hero-full-wa { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+        }
+        /* A 768px el header passa a ser una barra inferior fixa (index.css): sense header a dalt */
+        @media (max-width: 768px) {
+          .landing-hero-full { padding-top: 112px; }
         }
       `}</style>
 
