@@ -127,6 +127,11 @@ function AnalyticsSync() {
   return null
 }
 
+// dist/seo/*.html inclou el <head> de cada ruta prerenderitzat per als crawlers
+// que no executen JS. React 19 torna a muntar aquestes mateixes etiquetes, així
+// que traiem les prerenderitzades abans de renderitzar per no duplicar-les.
+document.head.querySelectorAll('[data-prerendered]').forEach((el) => el.remove())
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>

@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
-import Seo, { hreflangUrls } from '../components/Seo'
+import Seo from '../components/Seo'
 import LegalShell, { LEGAL_STYLES as S } from '../components/LegalShell'
-import { DEFAULT_LANG, cookiesPath, isLang, normalizeLang, privacyPath, type Lang } from '../lib/lang'
+import { DEFAULT_LANG, cookiesPath, isLang, normalizeLang, pathAlternates, privacyPath, type Lang } from '../lib/lang'
+import { LEGAL_META } from '../lib/pageMeta'
 
 function CatalanContent() {
   return (
@@ -154,15 +155,11 @@ export default function Cookies() {
 
   const canonical = cookiesPath(isLang(langParam) ? langParam : DEFAULT_LANG)
   const isCa = currentLang === 'ca'
-
-  const title = isCa ? 'Política de Cookies | FERLO SL Tordera' : 'Política de Cookies | FERLO SL Tordera'
-  const description = isCa
-    ? "Política de cookies de FERLO SL: quines cookies fem servir, base legal i com desactivar-les."
-    : 'Política de cookies de FERLO SL: qué cookies utilizamos, base legal y cómo desactivarlas.'
+  const { title, description } = LEGAL_META.cookies[currentLang]
 
   return (
     <>
-      <Seo lang={currentLang} path={canonical} title={title} description={description} alternates={hreflangUrls(canonical)} />
+      <Seo lang={currentLang} path={canonical} title={title} description={description} alternates={pathAlternates(canonical)} />
       <LegalShell currentLang={currentLang} onLanguageChange={changeLanguage}>
         {isCa ? <CatalanContent /> : <SpanishContent />}
       </LegalShell>

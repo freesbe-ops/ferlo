@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
-import Seo, { hreflangUrls } from '../components/Seo'
+import Seo from '../components/Seo'
 import LegalShell, { LEGAL_STYLES as S } from '../components/LegalShell'
-import { DEFAULT_LANG, isLang, legalPath, normalizeLang, privacyPath, type Lang } from '../lib/lang'
+import { DEFAULT_LANG, isLang, legalPath, normalizeLang, pathAlternates, privacyPath, type Lang } from '../lib/lang'
+import { LEGAL_META } from '../lib/pageMeta'
 
 function CatalanContent() {
   return (
@@ -149,15 +150,11 @@ export default function Legal() {
 
   const canonical = legalPath(isLang(langParam) ? langParam : DEFAULT_LANG)
   const isCa = currentLang === 'ca'
-
-  const title = isCa ? 'Avís Legal | FERLO SL Tordera' : 'Aviso Legal | FERLO SL Tordera'
-  const description = isCa
-    ? "Avís legal de FERLO SL: dades identificatives, condicions d'ús i propietat intel·lectual."
-    : 'Aviso legal de FERLO SL: datos identificativos, condiciones de uso y propiedad intelectual.'
+  const { title, description } = LEGAL_META.legal[currentLang]
 
   return (
     <>
-      <Seo lang={currentLang} path={canonical} title={title} description={description} alternates={hreflangUrls(canonical)} />
+      <Seo lang={currentLang} path={canonical} title={title} description={description} alternates={pathAlternates(canonical)} />
       <LegalShell currentLang={currentLang} onLanguageChange={changeLanguage}>
         {isCa ? <CatalanContent /> : <SpanishContent />}
       </LegalShell>

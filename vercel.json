@@ -5,6 +5,20 @@
   "installCommand": "pnpm install",
   "framework": "vite",
   "rewrites": [
+    { "source": "/es", "destination": "/seo/es.html" },
+    { "source": "/ca", "destination": "/seo/ca.html" },
+    { "source": "/es/servicios/reformas-integrales", "destination": "/seo/es-servicios-reformas-integrales.html" },
+    { "source": "/ca/serveis/reformes-integrals", "destination": "/seo/ca-serveis-reformes-integrals.html" },
+    { "source": "/es/servicios/cocinas", "destination": "/seo/es-servicios-cocinas.html" },
+    { "source": "/ca/serveis/cuines", "destination": "/seo/ca-serveis-cuines.html" },
+    { "source": "/es/servicios/banos", "destination": "/seo/es-servicios-banos.html" },
+    { "source": "/ca/serveis/banys", "destination": "/seo/ca-serveis-banys.html" },
+    { "source": "/es/politica-de-privacidad", "destination": "/seo/es-politica-de-privacidad.html" },
+    { "source": "/ca/politica-de-privacitat", "destination": "/seo/ca-politica-de-privacitat.html" },
+    { "source": "/es/aviso-legal", "destination": "/seo/es-aviso-legal.html" },
+    { "source": "/ca/avis-legal", "destination": "/seo/ca-avis-legal.html" },
+    { "source": "/es/politica-de-cookies", "destination": "/seo/es-politica-de-cookies.html" },
+    { "source": "/ca/politica-de-cookies", "destination": "/seo/ca-politica-de-cookies.html" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "headers": [

@@ -6,7 +6,7 @@
   "homepage": "https://construccionesferlo.com/",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-seo.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "preview": "vite preview",
     "format": "oxfmt",

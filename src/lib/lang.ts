@@ -101,3 +101,33 @@ export function routeAlternates(route: RouteKey): Record<string, string> {
   alternates['x-default'] = routePath(DEFAULT_LANG, route);
   return alternates;
 }
+
+/**
+ * Relative hreflang alternates (`es`, `ca`, `x-default`) for a canonical path
+ * such as `/es/servicios/cocinas`. Returns `{}` for unknown paths.
+ */
+export function pathAlternates(path: string): Record<string, string> {
+  const clean = path.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
+  const lang = (clean[0] || DEFAULT_LANG) as Lang;
+  const rest = clean.slice(1).join('/');
+
+  // Home page
+  if (rest === '') {
+    const out: Record<string, string> = {};
+    for (const l of LANGS) out[l] = `/${l}`;
+    out['x-default'] = `/${DEFAULT_LANG}`;
+    return out;
+  }
+
+  // Look up in the shared route map
+  for (const map of Object.values(ROUTES)) {
+    if (map[lang] === rest) {
+      const out: Record<string, string> = {};
+      for (const l of LANGS) out[l] = `/${l}/${map[l]}`;
+      out['x-default'] = `/${DEFAULT_LANG}/${map[DEFAULT_LANG]}`;
+      return out;
+    }
+  }
+
+  return {};
+}

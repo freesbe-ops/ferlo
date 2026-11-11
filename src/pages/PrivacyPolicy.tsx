@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
-import Seo, { hreflangUrls } from '../components/Seo'
+import Seo from '../components/Seo'
 import LegalShell, { LEGAL_STYLES as S } from '../components/LegalShell'
-import { DEFAULT_LANG, cookiesPath, isLang, normalizeLang, privacyPath, type Lang } from '../lib/lang'
+import { DEFAULT_LANG, cookiesPath, isLang, normalizeLang, pathAlternates, privacyPath, type Lang } from '../lib/lang'
+import { LEGAL_META } from '../lib/pageMeta'
 
 export { privacyPath }
 
@@ -307,17 +308,11 @@ export default function PrivacyPolicy() {
 
   const canonical = privacyPath(isLang(langParam) ? langParam : DEFAULT_LANG)
   const isCa = currentLang === 'ca'
-
-  const title = isCa
-    ? 'Política de Privacitat | FERLO SL Tordera'
-    : 'Política de Privacidad | FERLO SL Tordera'
-  const description = isCa
-    ? 'Política de privacitat de FERLO SL. Protecció de dades, RGPD i drets de les persones usuàries.'
-    : 'Política de privacidad de FERLO SL. Protección de datos, RGPD y derechos de los usuarios.'
+  const { title, description } = LEGAL_META.privacy[currentLang]
 
   return (
     <>
-      <Seo lang={currentLang} path={canonical} title={title} description={description} alternates={hreflangUrls(canonical)} />
+      <Seo lang={currentLang} path={canonical} title={title} description={description} alternates={pathAlternates(canonical)} />
       <LegalShell currentLang={currentLang} onLanguageChange={changeLanguage}>
         {isCa ? <CatalanContent /> : <SpanishContent />}
       </LegalShell>
