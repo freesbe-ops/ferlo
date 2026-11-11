@@ -5,11 +5,12 @@
 
 import type { Lang } from './lang.ts'
 import { LANGS } from './lang.ts'
+import { IMAGES } from './images.ts'
 
 export const SITE_URL = 'https://construccionesferlo.com'
 
 /** Default social image (1200×630 JPG) used by Open Graph / Twitter. */
-export const DEFAULT_OG_IMAGE = '/og-image.jpg'
+export const DEFAULT_OG_IMAGE = IMAGES.ogHome
 
 /* NAP + business data — MUST stay consistent with Google Business Profile */
 export const BUSINESS_NAP = {

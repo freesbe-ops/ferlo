@@ -17,6 +17,7 @@ import {
   privacyPath,
   servicePath,
 } from './lib/lang'
+import { IMAGES } from './lib/images'
 
 // Order matches `serveis.items`: reformes, cuines, banys
 const SERVICE_ICONS = [
@@ -64,11 +65,7 @@ const WHY_US_ICONS = [
   </svg>,
 ]
 
-const SERVICE_IMAGES = [
-  '/hero.webp',
-  '/despues.webp',
-  '/antes.webp',
-]
+const SERVICE_IMAGES = [IMAGES.servei1Home, IMAGES.servei2Home, IMAGES.servei3Home]
 
 const LEAD_ENDPOINT =
   'https://script.google.com/macros/s/AKfycbxI5llz39CkCAhf3GcKGl5WkCXAuBtvesn-srXs-27yfHhiz4tSYa9KWR_B63F3Es7q/exec'
@@ -250,7 +247,7 @@ export default function App() {
         path={homePath(currentLang)}
         title={t('meta_title')}
         description={t('meta_description')}
-        image="/hero.webp"
+        image={IMAGES.ogHome}
       />
 
       {/* HEADER */}
@@ -372,7 +369,7 @@ export default function App() {
 
             <div className="hero-visual">
               <img
-                src="/hero.webp"
+                src={IMAGES.heroHome}
                 alt={t('hero.image_alt')}
                 fetchPriority="high"
                 width={1200}
@@ -543,7 +540,7 @@ export default function App() {
           <div style={{ position: 'relative' }}>
           <div style={{ borderRadius: 16, overflow: 'hidden', aspectRatio: '4/5', backgroundColor: 'var(--color-border)' }}>
             <img
-              src="/hero.webp"
+              src={IMAGES.sobreHome}
               alt={t('sobre.image_alt')}
               loading="lazy"
               decoding="async"
