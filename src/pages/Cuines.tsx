@@ -174,7 +174,7 @@ export default function Cuines() {
               <img src="/logo.svg" alt="FERLO — Reformes i obra nova a Tordera" width={128} height={128} style={{ width: 34, height: 34, objectFit: 'contain' }} />
               <div className="logo-text">
                 <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, fontSize: 15, color: 'var(--color-ink)', lineHeight: 1.1 }}>FERLO</div>
-                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 10, color: 'var(--color-muted)', letterSpacing: '0.06em' }}>reformas</div>
+                <div style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 400, fontSize: 10, color: 'var(--color-muted)', letterSpacing: '0.06em' }}>Reformas</div>
               </div>
             </div>
           </Link>
