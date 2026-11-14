@@ -7,7 +7,7 @@ import type { Lang } from './lang.ts'
 import { LANGS } from './lang.ts'
 import { IMAGES } from './images.ts'
 
-export const SITE_URL = 'https://construccionesferlo.com'
+export const SITE_URL = 'https://www.construccionesferlo.com'
 
 /** Default social image (1200×630 JPG) used by Open Graph / Twitter. */
 export const DEFAULT_OG_IMAGE = IMAGES.ogHome

@@ -28,10 +28,12 @@
  * as conversions / import them in Google Ads.
  */
 
-export const GA4_MEASUREMENT_ID = 'G-DEV'
-export const ADS_CONVERSION_ID = 'AW-DEV'
+/* IDs reals pendents de configuració: mentre estiguin buits no s'envia res a
+   Google (evita peticions fallides amb valors placeholder). */
+export const GA4_MEASUREMENT_ID = ''
+export const ADS_CONVERSION_ID = ''
 /** Conversion label currently used for BOTH WhatsApp clicks and form submits. */
-export const ADS_WA_FORM_LABEL = 'DEV_LABEL'
+export const ADS_WA_FORM_LABEL = ''
 
 /**
  * When true the native Google Ads tag fires (only for Google-Ads-attributed
@@ -250,7 +252,7 @@ function eventParams(t: Traffic, category: string, label: string) {
 }
 
 function fireGoogleAdsConversion() {
-  if (!FIRE_DIRECT_ADS_TAG) return
+  if (!FIRE_DIRECT_ADS_TAG || !ADS_CONVERSION_ID || !ADS_WA_FORM_LABEL) return
   gtag('event', 'conversion', {
     send_to: `${ADS_CONVERSION_ID}/${ADS_WA_FORM_LABEL}`,
   })

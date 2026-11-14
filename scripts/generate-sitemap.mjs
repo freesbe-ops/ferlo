@@ -20,7 +20,7 @@ import { writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const DOMAIN = 'https://construccionesferlo.com'
+const DOMAIN = 'https://www.construccionesferlo.com'
 const LANGUAGES = ['es', 'ca']
 const DEFAULT_LANGUAGE = 'es'
 
