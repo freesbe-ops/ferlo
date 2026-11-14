@@ -31,13 +31,13 @@ export const IMAGES = {
   servei4Cuines: '/antes.webp', // Muntatge
 
   // ── Banys ───────────────────────────────────────────────────
-  heroBanys: '/hero.webp',
-  sliderAbansBanys: '/antes.webp',
-  sliderDespresBanys: '/despres.webp',
-  servei1Banys: '/hero.webp', // Banyera→dutxa
-  servei2Banys: '/antes.webp', // Rajoles
-  servei3Banys: '/despres.webp', // Lampisteria
-  servei4Banys: '/hero.webp', // Il·luminació
+  heroBanys: '/banner-bano.webp',
+  sliderAbansBanys: '/bano-antes.webp',
+  sliderDespresBanys: '/bano-dp.webp',
+  servei1Banys: '/bano-plato-ducha.webp', // Banyera→dutxa
+  servei2Banys: '/bano-alicatado.webp', // Rajoles
+  servei3Banys: '/despres.webp', // Lampisteria (placeholder)
+  servei4Banys: '/bano-iluminacion.webp', // Il·luminació
 
   // ── Social / OG (per a xarxes) ─────────────────────────────
   ogHome: '/og-image.jpg',
