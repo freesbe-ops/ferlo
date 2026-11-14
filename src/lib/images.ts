@@ -1,45 +1,42 @@
 /**
- * Mapa central d'imatges. Cada slot lògic apunta a un fitxer de /public.
+ * Mapa central d'imatges. Cada slot apunta a un fitxer de /public.
  * Per canviar una foto: editar aquí (1 línia), no als components.
- *
- * Convenció de noms: <tipus><pàgina>
- *   heroHome, sliderAbansBanys, servei1Cuines, ogReformes, etc.
  */
 
 export const IMAGES = {
   // ── Home ────────────────────────────────────────────────────
-  heroHome: '/hero.webp',
-  servei1Home: '/hero.webp', // Reformes integrals card
-  servei2Home: '/despres.webp', // Cuines card
-  servei3Home: '/antes.webp', // Banys card
-  sobreHome: '/hero.webp', // secció "Sobre"
+  heroHome: '/INICIO/main-main.webp',
+  servei1Home: '/REFORMAS/hero-reformas.webp',
+  servei2Home: '/COCINA/hero-cocina.webp',
+  servei3Home: '/BANO/banner-bano.webp',
+  sobreHome: '/INICIO/ferlo.webp',
 
   // ── Reformes ────────────────────────────────────────────────
-  heroReformes: '/hero-reformas.webp',
-  sliderAbansReformes: '/reformas-antes.webp',
-  sliderDespresReformes: '/reformas-despues.webp',
-  servei1Reformes: '/derribos-reformas.webp', // Enderroc
-  servei2Reformes: '/electricidad-reformas.webp', // Lampisteria
-  servei3Reformes: '/alicatados-reformas.webp', // Paviments
-  servei4Reformes: '/limpieza-reformas.webp', // Coordinació
+  heroReformes: '/REFORMAS/hero-reformas.webp',
+  sliderAbansReformes: '/REFORMAS/reformas-antes.webp',
+  sliderDespresReformes: '/REFORMAS/reformas-despues.webp',
+  servei1Reformes: '/REFORMAS/derribos-reformas.webp',
+  servei2Reformes: '/REFORMAS/electricidad-reformas.webp',
+  servei3Reformes: '/REFORMAS/alicatados-reformas.webp',
+  servei4Reformes: '/REFORMAS/limpieza-reformas.webp',
 
   // ── Cuines ──────────────────────────────────────────────────
-  heroCuines: '/hero.webp',
-  servei1Cuines: '/despres.webp', // Disseny
-  servei2Cuines: '/hero.webp', // Instal·lacions
-  servei3Cuines: '/despres.webp', // Taulells
-  servei4Cuines: '/antes.webp', // Muntatge
+  heroCuines: '/COCINA/hero-cocina.webp',
+  servei1Cuines: '/COCINA/diseno-distribucion.webp',
+  servei2Cuines: '/COCINA/instalaciones-cocina.webp',
+  servei3Cuines: '/COCINA/encimeras-cocina.webp',
+  servei4Cuines: '/COCINA/montajes-cocina.webp',
 
   // ── Banys ───────────────────────────────────────────────────
-  heroBanys: '/banner-bano.webp',
-  sliderAbansBanys: '/bano-antes.webp',
-  sliderDespresBanys: '/bano-dp.webp',
-  servei1Banys: '/bano-plato-ducha.webp', // Banyera→dutxa
-  servei2Banys: '/bano-alicatado.webp', // Rajoles
-  servei3Banys: '/despres.webp', // Lampisteria (placeholder)
-  servei4Banys: '/bano-iluminacion.webp', // Il·luminació
+  heroBanys: '/BANO/banner-bano.webp',
+  sliderAbansBanys: '/BANO/bano-antes.webp',
+  sliderDespresBanys: '/BANO/bano-dp.webp',
+  servei1Banys: '/BANO/bano-plato-ducha.webp',
+  servei2Banys: '/BANO/bano-alicatado.webp',
+  servei3Banys: '/BANO/bano-fontaneria.webp',
+  servei4Banys: '/BANO/bano-iluminacion.webp',
 
-  // ── Social / OG (per a xarxes) ─────────────────────────────
+  // ── Social / OG ─────────────────────────────────────────────
   ogHome: '/og-image.jpg',
   ogReformes: '/og-image.jpg',
   ogCuines: '/og-image.jpg',

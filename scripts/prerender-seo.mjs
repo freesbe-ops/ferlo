@@ -33,6 +33,7 @@ import {
   pathAlternates,
   routePath,
 } from '../src/lib/lang.ts'
+import { IMAGES } from '../src/lib/images.ts'
 import { LEGAL_META } from '../src/lib/pageMeta.ts'
 import { DEFAULT_OG_IMAGE, OG_LOCALE, SITE_URL, localBusinessSchema } from '../src/lib/seoData.ts'
 
@@ -41,6 +42,13 @@ const DIST = join(ROOT, 'dist')
 const OUT_DIR = join(DIST, 'seo')
 
 const LEGAL_ROUTES = ['privacy', 'legal', 'cookies']
+
+/** Hero visible on first paint, preloaded per route (see main()). */
+const HERO_BY_SERVICE = {
+  reformes: IMAGES.heroReformes,
+  cuines: IMAGES.heroCuines,
+  banys: IMAGES.heroBanys,
+}
 
 const escapeHtml = (value) =>
   value
@@ -98,6 +106,7 @@ function buildPages() {
       path: homePath(lang),
       title: copy.meta_title,
       description: copy.meta_description,
+      hero: IMAGES.heroHome,
     })
 
     for (const key of SERVICE_KEYS) {
@@ -106,6 +115,7 @@ function buildPages() {
         path: routePath(lang, key),
         title: copy[key].meta_title,
         description: copy[key].meta_description,
+        hero: HERO_BY_SERVICE[key],
       })
     }
 
@@ -142,6 +152,10 @@ function main() {
   for (const page of pages) {
     const html = template
       .replace(/<html lang="[^"]*"/, `<html lang="${page.lang}"`)
+      .replace(
+        /<link rel="preload" as="image" href="[^"]*" fetchpriority="high" \/>/,
+        page.hero ? `<link rel="preload" as="image" href="${page.hero}" fetchpriority="high" />` : '',
+      )
       .replace('</head>', `${headTags(page)}\n  </head>`)
 
     const fileName = fileNameFor(page.path)
