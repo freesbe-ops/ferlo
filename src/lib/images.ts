@@ -15,13 +15,13 @@ export const IMAGES = {
   sobreHome: '/hero.webp', // secció "Sobre"
 
   // ── Reformes ────────────────────────────────────────────────
-  heroReformes: '/hero.webp',
-  sliderAbansReformes: '/antes.webp',
-  sliderDespresReformes: '/despres.webp',
-  servei1Reformes: '/hero.webp', // Enderroc
-  servei2Reformes: '/despres.webp', // Lampisteria
-  servei3Reformes: '/antes.webp', // Paviments
-  servei4Reformes: '/hero.webp', // Coordinació
+  heroReformes: '/hero-reformas.webp',
+  sliderAbansReformes: '/reformas-antes.webp',
+  sliderDespresReformes: '/reformas-despues.webp',
+  servei1Reformes: '/derribos-reformas.webp', // Enderroc
+  servei2Reformes: '/electricidad-reformas.webp', // Lampisteria
+  servei3Reformes: '/alicatados-reformas.webp', // Paviments
+  servei4Reformes: '/limpieza-reformas.webp', // Coordinació
 
   // ── Cuines ──────────────────────────────────────────────────
   heroCuines: '/hero.webp',
